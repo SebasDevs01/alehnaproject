@@ -12,8 +12,16 @@
 
     <!-- SCRIPT ANTI-PARPADEO (IMPORTANTE) -->
     <!-- Esto revisa la preferencia antes de cargar el cuerpo de la página -->
-    <script>
+    <!-- <script>
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>-->
+
+    <script>
+        if (localStorage.theme === 'dark') {
             document.documentElement.classList.add('dark');
         } else {
             document.documentElement.classList.remove('dark');
