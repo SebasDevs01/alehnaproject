@@ -48,49 +48,44 @@
 <body
     class="font-sans antialiased transition-colors duration-300 bg-lightBg text-black dark:bg-darkBg dark:text-white flex flex-col min-h-screen">
 
-    <!-- NAVIGATION -->
     <nav
-        class="fixed top-0 w-full z-[60] bg-white/80 dark:bg-black/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300 h-[72px] flex items-center">
+        class="fixed top-0 w-full z-[60] bg-white/70 dark:bg-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300 h-[72px] flex items-center">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-black tracking-tighter hover:text-neonPink transition-colors">
+            <a href="index.html"
+                class="text-2xl font-black tracking-tighter hover:text-neonPink transition-colors text-black dark:text-white">
                 ALEHNA<span class="text-neonPink">.</span>
             </a>
 
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center gap-8 font-bold text-sm tracking-widest uppercase">
+            <div
+                class="hidden md:flex items-center gap-8 font-bold text-sm tracking-widest uppercase text-black dark:text-white">
                 <a href="music.html" class="hover:text-neonPink transition-colors">Música</a>
                 <a href="merch.html" class="hover:text-neonPink transition-colors">Merch</a>
                 <a href="contact.html" class="hover:text-neonPink transition-colors">Contacto</a>
             </div>
 
             <div class="flex items-center gap-4">
-                <!-- Theme Toggle -->
                 <button id="theme-toggle"
                     class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors focus:outline-none">
                     <i class="fa-solid fa-sun text-gray-800 dark:text-white text-xl hidden dark:block"></i>
                     <i class="fa-solid fa-moon text-gray-800 dark:text-white text-xl block dark:hidden"></i>
                 </button>
 
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden p-2 text-2xl">
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-2xl text-black dark:text-white">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
         </div>
     </nav>
 
-    <!-- MOBILE MENU OVERLAY -->
     <div id="mobile-menu"
-        class="fixed inset-0 z-[55] bg-black/95 flex flex-col items-center justify-center space-y-8 hidden md:hidden">
-        <a href="music.html" class="text-2xl font-bold hover:text-neonPink">MÚSICA</a>
-        <a href="merch.html" class="text-2xl font-bold hover:text-neonPink">MERCH</a>
-        <a href="contact.html" class="text-2xl font-bold hover:text-neonPink">CONTACTO</a>
+        class="fixed inset-0 z-[55] bg-white/95 dark:bg-black/95 flex flex-col items-center justify-center space-y-8 hidden md:hidden transition-colors duration-300">
+        <a href="music.html" class="text-2xl font-bold hover:text-neonPink text-black dark:text-white">MÚSICA</a>
+        <a href="merch.html" class="text-2xl font-bold hover:text-neonPink text-black dark:text-white">MERCH</a>
+        <a href="contact.html" class="text-2xl font-bold hover:text-neonPink text-black dark:text-white">CONTACTO</a>
     </div>
 
-    <!-- MAIN CONTENT -->
     <main class="flex-grow flex flex-col items-center justify-center pt-24 pb-12 px-4 relative overflow-hidden">
 
-        <!-- Background Glow -->
         <div
             class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-neonPink/20 rounded-full blur-[120px] -z-10 animate-pulse-slow">
         </div>
@@ -103,7 +98,6 @@
                 El Karma Era
             </p>
 
-            <!-- Video Player -->
             <div
                 class="w-full aspect-video rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(255,0,127,0.3)] border border-gray-800 dark:border-gray-700 group relative">
                 <video poster="karma-portada.jpg" autoplay muted loop playsinline class="w-full h-full object-cover">
@@ -111,7 +105,6 @@
                 </video>
                 <div class="absolute inset-0 bg-neonPink/10 pointer-events-none mix-blend-overlay"></div>
 
-                <!-- Overlay Content -->
                 <div
                     class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-black/40">
                     <a href="music.html"
@@ -121,7 +114,6 @@
                 </div>
             </div>
 
-            <!-- Navigation Cards -->
             <div class="grid md:grid-cols-3 gap-6 mt-12">
                 <a href="music.html"
                     class="group relative h-48 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800">
@@ -159,8 +151,8 @@
         </div>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="py-8 border-t border-gray-200 dark:border-gray-800 text-center bg-white dark:bg-black">
+    <footer
+        class="py-8 border-t border-gray-200 dark:border-gray-800 text-center bg-white dark:bg-black transition-colors">
         <div class="flex justify-center gap-8 mb-4">
             <a href="https://www.youtube.com/@AlenaMusicoficial"
                 class="text-xl text-gray-400 hover:text-[#FF0000] transition-colors"><i
