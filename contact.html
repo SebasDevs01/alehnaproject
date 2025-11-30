@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALEHNA | Contacto</title>
+    <meta name="description" content="Contacta al equipo de ALEHNA para contrataciones, prensa y management.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        neonPink: '#FF007F',
+                        darkBg: '#000000',
+                        lightBg: '#FFFFFF',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #FF007F;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body
+    class="font-sans antialiased transition-colors duration-300 bg-lightBg text-black dark:bg-darkBg dark:text-white flex flex-col min-h-screen">
+
+    <!-- NAVIGATION -->
+    <nav
+        class="fixed top-0 w-full z-[60] bg-white/80 dark:bg-black/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300 h-[72px] flex items-center">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-black tracking-tighter hover:text-neonPink transition-colors">
+                ALEHNA<span class="text-neonPink">.</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8 font-bold text-sm tracking-widest uppercase">
+                <a href="music.html" class="hover:text-neonPink transition-colors">Música</a>
+                <a href="merch.html" class="hover:text-neonPink transition-colors">Merch</a>
+                <a href="contact.html" class="text-neonPink transition-colors">Contacto</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button id="theme-toggle"
+                    class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors focus:outline-none">
+                    <i class="fa-solid fa-sun text-gray-800 dark:text-white text-xl hidden dark:block"></i>
+                    <i class="fa-solid fa-moon text-gray-800 dark:text-white text-xl block dark:hidden"></i>
+                </button>
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-2xl">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-[55] bg-black/95 flex flex-col items-center justify-center space-y-8 hidden md:hidden">
+        <a href="music.html" class="text-2xl font-bold hover:text-neonPink">MÚSICA</a>
+        <a href="merch.html" class="text-2xl font-bold hover:text-neonPink">MERCH</a>
+        <a href="contact.html" class="text-2xl font-bold text-neonPink">CONTACTO</a>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow pt-32 pb-20 px-4">
+        <div class="container mx-auto max-w-5xl">
+
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-6xl font-black mb-4">
+                    BUSINESS & <span class="text-neonPink">MANAGEMENT</span>
+                </h1>
+                <p class="text-gray-500">Estamos listos para trabajar contigo.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div
+                    class="bg-white dark:bg-neutral-900 p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-lg">
+                    <h2 class="text-2xl font-bold mb-6">Envíanos un mensaje</h2>
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-bold mb-2 text-gray-500">Nombre</label>
+                            <input type="text"
+                                class="w-full p-4 bg-gray-50 dark:bg-black border border-gray-200 dark:border-gray-800 rounded-lg focus:outline-none focus:border-neonPink transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2 text-gray-500">Email</label>
+                            <input type="email"
+                                class="w-full p-4 bg-gray-50 dark:bg-black border border-gray-200 dark:border-gray-800 rounded-lg focus:outline-none focus:border-neonPink transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2 text-gray-500">Asunto</label>
+                            <input type="text"
+                                class="w-full p-4 bg-gray-50 dark:bg-black border border-gray-200 dark:border-gray-800 rounded-lg focus:outline-none focus:border-neonPink transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2 text-gray-500">Mensaje</label>
+                            <textarea rows="4"
+                                class="w-full p-4 bg-gray-50 dark:bg-black border border-gray-200 dark:border-gray-800 rounded-lg focus:outline-none focus:border-neonPink transition-colors"></textarea>
+                        </div>
+                        <button type="button"
+                            class="w-full py-4 bg-black dark:bg-white text-white dark:text-black font-bold rounded-lg hover:bg-neonPink dark:hover:bg-neonPink hover:text-white dark:hover:text-white transition-all">
+                            ENVIAR MENSAJE
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Direct Contact Info -->
+                <div class="space-y-8 flex flex-col justify-center">
+                    <div
+                        class="bg-white dark:bg-neutral-900 p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-lg text-center">
+                        <i class="fa-brands fa-whatsapp text-5xl text-[#25D366] mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-2">Contrataciones</h3>
+                        <p class="text-gray-500 mb-6">Respuesta rápida para eventos y shows.</p>
+                        <a href="https://wa.me/573138432479?text=Hola%20Alehna,%20me%20interesa%20contratarte%20para%20un%20show..."
+                            target="_blank"
+                            class="inline-block bg-[#25D366] text-white px-8 py-3 rounded-full font-bold hover:brightness-110 transition-all shadow-lg hover:shadow-[#25D366]/40">
+                            CHATEAR AHORA
+                        </a>
+                    </div>
+
+                    <div
+                        class="bg-white dark:bg-neutral-900 p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-lg text-center">
+                        <i class="fa-solid fa-envelope text-5xl text-gray-400 mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-2">Email Directo</h3>
+                        <p class="text-gray-500 mb-6">Para propuestas formales y prensa.</p>
+                        <a href="mailto:contacto@alehna.com"
+                            class="text-xl font-bold hover:text-neonPink transition-colors">
+                            contacto@alehna.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="py-8 border-t border-gray-200 dark:border-gray-800 text-center bg-white dark:bg-black">
+        <div class="flex justify-center gap-8 mb-4">
+            <a href="https://www.youtube.com/@AlenaMusicoficial"
+                class="text-xl text-gray-400 hover:text-[#FF0000] transition-colors"><i
+                    class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.tiktok.com/@alehnaoficial"
+                class="text-xl text-gray-400 hover:text-neonPink transition-colors"><i
+                    class="fa-brands fa-tiktok"></i></a>
+            <a href="https://instagram.com/alehnaoficial"
+                class="text-xl text-gray-400 hover:text-[#E1306C] transition-colors"><i
+                    class="fa-brands fa-instagram"></i></a>
+        </div>
+        <p class="text-gray-500 text-xs">
+            &copy; 2025 ALEHNA. Todos los derechos reservados.
+        </p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
