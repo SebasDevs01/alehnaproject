@@ -48,16 +48,16 @@
 <body
     class="font-sans antialiased transition-colors duration-300 bg-lightBg text-black dark:bg-darkBg dark:text-white flex flex-col min-h-screen">
 
-    <!-- NAVIGATION -->
     <nav
-        class="fixed top-0 w-full z-[60] bg-white/80 dark:bg-black/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300 h-[72px] flex items-center">
+        class="fixed top-0 w-full z-[60] bg-white/70 dark:bg-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300 h-[72px] flex items-center">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-black tracking-tighter hover:text-neonPink transition-colors">
+            <a href="index.html"
+                class="text-2xl font-black tracking-tighter hover:text-neonPink transition-colors text-black dark:text-white">
                 ALEHNA<span class="text-neonPink">.</span>
             </a>
 
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center gap-8 font-bold text-sm tracking-widest uppercase">
+            <div
+                class="hidden md:flex items-center gap-8 font-bold text-sm tracking-widest uppercase text-black dark:text-white">
                 <a href="music.html" class="text-neonPink transition-colors">Música</a>
                 <a href="merch.html" class="hover:text-neonPink transition-colors">Merch</a>
                 <a href="contact.html" class="hover:text-neonPink transition-colors">Contacto</a>
@@ -69,25 +69,23 @@
                     <i class="fa-solid fa-sun text-gray-800 dark:text-white text-xl hidden dark:block"></i>
                     <i class="fa-solid fa-moon text-gray-800 dark:text-white text-xl block dark:hidden"></i>
                 </button>
-                <button id="mobile-menu-btn" class="md:hidden p-2 text-2xl">
+
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-2xl text-black dark:text-white">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
         </div>
     </nav>
 
-    <!-- MOBILE MENU OVERLAY -->
     <div id="mobile-menu"
-        class="fixed inset-0 z-[55] bg-black/95 flex flex-col items-center justify-center space-y-8 hidden md:hidden">
+        class="fixed inset-0 z-[55] bg-white/95 dark:bg-black/95 flex flex-col items-center justify-center space-y-8 hidden md:hidden transition-colors duration-300">
         <a href="music.html" class="text-2xl font-bold text-neonPink">MÚSICA</a>
-        <a href="merch.html" class="text-2xl font-bold hover:text-neonPink">MERCH</a>
-        <a href="contact.html" class="text-2xl font-bold hover:text-neonPink">CONTACTO</a>
+        <a href="merch.html" class="text-2xl font-bold hover:text-neonPink text-black dark:text-white">MERCH</a>
+        <a href="contact.html" class="text-2xl font-bold hover:text-neonPink text-black dark:text-white">CONTACTO</a>
     </div>
 
-    <!-- MAIN CONTENT -->
     <main class="flex-grow flex flex-col items-center justify-center pt-24 pb-12 px-4 relative overflow-hidden">
 
-        <!-- Background Elements -->
         <div class="absolute inset-0 -z-10">
             <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px]"></div>
             <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-neonPink/10 rounded-full blur-[100px]"></div>
@@ -101,7 +99,6 @@
                 <p class="text-xl text-gray-500">Ya disponible en todas las plataformas</p>
             </div>
 
-            <!-- Streaming Links -->
             <div class="grid md:grid-cols-3 gap-6">
                 <a href="https://open.spotify.com/intl-es/track/6WCIljsn5rcWF699Siq2TM" target="_blank"
                     class="flex flex-col items-center justify-center p-8 bg-[#1DB954] text-white rounded-2xl hover:scale-105 transition-transform shadow-lg hover:shadow-[#1DB954]/40 group">
@@ -122,19 +119,18 @@
                 </a>
             </div>
 
-            <!-- Embedded Player (Optional - using Spotify embed as example, or just a placeholder for visual balance) -->
             <div class="mt-12 opacity-80 hover:opacity-100 transition-opacity">
                 <iframe style="border-radius:12px"
-                    src="https://open.spotify.com/embed/track/6WCIljsn5rcWF699Siq2TM?utm_source=generator&theme=0"
-                    width="100%" height="152" frameBorder="0" allowfullscreen=""
+                    src="https://open.spotify.com/embed/album/1562923305?utm_source=generator" width="100%" height="152"
+                    frameBorder="0" allowfullscreen=""
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                     loading="lazy"></iframe>
             </div>
         </div>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="py-8 border-t border-gray-200 dark:border-gray-800 text-center bg-white dark:bg-black">
+    <footer
+        class="py-8 border-t border-gray-200 dark:border-gray-800 text-center bg-white dark:bg-black transition-colors">
         <div class="flex justify-center gap-8 mb-4">
             <a href="https://www.youtube.com/@AlenaMusicoficial"
                 class="text-xl text-gray-400 hover:text-[#FF0000] transition-colors"><i
