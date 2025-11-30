@@ -79,13 +79,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// --- THEME TOGGLE ---
+// --- THEME TOGGLE (CORREGIDO) ---
 function initTheme() {
     const themeToggleBtn = document.getElementById('theme-toggle');
     const htmlElement = document.documentElement;
 
-    // Check preference
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    // LÓGICA CORREGIDA:
+    // Solo activamos Dark Mode si está explícitamente guardado en localStorage.
+    // Si no hay nada guardado, por defecto será LIGHT (incluso si el sistema es Dark).
+    if (localStorage.theme === 'dark') {
         htmlElement.classList.add('dark');
     } else {
         htmlElement.classList.remove('dark');
@@ -120,7 +122,6 @@ function renderProducts(container) {
 
         return `
             <div class="bg-white dark:bg-neutral-900 rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-800 transition-all hover:shadow-neonPink/20 group" id="card-${product.id}">
-                <!-- Image Area -->
                 <div class="relative aspect-square bg-gray-100 dark:bg-gray-800 p-4">
                     <img src="${currentImage}" alt="${product.name}" class="w-full h-full object-contain object-center transition-transform duration-500 group-hover:scale-105" id="img-${product.id}">
                     <div class="absolute top-4 right-4 bg-black/50 text-white text-xs px-2 py-1 rounded backdrop-blur-sm">
@@ -128,7 +129,6 @@ function renderProducts(container) {
                     </div>
                 </div>
 
-                <!-- Content -->
                 <div class="p-6 space-y-4">
                     <div class="flex justify-between items-start">
                         <div>
@@ -138,9 +138,7 @@ function renderProducts(container) {
                         <p class="text-lg font-bold text-neonPink">$${product.price.toLocaleString('es-CO')}</p>
                     </div>
 
-                    <!-- Controls -->
                     <div class="space-y-3">
-                        <!-- Color Selector -->
                         <div class="flex items-center gap-2">
                             <span class="text-xs font-bold uppercase text-gray-400">Color:</span>
                             <div class="flex gap-2">
@@ -155,7 +153,6 @@ function renderProducts(container) {
                             </div>
                         </div>
 
-                        <!-- Size Selector -->
                         ${product.sizes.length > 1 ? `
                             <div class="flex items-center gap-2">
                                 <span class="text-xs font-bold uppercase text-gray-400">Talla:</span>
@@ -170,7 +167,6 @@ function renderProducts(container) {
                             </div>
                         ` : ''}
 
-                        <!-- Quantity & Buy -->
                         <div class="flex items-center gap-4 pt-2">
                             <div class="flex items-center border border-gray-200 dark:border-gray-700 rounded-lg">
                                 <button onclick="updateQuantity('${product.id}', -1)" class="px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">-</button>
