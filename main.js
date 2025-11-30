@@ -1,6 +1,5 @@
 /**
  * ALEHNA Official Website - Main Logic
- * Handles: Product rendering, WhatsApp integration, Theme Toggle, Mobile Menu
  */
 
 // --- PRODUCT DATA ---
@@ -58,7 +57,6 @@ const products = [
 // --- STATE MANAGEMENT ---
 const state = {};
 
-// Initialize state for each product
 products.forEach(p => {
     state[p.id] = {
         color: p.defaultColor,
@@ -69,34 +67,31 @@ products.forEach(p => {
 
 // --- DOM ELEMENTS ---
 document.addEventListener('DOMContentLoaded', () => {
-    initTheme();
+    // Ya no llamamos a initTheme() aquí para evitar doble carga
+    setupThemeToggle(); // Solo configuramos el botón
     initMobileMenu();
 
-    // Only render products if we are on the merch page
     const productContainer = document.getElementById('product-grid');
     if (productContainer) {
         renderProducts(productContainer);
     }
 });
 
-// --- THEME TOGGLE (CORREGIDO) ---
-function initTheme() {
+// --- THEME TOGGLE (Simplificado) ---
+function setupThemeToggle() {
     const themeToggleBtn = document.getElementById('theme-toggle');
     const htmlElement = document.documentElement;
 
-    // LÓGICA CORREGIDA:
-    // Solo activamos Dark Mode si está explícitamente guardado en localStorage.
-    // Si no hay nada guardado, por defecto será LIGHT (incluso si el sistema es Dark).
-    if (localStorage.theme === 'dark') {
-        htmlElement.classList.add('dark');
-    } else {
-        htmlElement.classList.remove('dark');
-    }
-
     if (themeToggleBtn) {
         themeToggleBtn.addEventListener('click', () => {
-            htmlElement.classList.toggle('dark');
-            localStorage.theme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
+            // Alternar clase
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
         });
     }
 }
@@ -114,7 +109,6 @@ function initMobileMenu() {
 }
 
 // --- MERCH LOGIC ---
-
 function renderProducts(container) {
     container.innerHTML = products.map(product => {
         const productState = state[product.id];
@@ -128,7 +122,6 @@ function renderProducts(container) {
                         ${product.sizes.length > 1 ? 'Varias Tallas' : 'Talla Única'}
                     </div>
                 </div>
-
                 <div class="p-6 space-y-4">
                     <div class="flex justify-between items-start">
                         <div>
@@ -137,7 +130,6 @@ function renderProducts(container) {
                         </div>
                         <p class="text-lg font-bold text-neonPink">$${product.price.toLocaleString('es-CO')}</p>
                     </div>
-
                     <div class="space-y-3">
                         <div class="flex items-center gap-2">
                             <span class="text-xs font-bold uppercase text-gray-400">Color:</span>
@@ -152,7 +144,6 @@ function renderProducts(container) {
                                 `).join('')}
                             </div>
                         </div>
-
                         ${product.sizes.length > 1 ? `
                             <div class="flex items-center gap-2">
                                 <span class="text-xs font-bold uppercase text-gray-400">Talla:</span>
@@ -166,14 +157,12 @@ function renderProducts(container) {
                                 </div>
                             </div>
                         ` : ''}
-
                         <div class="flex items-center gap-4 pt-2">
                             <div class="flex items-center border border-gray-200 dark:border-gray-700 rounded-lg">
                                 <button onclick="updateQuantity('${product.id}', -1)" class="px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">-</button>
                                 <span class="px-2 font-bold text-sm min-w-[20px] text-center dark:text-white">${productState.quantity}</span>
                                 <button onclick="updateQuantity('${product.id}', 1)" class="px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">+</button>
                             </div>
-                            
                             <button 
                                 onclick="buyProduct('${product.id}')"
                                 class="flex-1 bg-black dark:bg-white text-white dark:text-black py-2 rounded-lg font-bold text-sm hover:bg-neonPink dark:hover:bg-neonPink hover:text-white dark:hover:text-white transition-all flex items-center justify-center gap-2"
@@ -189,16 +178,13 @@ function renderProducts(container) {
 }
 
 // --- ACTIONS ---
-
 window.updateColor = (productId, color) => {
     state[productId].color = color;
-    // Update Image
     const img = document.getElementById(`img-${productId}`);
     const product = products.find(p => p.id === productId);
     if (img && product) {
         img.src = product.variants[color];
     }
-    // Re-render to update active states (simple approach)
     const container = document.getElementById('product-grid');
     renderProducts(container);
 };
