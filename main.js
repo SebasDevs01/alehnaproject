@@ -186,4 +186,10 @@ window.sendEmail = () => {
         // En PC: Intentar abrir Gmail Web en nueva pestaña
         window.open(gmailLink, '_blank');
     }
+
+    // LIMPIAR FORMULARIO
+    document.getElementById('contact-name').value = '';
+    document.getElementById('contact-email').value = '';
+    document.getElementById('contact-subject').value = '';
+    document.getElementById('contact-message').value = '';
 };
