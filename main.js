@@ -49,8 +49,6 @@ products.forEach(p => {
 document.addEventListener('DOMContentLoaded', () => {
     setupThemeToggle();
     initMobileMenu();
-    // No renderizamos productos aquí porque ya están en el HTML.
-    // Solo necesitamos que las funciones globales existan para cuando el usuario haga click.
 });
 
 function setupThemeToggle() {
@@ -81,7 +79,6 @@ function initMobileMenu() {
 
 // --- GLOBAL ACTIONS (Para los botones HTML) ---
 
-// Esta función "re-renderiza" SOLO la tarjeta que cambió, para actualizar la vista
 function updateCardUI(productId) {
     const product = products.find(p => p.id === productId);
     const productState = state[productId];
@@ -89,24 +86,15 @@ function updateCardUI(productId) {
     // 1. Actualizar Imagen
     const img = document.getElementById(`img-${productId}`);
     if (img) img.src = product.variants[productState.color];
-
-    // 2. Actualizar borde de botones de Color
-    // (Esto requeriría lógica más compleja de selección de DOM, 
-    // pero para mantenerlo simple y funcional, la imagen es lo más importante)
 }
 
 window.updateColor = (productId, color) => {
     state[productId].color = color;
     updateCardUI(productId);
-
-    // Feedback visual simple para botones de color (opcional)
-    // En una app real usaríamos clases reactivas, aquí confiamos en el cambio de imagen
 };
 
 window.updateSize = (productId, size) => {
     state[productId].size = size;
-    // Feedback visual: Podríamos agregar lógica para pintar el botón activo, 
-    // pero requeriría ids únicos por botón. Por ahora, guarda el estado correctamente.
     alert(`Talla ${size} seleccionada para ${products.find(p => p.id === productId).name}`);
 };
 
@@ -114,11 +102,6 @@ window.updateQuantity = (productId, change) => {
     const newQuantity = state[productId].quantity + change;
     if (newQuantity >= 1) {
         state[productId].quantity = newQuantity;
-        // Actualizar el numerito en el HTML es difícil sin IDs únicos.
-        // Solución rápida: Re-renderizar toda la tarjeta o usar IDs específicos.
-        // Para este caso, vamos a alertar la nueva cantidad para confirmar que funciona.
-        // O mejor: simplemente guardamos el estado para el botón de comprar.
-
         // Intento de actualizar el texto del botón (avanzado)
         const card = document.getElementById(`card-${productId}`);
         const span = card.querySelectorAll('span.text-center')[0]; // Busca el span de cantidad
@@ -144,4 +127,28 @@ Mis datos de envío son:
 
     const url = `https://wa.me/573164280293?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
+};
+
+// --- FUNCIÓN PARA ENVIAR CORREO DESDE CONTACTO ---
+window.sendEmail = () => {
+    const name = document.getElementById('contact-name').value;
+    const email = document.getElementById('contact-email').value;
+    const subject = document.getElementById('contact-subject').value;
+    const message = document.getElementById('contact-message').value;
+
+    if (!name || !message) {
+        alert('Por favor completa al menos tu nombre y el mensaje.');
+        return;
+    }
+
+    // Construir el cuerpo del correo
+    const emailBody = `Nombre: ${name}\nEmail de contacto: ${email}\n\nMensaje:\n${message}`;
+
+    // Crear el enlace mailto
+    // Se usa el correo oficial de Alehna como destino
+    const mailtoLink = `mailto:alenamusicoficial@gmail.com?subject=${encodeURIComponent(subject || 'Nuevo Mensaje desde Web')}&body=${encodeURIComponent(emailBody)}`;
+
+    // CORRECCIÓN: Usar location.href es más compatible con clientes de correo de escritorio
+    // que window.open, el cual suele ser bloqueado por los navegadores si no es una URL web.
+    window.location.href = mailtoLink;
 };
