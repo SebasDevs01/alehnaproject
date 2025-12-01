@@ -168,10 +168,9 @@ window.sendEmail = () => {
 
     const officialEmail = "alenamusicoficial@gmail.com";
 
-    const emailBody = `Hola Alehna, tienes un nuevo mensaje desde la web:\n\n` +
-        `Nombre del remitente: ${name}\n` +
-        `Correo de contacto: ${userEmail}\n\n` +
-        `MENSAJE:\n${message}`;
+    // CUERPO DEL MENSAJE OPTIMIZADO (Formato Párrafo Continuo)
+    // Se usan comas y minúsculas para conectar las frases fluidamente.
+    const emailBody = `Hola Alehna, soy ${name}, ${message}, me puedes contactar a: ${userEmail}.`;
 
     // 1. Enlace estándar (Para Móviles y Apps de Escritorio configuradas)
     const mailtoLink = `mailto:${officialEmail}?subject=${encodeURIComponent(subject || 'Nuevo Mensaje Web')}&body=${encodeURIComponent(emailBody)}`;
