@@ -49,6 +49,7 @@ products.forEach(p => {
 document.addEventListener('DOMContentLoaded', () => {
     setupThemeToggle();
     initMobileMenu();
+    // No renderizamos productos aquí porque ya están en el HTML.
 });
 
 function setupThemeToggle() {
@@ -129,10 +130,11 @@ Mis datos de envío son:
     window.open(url, '_blank');
 };
 
-// --- FUNCIÓN PARA ENVIAR CORREO DESDE CONTACTO ---
+// --- FUNCIÓN PARA ENVIAR CORREO (FORMULARIO) ---
 window.sendEmail = () => {
+    // 1. Obtener datos del usuario (Quién escribe)
     const name = document.getElementById('contact-name').value;
-    const email = document.getElementById('contact-email').value;
+    const userEmail = document.getElementById('contact-email').value; // El correo del fan
     const subject = document.getElementById('contact-subject').value;
     const message = document.getElementById('contact-message').value;
 
@@ -141,14 +143,22 @@ window.sendEmail = () => {
         return;
     }
 
-    // Construir el cuerpo del correo
-    const emailBody = `Nombre: ${name}\nEmail de contacto: ${email}\n\nMensaje:\n${message}`;
+    // 2. Destinatario OFICIAL (Alehna)
+    const officialEmail = "alenamusicoficial@gmail.com";
 
-    // Crear el enlace mailto
-    // Se usa el correo oficial de Alehna como destino
-    const mailtoLink = `mailto:alenamusicoficial@gmail.com?subject=${encodeURIComponent(subject || 'Nuevo Mensaje desde Web')}&body=${encodeURIComponent(emailBody)}`;
+    // 3. Construir el cuerpo del mensaje
+    // Aquí incluimos el correo del fan DENTRO del mensaje para que Alehna lo lea y pueda responderle manualmente
+    const emailBody = `Hola Alehna, tienes un nuevo mensaje desde la web:\n\n` +
+        `Nombre del remitente: ${name}\n` +
+        `Correo de contacto: ${userEmail}\n\n` +
+        `MENSAJE:\n${message}`;
 
-    // CORRECCIÓN: Usar location.href es más compatible con clientes de correo de escritorio
-    // que window.open, el cual suele ser bloqueado por los navegadores si no es una URL web.
-    window.location.href = mailtoLink;
+    // 4. Crear el enlace mailto
+    // Esto le dice al programa de correo: "Envía A Alehna, con ESTE asunto y ESTE cuerpo"
+    const mailtoLink = `mailto:${officialEmail}?subject=${encodeURIComponent(subject || 'Nuevo Mensaje Web')}&body=${encodeURIComponent(emailBody)}`;
+
+    // 5. Intentar abrir
+    // Usamos window.open para intentar forzar una nueva pestaña/ventana,
+    // lo cual a veces ayuda a que el navegador sugiera Gmail si no hay app instalada.
+    window.open(mailtoLink, '_blank');
 };
