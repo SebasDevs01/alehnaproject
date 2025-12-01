@@ -1,25 +1,19 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es" class="scroll-smooth overflow-y-scroll">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ALEHNA | Música</title>
     <meta name="description" content="Escucha la música de ALEHNA en todas las plataformas digitales.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://open.spotify.com">
+    <link rel="preconnect" href="https://i.scdn.co">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
-
-    <!-- SCRIPT ANTI-PARPADEO (IMPORTANTE) -->
-    <!-- Esto revisa la preferencia antes de cargar el cuerpo de la página -->
-    <!-- <script>
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    </script>-->
-
     <script>
         if (localStorage.theme === 'dark') {
             document.documentElement.classList.add('dark');
@@ -27,23 +21,14 @@
             document.documentElement.classList.remove('dark');
         }
     </script>
-
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
-                    colors: {
-                        neonPink: '#FF007F',
-                        darkBg: '#000000',
-                        lightBg: '#FFFFFF',
-                    },
-                    fontFamily: {
-                        sans: ['Outfit', 'sans-serif'],
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    }
+                    colors: { neonPink: '#FF007F', darkBg: '#000000', lightBg: '#FFFFFF', },
+                    fontFamily: { sans: ['Outfit', 'sans-serif'], },
+                    animation: { 'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite', }
                 }
             }
         }
@@ -62,41 +47,33 @@
             border-radius: 4px;
         }
     </style>
-
 </head>
 
 <body
     class="font-sans antialiased transition-colors duration-300 bg-lightBg text-black dark:bg-darkBg dark:text-white flex flex-col min-h-screen">
-
     <nav
         class="fixed top-0 w-full z-[60] bg-white/70 dark:bg-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300 h-[72px] flex items-center">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <a href="index.html"
-                class="text-2xl font-black tracking-tighter hover:text-neonPink transition-colors text-black dark:text-white">
-                ALEHNA<span class="text-neonPink">.</span>
-            </a>
-
+                class="text-2xl font-black tracking-tighter hover:text-neonPink transition-colors text-black dark:text-white">ALEHNA<span
+                    class="text-neonPink">.</span></a>
             <div
                 class="hidden md:flex items-center gap-8 font-bold text-sm tracking-widest uppercase text-black dark:text-white">
                 <a href="music.html" class="text-neonPink transition-colors">Música</a>
                 <a href="merch.html" class="hover:text-neonPink transition-colors">Merch</a>
                 <a href="contact.html" class="hover:text-neonPink transition-colors">Contacto</a>
             </div>
-
             <div class="flex items-center gap-4">
                 <button id="theme-toggle"
                     class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors focus:outline-none">
                     <i class="fa-solid fa-sun text-gray-800 dark:text-white text-xl hidden dark:block"></i>
                     <i class="fa-solid fa-moon text-gray-800 dark:text-white text-xl block dark:hidden"></i>
                 </button>
-
-                <button id="mobile-menu-btn" class="md:hidden p-2 text-2xl text-black dark:text-white">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-2xl text-black dark:text-white"><i
+                        class="fa-solid fa-bars"></i></button>
             </div>
         </div>
     </nav>
-
     <div id="mobile-menu"
         class="fixed inset-0 z-[55] bg-white/95 dark:bg-black/95 flex flex-col items-center justify-center space-y-8 hidden md:hidden transition-colors duration-300">
         <a href="music.html" class="text-2xl font-bold text-neonPink">MÚSICA</a>
@@ -104,52 +81,47 @@
         <a href="contact.html" class="text-2xl font-bold hover:text-neonPink text-black dark:text-white">CONTACTO</a>
     </div>
 
-    <main class="flex-grow flex flex-col items-center justify-center pt-24 pb-12 px-4 relative overflow-hidden">
-
+    <main class="flex-grow pt-32 pb-20 px-4 relative overflow-hidden">
         <div class="absolute inset-0 -z-10">
             <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px]"></div>
             <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-neonPink/10 rounded-full blur-[100px]"></div>
         </div>
-
-        <div class="container mx-auto max-w-4xl text-center space-y-12">
-            <div class="space-y-4">
-                <h1 class="text-5xl md:text-7xl font-black">
-                    EL KARMA <span class="text-neonPink">ERA</span>
-                </h1>
-                <p class="text-xl text-gray-500">Ya disponible en todas las plataformas</p>
+        <div class="container mx-auto max-w-6xl"> <!-- Ajustado a max-w-6xl para coincidir con merch -->
+            <div class="text-center mb-16 space-y-4">
+                <h1 class="text-4xl md:text-6xl font-black">EL KARMA <span class="text-neonPink">ERA</span></h1>
+                <p class="text-gray-500 uppercase tracking-widest">Ya disponible en todas las plataformas</p>
             </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                <a href="https://open.spotify.com/intl-es/track/6WCIljsn5rcWF699Siq2TM" target="_blank"
-                    class="flex flex-col items-center justify-center p-8 bg-[#1DB954] text-white rounded-2xl hover:scale-105 transition-transform shadow-lg hover:shadow-[#1DB954]/40 group">
-                    <i class="fa-brands fa-spotify text-5xl mb-4 group-hover:animate-bounce"></i>
-                    <span class="font-bold text-xl">Spotify</span>
-                </a>
-
-                <a href="https://music.apple.com/co/album/el-karma/1562923305?i=1562923306" target="_blank"
-                    class="flex flex-col items-center justify-center p-8 bg-[#FA243C] text-white rounded-2xl hover:scale-105 transition-transform shadow-lg hover:shadow-[#FA243C]/40 group">
-                    <i class="fa-brands fa-apple text-5xl mb-4 group-hover:animate-bounce"></i>
-                    <span class="font-bold text-xl">Apple Music</span>
-                </a>
-
-                <a href="https://www.youtube.com/watch?v=EWMMuV1Hf3U" target="_blank"
-                    class="flex flex-col items-center justify-center p-8 bg-[#FF0000] text-white rounded-2xl hover:scale-105 transition-transform shadow-lg hover:shadow-[#FF0000]/40 group">
-                    <i class="fa-brands fa-youtube text-5xl mb-4 group-hover:animate-bounce"></i>
-                    <span class="font-bold text-xl">YouTube</span>
-                </a>
-            </div>
-
-            <div class="mt-12 opacity-80 hover:opacity-100 transition-opacity">
-                <!-- Se cambió de embed/album a embed/track para reproducir específicamente "Karma" -->
-                <iframe style="border-radius:12px"
-                    src="https://open.spotify.com/embed/track/6WCIljsn5rcWF699Siq2TM?utm_source=generator" width="100%"
-                    height="152" frameBorder="0" allowfullscreen=""
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    loading="lazy"></iframe>
+            <div class="max-w-4xl mx-auto space-y-12">
+                <div class="grid md:grid-cols-3 gap-6">
+                    <a href="https://open.spotify.com/intl-es/track/6WCIljsn5rcWF699Siq2TM" target="_blank"
+                        class="flex flex-col items-center justify-center p-8 text-white rounded-2xl hover:scale-105 transition-transform shadow-lg group"
+                        style="background-color: #1DB954; box-shadow: 0 10px 15px -3px rgba(29, 185, 84, 0.4);">
+                        <i class="fa-brands fa-spotify text-5xl mb-4 group-hover:animate-bounce"></i><span
+                            class="font-bold text-xl">Spotify</span>
+                    </a>
+                    <a href="https://music.apple.com/co/album/el-karma/1562923305?i=1562923306" target="_blank"
+                        class="flex flex-col items-center justify-center p-8 text-white rounded-2xl hover:scale-105 transition-transform shadow-lg group"
+                        style="background-color: #FA243C; box-shadow: 0 10px 15px -3px rgba(250, 36, 60, 0.4);">
+                        <i class="fa-brands fa-apple text-5xl mb-4 group-hover:animate-bounce"></i><span
+                            class="font-bold text-xl">Apple Music</span>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=EWMMuV1Hf3U" target="_blank"
+                        class="flex flex-col items-center justify-center p-8 text-white rounded-2xl hover:scale-105 transition-transform shadow-lg group"
+                        style="background-color: #FF0000; box-shadow: 0 10px 15px -3px rgba(255, 0, 0, 0.4);">
+                        <i class="fa-brands fa-youtube text-5xl mb-4 group-hover:animate-bounce"></i><span
+                            class="font-bold text-xl">YouTube</span>
+                    </a>
+                </div>
+                <div class="mt-12 opacity-90 hover:opacity-100 transition-opacity">
+                    <iframe style="border-radius:12px"
+                        src="https://open.spotify.com/embed/track/6WCIljsn5rcWF699Siq2TM?utm_source=generator"
+                        width="100%" height="152" frameBorder="0" allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="eager"></iframe>
+                </div>
             </div>
         </div>
     </main>
-
     <footer
         class="py-8 border-t border-gray-200 dark:border-gray-800 text-center bg-white dark:bg-black transition-colors">
         <div class="flex justify-center gap-8 mb-4">
@@ -163,11 +135,8 @@
                 class="text-xl text-gray-400 hover:text-[#E1306C] transition-colors"><i
                     class="fa-brands fa-instagram"></i></a>
         </div>
-        <p class="text-gray-500 text-xs">
-            &copy; 2025 ALEHNA. Todos los derechos reservados.
-        </p>
+        <p class="text-gray-500 text-xs">&copy; 2025 ALEHNA. Todos los derechos reservados.</p>
     </footer>
-
     <script src="main.js"></script>
 </body>
 

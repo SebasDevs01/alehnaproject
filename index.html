@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es" class="scroll-smooth overflow-y-scroll">
 
 <head>
     <meta charset="UTF-8">
@@ -10,16 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
 
-    <!-- SCRIPT ANTI-PARPADEO (IMPORTANTE) -->
-    <!-- Esto revisa la preferencia antes de cargar el cuerpo de la página -->
-    <!-- <script>
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    </script>-->
-
+    <!-- SCRIPT ANTI-PARPADEO -->
     <script>
         if (localStorage.theme === 'dark') {
             document.documentElement.classList.add('dark');
@@ -74,21 +65,18 @@
                 class="text-2xl font-black tracking-tighter hover:text-neonPink transition-colors text-black dark:text-white">
                 ALEHNA<span class="text-neonPink">.</span>
             </a>
-
             <div
                 class="hidden md:flex items-center gap-8 font-bold text-sm tracking-widest uppercase text-black dark:text-white">
                 <a href="music.html" class="hover:text-neonPink transition-colors">Música</a>
                 <a href="merch.html" class="hover:text-neonPink transition-colors">Merch</a>
                 <a href="contact.html" class="hover:text-neonPink transition-colors">Contacto</a>
             </div>
-
             <div class="flex items-center gap-4">
                 <button id="theme-toggle"
                     class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors focus:outline-none">
                     <i class="fa-solid fa-sun text-gray-800 dark:text-white text-xl hidden dark:block"></i>
                     <i class="fa-solid fa-moon text-gray-800 dark:text-white text-xl block dark:hidden"></i>
                 </button>
-
                 <button id="mobile-menu-btn" class="md:hidden p-2 text-2xl text-black dark:text-white">
                     <i class="fa-solid fa-bars"></i>
                 </button>
@@ -104,26 +92,18 @@
     </div>
 
     <main class="flex-grow flex flex-col items-center justify-center pt-24 pb-12 px-4 relative overflow-hidden">
-
         <div
             class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-neonPink/20 rounded-full blur-[120px] -z-10 animate-pulse-slow">
         </div>
-
         <div class="text-center space-y-8 max-w-5xl w-full">
-            <h1 class="text-6xl md:text-9xl font-black tracking-tighter leading-none">
-                ALEHNA
-            </h1>
-            <p class="text-xl md:text-2xl font-light tracking-[0.5em] uppercase opacity-80">
-                El Karma Era
-            </p>
-
+            <h1 class="text-6xl md:text-9xl font-black tracking-tighter leading-none">ALEHNA</h1>
+            <p class="text-xl md:text-2xl font-light tracking-[0.5em] uppercase opacity-80">El Karma Era</p>
             <div
                 class="w-full aspect-video rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(255,0,127,0.3)] border border-gray-800 dark:border-gray-700 group relative">
                 <video poster="karma-portada.jpg" autoplay muted loop playsinline class="w-full h-full object-cover">
                     <source src="karmavideo/karma.mp4" type="video/mp4">
                 </video>
                 <div class="absolute inset-0 bg-neonPink/10 pointer-events-none mix-blend-overlay"></div>
-
                 <div
                     class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-black/40">
                     <a href="music.html"
@@ -132,7 +112,6 @@
                     </a>
                 </div>
             </div>
-
             <div class="grid md:grid-cols-3 gap-6 mt-12">
                 <a href="music.html"
                     class="group relative h-48 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800">
@@ -144,7 +123,6 @@
                         <span class="font-bold tracking-widest text-lg">MÚSICA</span>
                     </div>
                 </a>
-
                 <a href="merch.html"
                     class="group relative h-48 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800">
                     <div
@@ -155,7 +133,6 @@
                         <span class="font-bold tracking-widest text-lg">MERCH</span>
                     </div>
                 </a>
-
                 <a href="contact.html"
                     class="group relative h-48 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800">
                     <div
@@ -169,7 +146,6 @@
             </div>
         </div>
     </main>
-
     <footer
         class="py-8 border-t border-gray-200 dark:border-gray-800 text-center bg-white dark:bg-black transition-colors">
         <div class="flex justify-center gap-8 mb-4">
@@ -183,11 +159,8 @@
                 class="text-xl text-gray-400 hover:text-[#E1306C] transition-colors"><i
                     class="fa-brands fa-instagram"></i></a>
         </div>
-        <p class="text-gray-500 text-xs">
-            &copy; 2025 ALEHNA. Todos los derechos reservados.
-        </p>
+        <p class="text-gray-500 text-xs">&copy; 2025 ALEHNA. Todos los derechos reservados.</p>
     </footer>
-
     <script src="main.js"></script>
 </body>
 
