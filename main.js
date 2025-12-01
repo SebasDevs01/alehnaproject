@@ -220,6 +220,6 @@ Precio Total Estimado: $${total.toLocaleString('es-CO')}
 Mis datos de envío son:
 (Por favor completa tus datos aquí)`;
 
-    const url = `https://wa.me/573138432479?text=${encodeURIComponent(message)}`;
+    const url = `https://wa.me/573164280293?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
 };
