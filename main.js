@@ -49,7 +49,8 @@ products.forEach(p => {
 document.addEventListener('DOMContentLoaded', () => {
     setupThemeToggle();
     initMobileMenu();
-    // No renderizamos productos aquí porque ya están en el HTML.
+    // Esta función nueva hace que el enlace "Email Directo" también abra Gmail
+    setupMailtoToGmail();
 });
 
 function setupThemeToggle() {
@@ -76,6 +77,26 @@ function initMobileMenu() {
             menu.classList.toggle('hidden');
         });
     }
+}
+
+// --- FUNCIÓN NUEVA: Convierte enlaces directos a Gmail Web ---
+function setupMailtoToGmail() {
+    // Busca todos los enlaces que sean correos (mailto:)
+    const mailLinks = document.querySelectorAll('a[href^="mailto:"]');
+
+    mailLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault(); // Detiene el comportamiento estándar (abrir app de correo)
+
+            // Extrae el correo del enlace
+            const href = link.getAttribute('href');
+            const email = href.replace('mailto:', '').split('?')[0]; // Limpia por si acaso
+
+            // Abre Gmail para redactar
+            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}`;
+            window.open(gmailUrl, '_blank');
+        });
+    });
 }
 
 // --- GLOBAL ACTIONS (Para los botones HTML) ---
@@ -130,11 +151,10 @@ Mis datos de envío son:
     window.open(url, '_blank');
 };
 
-// --- FUNCIÓN PARA ENVIAR CORREO (FORMULARIO) ---
+// --- FUNCIÓN ACTUALIZADA: ENVÍA FORMULARIO DIRECTO A GMAIL ---
 window.sendEmail = () => {
-    // 1. Obtener datos del usuario (Quién escribe)
     const name = document.getElementById('contact-name').value;
-    const userEmail = document.getElementById('contact-email').value; // El correo del fan
+    const userEmail = document.getElementById('contact-email').value;
     const subject = document.getElementById('contact-subject').value;
     const message = document.getElementById('contact-message').value;
 
@@ -143,22 +163,22 @@ window.sendEmail = () => {
         return;
     }
 
-    // 2. Destinatario OFICIAL (Alehna)
     const officialEmail = "alenamusicoficial@gmail.com";
 
-    // 3. Construir el cuerpo del mensaje
-    // Aquí incluimos el correo del fan DENTRO del mensaje para que Alehna lo lea y pueda responderle manualmente
+    // Cuerpo del mensaje formateado para Gmail
     const emailBody = `Hola Alehna, tienes un nuevo mensaje desde la web:\n\n` +
         `Nombre del remitente: ${name}\n` +
         `Correo de contacto: ${userEmail}\n\n` +
         `MENSAJE:\n${message}`;
 
-    // 4. Crear el enlace mailto
-    // Esto le dice al programa de correo: "Envía A Alehna, con ESTE asunto y ESTE cuerpo"
-    const mailtoLink = `mailto:${officialEmail}?subject=${encodeURIComponent(subject || 'Nuevo Mensaje Web')}&body=${encodeURIComponent(emailBody)}`;
+    // URL Mágica de Gmail: Abre la ventana de redacción (Compose Mode)
+    // view=cm -> Compose Mode
+    // fs=1 -> Full Screen (opcional)
+    // to -> Destinatario
+    // su -> Subject (Asunto)
+    // body -> Cuerpo del mensaje
+    const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${officialEmail}&su=${encodeURIComponent(subject || 'Nuevo Mensaje Web')}&body=${encodeURIComponent(emailBody)}`;
 
-    // 5. Intentar abrir
-    // Usamos window.open para intentar forzar una nueva pestaña/ventana,
-    // lo cual a veces ayuda a que el navegador sugiera Gmail si no hay app instalada.
-    window.open(mailtoLink, '_blank');
+    // Abre una nueva pestaña directa a Gmail
+    window.open(gmailLink, '_blank');
 };
