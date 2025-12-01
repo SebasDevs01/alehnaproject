@@ -49,9 +49,13 @@ products.forEach(p => {
 document.addEventListener('DOMContentLoaded', () => {
     setupThemeToggle();
     initMobileMenu();
-    // Esta función nueva hace que el enlace "Email Directo" también abra Gmail
     setupMailtoToGmail();
 });
+
+// --- DETECCIÓN DE DISPOSITIVO MÓVIL ---
+function isMobileDevice() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
 
 function setupThemeToggle() {
     const themeToggleBtn = document.getElementById('theme-toggle');
@@ -79,33 +83,33 @@ function initMobileMenu() {
     }
 }
 
-// --- FUNCIÓN NUEVA: Convierte enlaces directos a Gmail Web ---
+// --- FUNCIÓN HÍBRIDA: Gmail Web en PC, App Nativa en Móvil ---
 function setupMailtoToGmail() {
-    // Busca todos los enlaces que sean correos (mailto:)
     const mailLinks = document.querySelectorAll('a[href^="mailto:"]');
 
     mailLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault(); // Detiene el comportamiento estándar (abrir app de correo)
+            // Si es móvil, NO hacemos nada especial. 
+            // Dejamos que el navegador abra la app por defecto (comportamiento estándar).
+            if (isMobileDevice()) return;
 
-            // Extrae el correo del enlace
+            // Si es PC, prevenimos el estándar y abrimos Gmail Web
+            e.preventDefault();
+
             const href = link.getAttribute('href');
-            const email = href.replace('mailto:', '').split('?')[0]; // Limpia por si acaso
+            const email = href.replace('mailto:', '').split('?')[0];
 
-            // Abre Gmail para redactar
             const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}`;
             window.open(gmailUrl, '_blank');
         });
     });
 }
 
-// --- GLOBAL ACTIONS (Para los botones HTML) ---
+// --- GLOBAL ACTIONS ---
 
 function updateCardUI(productId) {
     const product = products.find(p => p.id === productId);
     const productState = state[productId];
-
-    // 1. Actualizar Imagen
     const img = document.getElementById(`img-${productId}`);
     if (img) img.src = product.variants[productState.color];
 }
@@ -124,9 +128,8 @@ window.updateQuantity = (productId, change) => {
     const newQuantity = state[productId].quantity + change;
     if (newQuantity >= 1) {
         state[productId].quantity = newQuantity;
-        // Intento de actualizar el texto del botón (avanzado)
         const card = document.getElementById(`card-${productId}`);
-        const span = card.querySelectorAll('span.text-center')[0]; // Busca el span de cantidad
+        const span = card.querySelectorAll('span.text-center')[0];
         if (span) span.innerText = newQuantity;
     }
 };
@@ -151,7 +154,7 @@ Mis datos de envío son:
     window.open(url, '_blank');
 };
 
-// --- FUNCIÓN ACTUALIZADA: ENVÍA FORMULARIO DIRECTO A GMAIL ---
+// --- ENVÍO DE CORREO INTELIGENTE (Móvil vs PC) ---
 window.sendEmail = () => {
     const name = document.getElementById('contact-name').value;
     const userEmail = document.getElementById('contact-email').value;
@@ -165,20 +168,23 @@ window.sendEmail = () => {
 
     const officialEmail = "alenamusicoficial@gmail.com";
 
-    // Cuerpo del mensaje formateado para Gmail
     const emailBody = `Hola Alehna, tienes un nuevo mensaje desde la web:\n\n` +
         `Nombre del remitente: ${name}\n` +
         `Correo de contacto: ${userEmail}\n\n` +
         `MENSAJE:\n${message}`;
 
-    // URL Mágica de Gmail: Abre la ventana de redacción (Compose Mode)
-    // view=cm -> Compose Mode
-    // fs=1 -> Full Screen (opcional)
-    // to -> Destinatario
-    // su -> Subject (Asunto)
-    // body -> Cuerpo del mensaje
+    // 1. Enlace estándar (Para Móviles y Apps de Escritorio configuradas)
+    const mailtoLink = `mailto:${officialEmail}?subject=${encodeURIComponent(subject || 'Nuevo Mensaje Web')}&body=${encodeURIComponent(emailBody)}`;
+
+    // 2. Enlace Gmail Web (Para Escritorio sin app configurada)
     const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${officialEmail}&su=${encodeURIComponent(subject || 'Nuevo Mensaje Web')}&body=${encodeURIComponent(emailBody)}`;
 
-    // Abre una nueva pestaña directa a Gmail
-    window.open(gmailLink, '_blank');
+    // DECISIÓN:
+    if (isMobileDevice()) {
+        // En celular: Usar la app nativa
+        window.location.href = mailtoLink;
+    } else {
+        // En PC: Intentar abrir Gmail Web en nueva pestaña
+        window.open(gmailLink, '_blank');
+    }
 };
