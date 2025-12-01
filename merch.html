@@ -10,16 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
 
-    <!-- SCRIPT ANTI-PARPADEO (IMPORTANTE) -->
-    <!-- Esto revisa la preferencia antes de cargar el cuerpo de la página -->
-    <!-- <script>
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    </script>-->
-
+    <!-- SCRIPT ANTI-PARPADEO (Carga antes que el cuerpo) -->
     <script>
         if (localStorage.theme === 'dark') {
             document.documentElement.classList.add('dark');
@@ -83,6 +74,7 @@
             </div>
 
             <div class="flex items-center gap-4">
+                <!-- Botón de Tema con Tamaño Fijo -->
                 <button id="theme-toggle"
                     class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors focus:outline-none">
                     <i class="fa-solid fa-sun text-gray-800 dark:text-white text-xl hidden dark:block"></i>
@@ -113,8 +105,237 @@
                 <p class="text-gray-500 uppercase tracking-widest">Edición Limitada 2025</p>
             </div>
 
+            <!-- PRODUCT GRID CON HTML ESTÁTICO (Carga Inmediata) -->
+            <!-- Estos elementos se muestran al instante y luego JS los hace interactivos -->
             <div id="product-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Products will be injected here -->
+
+                <!-- PRODUCTO 1: T-SHIRT -->
+                <div class="bg-white dark:bg-neutral-900 rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-800 transition-all hover:shadow-neonPink/20 group"
+                    id="card-tshirt-karma">
+                    <div class="relative aspect-square bg-gray-100 dark:bg-gray-800 p-4">
+                        <img src="imgmerch/camisanegra.png" alt="T-Shirt EL KARMA"
+                            class="w-full h-full object-contain object-center transition-transform duration-500 group-hover:scale-105"
+                            id="img-tshirt-karma">
+                        <div
+                            class="absolute top-4 right-4 bg-black/50 text-white text-xs px-2 py-1 rounded backdrop-blur-sm">
+                            Varias Tallas</div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold dark:text-white">T-Shirt EL KARMA</h3>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Camiseta de algodón premium con
+                                    estampado KARMA.</p>
+                            </div>
+                            <p class="text-lg font-bold text-neonPink">$65.000</p>
+                        </div>
+                        <!-- Controles visuales iniciales -->
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-bold uppercase text-gray-400">Color:</span>
+                                <div class="flex gap-2">
+                                    <button onclick="updateColor('tshirt-karma', 'white')"
+                                        class="w-6 h-6 rounded-full border-2 border-gray-300 dark:border-gray-600 shadow-sm transition-all"
+                                        style="background-color: #ffffff;"></button>
+                                    <button onclick="updateColor('tshirt-karma', 'black')"
+                                        class="w-6 h-6 rounded-full border-2 border-neonPink scale-110 shadow-sm transition-all"
+                                        style="background-color: #000000;"></button>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-bold uppercase text-gray-400">Talla:</span>
+                                <div class="flex flex-wrap gap-2">
+                                    <button onclick="updateSize('tshirt-karma', 'S')"
+                                        class="px-3 py-1 text-xs font-bold rounded border bg-black text-white dark:bg-white dark:text-black border-transparent">S</button>
+                                    <button onclick="updateSize('tshirt-karma', 'M')"
+                                        class="px-3 py-1 text-xs font-bold rounded border border-gray-200 dark:border-gray-700 hover:border-neonPink">M</button>
+                                    <button onclick="updateSize('tshirt-karma', 'L')"
+                                        class="px-3 py-1 text-xs font-bold rounded border border-gray-200 dark:border-gray-700 hover:border-neonPink">L</button>
+                                    <button onclick="updateSize('tshirt-karma', 'XL')"
+                                        class="px-3 py-1 text-xs font-bold rounded border border-gray-200 dark:border-gray-700 hover:border-neonPink">XL</button>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 pt-2">
+                                <div class="flex items-center border border-gray-200 dark:border-gray-700 rounded-lg">
+                                    <button onclick="updateQuantity('tshirt-karma', -1)"
+                                        class="px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">-</button>
+                                    <span
+                                        class="px-2 font-bold text-sm min-w-[20px] text-center dark:text-white">1</span>
+                                    <button onclick="updateQuantity('tshirt-karma', 1)"
+                                        class="px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">+</button>
+                                </div>
+                                <button onclick="buyProduct('tshirt-karma')"
+                                    class="flex-1 bg-black dark:bg-white text-white dark:text-black py-2 rounded-lg font-bold text-sm hover:bg-neonPink dark:hover:bg-neonPink hover:text-white dark:hover:text-white transition-all flex items-center justify-center gap-2">
+                                    <i class="fa-brands fa-whatsapp"></i> COMPRAR
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 2: HOODIE -->
+                <div class="bg-white dark:bg-neutral-900 rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-800 transition-all hover:shadow-neonPink/20 group"
+                    id="card-buso-karma">
+                    <div class="relative aspect-square bg-gray-100 dark:bg-gray-800 p-4">
+                        <img src="imgmerch/busonegro.png" alt="Sudadera KARMA"
+                            class="w-full h-full object-contain object-center transition-transform duration-500 group-hover:scale-105"
+                            id="img-buso-karma">
+                        <div
+                            class="absolute top-4 right-4 bg-black/50 text-white text-xs px-2 py-1 rounded backdrop-blur-sm">
+                            Varias Tallas</div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold dark:text-white">Sudadera KARMA</h3>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Hoodie premium con diseño exclusivo
+                                    de la era KARMA.</p>
+                            </div>
+                            <p class="text-lg font-bold text-neonPink">$120.000</p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-bold uppercase text-gray-400">Color:</span>
+                                <div class="flex gap-2">
+                                    <button onclick="updateColor('buso-karma', 'white')"
+                                        class="w-6 h-6 rounded-full border-2 border-gray-300 dark:border-gray-600 shadow-sm transition-all"
+                                        style="background-color: #ffffff;"></button>
+                                    <button onclick="updateColor('buso-karma', 'black')"
+                                        class="w-6 h-6 rounded-full border-2 border-neonPink scale-110 shadow-sm transition-all"
+                                        style="background-color: #000000;"></button>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-bold uppercase text-gray-400">Talla:</span>
+                                <div class="flex flex-wrap gap-2">
+                                    <button onclick="updateSize('buso-karma', 'S')"
+                                        class="px-3 py-1 text-xs font-bold rounded border bg-black text-white dark:bg-white dark:text-black border-transparent">S</button>
+                                    <button onclick="updateSize('buso-karma', 'M')"
+                                        class="px-3 py-1 text-xs font-bold rounded border border-gray-200 dark:border-gray-700 hover:border-neonPink">M</button>
+                                    <button onclick="updateSize('buso-karma', 'L')"
+                                        class="px-3 py-1 text-xs font-bold rounded border border-gray-200 dark:border-gray-700 hover:border-neonPink">L</button>
+                                    <button onclick="updateSize('buso-karma', 'XL')"
+                                        class="px-3 py-1 text-xs font-bold rounded border border-gray-200 dark:border-gray-700 hover:border-neonPink">XL</button>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 pt-2">
+                                <div class="flex items-center border border-gray-200 dark:border-gray-700 rounded-lg">
+                                    <button onclick="updateQuantity('buso-karma', -1)"
+                                        class="px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">-</button>
+                                    <span
+                                        class="px-2 font-bold text-sm min-w-[20px] text-center dark:text-white">1</span>
+                                    <button onclick="updateQuantity('buso-karma', 1)"
+                                        class="px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">+</button>
+                                </div>
+                                <button onclick="buyProduct('buso-karma')"
+                                    class="flex-1 bg-black dark:bg-white text-white dark:text-black py-2 rounded-lg font-bold text-sm hover:bg-neonPink dark:hover:bg-neonPink hover:text-white dark:hover:text-white transition-all flex items-center justify-center gap-2">
+                                    <i class="fa-brands fa-whatsapp"></i> COMPRAR
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 3: GORRA -->
+                <div class="bg-white dark:bg-neutral-900 rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-800 transition-all hover:shadow-neonPink/20 group"
+                    id="card-gorra-karma">
+                    <div class="relative aspect-square bg-gray-100 dark:bg-gray-800 p-4">
+                        <img src="imgmerch/gorranegra.png" alt="Gorra KARMA"
+                            class="w-full h-full object-contain object-center transition-transform duration-500 group-hover:scale-105"
+                            id="img-gorra-karma">
+                        <div
+                            class="absolute top-4 right-4 bg-black/50 text-white text-xs px-2 py-1 rounded backdrop-blur-sm">
+                            Talla Única</div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold dark:text-white">Gorra KARMA</h3>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Gorra bordada estilo dad-hat.
+                                    Ajustable.</p>
+                            </div>
+                            <p class="text-lg font-bold text-neonPink">$45.000</p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-bold uppercase text-gray-400">Color:</span>
+                                <div class="flex gap-2">
+                                    <button onclick="updateColor('gorra-karma', 'white')"
+                                        class="w-6 h-6 rounded-full border-2 border-gray-300 dark:border-gray-600 shadow-sm transition-all"
+                                        style="background-color: #ffffff;"></button>
+                                    <button onclick="updateColor('gorra-karma', 'black')"
+                                        class="w-6 h-6 rounded-full border-2 border-neonPink scale-110 shadow-sm transition-all"
+                                        style="background-color: #000000;"></button>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 pt-2">
+                                <div class="flex items-center border border-gray-200 dark:border-gray-700 rounded-lg">
+                                    <button onclick="updateQuantity('gorra-karma', -1)"
+                                        class="px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">-</button>
+                                    <span
+                                        class="px-2 font-bold text-sm min-w-[20px] text-center dark:text-white">1</span>
+                                    <button onclick="updateQuantity('gorra-karma', 1)"
+                                        class="px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">+</button>
+                                </div>
+                                <button onclick="buyProduct('gorra-karma')"
+                                    class="flex-1 bg-black dark:bg-white text-white dark:text-black py-2 rounded-lg font-bold text-sm hover:bg-neonPink dark:hover:bg-neonPink hover:text-white dark:hover:text-white transition-all flex items-center justify-center gap-2">
+                                    <i class="fa-brands fa-whatsapp"></i> COMPRAR
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 4: TOTE BAG -->
+                <div class="bg-white dark:bg-neutral-900 rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-800 transition-all hover:shadow-neonPink/20 group"
+                    id="card-tote-karma">
+                    <div class="relative aspect-square bg-gray-100 dark:bg-gray-800 p-4">
+                        <img src="imgmerch/bolsanegra.png" alt="Tote Bag KARMA"
+                            class="w-full h-full object-contain object-center transition-transform duration-500 group-hover:scale-105"
+                            id="img-tote-karma">
+                        <div
+                            class="absolute top-4 right-4 bg-black/50 text-white text-xs px-2 py-1 rounded backdrop-blur-sm">
+                            Talla Única</div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold dark:text-white">Tote Bag KARMA</h3>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Bolso de tela resistente y
+                                    ecológico.</p>
+                            </div>
+                            <p class="text-lg font-bold text-neonPink">$30.000</p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-bold uppercase text-gray-400">Color:</span>
+                                <div class="flex gap-2">
+                                    <button onclick="updateColor('tote-karma', 'white')"
+                                        class="w-6 h-6 rounded-full border-2 border-gray-300 dark:border-gray-600 shadow-sm transition-all"
+                                        style="background-color: #ffffff;"></button>
+                                    <button onclick="updateColor('tote-karma', 'black')"
+                                        class="w-6 h-6 rounded-full border-2 border-neonPink scale-110 shadow-sm transition-all"
+                                        style="background-color: #000000;"></button>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 pt-2">
+                                <div class="flex items-center border border-gray-200 dark:border-gray-700 rounded-lg">
+                                    <button onclick="updateQuantity('tote-karma', -1)"
+                                        class="px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">-</button>
+                                    <span
+                                        class="px-2 font-bold text-sm min-w-[20px] text-center dark:text-white">1</span>
+                                    <button onclick="updateQuantity('tote-karma', 1)"
+                                        class="px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">+</button>
+                                </div>
+                                <button onclick="buyProduct('tote-karma')"
+                                    class="flex-1 bg-black dark:bg-white text-white dark:text-black py-2 rounded-lg font-bold text-sm hover:bg-neonPink dark:hover:bg-neonPink hover:text-white dark:hover:text-white transition-all flex items-center justify-center gap-2">
+                                    <i class="fa-brands fa-whatsapp"></i> COMPRAR
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             <div
