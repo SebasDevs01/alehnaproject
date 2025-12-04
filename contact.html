@@ -59,6 +59,15 @@
                 <a href="contact.html" class="text-neonPink transition-colors">Contacto</a>
             </div>
             <div class="flex items-center gap-4">
+                <!-- BOTÓN CARRITO -->
+                <button onclick="toggleCart()"
+                    class="relative p-2 text-black dark:text-white hover:text-neonPink transition-colors">
+                    <i class="fa-solid fa-cart-shopping text-xl"></i>
+                    <!-- Contador (oculto si es 0) -->
+                    <span id="cart-count"
+                        class="hidden absolute -top-1 -right-1 bg-neonPink text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                </button>
+
                 <button id="theme-toggle"
                     class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors focus:outline-none">
                     <i class="fa-solid fa-sun text-gray-800 dark:text-white text-xl hidden dark:block"></i>
@@ -74,6 +83,36 @@
         <a href="music.html" class="text-2xl font-bold hover:text-neonPink text-black dark:text-white">MÚSICA</a>
         <a href="merch.html" class="text-2xl font-bold hover:text-neonPink text-black dark:text-white">MERCH</a>
         <a href="contact.html" class="text-2xl font-bold text-neonPink">CONTACTO</a>
+    </div>
+
+    <!-- SIDEBAR DEL CARRITO (NUEVO) -->
+    <div id="cart-overlay" onclick="toggleCart()"
+        class="fixed inset-0 bg-black/50 z-[70] hidden backdrop-blur-sm transition-opacity"></div>
+    <div id="cart-sidebar"
+        class="fixed top-0 right-0 h-full w-full md:w-96 bg-white dark:bg-black z-[80] shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col border-l border-gray-200 dark:border-gray-800">
+        <div class="p-6 border-b border-gray-200 dark:border-gray-800 flex justify-between items-center">
+            <h2 class="text-xl font-black tracking-widest text-black dark:text-white">TU CARRITO</h2>
+            <button onclick="toggleCart()" class="text-gray-500 hover:text-neonPink"><i
+                    class="fa-solid fa-xmark text-2xl"></i></button>
+        </div>
+
+        <!-- Lista de productos -->
+        <div id="cart-items" class="flex-1 overflow-y-auto p-6">
+            <!-- Aquí JS inyectará los productos -->
+            <p class="text-center text-gray-500">Tu carrito está vacío.</p>
+        </div>
+
+        <!-- Footer del carrito -->
+        <div class="p-6 border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-neutral-900">
+            <div class="flex justify-between items-center mb-4 text-xl font-bold text-black dark:text-white">
+                <span>Total:</span>
+                <span id="cart-total" class="text-neonPink">$0</span>
+            </div>
+            <button onclick="checkoutCart()"
+                class="w-full py-4 bg-neonPink text-white font-black rounded-lg hover:brightness-110 transition-all flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(255,0,127,0.4)]">
+                <i class="fa-brands fa-whatsapp text-xl"></i> PAGAR AHORA
+            </button>
+        </div>
     </div>
 
     <main class="flex-grow pt-32 pb-20 px-4">
