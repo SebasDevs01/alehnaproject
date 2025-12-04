@@ -300,6 +300,68 @@ function loadCartFromStorage() {
 }
 
 // --- ENVÍO DE CORREO Y FORMSPREE (Mantener anterior) ---
-window.sendEmail = () => { /* ... código anterior ... */ };
+// 6. Comprar producto individual directamente
+window.buyProduct = (productId) => {
+    const product = products.find(p => p.id === productId);
+    const selection = state[productId];
+    const subtotal = product.price * selection.quantity;
+    const colorName = selection.color === 'white' ? 'Blanco' : 'Negro';
+
+    let message = "Hola ALEHNA, quiero comprar este producto:\n\n";
+    message += `▪ ${product.name}\n   Color: ${colorName} | Talla: ${selection.size}\n   Cantidad: ${selection.quantity} | Total: $${subtotal.toLocaleString('es-CO')}\n\n`;
+    message += "Mis datos de envío son:\n(Por favor completa aquí)";
+
+    const url = `https://wa.me/573164280293?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+};
+
+// --- ENVÍO DE CORREO (CONTACTO) ---
+window.sendEmail = () => {
+    const name = document.getElementById('contact-name').value;
+    const email = document.getElementById('contact-email').value;
+    const subject = document.getElementById('contact-subject').value;
+    const message = document.getElementById('contact-message').value;
+
+    if (!name || !email || !message) {
+        alert('Por favor completa todos los campos requeridos.');
+        return;
+    }
+
+    const recipient = 'alenamusicoficial@gmail.com';
+    const finalSubject = subject || 'Contacto desde Web';
+    // Formato de párrafo solicitado: solo la inicial del párrafo en mayúscula
+    const body = `Hola soy ${name.toLowerCase()}, ${message.toLowerCase()}. me puedes contactar a ${email.toLowerCase()}.`;
+
+    if (isMobileDevice()) {
+        // En celular: usar mailto para abrir app nativa (Gmail u otra)
+        window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(finalSubject)}&body=${encodeURIComponent(body)}`;
+    } else {
+        // En PC: abrir Gmail en la web
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}&su=${encodeURIComponent(finalSubject)}&body=${encodeURIComponent(body)}`;
+        window.open(gmailUrl, '_blank');
+    }
+
+    // Limpiar formulario después de enviar
+    setTimeout(() => {
+        document.getElementById('contact-name').value = '';
+        document.getElementById('contact-email').value = '';
+        document.getElementById('contact-subject').value = '';
+        document.getElementById('contact-message').value = '';
+    }, 1000);
+};
+
+// Función para abrir cliente de correo desde el link directo
+window.openEmailClient = (event) => {
+    if (event) event.preventDefault();
+    const recipient = 'alenamusicoficial@gmail.com';
+
+    if (isMobileDevice()) {
+        window.location.href = `mailto:${recipient}`;
+    } else {
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}`;
+        window.open(gmailUrl, '_blank');
+    }
+};
+
 function setupContactForm() { /* ... código anterior ... */ }
 function setupMailtoToGmail() { /* ... código anterior ... */ }
