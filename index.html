@@ -9,6 +9,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1/lite-youtube.min.js"></script>
 
     <!-- SCRIPT ANTI-PARPADEO -->
     <script>
@@ -58,18 +60,23 @@
 <body
     class="font-sans antialiased transition-colors duration-300 bg-lightBg text-black dark:bg-darkBg dark:text-white flex flex-col min-h-screen">
 
+    <div id="particles-container"></div>
+
     <nav
         class="fixed top-0 w-full z-[60] bg-white/70 dark:bg-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300 h-[72px] flex items-center">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <a href="index.html"
-                class="text-2xl font-black tracking-tighter hover:text-neonPink transition-colors text-black dark:text-white">
-                ALEHNA<span class="text-neonPink">.</span>
+                class="text-2xl font-gothic logo-metallic hover:scale-105 transition-transform text-black dark:text-white z-[65]">
+                ALEHNA<span class="text-neonPink text-shadow-none">.</span>
             </a>
             <div
-                class="hidden md:flex items-center gap-8 font-bold text-sm tracking-widest uppercase text-black dark:text-white">
-                <a href="music.html" class="hover:text-neonPink transition-colors">Música</a>
-                <a href="merch.html" class="hover:text-neonPink transition-colors">Merch</a>
-                <a href="contact.html" class="hover:text-neonPink transition-colors">Contacto</a>
+                class="hidden md:flex items-center gap-6 font-bold text-sm tracking-widest uppercase text-black dark:text-white z-[65]">
+                <a href="biografia.html" class="hover:text-neonPink transition-colors">BIOGRAFÍA</a>
+                <a href="music.html" class="hover:text-neonPink transition-colors">MÚSICA</a>
+                <a href="lanzamientos.html" class="hover:text-neonPink transition-colors">LANZAMIENTOS</a>
+                <a href="videos.html" class="hover:text-neonPink transition-colors">VIDEOS</a>
+                <a href="merch.html" class="hover:text-neonPink transition-colors">MERCH</a>
+                <a href="contact.html" class="hover:text-neonPink transition-colors">CONTACTO</a>
             </div>
             <div class="flex items-center gap-4">
                 <!-- BOTÓN CARRITO -->
@@ -94,8 +101,13 @@
     </nav>
 
     <div id="mobile-menu"
-        class="fixed inset-0 z-[55] bg-white/95 dark:bg-black/95 flex flex-col items-center justify-center space-y-8 hidden md:hidden transition-colors duration-300">
+        class="fixed inset-0 z-[55] bg-white/95 dark:bg-black/95 flex flex-col items-center justify-center space-y-6 hidden md:hidden transition-colors duration-300">
+        <a href="index.html" class="text-2xl font-bold hover:text-neonPink text-black dark:text-white">INICIO</a>
+        <a href="biografia.html" class="text-2xl font-bold hover:text-neonPink text-black dark:text-white">BIOGRAFÍA</a>
         <a href="music.html" class="text-2xl font-bold hover:text-neonPink text-black dark:text-white">MÚSICA</a>
+        <a href="lanzamientos.html"
+            class="text-2xl font-bold hover:text-neonPink text-black dark:text-white">LANZAMIENTOS</a>
+        <a href="videos.html" class="text-2xl font-bold hover:text-neonPink text-black dark:text-white">VIDEOS</a>
         <a href="merch.html" class="text-2xl font-bold hover:text-neonPink text-black dark:text-white">MERCH</a>
         <a href="contact.html" class="text-2xl font-bold hover:text-neonPink text-black dark:text-white">CONTACTO</a>
     </div>
@@ -130,58 +142,106 @@
         </div>
     </div>
 
-    <main class="flex-grow flex flex-col items-center justify-center pt-24 pb-12 px-4 relative overflow-hidden">
+    <main class="flex-grow flex flex-col items-center justify-center pt-24 pb-12 px-4 relative z-10 overflow-hidden">
         <div
             class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-neonPink/20 rounded-full blur-[120px] -z-10 animate-pulse-slow">
         </div>
         <div class="text-center space-y-8 max-w-5xl w-full">
-            <h1 class="text-6xl md:text-9xl font-black tracking-tighter leading-none">ALEHNA</h1>
-            <p class="text-xl md:text-2xl font-light tracking-[0.5em] uppercase opacity-80">El Karma Era</p>
-            <div
-                class="w-full aspect-video rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(255,0,127,0.3)] border border-gray-800 dark:border-gray-700 group relative">
-                <video poster="karma-portada.jpg" autoplay muted loop playsinline class="w-full h-full object-cover">
-                    <source src="karmavideo/karma.mp4" type="video/mp4">
-                </video>
-                <div class="absolute inset-0 bg-neonPink/10 pointer-events-none mix-blend-overlay"></div>
-                <div
-                    class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-black/40">
-                    <a href="music.html"
-                        class="bg-neonPink text-white px-8 py-3 rounded-full font-bold hover:scale-105 transition-transform">
-                        <i class="fa-solid fa-play mr-2"></i> ESCUCHAR AHORA
-                    </a>
+            <div class="flame-glow inline-block">
+                <h1 class="text-6xl md:text-9xl font-gothic logo-metallic leading-none mb-10">ALEHNA</h1>
+            </div>
+        </div>
+
+        <!-- SECCIÓN: Biografía y Boletín de Prensa -->
+        <div class="mt-32 max-w-6xl w-full">
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                <div class="order-2 md:order-1 space-y-6 text-left">
+                    <h2 class="text-4xl md:text-5xl font-gothic logo-metallic mb-6">Sobre ALEHNA</h2>
+
+                    <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed font-light">
+                        Nace el 21 de Octubre de 2001 en la ciudad de Cali. Desde muy temprana edad identifica su innata
+                        vocación e inicia un imparable recorrido para toda la vida: el camino de la música como forma de
+                        vivir.
+                    </p>
+                    <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed font-light">
+                        <strong>ALEHNA</strong> es una artista que transforma experiencias íntimas en universos sonoros.
+                        Su propuesta se caracteriza por la sensibilidad emocional, la intensidad interpretativa y una
+                        estética que fusiona lo terrenal con lo espiritual.
+                    </p>
+
+                    <h3 class="text-2xl font-gothic logo-metallic mt-12 mb-4">“ALMAS” — Su Nuevo Sencillo</h3>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed font-light">
+                        Un viaje sonoro hacia el reencuentro espiritual. <strong>"ALMAS"</strong> no es solo una
+                        canción, es una confesión y un despertar. Esta obra profundamente emocional explora el vacío
+                        espiritual que surge cuando nos dejamos seducir por lo superficial… y el ardiente deseo de
+                        volver a casa.
+                    </p>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed font-light">
+                        En esta nueva entrega, ALEHNA narra la historia de una mujer que, atrapada por lo mundano, se
+                        aleja de su esencia espiritual. Entre el ruido, las apariencias y las distracciones del mundo
+                        exterior, su alma comienza a susurrar. Lo que inicia como un distanciamiento silencioso se
+                        transforma en una búsqueda intensa por recuperar esa conexión profunda, apasionada y casi
+                        sagrada que alguna vez la hizo sentir viva.
+                    </p>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed font-light">
+                        Musicalmente promete envolver al oyente en una atmósfera íntima y poderosa, donde la
+                        vulnerabilidad y la fuerza coexisten. La interpretación vocal de ALEHNA se convierte en el hilo
+                        conductor de una narrativa que conecta con cualquiera que haya sentido, al menos una vez, que
+                        perdió su rumbo interior.
+                    </p>
+
+                    <blockquote
+                        class="border-l-4 border-[#800020] pl-6 py-2 my-6 italic text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-black/30 rounded-r-lg p-4">
+                        “Esta canción nace desde un lugar muy honesto. Todos en algún momento nos desconectamos de
+                        nosotros mismos. ‘ALMAS’ es un recordatorio de que siempre podemos volver.” <br><span
+                            class="font-bold text-neonPink mt-2 block">— ALEHNA</span>
+                    </blockquote>
+
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed font-light">
+                        Con este lanzamiento, ALEHNA continúa consolidando su identidad artística, apostando por letras
+                        profundas, emociones reales y un mensaje que trasciende lo comercial para tocar lo esencial.
+                    </p>
+                </div>
+
+                <!-- Columna de Imagen -->
+                <div class="order-1 md:order-2 grid gap-6 relative">
+                    <div class="md:sticky md:top-32 relative group overflow-hidden rounded-2xl">
+                        <img src="imgbio/alebio.jpg" alt="Alehna Biografía"
+                            class="w-full rounded-2xl shadow-[0_0_30px_rgba(128,0,32,0.4)] border-2 border-gray-800 dark:border-neutral-800 object-cover aspect-[3/4] transition-transform duration-500 group-hover:scale-[1.05]">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60 rounded-2xl">
+                        </div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <h4 class="font-black text-2xl mb-1 text-white text-shadow-md">Último Lanzamiento</h4>
+                            <p class="text-[#FF007F] font-bold text-lg flex items-center gap-2">
+                                <i class="fa-solid fa-calendar-star"></i> Finales de Marzo 2026
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="grid md:grid-cols-3 gap-6 mt-12">
-                <a href="music.html"
-                    class="group relative h-48 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-neutral-900 dark:to-black transition-colors">
-                    </div>
-                    <div class="absolute inset-0 flex flex-col items-center justify-center z-10">
-                        <i class="fa-solid fa-music text-4xl mb-4 group-hover:text-neonPink transition-colors"></i>
-                        <span class="font-bold tracking-widest text-lg">MÚSICA</span>
-                    </div>
-                </a>
-                <a href="merch.html"
-                    class="group relative h-48 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-neutral-900 dark:to-black transition-colors">
-                    </div>
-                    <div class="absolute inset-0 flex flex-col items-center justify-center z-10">
-                        <i class="fa-solid fa-shirt text-4xl mb-4 group-hover:text-neonPink transition-colors"></i>
-                        <span class="font-bold tracking-widest text-lg">MERCH</span>
-                    </div>
-                </a>
-                <a href="contact.html"
-                    class="group relative h-48 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-neutral-900 dark:to-black transition-colors">
-                    </div>
-                    <div class="absolute inset-0 flex flex-col items-center justify-center z-10">
-                        <i class="fa-solid fa-envelope text-4xl mb-4 group-hover:text-neonPink transition-colors"></i>
-                        <span class="font-bold tracking-widest text-lg">CONTACTO</span>
-                    </div>
-                </a>
+        </div>
+
+        <!-- SECCIÓN: Boletín Informativo -->
+        <div
+            class="mt-32 mb-12 max-w-3xl w-full mx-auto bg-gray-50 dark:bg-neutral-900 rounded-3xl p-8 md:p-12 border border-gray-200 dark:border-gray-800 shadow-2xl relative overflow-hidden group">
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-transparent via-[#800020]/10 to-[#FF007F]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+            </div>
+            <div class="text-center relative z-10 space-y-6">
+                <i class="fa-solid fa-envelope-open-text text-4xl text-[#FF007F]"></i>
+                <h2 class="text-3xl md:text-4xl font-gothic logo-metallic">Diario de ALEHNA</h2>
+                <p class="text-gray-700 dark:text-gray-400">Únete al boletín informativo para enterarte antes que nadie
+                    sobre nueva música, shows y merch exclusivo.</p>
+                <form class="flex flex-col sm:flex-row gap-4 mt-8"
+                    onsubmit="event.preventDefault(); alert('¡Gracias por unirte al Diario de ALEHNA!');">
+                    <input type="email" placeholder="Tu correo electrónico" required
+                        class="flex-1 px-6 py-4 rounded-xl bg-white dark:bg-black border border-gray-300 dark:border-gray-700 focus:border-neonPink focus:outline-none transition-colors text-black dark:text-white">
+                    <button type="submit"
+                        class="bg-black dark:bg-white text-white dark:text-black font-bold uppercase tracking-widest px-8 py-4 rounded-xl hover:bg-[#A3003B] hover:text-white dark:hover:bg-neonPink dark:hover:text-white transition-all shadow-lg hover:shadow-neonPink/50">
+                        SUSCRIBIRSE
+                    </button>
+                </form>
             </div>
         </div>
     </main>

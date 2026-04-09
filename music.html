@@ -14,6 +14,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <script>
         if (localStorage.theme === 'dark') {
             document.documentElement.classList.add('dark');
@@ -51,17 +52,24 @@
 
 <body
     class="font-sans antialiased transition-colors duration-300 bg-lightBg text-black dark:bg-darkBg dark:text-white flex flex-col min-h-screen">
+
+    <div id="particles-container"></div>
+
     <nav
         class="fixed top-0 w-full z-[60] bg-white/70 dark:bg-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300 h-[72px] flex items-center">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <a href="index.html"
-                class="text-2xl font-black tracking-tighter hover:text-neonPink transition-colors text-black dark:text-white">ALEHNA<span
-                    class="text-neonPink">.</span></a>
+                class="text-2xl font-gothic logo-metallic hover:scale-105 transition-transform text-black dark:text-white z-[65]">ALEHNA<span
+                    class="text-neonPink text-shadow-none">.</span></a>
             <div
-                class="hidden md:flex items-center gap-8 font-bold text-sm tracking-widest uppercase text-black dark:text-white">
-                <a href="music.html" class="text-neonPink transition-colors">Música</a>
-                <a href="merch.html" class="hover:text-neonPink transition-colors">Merch</a>
-                <a href="contact.html" class="hover:text-neonPink transition-colors">Contacto</a>
+                class="hidden md:flex items-center gap-6 font-bold text-sm tracking-widest uppercase text-black dark:text-white z-[65]">
+                <a href="index.html" class="hover:text-neonPink transition-colors">INICIO</a>
+                <a href="biografia.html" class="hover:text-neonPink transition-colors">BIOGRAFÍA</a>
+                <a href="music.html" class="text-neonPink transition-colors">MÚSICA</a>
+                <a href="lanzamientos.html" class="hover:text-neonPink transition-colors">LANZAMIENTOS</a>
+                <a href="videos.html" class="hover:text-neonPink transition-colors">VIDEOS</a>
+                <a href="merch.html" class="hover:text-neonPink transition-colors">MERCH</a>
+                <a href="contact.html" class="hover:text-neonPink transition-colors">CONTACTO</a>
             </div>
             <div class="flex items-center gap-4">
                 <!-- BOTÓN CARRITO -->
@@ -84,8 +92,13 @@
         </div>
     </nav>
     <div id="mobile-menu"
-        class="fixed inset-0 z-[55] bg-white/95 dark:bg-black/95 flex flex-col items-center justify-center space-y-8 hidden md:hidden transition-colors duration-300">
+        class="fixed inset-0 z-[55] bg-white/95 dark:bg-black/95 flex flex-col items-center justify-center space-y-6 hidden md:hidden transition-colors duration-300">
+        <a href="index.html" class="text-2xl font-bold hover:text-neonPink text-black dark:text-white">INICIO</a>
+        <a href="biografia.html" class="text-2xl font-bold hover:text-neonPink text-black dark:text-white">BIOGRAFÍA</a>
         <a href="music.html" class="text-2xl font-bold text-neonPink">MÚSICA</a>
+        <a href="lanzamientos.html"
+            class="text-2xl font-bold hover:text-neonPink text-black dark:text-white">LANZAMIENTOS</a>
+        <a href="videos.html" class="text-2xl font-bold hover:text-neonPink text-black dark:text-white">VIDEOS</a>
         <a href="merch.html" class="text-2xl font-bold hover:text-neonPink text-black dark:text-white">MERCH</a>
         <a href="contact.html" class="text-2xl font-bold hover:text-neonPink text-black dark:text-white">CONTACTO</a>
     </div>
@@ -120,17 +133,19 @@
         </div>
     </div>
 
-    <main class="flex-grow pt-32 pb-20 px-4 relative overflow-hidden">
+    <main class="flex-grow pt-32 pb-20 px-4 relative z-10 overflow-hidden">
         <div class="absolute inset-0 -z-10">
             <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px]"></div>
             <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-neonPink/10 rounded-full blur-[100px]"></div>
         </div>
         <div class="container mx-auto max-w-6xl"> <!-- Ajustado a max-w-6xl para coincidir con merch -->
-            <div class="text-center mb-16 space-y-4">
-                <h1 class="text-4xl md:text-6xl font-black">EL KARMA <span class="text-neonPink">ERA</span></h1>
-                <p class="text-gray-500 uppercase tracking-widest">Ya disponible en todas las plataformas</p>
+            <div class="text-center mb-16 space-y-4 flame-glow inline-block w-full">
+                <h1 class="text-4xl md:text-6xl font-gothic logo-metallic">MUSICA<span
+                        class="text-neonPink text-shadow-none"></span></h1>
+                <p class="text-gray-500 uppercase tracking-widest relative z-20">Ya disponible en todas las plataformas
+                </p>
             </div>
-            <div class="max-w-4xl mx-auto space-y-12">
+            <div class="max-w-4xl mx-auto space-y-12 relative z-20">
                 <div class="grid md:grid-cols-3 gap-6">
                     <a href="https://open.spotify.com/intl-es/track/6WCIljsn5rcWF699Siq2TM" target="_blank"
                         class="flex flex-col items-center justify-center p-8 text-white rounded-2xl hover:scale-105 transition-transform shadow-lg group"
