@@ -75,43 +75,27 @@ function initParticles() {
 }
 
 function spawnParticle(container) {
-    const particle = document.createElement('i');
+    const particle = document.createElement('div');
+    particle.className = 'particle';
     
-    // Aleatorizar si es corazón o estrella
-    const isHeart = Math.random() > 0.5;
+    // Aleatorizar color de la chispa (blanco brillante, naranja, fucsia intenso)
+    const colors = ['#ffffff', '#ffaa00', '#ff007f', '#ff3300'];
+    const selectedColor = colors[Math.floor(Math.random() * colors.length)];
     
-    if (isHeart) {
-        particle.className = 'fa-solid fa-heart particle';
-    } else {
-        // Estrellas asimétricas estilo Y2k Grunge Britney en vez del icono limpio
-        particle.className = 'particle';
-        particle.innerHTML = `<svg viewBox="0 0 100 100" fill="currentColor" width="100%" height="100%">
-            <!-- Forma de estrella gruesa e irregular -->
-            <path d="M45 5 L60 35 L95 30 L65 55 L80 95 L45 70 L10 85 L25 50 L5 20 L35 30 Z" stroke="rgba(0,0,0,0.5)" stroke-width="3" stroke-linejoin="round"/>
-        </svg>`;
-        particle.style.display = 'inline-flex';
-    }
-    
-    // Dar color vinotinto o rosita (Pop/Rock Britney style)
-    // Rosita brillante: #FF007F, Vinotinto: #800020 u oscuro #A3003B
-    const isVinotinto = Math.random() > 0.5;
-    particle.style.color = isVinotinto ? '#800020' : '#FF007F'; 
+    particle.style.backgroundColor = selectedColor;
+    particle.style.boxShadow = `0 0 ${Math.random() * 10 + 5}px ${selectedColor}`;
+    particle.style.borderRadius = '50%';
 
-    if (!document.documentElement.classList.contains('dark')) {
-        particle.style.color = isVinotinto ? '#A3003B' : '#FF1493'; // Un poco más claros en modo claro para destacar
-    }
-
-    // Tamaño aleatorio, las estrellas asimétricas se verán muy bien un poco más grandes (20px a 35px)
-    const size = Math.floor(Math.random() * 15) + (isHeart ? 12 : 20);
-    particle.style.fontSize = `${size}px`;
-    particle.style.width = isHeart ? 'auto' : `${size}px`;
-    particle.style.height = isHeart ? 'auto' : `${size}px`;
+    // Tamaño de chispa (muy pequeñitas: 2px a 6px)
+    const size = Math.random() * 4 + 2;
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
 
     // Posición horizontal aleatoria
     particle.style.left = `${Math.random() * 100}vw`;
 
-    // Duración de animación aleatoria (floatUp) entre 5 y 10 segundos
-    const duration = Math.random() * 5 + 5;
+    // Las chispas suben más rápido que los corazones (duración de 2 a 5 segundos)
+    const duration = Math.random() * 3 + 2;
     particle.style.animationDuration = `${duration}s`;
 
     // Retraso aleatorio

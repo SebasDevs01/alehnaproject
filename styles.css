@@ -37,26 +37,6 @@ html:not(.dark) .logo-metallic {
         0px 5px 15px rgba(255, 0, 127, 0.3);
 }
 
-/* Background flame animation behind logo */
-.flame-glow {
-    position: relative;
-    z-index: 10;
-}
-
-.flame-glow::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 140%;
-    height: 140%;
-    background: radial-gradient(circle, rgba(255,0,127,0.4) 0%, rgba(128,0,32,0.3) 40%, rgba(255,0,127,0) 70%);
-    z-index: -1;
-    filter: blur(25px);
-    animation: flicker 3s infinite alternate ease-in-out;
-    pointer-events: none;
-}
 
 /* Particles Container */
 #particles-container {
