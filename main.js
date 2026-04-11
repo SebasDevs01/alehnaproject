@@ -412,3 +412,55 @@ window.openEmailClient = (event) => {
 
 function setupContactForm() { /* ... código anterior ... */ }
 function setupMailtoToGmail() { /* ... código anterior ... */ }
+
+// --- LÓGICA GLOBAL DEL BANNER DE CUENTA REGRESIVA ---
+(function initBannerCountdown() {
+    const daysEl = document.getElementById("top-days");
+    const hoursEl = document.getElementById("top-hours");
+    const minutesEl = document.getElementById("top-minutes");
+    const secondsEl = document.getElementById("top-seconds");
+    const btnEl = document.getElementById("top-youtube-btn");
+
+    // Solo iniciar el contador si el banner existe en la página
+    if (!daysEl) return;
+
+    // Fecha de lanzamiento: 30 de abril de 2026, 9:00 PM hora local
+    // Usamos formato ISO 8601 para garantizar que el navegador lo parsee correctamente (YYYY-MM-DDTHH:mm:ss)
+    const targetDate = new Date("2026-04-30T21:00:00").getTime();
+
+    let countdownInterval;
+    
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance < 0 || isNaN(distance)) {
+            if (countdownInterval) clearInterval(countdownInterval);
+            daysEl.textContent = "00";
+            hoursEl.textContent = "00";
+            minutesEl.textContent = "00";
+            secondsEl.textContent = "00";
+            
+            if (btnEl && distance < 0) {
+                btnEl.innerHTML = '<i class="fa-brands fa-youtube text-lg md:text-xl"></i><span class="hidden lg:inline">¡Escuchar Ahora!</span>';
+            }
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        daysEl.textContent = String(days).padStart(2, '0');
+        hoursEl.textContent = String(hours).padStart(2, '0');
+        minutesEl.textContent = String(minutes).padStart(2, '0');
+        secondsEl.textContent = String(seconds).padStart(2, '0');
+    }
+
+    // Ejecutar inmediatamente para evitar el retraso de 1 segundo mostrando ceros
+    updateCountdown();
+    
+    // Iniciar el intervalo si aún no hemos llegado a la fecha
+    countdownInterval = setInterval(updateCountdown, 1000);
+})();
