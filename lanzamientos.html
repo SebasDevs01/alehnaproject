@@ -153,17 +153,38 @@
                 <!-- Info -->
                 <div class="space-y-6">
                     <h2 class="text-5xl font-gothic font-bold logo-metallic">ALMAS</h2>
-                    <p class="text-xl text-gray-400">Marzo 2026</p>
+                    <p class="text-xl text-neonPink font-bold mb-4 drop-shadow-[0_0_10px_rgba(255,0,127,0.8)]"><i class="fa-solid fa-clock mr-2"></i> 30 de Abril 2026 - 9:00 PM</p>
+                    
+                    <!-- Countdown Timer -->
+                    <div id="countdown" class="flex flex-wrap gap-4 mb-8">
+                        <div class="flex flex-col items-center justify-center bg-black/40 backdrop-blur-md border border-gray-800 dark:border-neutral-800 p-4 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.5)] w-[88px]">
+                            <span id="cd-days" class="text-4xl font-black text-white font-gothic">00</span>
+                            <span class="text-[10px] tracking-widest text-gray-400 mt-1 uppercase font-bold">Días</span>
+                        </div>
+                        <div class="flex flex-col items-center justify-center bg-black/40 backdrop-blur-md border border-gray-800 dark:border-neutral-800 p-4 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.5)] w-[88px]">
+                            <span id="cd-hours" class="text-4xl font-black text-white font-gothic">00</span>
+                            <span class="text-[10px] tracking-widest text-gray-400 mt-1 uppercase font-bold">Horas</span>
+                        </div>
+                        <div class="flex flex-col items-center justify-center bg-black/40 backdrop-blur-md border border-gray-800 dark:border-neutral-800 p-4 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.5)] w-[88px]">
+                            <span id="cd-minutes" class="text-4xl font-black text-white font-gothic">00</span>
+                            <span class="text-[10px] tracking-widest text-gray-400 mt-1 uppercase font-bold">Min</span>
+                        </div>
+                        <div class="flex flex-col items-center justify-center bg-neonPink/10 backdrop-blur-md border border-neonPink/50 p-4 rounded-2xl shadow-[0_0_20px_rgba(255,0,127,0.3)] w-[88px]">
+                            <span id="cd-seconds" class="text-4xl font-black text-neonPink font-gothic">00</span>
+                            <span class="text-[10px] tracking-widest text-neonPink mt-1 uppercase font-bold">Seg</span>
+                        </div>
+                    </div>
+                    
                     <p class="text-lg text-gray-700 dark:text-gray-300 font-light leading-relaxed">
-                        El esperado nuevo sencillo de ALEHNA es un oscuro pero vibrante viaje hacia el auto-descubrimiento. Escúchalo primero en todas las plataformas digitales.
+                        El esperado nuevo sencillo de ALEHNA es un oscuro pero vibrante viaje hacia el auto-descubrimiento. 
                     </p>
                     
                     <div class="pt-6 space-y-4">
-                        <a href="#" class="flex items-center justify-center gap-3 w-full bg-[#1DB954] hover:bg-[#1ed760] text-white font-bold py-4 rounded-xl transition-colors shadow-lg">
-                            <i class="fa-brands fa-spotify text-2xl"></i> Pre-guardar en Spotify
+                        <a href="https://www.youtube.com/@ALEHNAOFICIAL" target="_blank" class="flex items-center justify-center gap-3 w-full bg-[#FF0000] hover:bg-[#ff3333] text-white font-bold py-4 rounded-xl transition-all shadow-lg hover:shadow-[0_0_25px_rgba(255,0,0,0.5)] hover:scale-[1.02]">
+                            <i class="fa-brands fa-youtube text-2xl"></i> Ir al Canal Oficial
                         </a>
-                        <a href="#" class="flex items-center justify-center gap-3 w-full bg-[#FA243C] hover:bg-[#fb4155] text-white font-bold py-4 rounded-xl transition-colors shadow-lg">
-                            <i class="fa-brands fa-apple text-2xl"></i> Pre-guardar en Apple Music
+                        <a href="#" class="flex items-center justify-center gap-3 w-full bg-[#1DB954] hover:bg-[#1ed760] text-white font-bold py-4 rounded-xl transition-colors shadow-lg opacity-50 cursor-not-allowed">
+                            <i class="fa-brands fa-spotify text-2xl"></i> Pre-guardar (Próximamente)
                         </a>
                     </div>
                 </div>
@@ -186,6 +207,38 @@
         <p class="text-gray-500 text-xs">&copy; 2025 ALEHNA. Todos los derechos reservados.</p>
     </footer>
     <script src="main.js"></script>
+    <script>
+        // Set target date for Almas release (April 30, 2026, 9:00 PM local time)
+        const targetDate = new Date("April 30, 2026 21:00:00").getTime();
+
+        const countdownInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById("cd-days").textContent = "00";
+                document.getElementById("cd-hours").textContent = "00";
+                document.getElementById("cd-minutes").textContent = "00";
+                document.getElementById("cd-seconds").textContent = "00";
+                
+                // Redirect user to right away when time is up
+                window.location.href = "https://www.youtube.com/@ALEHNAOFICIAL";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Pad with zero if needed
+            document.getElementById("cd-days").textContent = String(days).padStart(2, '0');
+            document.getElementById("cd-hours").textContent = String(hours).padStart(2, '0');
+            document.getElementById("cd-minutes").textContent = String(minutes).padStart(2, '0');
+            document.getElementById("cd-seconds").textContent = String(seconds).padStart(2, '0');
+        }, 1000);
+    </script>
 </body>
 
 </html>
