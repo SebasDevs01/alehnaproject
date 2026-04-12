@@ -164,13 +164,72 @@ function initMobileMenu() {
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
     
-    // Definir funcion global para los enlaces del menu (onclick="toggleMenu()")
     window.toggleMenu = () => {
-        if(menu) menu.classList.toggle('hidden');
+        if (!menu) return;
+        const isHidden = menu.classList.contains('hidden');
+        if (isHidden) {
+            menu.classList.remove('hidden');
+            menu.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        } else {
+            menu.classList.remove('flex');
+            menu.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
     };
 
     if (btn && menu) {
         btn.addEventListener('click', window.toggleMenu);
+    }
+
+    // ── ACTIVE PAGE & SECTION INDICATOR IN MOBILE MENU ──────────────────
+    if (menu) {
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        const links = menu.querySelectorAll('a[href]');
+
+        function highlightMobileLinks(activeSectionId) {
+            links.forEach(link => {
+                const href = link.getAttribute('href') || '';
+                if (link.classList.contains('bg-pastelVino')) return; // skip "Únete" button
+                const hrefPage = href.split('#')[0] || '';
+                const hrefHash = href.includes('#') ? href.split('#')[1] : null;
+                let isActive = false;
+
+                if (currentPage === 'index.html' || currentPage === '') {
+                    // On index: match anchor sections
+                    if (hrefHash && (hrefPage === '' || hrefPage === 'index.html')) {
+                        isActive = hrefHash === activeSectionId;
+                    }
+                } else {
+                    // On other pages: match filename
+                    isActive = hrefPage === currentPage && !hrefHash;
+                }
+
+                if (isActive) {
+                    link.classList.add('text-pastelVino', 'border-b-2', 'border-pastelVino', 'pb-1');
+                    link.classList.remove('text-darkText');
+                } else {
+                    link.classList.remove('text-pastelVino', 'border-b-2', 'border-pastelVino', 'pb-1');
+                    link.classList.add('text-darkText');
+                }
+            });
+        }
+
+        // For pages other than index, highlight on load
+        if (currentPage !== 'index.html' && currentPage !== '') {
+            highlightMobileLinks(null);
+        }
+
+        // For index: detect active section from scroll-spy when menu opens
+        if (currentPage === 'index.html' || currentPage === '') {
+            const origToggle = window.toggleMenu;
+            window.toggleMenu = () => {
+                origToggle();
+                const activeNavLink = document.querySelector('#desktop-nav a.text-pastelVino[data-section]');
+                const section = activeNavLink ? activeNavLink.dataset.section : 'music';
+                highlightMobileLinks(section);
+            };
+        }
     }
 }
 

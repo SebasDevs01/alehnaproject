@@ -32,27 +32,38 @@
         .vinyl-sleeve { transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); z-index: 10; }
         .info-panel { transition: all 0.6s ease; opacity: 0; transform: translateX(20px); pointer-events: none; }
         
+        /* Desktop: disc slides right */
         .group.disc-open .vinyl-disc { transform: translateX(8rem) rotate(90deg); }
         .group.disc-open .vinyl-sleeve { transform: translateX(-2rem); }
         .group.info-open .info-panel { opacity: 1; transform: translateX(0); pointer-events: auto; }
         .group:not(.disc-open):not(.info-open):hover .vinyl-disc { transform: translateX(3rem) rotate(20deg); }
         .group:not(.disc-open):not(.info-open):hover .vinyl-sleeve { transform: translateX(-1rem); }
+
+        /* Mobile: disc slides down instead of sideways */
+        @media (max-width: 767px) {
+            .info-panel { transform: translateY(20px); }
+            .group.info-open .info-panel { transform: translateY(0); }
+            .group.disc-open .vinyl-disc { transform: translateY(5rem) rotate(90deg) !important; }
+            .group.disc-open .vinyl-sleeve { transform: translateY(-1rem) !important; }
+            .group:not(.disc-open):not(.info-open):hover .vinyl-disc { transform: translateY(2rem) rotate(20deg) !important; }
+            .group:not(.disc-open):not(.info-open):hover .vinyl-sleeve { transform: translateY(-0.5rem) !important; }
+        }
     </style>
 </head>
 <body class="bg-pastelBeige text-darkText font-sans transition-colors duration-300">
 
-    <!-- WRAPPER FIXED (BANNER + HEADER) -->
-    <div class="fixed top-0 left-0 w-full z-[150] shadow-sm flex flex-col">
+    <!-- WRAPPER STICKY (BANNER + HEADER) -->
+    <div class="sticky top-0 w-full z-[150] shadow-sm flex flex-col">
         <div class="w-full bg-pastelBeige border-b border-pastelCafe h-[53px] grid grid-cols-3 items-center px-2 md:px-4 text-pastelCafe text-xs">
             <div class="flex items-center justify-start gap-2">
-                <div class="relative flex-shrink-0 w-8 h-8 md:w-10 md:h-10 ml-2 mr-3 md:mr-4 hidden sm:block mt-0.5">
+                <div class="relative flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 ml-1 mr-2 md:mr-4 mt-0.5">
                     <div class="absolute inset-0 rounded-full border border-gray-600 bg-gray-900 flex items-center justify-center shadow-md spin-vinyl-auto z-0" style="transform: translateX(8px); background: conic-gradient(from 0deg, #181514 0%, #4a403d 10%, #181514 20%, #181514 40%, #4a403d 50%, #181514 60%, #181514 90%, #4a403d 100%);">
                         <img src="almas/Portada2.jpg.jpeg" class="w-1/3 h-1/3 rounded-full border border-white/50">
                         <div class="absolute w-1 h-1 bg-white rounded-full"></div>
                     </div>
                     <div class="absolute inset-0 bg-white border border-gray-300 shadow bg-cover bg-center z-10 rounded-sm" style="background-image: url('almas/Portada2.jpg.jpeg');"></div>
                 </div>
-                <span class="font-marker tracking-widest text-pastelVino md:text-sm lg:block mt-1 hidden sm:block">ALMAS</span>
+                <span class="font-marker tracking-widest text-pastelVino text-xs sm:text-sm mt-1">ALMAS</span>
             </div>
 
             <div class="flex items-center justify-center gap-1 md:gap-3 font-bold tracking-widest font-main">
@@ -79,7 +90,7 @@
                     <!-- ACTIVO -->
                     <a href="lanzamientos.html" class="text-pastelVino font-bold border-b-2 border-pastelVino transition-colors px-2 py-1">Lanzamientos</a>
                     <a href="merch.html" class="hover:text-pastelVino transition-colors px-2 py-1">Merch</a>
-                    <a href="index.html#contacto" class="hover:text-pastelVino transition-colors px-2 py-1">Contacto</a>
+                    <a href="contacto.html" class="hover:text-pastelVino transition-colors px-2 py-1">Contacto</a>
                     <a href="index.html#newsletter" class="bg-pastelVino text-white hover:bg-pastelCafe rounded-md px-4 py-1.5 transition-colors shadow-sm">Únete</a>
                 </nav>
                 <div class="flex items-center gap-4 pt-1">
@@ -108,12 +119,13 @@
         <a href="videos.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Videos</a>
         <a href="biografia.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Biografía</a>
         <a href="lanzamientos.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Lanzamientos</a>
-        <a href="merch.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">La Tienda</a>
+        <a href="merch.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Merch</a>
+        <a href="contacto.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Contacto</a>
         <a href="index.html#newsletter" class="bg-pastelVino text-white px-8 py-3 rounded-full font-bold uppercase mt-6" onclick="toggleMenu()">Únete</a>
     </div>
 
-    <main class="flex-grow pt-[160px] pb-32 px-4 flex flex-col items-center overflow-x-hidden">
-        <h1 class="text-6xl md:text-7xl font-marker text-pastelVino mb-16 text-center transform -rotate-2">LANZAMIENTOS</h1>
+    <main class="flex-grow pb-32 px-4 flex flex-col items-center overflow-x-hidden">
+        <h1 class="text-4xl sm:text-5xl md:text-7xl font-marker text-pastelVino mb-16 text-center transform -rotate-1 md:-rotate-2 px-2">LANZAMIENTOS</h1>
         
         <div class="container max-w-5xl mx-auto organic-box bg-white p-8 md:p-12 mb-16 shadow-md border border-white">
             <p class="text-center font-main text-pastelCafe font-bold text-sm tracking-[0.2em] mb-12 uppercase">Haz clic en el vinilo para descubrir la historia</p>

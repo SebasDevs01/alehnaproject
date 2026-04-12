@@ -27,18 +27,17 @@
 </head>
 <body class="bg-pastelBeige text-darkText font-sans transition-colors duration-300">
 
-    <!-- WRAPPER FIXED (BANNER + HEADER) -->
-    <div class="fixed top-0 left-0 w-full z-[150] shadow-sm flex flex-col">
+    <div class="sticky top-0 w-full z-[150] shadow-sm flex flex-col">
         <div class="w-full bg-pastelBeige border-b border-pastelCafe h-[53px] grid grid-cols-3 items-center px-2 md:px-4 text-pastelCafe text-xs">
             <div class="flex items-center justify-start gap-2">
-                <div class="relative flex-shrink-0 w-8 h-8 md:w-10 md:h-10 ml-2 mr-3 md:mr-4 hidden sm:block mt-0.5">
+                <div class="relative flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 ml-1 mr-2 md:mr-4 mt-0.5">
                     <div class="absolute inset-0 rounded-full border border-gray-600 bg-gray-900 flex items-center justify-center shadow-md spin-vinyl-auto z-0" style="transform: translateX(8px); background: conic-gradient(from 0deg, #181514 0%, #4a403d 10%, #181514 20%, #181514 40%, #4a403d 50%, #181514 60%, #181514 90%, #4a403d 100%);">
                         <img src="almas/Portada2.jpg.jpeg" class="w-1/3 h-1/3 rounded-full border border-white/50">
                         <div class="absolute w-1 h-1 bg-white rounded-full"></div>
                     </div>
                     <div class="absolute inset-0 bg-white border border-gray-300 shadow bg-cover bg-center z-10 rounded-sm" style="background-image: url('almas/Portada2.jpg.jpeg');"></div>
                 </div>
-                <span class="font-marker tracking-widest text-pastelVino md:text-sm lg:block mt-1 hidden sm:block">ALMAS</span>
+                <span class="font-marker tracking-widest text-pastelVino text-xs sm:text-sm mt-1">ALMAS</span>
             </div>
 
             <div class="flex items-center justify-center gap-1 md:gap-3 font-bold tracking-widest font-main">
@@ -65,7 +64,7 @@
                     <a href="biografia.html" class="text-pastelVino font-bold border-b-2 border-pastelVino transition-colors px-2 py-1">Biografía</a>
                     <a href="lanzamientos.html" class="hover:text-pastelVino transition-colors px-2 py-1">Lanzamientos</a>
                     <a href="merch.html" class="hover:text-pastelVino transition-colors px-2 py-1">Merch</a>
-                    <a href="index.html#contacto" class="hover:text-pastelVino transition-colors px-2 py-1">Contacto</a>
+                    <a href="contacto.html" class="hover:text-pastelVino transition-colors px-2 py-1">Contacto</a>
                     <a href="index.html#newsletter" class="bg-pastelVino text-white hover:bg-pastelCafe rounded-md px-4 py-1.5 transition-colors shadow-sm">Únete</a>
                 </nav>
                 <div class="flex items-center gap-4 pt-1">
@@ -95,11 +94,11 @@
         <a href="biografia.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Biografía</a>
         <a href="lanzamientos.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Lanzamientos</a>
         <a href="merch.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Merch</a>
-        <a href="index.html#contacto" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Contacto</a>
+        <a href="contacto.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Contacto</a>
         <a href="index.html#newsletter" class="bg-pastelVino text-white px-8 py-3 rounded-full font-bold uppercase mt-6" onclick="toggleMenu()">Únete</a>
     </div>
 
-    <main class="flex-grow pt-[160px] pb-20 px-4 relative z-10 overflow-hidden">
+    <main class="flex-grow pt-8 pb-20 px-4 relative z-10 overflow-hidden">
         <div class="container mx-auto max-w-5xl">
             <div class="grid md:grid-cols-2 gap-12 items-start">
                 <div class="order-2 md:order-1 space-y-6 text-left organic-box p-8 md:p-12 bg-white shadow-md border border-white">
@@ -114,7 +113,7 @@
                 </div>
                 <div class="order-1 md:order-2 grid gap-6 relative">
                     <div class="md:sticky md:top-40 relative organic-box p-4 bg-white rotate-2 hover:rotate-0 transition-transform duration-500 hover:scale-[1.02] shadow-lg">
-                        <img src="imgbio/alebio.jpg" alt="Alehna Biografía" class="w-full rounded object-cover aspect-[3/4]">
+                        <img src="imgbio/alebio.jpg" alt="Alehna Biografía" class="w-full rounded object-cover object-top aspect-[4/5] md:aspect-[3/4]">
                         <div class="absolute inset-0 border-[6px] border-white pointer-events-none rounded"></div>
                     </div>
                 </div>

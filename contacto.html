@@ -29,18 +29,18 @@
 </head>
 <body class="bg-pastelBeigeDark text-darkText font-sans transition-colors duration-300">
 
-    <!-- WRAPPER FIXED (BANNER + HEADER) -->
-    <div class="fixed top-0 left-0 w-full z-[150] shadow-sm flex flex-col">
+    <!-- WRAPPER STICKY (BANNER + HEADER) -->
+    <div class="sticky top-0 w-full z-[150] shadow-sm flex flex-col">
         <div class="w-full bg-pastelBeige border-b border-pastelCafe h-[53px] grid grid-cols-3 items-center px-2 md:px-4 text-pastelCafe text-xs">
             <div class="flex items-center justify-start gap-2">
-                <div class="relative flex-shrink-0 w-8 h-8 md:w-10 md:h-10 ml-2 mr-3 md:mr-4 hidden sm:block mt-0.5">
+                <div class="relative flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 ml-1 mr-2 md:mr-4 mt-0.5">
                     <div class="absolute inset-0 rounded-full border border-gray-600 bg-gray-900 flex items-center justify-center shadow-md spin-vinyl-auto z-0" style="transform: translateX(8px); background: conic-gradient(from 0deg, #181514 0%, #4a403d 10%, #181514 20%, #181514 40%, #4a403d 50%, #181514 60%, #181514 90%, #4a403d 100%);">
                         <img src="almas/Portada2.jpg.jpeg" class="w-1/3 h-1/3 rounded-full border border-white/50">
                         <div class="absolute w-1 h-1 bg-white rounded-full"></div>
                     </div>
                     <div class="absolute inset-0 bg-white border border-gray-300 shadow bg-cover bg-center z-10 rounded-sm" style="background-image: url('almas/Portada2.jpg.jpeg');"></div>
                 </div>
-                <span class="font-marker tracking-widest text-pastelVino md:text-sm lg:block mt-1 hidden sm:block">ALMAS</span>
+                <span class="font-marker tracking-widest text-pastelVino text-xs sm:text-sm mt-1">ALMAS</span>
             </div>
 
             <div class="flex items-center justify-center gap-1 md:gap-3 font-bold tracking-widest font-main">
@@ -151,8 +151,8 @@
                             <textarea id="contact-message" rows="5" required placeholder="Cuéntanos todo lo que quieras..."
                                 class="w-full px-4 py-3 bg-pastelBeige rounded-lg border-2 border-pastelBeigeDark focus:border-pastelVino focus:outline-none transition-colors font-main text-darkText resize-none"></textarea>
                         </div>
-                        <button type="submit" id="submit-btn"
-                            class="w-full py-4 text-base bg-pastelVino text-white hover:bg-pastelCafe font-bold uppercase transition-all rounded-xl shadow-md border-2 border-transparent tracking-widest mt-2">
+                        <button type="button" onclick="sendEmail()" id="submit-btn"
+                            class="w-full py-4 text-base bg-white border-2 border-pastelCafe text-pastelCafe hover:bg-pastelVino hover:text-white hover:border-pastelVino font-bold uppercase transition-all rounded-xl shadow-sm tracking-widest mt-2 group">
                             <i class="fa-solid fa-paper-plane mr-2"></i> ENVIAR MENSAJE
                         </button>
                     </form>
@@ -164,56 +164,85 @@
                 </div>
 
                 <!-- INFO LATERAL -->
-                <div class="flex flex-col gap-8">
-                    <!-- Redes sociales -->
+                <div class="flex flex-col gap-6">
+
+                    <!-- Redes sociales (PRIMERO como antes) -->
                     <div class="organic-box bg-white p-8 shadow-sm border-2 border-pastelCafe">
                         <h3 class="text-2xl font-marker text-darkText mb-6 transform -rotate-1 inline-block">Síguenos</h3>
-                        <div class="flex flex-col gap-4">
+                        <div class="flex flex-col gap-3">
                             <a target="_blank" href="https://www.instagram.com/alehnaoficial?igsh=MTI2Y3NidGhpaXFiaQ=="
                                 class="flex items-center gap-4 p-4 rounded-xl bg-pastelBeige border-2 border-transparent hover:border-pastelVino hover:bg-white transition-all group">
-                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 flex items-center justify-center shadow-md flex-shrink-0">
-                                    <i class="fa-brands fa-instagram text-white text-xl"></i>
+                                <div class="w-11 h-11 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 flex items-center justify-center shadow-md flex-shrink-0">
+                                    <i class="fa-brands fa-instagram text-white text-lg"></i>
                                 </div>
                                 <div>
-                                    <p class="font-bold text-darkText font-main group-hover:text-pastelVino transition-colors">@alehnaoficial</p>
-                                    <p class="text-pastelCafe text-sm font-main">Instagram</p>
+                                    <p class="font-bold text-darkText font-main group-hover:text-pastelVino transition-colors text-sm">@alehnaoficial</p>
+                                    <p class="text-pastelCafe text-xs font-main">Instagram</p>
                                 </div>
-                                <i class="fa-solid fa-arrow-up-right-from-square ml-auto text-pastelCafe group-hover:text-pastelVino transition-colors"></i>
+                                <i class="fa-solid fa-arrow-up-right-from-square ml-auto text-pastelCafe group-hover:text-pastelVino transition-colors text-sm"></i>
                             </a>
                             <a target="_blank" href="https://www.tiktok.com/@alehnaoficial?_r=1&_t=ZS-95T2zD8JSjt"
                                 class="flex items-center gap-4 p-4 rounded-xl bg-pastelBeige border-2 border-transparent hover:border-pastelVino hover:bg-white transition-all group">
-                                <div class="w-12 h-12 rounded-full bg-black flex items-center justify-center shadow-md flex-shrink-0">
-                                    <i class="fa-brands fa-tiktok text-white text-xl"></i>
+                                <div class="w-11 h-11 rounded-full bg-black flex items-center justify-center shadow-md flex-shrink-0">
+                                    <i class="fa-brands fa-tiktok text-white text-lg"></i>
                                 </div>
                                 <div>
-                                    <p class="font-bold text-darkText font-main group-hover:text-pastelVino transition-colors">@alehnaoficial</p>
-                                    <p class="text-pastelCafe text-sm font-main">TikTok</p>
+                                    <p class="font-bold text-darkText font-main group-hover:text-pastelVino transition-colors text-sm">@alehnaoficial</p>
+                                    <p class="text-pastelCafe text-xs font-main">TikTok</p>
                                 </div>
-                                <i class="fa-solid fa-arrow-up-right-from-square ml-auto text-pastelCafe group-hover:text-pastelVino transition-colors"></i>
+                                <i class="fa-solid fa-arrow-up-right-from-square ml-auto text-pastelCafe group-hover:text-pastelVino transition-colors text-sm"></i>
                             </a>
                             <a target="_blank" href="https://www.youtube.com/@ALEHNAOFICIAL"
                                 class="flex items-center gap-4 p-4 rounded-xl bg-pastelBeige border-2 border-transparent hover:border-pastelVino hover:bg-white transition-all group">
-                                <div class="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center shadow-md flex-shrink-0">
-                                    <i class="fa-brands fa-youtube text-white text-xl"></i>
+                                <div class="w-11 h-11 rounded-full bg-red-600 flex items-center justify-center shadow-md flex-shrink-0">
+                                    <i class="fa-brands fa-youtube text-white text-lg"></i>
                                 </div>
                                 <div>
-                                    <p class="font-bold text-darkText font-main group-hover:text-pastelVino transition-colors">@ALEHNAOFICIAL</p>
-                                    <p class="text-pastelCafe text-sm font-main">YouTube</p>
+                                    <p class="font-bold text-darkText font-main group-hover:text-pastelVino transition-colors text-sm">@ALEHNAOFICIAL</p>
+                                    <p class="text-pastelCafe text-xs font-main">YouTube</p>
                                 </div>
-                                <i class="fa-solid fa-arrow-up-right-from-square ml-auto text-pastelCafe group-hover:text-pastelVino transition-colors"></i>
+                                <i class="fa-solid fa-arrow-up-right-from-square ml-auto text-pastelCafe group-hover:text-pastelVino transition-colors text-sm"></i>
                             </a>
                         </div>
                     </div>
 
-                    <!-- Nota -->
+                    <!-- Quote (SEGUNDO como antes) -->
                     <div class="organic-box bg-pastelVino/10 border-2 border-pastelVino/30 p-6 text-center">
-                        <i class="fa-solid fa-heart text-pastelVino text-3xl mb-3 block animate-pulse"></i>
+                        <i class="fa-solid fa-heart text-pastelVino text-2xl mb-3 block animate-pulse"></i>
                         <p class="font-hand text-xl text-darkText leading-relaxed">
                             "Cada mensaje que me escriben me llena el corazón. Leo todo con mucho amor." 🌸
                         </p>
                         <p class="font-bold font-main text-pastelVino mt-3 text-sm tracking-widest">— ALEHNA</p>
                     </div>
-                </div>
+
+                    <!-- WA + Email lado a lado (NUEVO, bien acomodado) -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <!-- WhatsApp -->
+                        <div class="organic-box bg-white p-5 shadow-sm border-2 border-pastelCafe text-center flex flex-col items-center gap-2">
+                            <div class="w-12 h-12 rounded-full bg-[#25D366] flex items-center justify-center shadow-md">
+                                <i class="fa-brands fa-whatsapp text-white text-2xl"></i>
+                            </div>
+                            <h3 class="font-marker text-darkText text-base leading-tight">Contrataciones</h3>
+                            <p class="text-pastelCafe font-main text-xs leading-tight">Eventos y shows</p>
+                            <a href="https://wa.me/573164280293?text=Hola%20Alehna,%20me%20interesa%20contratarte%20para%20un%20show..." target="_blank"
+                                class="mt-1 w-full text-center px-3 py-2 bg-white border-2 border-[#25D366] text-[#25D366] hover:bg-[#25D366] hover:text-white font-bold rounded-full transition-all text-[10px] tracking-wider uppercase">
+                                Chatear
+                            </a>
+                        </div>
+                        <!-- Email Directo -->
+                        <div class="organic-box bg-white p-5 shadow-sm border-2 border-pastelCafe text-center flex flex-col items-center gap-2">
+                            <div class="w-12 h-12 rounded-full bg-pastelBeigeDark flex items-center justify-center shadow-md">
+                                <i class="fa-solid fa-envelope text-pastelCafe text-2xl"></i>
+                            </div>
+                            <h3 class="font-marker text-darkText text-base leading-tight">Email Directo</h3>
+                            <p class="text-pastelCafe font-main text-xs leading-tight">Prensa y propuestas</p>
+                            <a href="#" onclick="openEmailClient(event)"
+                                class="mt-1 text-[10px] font-bold text-pastelCafe hover:text-pastelVino transition-colors font-main underline underline-offset-2 break-all">
+                                alenamusicoficial<br>@gmail.com
+                            </a>
+                        </div>
+                    </div>
+
             </div>
         </div>
     </main>
@@ -247,16 +276,29 @@
 
     <script src="main.js"></script>
     <script>
-        function submitForm() {
-            const btn = document.getElementById('submit-btn');
-            const msg = document.getElementById('success-msg');
-            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin mr-2"></i> Enviando...';
-            btn.disabled = true;
-            setTimeout(() => {
-                btn.classList.add('hidden');
-                msg.classList.remove('hidden');
-                document.querySelector('form').reset();
-            }, 1200);
+        function sendEmail() {
+            const name    = document.getElementById('contact-name').value.trim();
+            const email   = document.getElementById('contact-email').value.trim();
+            const subject = document.getElementById('contact-subject');
+            const subjectText = subject.tagName === 'SELECT'
+                ? subject.options[subject.selectedIndex].text
+                : subject.value.trim();
+            const message = document.getElementById('contact-message').value.trim();
+
+            if (!name || !email || !message) {
+                alert('Por favor completa los campos obligatorios (Nombre, Correo y Mensaje).');
+                return;
+            }
+
+            const body = `Nombre: ${name}%0ACorreo: ${email}%0A%0A${message}`;
+            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=alenamusicoficial@gmail.com&su=${encodeURIComponent(subjectText || 'Mensaje desde el sitio web')}&body=${body}`;
+            window.open(gmailUrl, '_blank');
+        }
+
+        function openEmailClient(e) {
+            e.preventDefault();
+            const gmailUrl = 'https://mail.google.com/mail/?view=cm&fs=1&to=alenamusicoficial@gmail.com&su=Contacto%20desde%20sitio%20ALEHNA';
+            window.open(gmailUrl, '_blank');
         }
     </script>
 </body>
