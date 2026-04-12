@@ -30,28 +30,41 @@
     <!-- WRAPPER STICKY (BANNER + HEADER) -->
     <div class="sticky top-0 w-full z-[150] shadow-sm flex flex-col">
         <!-- Top Announcement Banner -->
-        <div class="w-full bg-pastelBeige border-b border-pastelCafe h-[53px] grid grid-cols-3 items-center px-2 md:px-4 text-pastelCafe text-xs">
-            <div class="flex items-center justify-start gap-2">
-                <div class="relative flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 ml-1 mr-2 md:mr-4 mt-0.5">
-                    <div class="absolute inset-0 rounded-full border border-gray-600 bg-gray-900 flex items-center justify-center shadow-md spin-vinyl-auto z-0" style="transform: translateX(8px); background: conic-gradient(from 0deg, #181514 0%, #4a403d 10%, #181514 20%, #181514 40%, #4a403d 50%, #181514 60%, #181514 90%, #4a403d 100%);">
+        <div class="w-full bg-pastelBeige border-b border-pastelCafe h-[53px] grid items-center px-3 md:px-6 text-pastelCafe text-xs" style="grid-template-columns: auto 1fr auto; gap: 12px;">
+            <div class="flex items-center gap-2 flex-shrink-0">
+                <div class="relative flex-shrink-0 ml-1" style="width:35px;height:32px;">
+                    <div class="absolute top-0 right-0 w-8 h-8 rounded-full border border-gray-600 flex items-center justify-center spin-vinyl-auto z-0" style="background:conic-gradient(from 0deg,#181514 0%,#4a403d 10%,#181514 20%,#181514 40%,#4a403d 50%,#181514 60%,#181514 90%,#4a403d 100%);">
                         <img src="almas/Portada2.jpg.jpeg" class="w-1/3 h-1/3 rounded-full border border-white/50">
                         <div class="absolute w-1 h-1 bg-white rounded-full"></div>
                     </div>
-                    <div class="absolute inset-0 bg-white border border-gray-300 shadow bg-cover bg-center z-10 rounded-sm" style="background-image: url('almas/Portada2.jpg.jpeg');"></div>
+                    <div class="absolute top-0 left-0 w-8 h-8 bg-cover bg-center z-10 rounded-sm border border-white/30 shadow" style="background-image:url('almas/Portada2.jpg.jpeg');"></div>
                 </div>
-                <span class="font-marker tracking-widest text-pastelVino text-xs sm:text-sm mt-1">ALMAS</span>
+                <span class="font-marker text-pastelVino text-xs sm:text-sm whitespace-nowrap leading-none self-center">ALMAS</span>
             </div>
-
-            <div class="flex items-center justify-center gap-1 md:gap-3 font-bold tracking-widest font-main">
-                <div class="flex items-center gap-1"><span id="days" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[8px] md:text-[10px] uppercase">Días</span></div><span class="hidden sm:inline">:</span>
-                <div class="flex items-center gap-1"><span id="hours" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[8px] md:text-[10px] uppercase">Hrs</span></div><span class="hidden sm:inline">:</span>
-                <div class="flex items-center gap-1"><span id="minutes" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[8px] md:text-[10px] uppercase">Min</span></div><span class="hidden sm:inline">:</span>
-                <div class="flex items-center gap-1"><span id="seconds" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[8px] md:text-[10px] uppercase">Seg</span></div>
+            <div class="flex items-center justify-center gap-2 md:gap-4 font-main">
+                <div class="flex items-baseline gap-0.5">
+                    <span id="days" class="text-pastelVino font-bold text-sm md:text-base">00</span>
+                    <span class="text-[7px] uppercase text-pastelCafe tracking-wide">días</span>
+                </div>
+                <span class="text-pastelCafe/30 text-[10px]">·</span>
+                <div class="flex items-baseline gap-0.5">
+                    <span id="hours" class="text-pastelVino font-bold text-sm md:text-base">00</span>
+                    <span class="text-[7px] uppercase text-pastelCafe tracking-wide">hrs</span>
+                </div>
+                <span class="text-pastelCafe/30 text-[10px]">·</span>
+                <div class="flex items-baseline gap-0.5">
+                    <span id="minutes" class="text-pastelVino font-bold text-sm md:text-base">00</span>
+                    <span class="text-[7px] uppercase text-pastelCafe tracking-wide">min</span>
+                </div>
+                <span class="text-pastelCafe/30 text-[10px]">·</span>
+                <div class="flex items-baseline gap-0.5">
+                    <span id="seconds" class="text-pastelVino font-bold text-sm md:text-base">00</span>
+                    <span class="text-[7px] uppercase text-pastelCafe tracking-wide">seg</span>
+                </div>
             </div>
-
-            <div class="flex justify-end pr-2">
-                <a href="https://www.youtube.com/@ALEHNAOFICIAL" target="_blank" class="px-3 md:px-4 py-1.5 rounded-full text-[10px] md:text-xs font-bold flex items-center gap-2 transition-all border-2 border-pastelCafe text-pastelCafe hover:bg-pastelVino hover:text-white hover:border-pastelVino shadow-sm bg-white group">
-                    <i class="fa-brands fa-youtube text-sm md:text-base text-pastelVino group-hover:text-white transition-colors"></i> <span class="hidden md:inline">YOUTUBE</span>
+            <div class="flex items-center justify-end flex-shrink-0">
+                <a href="https://www.youtube.com/@ALEHNAOFICIAL" target="_blank" class="w-8 h-8 rounded-full flex items-center justify-center border-2 border-pastelCafe text-pastelVino hover:bg-pastelVino hover:text-white hover:border-pastelVino transition-all shadow-sm bg-white">
+                    <i class="fa-brands fa-youtube text-sm"></i>
                 </a>
             </div>
         </div>
@@ -90,7 +103,7 @@
 
     <div id="mobile-menu" class="fixed inset-0 z-[200] bg-pastelBeige/98 backdrop-blur-xl flex-col items-center justify-center space-y-8 hidden pt-12 transform transition-transform duration-300">
         <button onclick="toggleMenu()" class="absolute top-6 right-6 text-4xl text-pastelCafe hover:text-pastelVino"><i class="fa-solid fa-xmark"></i></button>
-        <span class="font-marker text-4xl text-pastelVino mb-4">Alehna</span>
+        <a href="index.html" onclick="toggleMenu()" class="font-marker text-4xl text-pastelVino mb-4 hover:text-pastelCafe transition-colors">Alehna</a>
         <a href="index.html#music" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Música</a>
         <a href="videos.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Videos</a>
         <a href="biografia.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Biografía</a>

@@ -30,28 +30,46 @@
     <!-- WRAPPER STICKY (BANNER + HEADER) -->
     <div class="sticky top-0 w-full z-[150] shadow-sm flex flex-col">
         <!-- Top Announcement Banner -->
-        <div class="w-full bg-pastelBeige border-b border-pastelCafe h-[53px] grid grid-cols-3 items-center px-2 md:px-4 text-pastelCafe text-xs">
-            <div class="flex items-center justify-start gap-2">
-                <div class="relative flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 ml-1 mr-2 md:mr-4 mt-0.5">
-                    <div class="absolute inset-0 rounded-full border border-gray-600 bg-gray-900 flex items-center justify-center shadow-md spin-vinyl-auto z-0" style="transform: translateX(8px); background: conic-gradient(from 0deg, #181514 0%, #4a403d 10%, #181514 20%, #181514 40%, #4a403d 50%, #181514 60%, #181514 90%, #4a403d 100%);">
+        <div class="w-full bg-pastelBeige border-b border-pastelCafe h-[53px] grid items-center px-3 md:px-6 text-pastelCafe text-xs" style="grid-template-columns: auto 1fr auto; gap: 12px;">
+            <!-- Izquierda: portada + nombre -->
+            <div class="flex items-center gap-2 flex-shrink-0">
+                <div class="relative flex-shrink-0 ml-1" style="width:35px;height:32px;">
+                    <div class="absolute top-0 right-0 w-8 h-8 rounded-full border border-gray-600 flex items-center justify-center spin-vinyl-auto z-0" style="background:conic-gradient(from 0deg,#181514 0%,#4a403d 10%,#181514 20%,#181514 40%,#4a403d 50%,#181514 60%,#181514 90%,#4a403d 100%);">
                         <img src="almas/Portada2.jpg.jpeg" class="w-1/3 h-1/3 rounded-full border border-white/50">
                         <div class="absolute w-1 h-1 bg-white rounded-full"></div>
                     </div>
-                    <div class="absolute inset-0 bg-white border border-gray-300 shadow bg-cover bg-center z-10 rounded-sm" style="background-image: url('almas/Portada2.jpg.jpeg');"></div>
+                    <div class="absolute top-0 left-0 w-8 h-8 bg-cover bg-center z-10 rounded-sm border border-white/30 shadow" style="background-image:url('almas/Portada2.jpg.jpeg');"></div>
                 </div>
-                <span class="font-marker tracking-widest text-pastelVino text-xs sm:text-sm mt-1">ALMAS</span>
+                <span class="font-marker text-pastelVino text-xs sm:text-sm whitespace-nowrap leading-none self-center">ALMAS</span>
             </div>
 
-            <div class="flex items-center justify-center gap-1 md:gap-3 font-bold tracking-widest font-main">
-                <div class="flex items-center gap-1"><span id="days" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[8px] md:text-[10px] uppercase">Días</span></div><span class="hidden sm:inline">:</span>
-                <div class="flex items-center gap-1"><span id="hours" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[8px] md:text-[10px] uppercase">Hrs</span></div><span class="hidden sm:inline">:</span>
-                <div class="flex items-center gap-1"><span id="minutes" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[8px] md:text-[10px] uppercase">Min</span></div><span class="hidden sm:inline">:</span>
-                <div class="flex items-center gap-1"><span id="seconds" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[8px] md:text-[10px] uppercase">Seg</span></div>
+            <!-- Centro: contador -->
+            <div class="flex items-center justify-center gap-2 md:gap-4 font-main">
+                <div class="flex items-baseline gap-0.5">
+                    <span id="days" class="text-pastelVino font-bold text-sm md:text-base">00</span>
+                    <span class="text-[7px] uppercase text-pastelCafe tracking-wide">días</span>
+                </div>
+                <span class="text-pastelCafe/30 text-[10px]">·</span>
+                <div class="flex items-baseline gap-0.5">
+                    <span id="hours" class="text-pastelVino font-bold text-sm md:text-base">00</span>
+                    <span class="text-[7px] uppercase text-pastelCafe tracking-wide">hrs</span>
+                </div>
+                <span class="text-pastelCafe/30 text-[10px]">·</span>
+                <div class="flex items-baseline gap-0.5">
+                    <span id="minutes" class="text-pastelVino font-bold text-sm md:text-base">00</span>
+                    <span class="text-[7px] uppercase text-pastelCafe tracking-wide">min</span>
+                </div>
+                <span class="text-pastelCafe/30 text-[10px]">·</span>
+                <div class="flex items-baseline gap-0.5">
+                    <span id="seconds" class="text-pastelVino font-bold text-sm md:text-base">00</span>
+                    <span class="text-[7px] uppercase text-pastelCafe tracking-wide">seg</span>
+                </div>
             </div>
 
-            <div class="flex justify-end pr-2">
-                <a href="https://www.youtube.com/@ALEHNAOFICIAL" target="_blank" class="px-3 md:px-4 py-1.5 rounded-full text-[10px] md:text-xs font-bold flex items-center gap-2 transition-all border-2 border-pastelCafe text-pastelCafe hover:bg-pastelVino hover:text-white hover:border-pastelVino shadow-sm bg-white group">
-                    <i class="fa-brands fa-youtube text-sm md:text-base text-pastelVino group-hover:text-white transition-colors"></i> <span class="hidden md:inline">YOUTUBE</span>
+            <!-- Derecha: YouTube -->
+            <div class="flex items-center justify-end flex-shrink-0">
+                <a href="https://www.youtube.com/@ALEHNAOFICIAL" target="_blank" class="w-8 h-8 rounded-full flex items-center justify-center border-2 border-pastelCafe text-pastelVino hover:bg-pastelVino hover:text-white hover:border-pastelVino transition-all shadow-sm bg-white">
+                    <i class="fa-brands fa-youtube text-sm"></i>
                 </a>
             </div>
         </div>
@@ -92,7 +110,7 @@
     <!-- MOBILE MENU RESPONSIVE (AESTHETIC) -->
     <div id="mobile-menu" class="fixed inset-0 z-[200] bg-pastelBeige/98 backdrop-blur-xl flex-col items-center justify-center space-y-8 hidden pt-12 transform transition-transform duration-300">
         <button onclick="toggleMenu()" class="absolute top-6 right-6 text-4xl text-pastelCafe hover:text-pastelVino"><i class="fa-solid fa-xmark"></i></button>
-        <span class="font-marker text-4xl text-pastelVino mb-4">Alehna</span>
+        <a href="index.html" onclick="toggleMenu()" class="font-marker text-4xl text-pastelVino mb-4 hover:text-pastelCafe transition-colors">Alehna</a>
         <a href="#music" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Música</a>
         <a href="#videos" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Videos</a>
         <a href="biografia.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Biografía</a>
@@ -117,14 +135,14 @@
         </section>
 
         <!-- SECCIÓN MÚSICA -->
-        <section id="music" class="py-12 md:py-20 px-4 bg-pastelBeige">
+        <section id="music" class="relative py-10 md:py-20 px-4 bg-pastelBeige pb-16">
             <div class="container mx-auto max-w-6xl">
-                <div class="text-center mb-16">
+                <div class="text-center mb-10 md:mb-16">
                     <h2 class="text-5xl font-marker text-pastelCafe mb-2 transform rotate-1 inline-block">MÚSICA</h2>
                     <div class="w-24 h-1 bg-pastelVino mx-auto rounded-full mt-2"></div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto">
                     <!-- ÁLBUM 1: ALMAS -->
                     <div class="flex flex-col items-center group">
                         <div class="organic-box p-4 mb-6 hover:scale-105 transition-transform duration-300 w-full max-w-[350px] shadow-sm bg-white">
@@ -152,14 +170,14 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="mt-12 md:mt-24 mb-[-40px] md:mb-[-80px] w-full h-8 bg-pastelBeigeDark relative z-10" style="clip-path: polygon(0% 100%, 3% 5%, 6% 90%, 9% 15%, 13% 85%, 16% 5%, 19% 95%, 22% 20%, 25% 85%, 28% 5%, 32% 90%, 35% 15%, 38% 85%, 41% 10%, 45% 95%, 48% 20%, 51% 85%, 55% 5%, 58% 90%, 61% 15%, 65% 95%, 68% 10%, 71% 85%, 75% 20%, 78% 90%, 81% 5%, 85% 95%, 88% 10%, 91% 80%, 95% 20%, 98% 90%, 100% 100%, 0% 100%);"></div>
+            <!-- Divider rasgado al pie de la sección -->
+            <div class="absolute bottom-0 left-0 w-full h-8 bg-pastelBeigeDark" style="clip-path: polygon(0% 100%, 3% 5%, 6% 90%, 9% 15%, 13% 85%, 16% 5%, 19% 95%, 22% 20%, 25% 85%, 28% 5%, 32% 90%, 35% 15%, 38% 85%, 41% 10%, 45% 95%, 48% 20%, 51% 85%, 55% 5%, 58% 90%, 61% 15%, 65% 95%, 68% 10%, 71% 85%, 75% 20%, 78% 90%, 81% 5%, 85% 95%, 88% 10%, 91% 80%, 95% 20%, 98% 90%, 100% 100%, 0% 100%);"></div>
         </section>
 
         <!-- SECCIÓN VIDEOS -->
-        <section id="videos" class="py-12 md:py-24 px-4 bg-pastelBeigeDark pt-16 md:pt-32">
+        <section id="videos" class="relative py-10 md:py-20 px-4 bg-pastelBeigeDark pb-16">
             <div class="container mx-auto max-w-6xl">
-                <div class="text-center mb-16">
+                <div class="text-center mb-10 md:mb-16">
                     <h2 class="text-5xl font-marker text-darkText mb-2 transform -rotate-1 inline-block">VIDEOS</h2>
                     <div class="w-24 h-1 bg-pastelCafe mx-auto rounded-full mt-2"></div>
                 </div>
@@ -194,16 +212,16 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="mt-12 md:mt-24 mb-[-40px] md:mb-[-80px] w-full h-8 bg-pastelBeige relative z-10" style="clip-path: polygon(0% 100%, 2% 15%, 5% 95%, 8% 5%, 11% 85%, 14% 20%, 18% 90%, 21% 10%, 25% 95%, 28% 5%, 32% 80%, 35% 25%, 38% 90%, 41% 10%, 45% 95%, 48% 5%, 52% 85%, 55% 20%, 58% 90%, 62% 10%, 65% 95%, 68% 5%, 72% 80%, 75% 25%, 78% 90%, 82% 10%, 85% 95%, 88% 5%, 92% 85%, 95% 20%, 98% 90%, 100% 100%, 0% 100%); transform: scaleY(-1); top: -8px;"></div>
+            <!-- Divider rasgado al pie de la sección -->
+            <div class="absolute bottom-0 left-0 w-full h-8 bg-pastelBeige" style="clip-path: polygon(0% 100%, 2% 15%, 5% 95%, 8% 5%, 11% 85%, 14% 20%, 18% 90%, 21% 10%, 25% 95%, 28% 5%, 32% 80%, 35% 25%, 38% 90%, 41% 10%, 45% 95%, 48% 5%, 52% 85%, 55% 20%, 58% 90%, 62% 10%, 65% 95%, 68% 5%, 72% 80%, 75% 25%, 78% 90%, 82% 10%, 85% 95%, 88% 5%, 92% 85%, 95% 20%, 98% 90%, 100% 100%, 0% 100%);"></div>
         </section>
 
         <!-- SECCIÓN NEWSLETTER -->
-        <section id="newsletter" class="py-12 md:py-24 px-4 bg-pastelBeige pt-16 md:pt-32">
+        <section id="newsletter" class="relative py-10 md:py-20 px-4 bg-pastelBeige">
             <div class="container mx-auto max-w-4xl text-center">
-                <div class="organic-box p-12 bg-white flex flex-col items-center shadow-lg border-2 border-pastelBeigeDark">
+                <div class="organic-box p-8 md:p-12 bg-white flex flex-col items-center shadow-lg border-2 border-pastelBeigeDark">
                     <i class="fa-solid fa-envelope-open-text text-5xl text-pastelVino mb-6 transform -rotate-6"></i>
-                    <h2 class="text-4xl md:text-5xl font-marker text-darkText mb-6">EL DIARIO DE ALEHNA</h2>
+                    <h2 class="text-3xl md:text-5xl font-marker text-darkText mb-6">EL DIARIO DE ALEHNA</h2>
                     <p class="text-lg font-main text-pastelCafe mb-8 max-w-2xl leading-relaxed">
                         A toda persona curiosa que le interesa saber cosas bonitas de las nuevas canciones de Alehna,
                         anécdotas de nuestros encuentros, emociones puras y muchas otras cosas más.
@@ -215,8 +233,6 @@
                     </form>
                 </div>
             </div>
-
-            <div class="mt-24 mb-[-80px] w-full h-10 bg-pastelBeigeDark relative z-10" style="clip-path: polygon(0% 100%, 0.5% 30%, 1.5% 85%, 2.2% 10%, 3.5% 70%, 4.1% 5%, 5.5% 90%, 6.3% 25%, 7.2% 75%, 8.8% 8%, 9.5% 80%, 10.8% 20%, 12% 92%, 13.1% 12%, 14.3% 68%, 15.5% 4%, 16.8% 82%, 17.9% 28%, 19.2% 88%, 20.6% 5%, 21.8% 72%, 23% 18%, 24.5% 95%, 25.8% 35%, 27.2% 78%, 28.6% 8%, 30% 88%, 31.5% 22%, 32.8% 80%, 34.2% 15%, 35.8% 92%, 37.1% 30%, 38.5% 70%, 39.8% 5%, 41.3% 85%, 42.7% 20%, 44.1% 78%, 45.5% 10%, 46.9% 88%, 48.4% 35%, 49.8% 75%, 51.2% 5%, 52.6% 90%, 54% 18%, 55.5% 82%, 56.9% 12%, 58.3% 70%, 59.7% 4%, 61.1% 88%, 62.6% 28%, 64% 78%, 65.4% 10%, 66.8% 92%, 68.3% 40%, 69.7% 72%, 71.1% 8%, 72.6% 85%, 74% 22%, 75.4% 82%, 76.9% 5%, 78.3% 90%, 79.7% 28%, 81.2% 75%, 82.6% 10%, 84% 88%, 85.5% 20%, 86.9% 78%, 88.3% 5%, 89.8% 92%, 91.2% 35%, 92.6% 80%, 94.1% 12%, 95.5% 85%, 96.9% 25%, 98.4% 72%, 100% 100%, 0% 100%);"></div>
         </section>
 
     </main>
