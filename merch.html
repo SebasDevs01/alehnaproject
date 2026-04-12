@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALEHNA | La Tienda</title>
+    <title>ALEHNA | Merch</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css?v=14">
@@ -18,66 +19,105 @@
         }
     </script>
     <style>
-        .spin-vinyl-auto { animation: spin-vinyl-auto 4s linear infinite; }
+        .spin-vinyl-auto {
+            animation: spin-vinyl-auto 4s linear infinite;
+        }
+
         @keyframes spin-vinyl-auto {
-            from { transform: translateX(12px) rotate(0deg); }
-            to { transform: translateX(12px) rotate(360deg); }
+            from {
+                transform: translateX(12px) rotate(0deg);
+            }
+
+            to {
+                transform: translateX(12px) rotate(360deg);
+            }
         }
     </style>
 </head>
+
 <body class="bg-pastelBeigeDark text-darkText font-sans transition-colors duration-300">
 
     <!-- WRAPPER FIXED (BANNER + HEADER) -->
     <div class="fixed top-0 left-0 w-full z-[150] shadow-sm flex flex-col">
-        <div class="w-full bg-pastelBeige border-b border-pastelCafe h-[53px] grid grid-cols-3 items-center px-2 md:px-4 text-pastelCafe text-xs">
+        <div
+            class="w-full bg-pastelBeige border-b border-pastelCafe h-[53px] grid grid-cols-3 items-center px-2 md:px-4 text-pastelCafe text-xs">
             <div class="flex items-center justify-start gap-2">
                 <div class="relative flex-shrink-0 w-8 h-8 md:w-10 md:h-10 ml-2 mr-3 md:mr-4 hidden sm:block mt-0.5">
-                    <div class="absolute inset-0 rounded-full border border-gray-600 bg-gray-900 flex items-center justify-center shadow-md spin-vinyl-auto z-0" style="transform: translateX(8px); background: conic-gradient(from 0deg, #181514 0%, #4a403d 10%, #181514 20%, #181514 40%, #4a403d 50%, #181514 60%, #181514 90%, #4a403d 100%);">
+                    <div class="absolute inset-0 rounded-full border border-gray-600 bg-gray-900 flex items-center justify-center shadow-md spin-vinyl-auto z-0"
+                        style="transform: translateX(8px); background: conic-gradient(from 0deg, #181514 0%, #4a403d 10%, #181514 20%, #181514 40%, #4a403d 50%, #181514 60%, #181514 90%, #4a403d 100%);">
                         <img src="almas/Portada2.jpg.jpeg" class="w-1/3 h-1/3 rounded-full border border-white/50">
                         <div class="absolute w-1 h-1 bg-white rounded-full"></div>
                     </div>
-                    <div class="absolute inset-0 bg-white border border-gray-300 shadow bg-cover bg-center z-10 rounded-sm" style="background-image: url('almas/Portada2.jpg.jpeg');"></div>
+                    <div class="absolute inset-0 bg-white border border-gray-300 shadow bg-cover bg-center z-10 rounded-sm"
+                        style="background-image: url('almas/Portada2.jpg.jpeg');"></div>
                 </div>
-                <span class="font-marker tracking-widest text-pastelVino md:text-sm lg:block mt-1 hidden sm:block">ALMAS</span>
+                <span
+                    class="font-marker tracking-widest text-pastelVino md:text-sm lg:block mt-1 hidden sm:block">ALMAS</span>
             </div>
 
             <div class="flex items-center justify-center gap-1 md:gap-3 font-bold tracking-widest font-main">
-                <div class="flex items-center gap-1"><span id="days" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[8px] md:text-[10px] uppercase">Días</span></div><span class="hidden sm:inline">:</span>
-                <div class="flex items-center gap-1"><span id="hours" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[8px] md:text-[10px] uppercase">Hrs</span></div><span class="hidden sm:inline">:</span>
-                <div class="flex items-center gap-1"><span id="minutes" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[8px] md:text-[10px] uppercase">Min</span></div><span class="hidden sm:inline">:</span>
-                <div class="flex items-center gap-1"><span id="seconds" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[8px] md:text-[10px] uppercase">Seg</span></div>
+                <div class="flex items-center gap-1"><span id="days"
+                        class="text-pastelVino text-sm md:text-base">00</span><span
+                        class="text-[8px] md:text-[10px] uppercase">Días</span></div><span
+                    class="hidden sm:inline">:</span>
+                <div class="flex items-center gap-1"><span id="hours"
+                        class="text-pastelVino text-sm md:text-base">00</span><span
+                        class="text-[8px] md:text-[10px] uppercase">Hrs</span></div><span
+                    class="hidden sm:inline">:</span>
+                <div class="flex items-center gap-1"><span id="minutes"
+                        class="text-pastelVino text-sm md:text-base">00</span><span
+                        class="text-[8px] md:text-[10px] uppercase">Min</span></div><span
+                    class="hidden sm:inline">:</span>
+                <div class="flex items-center gap-1"><span id="seconds"
+                        class="text-pastelVino text-sm md:text-base">00</span><span
+                        class="text-[8px] md:text-[10px] uppercase">Seg</span></div>
             </div>
 
             <div class="flex justify-end pr-2">
-                <a href="https://www.youtube.com/@ALEHNAOFICIAL" target="_blank" class="px-3 md:px-4 py-1.5 rounded-full text-[10px] md:text-xs font-bold flex items-center gap-2 transition-all border-2 border-pastelCafe text-pastelCafe hover:bg-pastelVino hover:text-white hover:border-pastelVino shadow-sm bg-white group">
-                    <i class="fa-brands fa-youtube text-sm md:text-base text-pastelVino group-hover:text-white transition-colors"></i> <span class="hidden md:inline">YOUTUBE</span>
+                <a href="https://www.youtube.com/@ALEHNAOFICIAL" target="_blank"
+                    class="px-3 md:px-4 py-1.5 rounded-full text-[10px] md:text-xs font-bold flex items-center gap-2 transition-all border-2 border-pastelCafe text-pastelCafe hover:bg-pastelVino hover:text-white hover:border-pastelVino shadow-sm bg-white group">
+                    <i
+                        class="fa-brands fa-youtube text-sm md:text-base text-pastelVino group-hover:text-white transition-colors"></i>
+                    <span class="hidden md:inline">YOUTUBE</span>
                 </a>
             </div>
         </div>
 
-        <header id="header" class="w-full bg-pastelBeige/95 backdrop-blur-sm border-b-2 border-pastelCafe shadow-md h-[70px] md:h-[80px] flex items-center">
+        <header id="header"
+            class="w-full bg-pastelBeige/95 backdrop-blur-sm border-b-2 border-pastelCafe shadow-md h-[70px] md:h-[80px] flex items-center">
             <div class="container mx-auto px-4 w-full flex items-center justify-between">
-                <a href="index.html" class="text-3xl font-marker text-pastelVino tracking-wider hover:text-pastelCafe transition-colors mt-1">Alehna</a>
-                <nav id="desktop-nav" class="hidden md:flex gap-8 font-bold text-sm tracking-widest text-darkText uppercase items-center pt-2">
+                <a href="index.html"
+                    class="text-3xl font-marker text-pastelVino tracking-wider hover:text-pastelCafe transition-colors mt-1">Alehna</a>
+                <nav id="desktop-nav"
+                    class="hidden md:flex gap-8 font-bold text-sm tracking-widest text-darkText uppercase items-center pt-2">
                     <a href="index.html#music" class="hover:text-pastelVino transition-colors px-2 py-1">Música</a>
                     <a href="videos.html" class="hover:text-pastelVino transition-colors px-2 py-1">Videos</a>
                     <a href="biografia.html" class="hover:text-pastelVino transition-colors px-2 py-1">Biografía</a>
-                    <a href="lanzamientos.html" class="hover:text-pastelVino transition-colors px-2 py-1">Lanzamientos</a>
+                    <a href="lanzamientos.html"
+                        class="hover:text-pastelVino transition-colors px-2 py-1">Lanzamientos</a>
                     <!-- ACTIVO -->
-                    <a href="merch.html" class="text-pastelVino font-bold border-b-2 border-pastelVino transition-colors px-2 py-1">La Tienda</a>
-                    <a href="index.html#newsletter" class="bg-pastelVino text-white hover:bg-pastelCafe rounded-md px-4 py-1.5 transition-colors shadow-sm">Únete</a>
+                    <a href="merch.html"
+                        class="text-pastelVino font-bold border-b-2 border-pastelVino transition-colors px-2 py-1">Merch</a>
+                    <a href="index.html#newsletter"
+                        class="bg-pastelVino text-white hover:bg-pastelCafe rounded-md px-4 py-1.5 transition-colors shadow-sm">Únete</a>
                 </nav>
                 <div class="flex items-center gap-4 pt-1">
                     <div class="hidden md:flex gap-3 text-lg text-pastelCafe">
-                        <a target="_blank" href="https://www.instagram.com/alehnaoficial?igsh=MTI2Y3NidGhpaXFiaQ==" class="hover:text-pastelVino transition"><i class="fa-brands fa-instagram"></i></a>
-                        <a target="_blank" href="https://www.tiktok.com/@alehnaoficial?_r=1&_t=ZS-95T2zD8JSjt" class="hover:text-pastelVino transition"><i class="fa-brands fa-tiktok"></i></a>
-                        <a target="_blank" href="https://www.youtube.com/@ALEHNAOFICIAL" class="hover:text-pastelVino transition"><i class="fa-brands fa-youtube"></i></a>
+                        <a target="_blank" href="https://www.instagram.com/alehnaoficial?igsh=MTI2Y3NidGhpaXFiaQ=="
+                            class="hover:text-pastelVino transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a target="_blank" href="https://www.tiktok.com/@alehnaoficial?_r=1&_t=ZS-95T2zD8JSjt"
+                            class="hover:text-pastelVino transition"><i class="fa-brands fa-tiktok"></i></a>
+                        <a target="_blank" href="https://www.youtube.com/@ALEHNAOFICIAL"
+                            class="hover:text-pastelVino transition"><i class="fa-brands fa-youtube"></i></a>
                     </div>
-                    <button onclick="toggleCart()" class="relative text-xl md:text-2xl text-pastelVino hover:text-pastelCafe focus:outline-none transition-colors mr-2 md:mr-4">
+                    <button onclick="toggleCart()"
+                        class="relative text-xl md:text-2xl text-pastelVino hover:text-pastelCafe focus:outline-none transition-colors mr-2 md:mr-4">
                         <i class="fa-solid fa-cart-shopping"></i>
-                        <span id="cart-count" class="absolute -top-2 -right-3 bg-pastelCafe text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full font-bold shadow hidden">0</span>
+                        <span id="cart-count"
+                            class="absolute -top-2 -right-3 bg-pastelCafe text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full font-bold shadow hidden">0</span>
                     </button>
-                    <button id="mobile-menu-btn" class="md:hidden text-3xl text-pastelVino hover:text-pastelCafe focus:outline-none">
+                    <button id="mobile-menu-btn"
+                        class="md:hidden text-3xl text-pastelVino hover:text-pastelCafe focus:outline-none">
                         <i class="fa-solid fa-bars"></i>
                     </button>
                 </div>
@@ -86,139 +126,199 @@
     </div>
 
     <!-- MOBILE MENU RESPONSIVE -->
-    <div id="mobile-menu" class="fixed inset-0 z-[200] bg-pastelBeige/98 backdrop-blur-xl flex-col items-center justify-center space-y-8 hidden pt-12 transform transition-transform duration-300">
-        <button onclick="toggleMenu()" class="absolute top-6 right-6 text-4xl text-pastelCafe hover:text-pastelVino"><i class="fa-solid fa-xmark"></i></button>
+    <div id="mobile-menu"
+        class="fixed inset-0 z-[200] bg-pastelBeige/98 backdrop-blur-xl flex-col items-center justify-center space-y-8 hidden pt-12 transform transition-transform duration-300">
+        <button onclick="toggleMenu()" class="absolute top-6 right-6 text-4xl text-pastelCafe hover:text-pastelVino"><i
+                class="fa-solid fa-xmark"></i></button>
         <span class="font-marker text-4xl text-pastelVino mb-4">Alehna</span>
-        <a href="index.html#music" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Música</a>
-        <a href="videos.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Videos</a>
-        <a href="biografia.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Biografía</a>
-        <a href="lanzamientos.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Lanzamientos</a>
-        <a href="merch.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">La Tienda</a>
-        <a href="index.html#newsletter" class="bg-pastelVino text-white px-8 py-3 rounded-full font-bold uppercase mt-6" onclick="toggleMenu()">Únete</a>
+        <a href="index.html#music" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase"
+            onclick="toggleMenu()">Música</a>
+        <a href="videos.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase"
+            onclick="toggleMenu()">Videos</a>
+        <a href="biografia.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase"
+            onclick="toggleMenu()">Biografía</a>
+        <a href="lanzamientos.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase"
+            onclick="toggleMenu()">Lanzamientos</a>
+        <a href="merch.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase"
+            onclick="toggleMenu()">Merch</a>
+        <a href="index.html#newsletter" class="bg-pastelVino text-white px-8 py-3 rounded-full font-bold uppercase mt-6"
+            onclick="toggleMenu()">Únete</a>
     </div>
 
     <main class="flex-grow pt-[130px] pb-24 px-4 text-center" id="tienda">
         <div class="mt-10 mb-16 relative">
-            <h1 class="text-6xl md:text-7xl font-marker text-darkText mb-2 transform -rotate-1 inline-block drop-shadow-sm">LA TIENDA</h1>
+            <h1
+                class="text-6xl md:text-7xl font-marker text-darkText mb-2 transform -rotate-1 inline-block drop-shadow-sm">
+                MERCH</h1>
             <div class="w-32 h-1.5 bg-pastelVino mx-auto rounded-full mt-2"></div>
         </div>
 
         <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <!-- Producto 1: T-Shirt KARMA -->
-            <div class="organic-box bg-white p-6 shadow-sm border-2 border-pastelCafe flex flex-col group h-full hover:shadow-md transition-shadow">
-                <div class="relative w-full aspect-square mb-4 bg-pastelBeige border border-pastelBeigeDark overflow-hidden rounded-sm">
-                    <img id="img-tshirt-karma" src="imgmerch/camisanegra.png" alt="T-Shirt EL KARMA" class="w-full h-full object-contain p-4 mix-blend-multiply group-hover:scale-105 transition-transform duration-500">
+            <div
+                class="organic-box bg-white p-6 shadow-sm border-2 border-pastelCafe flex flex-col group h-full hover:shadow-md transition-shadow">
+                <div
+                    class="relative w-full aspect-square mb-4 bg-pastelBeige border border-pastelBeigeDark overflow-hidden rounded-sm">
+                    <img id="img-tshirt-karma" src="imgmerch/camisanegra.png" alt="T-Shirt EL KARMA"
+                        class="w-full h-full object-contain p-4 mix-blend-multiply group-hover:scale-105 transition-transform duration-500">
                 </div>
                 <h3 class="font-bold font-main text-lg text-darkText mb-1 text-left">T-Shirt EL KARMA</h3>
                 <p class="text-pastelCafe font-bold text-xl mb-4 font-hand text-left">$65.000 COP</p>
                 <!-- Opciones -->
                 <div class="flex gap-2 mb-3">
-                    <label class="font-bold text-[10px] uppercase tracking-widest text-darkText mt-1.5 w-12 text-left">Color:</label>
-                    <button onclick="updateColor('tshirt-karma', 'black')" class="w-6 h-6 rounded-full bg-black border-2 border-pastelVino scale-110 shadow-sm"></button>
-                    <button onclick="updateColor('tshirt-karma', 'white')" class="w-6 h-6 rounded-full bg-white border-2 border-gray-300"></button>
+                    <label
+                        class="font-bold text-[10px] uppercase tracking-widest text-darkText mt-1.5 w-12 text-left">Color:</label>
+                    <button onclick="updateColor('tshirt-karma', 'black')"
+                        class="w-6 h-6 rounded-full bg-black border-2 border-pastelVino scale-110 shadow-sm"></button>
+                    <button onclick="updateColor('tshirt-karma', 'white')"
+                        class="w-6 h-6 rounded-full bg-white border-2 border-gray-300"></button>
                 </div>
                 <div class="flex flex-wrap gap-2 mb-6">
-                    <label class="font-bold text-[10px] uppercase tracking-widest text-darkText mt-1 w-12 text-left">Talla:</label>
-                    <button onclick="updateSize('tshirt-karma', 'S')" class="px-2 py-0.5 bg-pastelVino text-white border border-transparent font-bold text-xs rounded-sm">S</button>
-                    <button onclick="updateSize('tshirt-karma', 'M')" class="px-2 py-0.5 bg-pastelBeige text-pastelCafe border border-pastelCafe font-bold text-xs rounded-sm hover:-translate-y-0.5 transition-transform">M</button>
-                    <button onclick="updateSize('tshirt-karma', 'L')" class="px-2 py-0.5 bg-pastelBeige text-pastelCafe border border-pastelCafe font-bold text-xs rounded-sm hover:-translate-y-0.5 transition-transform">L</button>
-                    <button onclick="updateSize('tshirt-karma', 'XL')" class="px-2 py-0.5 bg-pastelBeige text-pastelCafe border border-pastelCafe font-bold text-xs rounded-sm hover:-translate-y-0.5 transition-transform">XL</button>
+                    <label
+                        class="font-bold text-[10px] uppercase tracking-widest text-darkText mt-1 w-12 text-left">Talla:</label>
+                    <button onclick="updateSize('tshirt-karma', 'S')"
+                        class="px-2 py-0.5 bg-pastelVino text-white border border-transparent font-bold text-xs rounded-sm">S</button>
+                    <button onclick="updateSize('tshirt-karma', 'M')"
+                        class="px-2 py-0.5 bg-pastelBeige text-pastelCafe border border-pastelCafe font-bold text-xs rounded-sm hover:-translate-y-0.5 transition-transform">M</button>
+                    <button onclick="updateSize('tshirt-karma', 'L')"
+                        class="px-2 py-0.5 bg-pastelBeige text-pastelCafe border border-pastelCafe font-bold text-xs rounded-sm hover:-translate-y-0.5 transition-transform">L</button>
+                    <button onclick="updateSize('tshirt-karma', 'XL')"
+                        class="px-2 py-0.5 bg-pastelBeige text-pastelCafe border border-pastelCafe font-bold text-xs rounded-sm hover:-translate-y-0.5 transition-transform">XL</button>
                 </div>
                 <!-- Add -->
                 <div class="mt-auto flex gap-3 items-center" id="card-tshirt-karma">
                     <div class="flex items-center border border-pastelCafe bg-pastelBeige rounded-full h-10 w-24">
-                        <button onclick="updateQuantity('tshirt-karma', -1)" class="w-8 h-full flex items-center justify-center text-pastelCafe font-bold text-lg hover:text-pastelVino">-</button>
+                        <button onclick="updateQuantity('tshirt-karma', -1)"
+                            class="w-8 h-full flex items-center justify-center text-pastelCafe font-bold text-lg hover:text-pastelVino">-</button>
                         <span class="flex-1 text-center font-bold font-main text-sm text-darkText">1</span>
-                        <button onclick="updateQuantity('tshirt-karma', +1)" class="w-8 h-full flex items-center justify-center text-pastelCafe font-bold text-lg hover:text-pastelVino">+</button>
+                        <button onclick="updateQuantity('tshirt-karma', +1)"
+                            class="w-8 h-full flex items-center justify-center text-pastelCafe font-bold text-lg hover:text-pastelVino">+</button>
                     </div>
-                    <button onclick="addToCart('tshirt-karma')" class="flex-1 organic-btn bg-pastelCafe text-white hover:bg-pastelVino h-10 font-bold uppercase transition-colors shadow-sm text-xs rounded-xl">
+                    <button onclick="addToCart('tshirt-karma')"
+                        class="flex-1 px-3 py-2 bg-white border-2 border-pastelCafe text-pastelCafe hover:bg-pastelVino hover:text-white hover:border-pastelVino font-bold uppercase transition-all shadow-sm text-xs rounded-xl flex items-center justify-center gap-1 group">
                         <i class="fa-solid fa-cart-plus mr-1"></i>Añadir
                     </button>
                 </div>
             </div>
 
             <!-- Producto 2: Sudadera KARMA -->
-            <div class="organic-box bg-white p-6 shadow-sm border-2 border-pastelCafe flex flex-col group h-full hover:shadow-md transition-shadow">
-                <div class="relative w-full aspect-square mb-4 bg-pastelBeige border border-pastelBeigeDark overflow-hidden rounded-sm">
-                    <img id="img-buso-karma" src="imgmerch/busonegro.png" alt="Sudadera KARMA" class="w-full h-full object-contain p-4 mix-blend-multiply group-hover:scale-105 transition-transform duration-500">
+            <div
+                class="organic-box bg-white p-6 shadow-sm border-2 border-pastelCafe flex flex-col group h-full hover:shadow-md transition-shadow">
+                <div
+                    class="relative w-full aspect-square mb-4 bg-pastelBeige border border-pastelBeigeDark overflow-hidden rounded-sm">
+                    <img id="img-buso-karma" src="imgmerch/busonegro.png" alt="Sudadera KARMA"
+                        class="w-full h-full object-contain p-4 mix-blend-multiply group-hover:scale-105 transition-transform duration-500">
                 </div>
                 <h3 class="font-bold font-main text-lg text-darkText mb-1 text-left">Sudadera KARMA</h3>
                 <p class="text-pastelCafe font-bold text-xl mb-4 font-hand text-left">$120.000 COP</p>
                 <div class="flex gap-2 mb-3">
-                    <label class="font-bold text-[10px] uppercase tracking-widest text-darkText mt-1.5 w-12 text-left">Color:</label>
-                    <button onclick="updateColor('buso-karma', 'black')" class="w-6 h-6 rounded-full bg-black border-2 border-pastelVino scale-110 shadow-sm"></button>
-                    <button onclick="updateColor('buso-karma', 'white')" class="w-6 h-6 rounded-full bg-white border-2 border-gray-300"></button>
+                    <label
+                        class="font-bold text-[10px] uppercase tracking-widest text-darkText mt-1.5 w-12 text-left">Color:</label>
+                    <button onclick="updateColor('buso-karma', 'black')"
+                        class="w-6 h-6 rounded-full bg-black border-2 border-pastelVino scale-110 shadow-sm"></button>
+                    <button onclick="updateColor('buso-karma', 'white')"
+                        class="w-6 h-6 rounded-full bg-white border-2 border-gray-300"></button>
                 </div>
                 <div class="flex flex-wrap gap-2 mb-6">
-                    <label class="font-bold text-[10px] uppercase tracking-widest text-darkText mt-1 w-12 text-left">Talla:</label>
-                    <button onclick="updateSize('buso-karma', 'S')" class="px-2 py-0.5 bg-pastelVino text-white border border-transparent font-bold text-xs rounded-sm">S</button>
-                    <button onclick="updateSize('buso-karma', 'M')" class="px-2 py-0.5 bg-pastelBeige text-pastelCafe border border-pastelCafe font-bold text-xs rounded-sm hover:-translate-y-0.5 transition-transform">M</button>
-                    <button onclick="updateSize('buso-karma', 'L')" class="px-2 py-0.5 bg-pastelBeige text-pastelCafe border border-pastelCafe font-bold text-xs rounded-sm hover:-translate-y-0.5 transition-transform">L</button>
-                    <button onclick="updateSize('buso-karma', 'XL')" class="px-2 py-0.5 bg-pastelBeige text-pastelCafe border border-pastelCafe font-bold text-xs rounded-sm hover:-translate-y-0.5 transition-transform">XL</button>
+                    <label
+                        class="font-bold text-[10px] uppercase tracking-widest text-darkText mt-1 w-12 text-left">Talla:</label>
+                    <button onclick="updateSize('buso-karma', 'S')"
+                        class="px-2 py-0.5 bg-pastelVino text-white border border-transparent font-bold text-xs rounded-sm">S</button>
+                    <button onclick="updateSize('buso-karma', 'M')"
+                        class="px-2 py-0.5 bg-pastelBeige text-pastelCafe border border-pastelCafe font-bold text-xs rounded-sm hover:-translate-y-0.5 transition-transform">M</button>
+                    <button onclick="updateSize('buso-karma', 'L')"
+                        class="px-2 py-0.5 bg-pastelBeige text-pastelCafe border border-pastelCafe font-bold text-xs rounded-sm hover:-translate-y-0.5 transition-transform">L</button>
+                    <button onclick="updateSize('buso-karma', 'XL')"
+                        class="px-2 py-0.5 bg-pastelBeige text-pastelCafe border border-pastelCafe font-bold text-xs rounded-sm hover:-translate-y-0.5 transition-transform">XL</button>
                 </div>
                 <div class="mt-auto flex gap-3 items-center" id="card-buso-karma">
                     <div class="flex items-center border border-pastelCafe bg-pastelBeige rounded-full h-10 w-24">
-                        <button onclick="updateQuantity('buso-karma', -1)" class="w-8 h-full flex items-center justify-center text-pastelCafe font-bold text-lg hover:text-pastelVino">-</button>
+                        <button onclick="updateQuantity('buso-karma', -1)"
+                            class="w-8 h-full flex items-center justify-center text-pastelCafe font-bold text-lg hover:text-pastelVino">-</button>
                         <span class="flex-1 text-center font-bold font-main text-sm text-darkText">1</span>
-                        <button onclick="updateQuantity('buso-karma', +1)" class="w-8 h-full flex items-center justify-center text-pastelCafe font-bold text-lg hover:text-pastelVino">+</button>
+                        <button onclick="updateQuantity('buso-karma', +1)"
+                            class="w-8 h-full flex items-center justify-center text-pastelCafe font-bold text-lg hover:text-pastelVino">+</button>
                     </div>
-                    <button onclick="addToCart('buso-karma')" class="flex-1 organic-btn bg-pastelCafe text-white hover:bg-pastelVino h-10 font-bold uppercase transition-colors shadow-sm text-xs rounded-xl">
+                    <button onclick="addToCart('buso-karma')"
+                        class="flex-1 px-3 py-2 bg-white border-2 border-pastelCafe text-pastelCafe hover:bg-pastelVino hover:text-white hover:border-pastelVino font-bold uppercase transition-all shadow-sm text-xs rounded-xl flex items-center justify-center gap-1 group">
                         <i class="fa-solid fa-cart-plus mr-1"></i>Añadir
                     </button>
                 </div>
             </div>
 
             <!-- Producto 3: Gorra KARMA -->
-            <div class="organic-box bg-white p-6 shadow-sm border-2 border-pastelCafe flex flex-col group h-full hover:shadow-md transition-shadow">
-                <div class="relative w-full aspect-square mb-4 bg-pastelBeige border border-pastelBeigeDark overflow-hidden rounded-sm">
-                    <img id="img-gorra-karma" src="imgmerch/gorranegra.png" alt="Gorra KARMA" class="w-full h-full object-contain p-4 mix-blend-multiply group-hover:scale-105 transition-transform duration-500">
+            <div
+                class="organic-box bg-white p-6 shadow-sm border-2 border-pastelCafe flex flex-col group h-full hover:shadow-md transition-shadow">
+                <div
+                    class="relative w-full aspect-square mb-4 bg-pastelBeige border border-pastelBeigeDark overflow-hidden rounded-sm">
+                    <img id="img-gorra-karma" src="imgmerch/gorranegra.png" alt="Gorra KARMA"
+                        class="w-full h-full object-contain p-4 mix-blend-multiply group-hover:scale-105 transition-transform duration-500">
                 </div>
                 <h3 class="font-bold font-main text-lg text-darkText mb-1 text-left">Gorra KARMA</h3>
                 <p class="text-pastelCafe font-bold text-xl mb-4 font-hand text-left">$45.000 COP</p>
                 <div class="flex gap-2 mb-3">
-                    <label class="font-bold text-[10px] uppercase tracking-widest text-darkText mt-1.5 w-12 text-left">Color:</label>
-                    <button onclick="updateColor('gorra-karma', 'black')" class="w-6 h-6 rounded-full bg-black border-2 border-pastelVino scale-110 shadow-sm"></button>
-                    <button onclick="updateColor('gorra-karma', 'white')" class="w-6 h-6 rounded-full bg-white border-2 border-gray-300"></button>
+                    <label
+                        class="font-bold text-[10px] uppercase tracking-widest text-darkText mt-1.5 w-12 text-left">Color:</label>
+                    <button onclick="updateColor('gorra-karma', 'black')"
+                        class="w-6 h-6 rounded-full bg-black border-2 border-pastelVino scale-110 shadow-sm"></button>
+                    <button onclick="updateColor('gorra-karma', 'white')"
+                        class="w-6 h-6 rounded-full bg-white border-2 border-gray-300"></button>
                 </div>
                 <div class="flex flex-wrap gap-2 mb-6">
-                    <label class="font-bold text-[10px] uppercase tracking-widest text-darkText mt-1 w-12 text-left">Talla:</label>
-                    <button onclick="updateSize('gorra-karma', 'Única')" class="px-2 py-0.5 bg-pastelVino text-white border border-transparent font-bold text-xs rounded-sm">Única</button>
+                    <label
+                        class="font-bold text-[10px] uppercase tracking-widest text-darkText mt-1 w-12 text-left">Talla:</label>
+                    <button onclick="updateSize('gorra-karma', 'Única')"
+                        class="px-2 py-0.5 bg-pastelVino text-white border border-transparent font-bold text-xs rounded-sm">Única</button>
                 </div>
                 <div class="mt-auto flex gap-3 items-center" id="card-gorra-karma">
                     <div class="flex items-center border border-pastelCafe bg-pastelBeige rounded-full h-10 w-24">
-                        <button onclick="updateQuantity('gorra-karma', -1)" class="w-8 h-full flex items-center justify-center text-pastelCafe font-bold text-lg hover:text-pastelVino">-</button>
+                        <button onclick="updateQuantity('gorra-karma', -1)"
+                            class="w-8 h-full flex items-center justify-center text-pastelCafe font-bold text-lg hover:text-pastelVino">-</button>
                         <span class="flex-1 text-center font-bold font-main text-sm text-darkText">1</span>
-                        <button onclick="updateQuantity('gorra-karma', +1)" class="w-8 h-full flex items-center justify-center text-pastelCafe font-bold text-lg hover:text-pastelVino">+</button>
+                        <button onclick="updateQuantity('gorra-karma', +1)"
+                            class="w-8 h-full flex items-center justify-center text-pastelCafe font-bold text-lg hover:text-pastelVino">+</button>
                     </div>
-                    <button onclick="addToCart('gorra-karma')" class="flex-1 organic-btn bg-pastelCafe text-white hover:bg-pastelVino h-10 font-bold uppercase transition-colors shadow-sm text-xs rounded-xl">
+                    <button onclick="addToCart('gorra-karma')"
+                        class="flex-1 px-3 py-2 bg-white border-2 border-pastelCafe text-pastelCafe hover:bg-pastelVino hover:text-white hover:border-pastelVino font-bold uppercase transition-all shadow-sm text-xs rounded-xl flex items-center justify-center gap-1 group">
                         <i class="fa-solid fa-cart-plus mr-1"></i>Añadir
                     </button>
                 </div>
             </div>
 
             <!-- Producto 4: Tote Bag KARMA -->
-            <div class="organic-box bg-white p-6 shadow-sm border-2 border-pastelCafe flex flex-col group h-full hover:shadow-md transition-shadow">
-                <div class="relative w-full aspect-square mb-4 bg-pastelBeige border border-pastelBeigeDark overflow-hidden rounded-sm">
-                    <img id="img-tote-karma" src="imgmerch/bolsanegra.png" alt="Tote Bag KARMA" class="w-full h-full object-contain p-4 mix-blend-multiply group-hover:scale-105 transition-transform duration-500">
+            <div
+                class="organic-box bg-white p-6 shadow-sm border-2 border-pastelCafe flex flex-col group h-full hover:shadow-md transition-shadow">
+                <div
+                    class="relative w-full aspect-square mb-4 bg-pastelBeige border border-pastelBeigeDark overflow-hidden rounded-sm">
+                    <img id="img-tote-karma" src="imgmerch/bolsanegra.png" alt="Tote Bag KARMA"
+                        class="w-full h-full object-contain p-4 mix-blend-multiply group-hover:scale-105 transition-transform duration-500">
                 </div>
                 <h3 class="font-bold font-main text-lg text-darkText mb-1 text-left">Tote Bag KARMA</h3>
                 <p class="text-pastelCafe font-bold text-xl mb-4 font-hand text-left">$30.000 COP</p>
                 <div class="flex gap-2 mb-3">
-                    <label class="font-bold text-[10px] uppercase tracking-widest text-darkText mt-1.5 w-12 text-left">Color:</label>
-                    <button onclick="updateColor('tote-karma', 'black')" class="w-6 h-6 rounded-full bg-black border-2 border-pastelVino scale-110 shadow-sm"></button>
-                    <button onclick="updateColor('tote-karma', 'white')" class="w-6 h-6 rounded-full bg-white border-2 border-gray-300"></button>
+                    <label
+                        class="font-bold text-[10px] uppercase tracking-widest text-darkText mt-1.5 w-12 text-left">Color:</label>
+                    <button onclick="updateColor('tote-karma', 'black')"
+                        class="w-6 h-6 rounded-full bg-black border-2 border-pastelVino scale-110 shadow-sm"></button>
+                    <button onclick="updateColor('tote-karma', 'white')"
+                        class="w-6 h-6 rounded-full bg-white border-2 border-gray-300"></button>
                 </div>
                 <div class="flex flex-wrap gap-2 mb-6">
-                    <label class="font-bold text-[10px] uppercase tracking-widest text-darkText mt-1 w-12 text-left">Talla:</label>
-                    <button onclick="updateSize('tote-karma', 'Única')" class="px-2 py-0.5 bg-pastelVino text-white border border-transparent font-bold text-xs rounded-sm">Única</button>
+                    <label
+                        class="font-bold text-[10px] uppercase tracking-widest text-darkText mt-1 w-12 text-left">Talla:</label>
+                    <button onclick="updateSize('tote-karma', 'Única')"
+                        class="px-2 py-0.5 bg-pastelVino text-white border border-transparent font-bold text-xs rounded-sm">Única</button>
                 </div>
                 <div class="mt-auto flex gap-3 items-center" id="card-tote-karma">
                     <div class="flex items-center border border-pastelCafe bg-pastelBeige rounded-full h-10 w-24">
-                        <button onclick="updateQuantity('tote-karma', -1)" class="w-8 h-full flex items-center justify-center text-pastelCafe font-bold text-lg hover:text-pastelVino">-</button>
+                        <button onclick="updateQuantity('tote-karma', -1)"
+                            class="w-8 h-full flex items-center justify-center text-pastelCafe font-bold text-lg hover:text-pastelVino">-</button>
                         <span class="flex-1 text-center font-bold font-main text-sm text-darkText">1</span>
-                        <button onclick="updateQuantity('tote-karma', +1)" class="w-8 h-full flex items-center justify-center text-pastelCafe font-bold text-lg hover:text-pastelVino">+</button>
+                        <button onclick="updateQuantity('tote-karma', +1)"
+                            class="w-8 h-full flex items-center justify-center text-pastelCafe font-bold text-lg hover:text-pastelVino">+</button>
                     </div>
-                    <button onclick="addToCart('tote-karma')" class="flex-1 organic-btn bg-pastelCafe text-white hover:bg-pastelVino h-10 font-bold uppercase transition-colors shadow-sm text-xs rounded-xl">
+                    <button onclick="addToCart('tote-karma')"
+                        class="flex-1 px-3 py-2 bg-white border-2 border-pastelCafe text-pastelCafe hover:bg-pastelVino hover:text-white hover:border-pastelVino font-bold uppercase transition-all shadow-sm text-xs rounded-xl flex items-center justify-center gap-1 group">
                         <i class="fa-solid fa-cart-plus mr-1"></i>Añadir
                     </button>
                 </div>
@@ -227,9 +327,12 @@
     </main>
 
     <footer id="footer" class="bg-pastelCafe text-pastelBeige py-12 relative mt-12">
-        <div class="absolute top-0 w-full h-8 bg-pastelBeigeDark top-0" style="clip-path: polygon(0% 100%, 2% 15%, 5% 95%, 8% 5%, 11% 85%, 14% 20%, 18% 90%, 21% 10%, 25% 95%, 28% 5%, 32% 80%, 35% 25%, 38% 90%, 41% 10%, 45% 95%, 48% 5%, 52% 85%, 55% 20%, 58% 90%, 62% 10%, 65% 95%, 68% 5%, 72% 80%, 75% 25%, 78% 90%, 82% 10%, 85% 95%, 88% 5%, 92% 85%, 95% 20%, 98% 90%, 100% 100%, 0% 100%); transform: scaleY(-1);"></div>
+        <div class="absolute top-0 w-full h-8 bg-pastelBeigeDark top-0"
+            style="clip-path: polygon(0% 100%, 2% 15%, 5% 95%, 8% 5%, 11% 85%, 14% 20%, 18% 90%, 21% 10%, 25% 95%, 28% 5%, 32% 80%, 35% 25%, 38% 90%, 41% 10%, 45% 95%, 48% 5%, 52% 85%, 55% 20%, 58% 90%, 62% 10%, 65% 95%, 68% 5%, 72% 80%, 75% 25%, 78% 90%, 82% 10%, 85% 95%, 88% 5%, 92% 85%, 95% 20%, 98% 90%, 100% 100%, 0% 100%); transform: scaleY(-1);">
+        </div>
         <div class="container mx-auto px-4 mt-8 flex flex-col items-center">
-            <div class="text-center font-main text-sm font-bold opacity-80 mt-4">© 2026 ALEHNA. TODOS LOS DERECHOS RESERVADOS.</div>
+            <div class="text-center font-main text-sm font-bold opacity-80 mt-4">© 2026 ALEHNA. TODOS LOS DERECHOS
+                RESERVADOS.</div>
         </div>
     </footer>
 
@@ -238,11 +341,14 @@
         // Menu and toggles defined in main.js
     </script>
     <!-- CART SIDEBAR & OVERLAY -->
-    <div id="cart-overlay" class="fixed inset-0 bg-black/40 z-[250] hidden transition-opacity backdrop-blur-sm" onclick="toggleCart()"></div>
-    <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-pastelBeige z-[300] transform translate-x-full transition-transform duration-300 shadow-2xl flex flex-col border-l-4 border-pastelCafe">
+    <div id="cart-overlay" class="fixed inset-0 bg-black/40 z-[250] hidden transition-opacity backdrop-blur-sm"
+        onclick="toggleCart()"></div>
+    <div id="cart-sidebar"
+        class="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-pastelBeige z-[300] transform translate-x-full transition-transform duration-300 shadow-2xl flex flex-col border-l-4 border-pastelCafe">
         <div class="p-6 border-b border-pastelCafe flex justify-between items-center bg-white">
             <h3 class="text-2xl font-bold font-marker text-darkText">TU CARRITO</h3>
-            <button onclick="toggleCart()" class="text-4xl text-pastelCafe hover:text-pastelVino"><i class="fa-solid fa-xmark"></i></button>
+            <button onclick="toggleCart()" class="text-4xl text-pastelCafe hover:text-pastelVino"><i
+                    class="fa-solid fa-xmark"></i></button>
         </div>
         <div id="cart-items" class="flex-1 overflow-y-auto p-6 font-main"></div>
         <div class="p-6 bg-white border-t border-pastelCafe shadow-[0_-10px_20px_rgba(0,0,0,0.05)]">
@@ -250,10 +356,13 @@
                 <span class="text-xl font-bold text-darkText font-hand">TOTAL:</span>
                 <span id="cart-total" class="text-3xl font-bold text-pastelVino">$0</span>
             </div>
-            <button onclick="checkoutCart()" class="w-full py-4 text-xl bg-pastelVino text-white hover:bg-pastelCafe transition-colors font-bold rounded-xl shadow-md border-2 border-transparent">
-                <i class="fa-brands fa-whatsapp text-2xl mr-2 align-middle"></i><span class="align-middle">Hacer Pedido</span>
+            <button onclick="checkoutCart()"
+                class="w-full py-4 text-xl bg-pastelVino text-white hover:bg-pastelCafe transition-colors font-bold rounded-xl shadow-md border-2 border-transparent">
+                <i class="fa-brands fa-whatsapp text-2xl mr-2 align-middle"></i><span class="align-middle">Hacer
+                    Pedido</span>
             </button>
         </div>
     </div>
 </body>
+
 </html>
