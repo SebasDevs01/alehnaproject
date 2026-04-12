@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALEHNA | Contacto</title>
+    <meta name="description" content="Contáctate con Alehna. Escríbenos para colaboraciones, prensa o simplemente para saludar.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css?v=14">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { pastelBeige: '#F9F6F0', pastelBeigeDark: '#EAE3D5', pastelCafe: '#A8866E', pastelVino: '#C57D84', darkText: '#4A3E38' },
+                    fontFamily: { sans: ['Nunito', 'sans-serif'], hand: ['Caveat', 'cursive'], marker: ['Permanent Marker', 'cursive'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        .spin-vinyl-auto { animation: spin-vinyl-auto 4s linear infinite; }
+        @keyframes spin-vinyl-auto {
+            from { transform: translateX(12px) rotate(0deg); }
+            to { transform: translateX(12px) rotate(360deg); }
+        }
+        input:focus, textarea:focus { box-shadow: 0 0 0 3px rgba(197,125,132,0.25); }
+    </style>
+</head>
+<body class="bg-pastelBeigeDark text-darkText font-sans transition-colors duration-300">
+
+    <!-- WRAPPER FIXED (BANNER + HEADER) -->
+    <div class="fixed top-0 left-0 w-full z-[150] shadow-sm flex flex-col">
+        <div class="w-full bg-pastelBeige border-b border-pastelCafe h-[53px] grid grid-cols-3 items-center px-2 md:px-4 text-pastelCafe text-xs">
+            <div class="flex items-center justify-start gap-2">
+                <div class="relative flex-shrink-0 w-8 h-8 md:w-10 md:h-10 ml-2 mr-3 md:mr-4 hidden sm:block mt-0.5">
+                    <div class="absolute inset-0 rounded-full border border-gray-600 bg-gray-900 flex items-center justify-center shadow-md spin-vinyl-auto z-0" style="transform: translateX(8px); background: conic-gradient(from 0deg, #181514 0%, #4a403d 10%, #181514 20%, #181514 40%, #4a403d 50%, #181514 60%, #181514 90%, #4a403d 100%);">
+                        <img src="almas/Portada2.jpg.jpeg" class="w-1/3 h-1/3 rounded-full border border-white/50">
+                        <div class="absolute w-1 h-1 bg-white rounded-full"></div>
+                    </div>
+                    <div class="absolute inset-0 bg-white border border-gray-300 shadow bg-cover bg-center z-10 rounded-sm" style="background-image: url('almas/Portada2.jpg.jpeg');"></div>
+                </div>
+                <span class="font-marker tracking-widest text-pastelVino md:text-sm lg:block mt-1 hidden sm:block">ALMAS</span>
+            </div>
+
+            <div class="flex items-center justify-center gap-1 md:gap-3 font-bold tracking-widest font-main">
+                <div class="flex items-center gap-1"><span id="days" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[8px] md:text-[10px] uppercase">Días</span></div><span class="hidden sm:inline">:</span>
+                <div class="flex items-center gap-1"><span id="hours" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[8px] md:text-[10px] uppercase">Hrs</span></div><span class="hidden sm:inline">:</span>
+                <div class="flex items-center gap-1"><span id="minutes" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[8px] md:text-[10px] uppercase">Min</span></div><span class="hidden sm:inline">:</span>
+                <div class="flex items-center gap-1"><span id="seconds" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[8px] md:text-[10px] uppercase">Seg</span></div>
+            </div>
+
+            <div class="flex justify-end pr-2">
+                <a href="https://www.youtube.com/@ALEHNAOFICIAL" target="_blank" class="px-3 md:px-4 py-1.5 rounded-full text-[10px] md:text-xs font-bold flex items-center gap-2 transition-all border-2 border-pastelCafe text-pastelCafe hover:bg-pastelVino hover:text-white hover:border-pastelVino shadow-sm bg-white group">
+                    <i class="fa-brands fa-youtube text-sm md:text-base text-pastelVino group-hover:text-white transition-colors"></i> <span class="hidden md:inline">YOUTUBE</span>
+                </a>
+            </div>
+        </div>
+
+        <header id="header" class="w-full bg-pastelBeige/95 backdrop-blur-sm border-b-2 border-pastelCafe shadow-md h-[70px] md:h-[80px] flex items-center">
+            <div class="container mx-auto px-4 w-full flex items-center justify-between">
+                <a href="index.html" class="text-3xl font-marker text-pastelVino tracking-wider hover:text-pastelCafe transition-colors mt-1">Alehna</a>
+                <nav id="desktop-nav" class="hidden md:flex gap-6 font-bold text-sm tracking-widest text-darkText uppercase items-center pt-2">
+                    <a href="index.html#music" class="hover:text-pastelVino transition-colors px-2 py-1">Música</a>
+                    <a href="videos.html" class="hover:text-pastelVino transition-colors px-2 py-1">Videos</a>
+                    <a href="biografia.html" class="hover:text-pastelVino transition-colors px-2 py-1">Biografía</a>
+                    <a href="lanzamientos.html" class="hover:text-pastelVino transition-colors px-2 py-1">Lanzamientos</a>
+                    <a href="merch.html" class="hover:text-pastelVino transition-colors px-2 py-1">Merch</a>
+                    <!-- ACTIVO -->
+                    <a href="contacto.html" class="text-pastelVino font-bold border-b-2 border-pastelVino transition-colors px-2 py-1">Contacto</a>
+                    <a href="index.html#newsletter" class="bg-pastelVino text-white hover:bg-pastelCafe rounded-md px-4 py-1.5 transition-colors shadow-sm">Únete</a>
+                </nav>
+                <div class="flex items-center gap-4 pt-1">
+                    <div class="hidden md:flex gap-3 text-lg text-pastelCafe">
+                        <a target="_blank" href="https://www.instagram.com/alehnaoficial?igsh=MTI2Y3NidGhpaXFiaQ==" class="hover:text-pastelVino transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a target="_blank" href="https://www.tiktok.com/@alehnaoficial?_r=1&_t=ZS-95T2zD8JSjt" class="hover:text-pastelVino transition"><i class="fa-brands fa-tiktok"></i></a>
+                        <a target="_blank" href="https://www.youtube.com/@ALEHNAOFICIAL" class="hover:text-pastelVino transition"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                    <button onclick="toggleCart()" class="relative text-xl md:text-2xl text-pastelVino hover:text-pastelCafe focus:outline-none transition-colors mr-2 md:mr-4">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span id="cart-count" class="absolute -top-2 -right-3 bg-pastelCafe text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full font-bold shadow hidden">0</span>
+                    </button>
+                    <button id="mobile-menu-btn" class="md:hidden text-3xl text-pastelVino hover:text-pastelCafe focus:outline-none">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div id="mobile-menu" class="fixed inset-0 z-[200] bg-pastelBeige/98 backdrop-blur-xl flex-col items-center justify-center space-y-8 hidden pt-12 transform transition-transform duration-300">
+        <button onclick="toggleMenu()" class="absolute top-6 right-6 text-4xl text-pastelCafe hover:text-pastelVino"><i class="fa-solid fa-xmark"></i></button>
+        <span class="font-marker text-4xl text-pastelVino mb-4">Alehna</span>
+        <a href="index.html#music" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Música</a>
+        <a href="videos.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Videos</a>
+        <a href="biografia.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Biografía</a>
+        <a href="lanzamientos.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Lanzamientos</a>
+        <a href="merch.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Merch</a>
+        <a href="contacto.html" class="text-3xl font-bold font-hand text-pastelVino uppercase" onclick="toggleMenu()">Contacto</a>
+        <a href="index.html#newsletter" class="bg-pastelVino text-white px-8 py-3 rounded-full font-bold uppercase mt-6" onclick="toggleMenu()">Únete</a>
+    </div>
+
+    <!-- MAIN -->
+    <main class="pt-[130px] pb-24 relative z-10">
+
+        <!-- HERO decorativo -->
+        <div class="w-full bg-pastelBeige border-b-4 border-pastelCafe py-16 text-center relative overflow-hidden">
+            <div class="absolute inset-0 opacity-5" style="background-image: repeating-linear-gradient(45deg, #A8866E 0, #A8866E 1px, transparent 0, transparent 50%); background-size: 12px 12px;"></div>
+            <div class="relative z-10">
+                <i class="fa-solid fa-paper-plane text-5xl text-pastelCafe mb-4 block transform -rotate-12 animate-bounce"></i>
+                <h1 class="text-6xl md:text-8xl font-marker text-darkText transform -rotate-1 inline-block drop-shadow-sm">CONTACTO</h1>
+                <div class="w-32 h-1.5 bg-pastelVino mx-auto rounded-full mt-4"></div>
+                <p class="font-hand text-xl md:text-2xl text-pastelCafe mt-4">Colaboraciones · Prensa · Saludos 💌</p>
+            </div>
+            <!-- Borde rasgado inferior -->
+            <div class="absolute bottom-0 w-full h-8 bg-pastelBeigeDark" style="clip-path: polygon(0% 100%, 2% 20%, 5% 90%, 8% 10%, 12% 85%, 15% 15%, 18% 90%, 21% 5%, 25% 85%, 28% 20%, 31% 95%, 34% 10%, 37% 85%, 41% 15%, 44% 90%, 48% 5%, 52% 80%, 55% 15%, 58% 95%, 62% 10%, 65% 85%, 68% 20%, 72% 90%, 75% 5%, 78% 85%, 81% 15%, 85% 90%, 88% 5%, 92% 80%, 95% 15%, 98% 90%, 100% 100%, 0% 100%);"></div>
+        </div>
+
+        <!-- FORMULARIO + INFO -->
+        <div class="bg-pastelBeigeDark pt-20 pb-24 px-4">
+            <div class="container mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+
+                <!-- FORMULARIO -->
+                <div class="organic-box bg-white p-8 md:p-12 shadow-sm border-2 border-pastelCafe">
+                    <h2 class="text-3xl font-marker text-darkText mb-8 transform rotate-1 inline-block">Escríbenos</h2>
+                    <form class="flex flex-col gap-5" onsubmit="event.preventDefault(); submitForm();">
+                        <div>
+                            <label class="block font-bold font-main text-pastelCafe mb-1.5 uppercase text-xs tracking-widest">Tu Nombre *</label>
+                            <input type="text" id="contact-name" required placeholder="¿Cómo te llamas?"
+                                class="w-full px-4 py-3 bg-pastelBeige rounded-lg border-2 border-pastelBeigeDark focus:border-pastelVino focus:outline-none transition-colors font-main text-darkText">
+                        </div>
+                        <div>
+                            <label class="block font-bold font-main text-pastelCafe mb-1.5 uppercase text-xs tracking-widest">Tu Correo *</label>
+                            <input type="email" id="contact-email" required placeholder="ejemplo@correo.com"
+                                class="w-full px-4 py-3 bg-pastelBeige rounded-lg border-2 border-pastelBeigeDark focus:border-pastelVino focus:outline-none transition-colors font-main text-darkText">
+                        </div>
+                        <div>
+                            <label class="block font-bold font-main text-pastelCafe mb-1.5 uppercase text-xs tracking-widest">Asunto</label>
+                            <select id="contact-subject" class="w-full px-4 py-3 bg-pastelBeige rounded-lg border-2 border-pastelBeigeDark focus:border-pastelVino focus:outline-none transition-colors font-main text-darkText appearance-none">
+                                <option value="">Selecciona un tema...</option>
+                                <option value="colaboracion">🎵 Colaboración musical</option>
+                                <option value="prensa">📰 Prensa / medios</option>
+                                <option value="eventos">🎤 Eventos / conciertos</option>
+                                <option value="merch">👕 Pedidos / Merch</option>
+                                <option value="otro">✉️ Otro</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-bold font-main text-pastelCafe mb-1.5 uppercase text-xs tracking-widest">Mensaje *</label>
+                            <textarea id="contact-message" rows="5" required placeholder="Cuéntanos todo lo que quieras..."
+                                class="w-full px-4 py-3 bg-pastelBeige rounded-lg border-2 border-pastelBeigeDark focus:border-pastelVino focus:outline-none transition-colors font-main text-darkText resize-none"></textarea>
+                        </div>
+                        <button type="submit" id="submit-btn"
+                            class="w-full py-4 text-base bg-pastelVino text-white hover:bg-pastelCafe font-bold uppercase transition-all rounded-xl shadow-md border-2 border-transparent tracking-widest mt-2">
+                            <i class="fa-solid fa-paper-plane mr-2"></i> ENVIAR MENSAJE
+                        </button>
+                    </form>
+                    <!-- Mensaje de éxito -->
+                    <div id="success-msg" class="hidden mt-6 p-4 bg-green-50 border-2 border-green-300 rounded-xl text-center text-green-700 font-main font-bold">
+                        <i class="fa-solid fa-circle-check text-2xl text-green-500 mb-2 block"></i>
+                        ¡Mensaje enviado! Te responderemos pronto 🌸
+                    </div>
+                </div>
+
+                <!-- INFO LATERAL -->
+                <div class="flex flex-col gap-8">
+                    <!-- Redes sociales -->
+                    <div class="organic-box bg-white p-8 shadow-sm border-2 border-pastelCafe">
+                        <h3 class="text-2xl font-marker text-darkText mb-6 transform -rotate-1 inline-block">Síguenos</h3>
+                        <div class="flex flex-col gap-4">
+                            <a target="_blank" href="https://www.instagram.com/alehnaoficial?igsh=MTI2Y3NidGhpaXFiaQ=="
+                                class="flex items-center gap-4 p-4 rounded-xl bg-pastelBeige border-2 border-transparent hover:border-pastelVino hover:bg-white transition-all group">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 flex items-center justify-center shadow-md flex-shrink-0">
+                                    <i class="fa-brands fa-instagram text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-darkText font-main group-hover:text-pastelVino transition-colors">@alehnaoficial</p>
+                                    <p class="text-pastelCafe text-sm font-main">Instagram</p>
+                                </div>
+                                <i class="fa-solid fa-arrow-up-right-from-square ml-auto text-pastelCafe group-hover:text-pastelVino transition-colors"></i>
+                            </a>
+                            <a target="_blank" href="https://www.tiktok.com/@alehnaoficial?_r=1&_t=ZS-95T2zD8JSjt"
+                                class="flex items-center gap-4 p-4 rounded-xl bg-pastelBeige border-2 border-transparent hover:border-pastelVino hover:bg-white transition-all group">
+                                <div class="w-12 h-12 rounded-full bg-black flex items-center justify-center shadow-md flex-shrink-0">
+                                    <i class="fa-brands fa-tiktok text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-darkText font-main group-hover:text-pastelVino transition-colors">@alehnaoficial</p>
+                                    <p class="text-pastelCafe text-sm font-main">TikTok</p>
+                                </div>
+                                <i class="fa-solid fa-arrow-up-right-from-square ml-auto text-pastelCafe group-hover:text-pastelVino transition-colors"></i>
+                            </a>
+                            <a target="_blank" href="https://www.youtube.com/@ALEHNAOFICIAL"
+                                class="flex items-center gap-4 p-4 rounded-xl bg-pastelBeige border-2 border-transparent hover:border-pastelVino hover:bg-white transition-all group">
+                                <div class="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center shadow-md flex-shrink-0">
+                                    <i class="fa-brands fa-youtube text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-darkText font-main group-hover:text-pastelVino transition-colors">@ALEHNAOFICIAL</p>
+                                    <p class="text-pastelCafe text-sm font-main">YouTube</p>
+                                </div>
+                                <i class="fa-solid fa-arrow-up-right-from-square ml-auto text-pastelCafe group-hover:text-pastelVino transition-colors"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Nota -->
+                    <div class="organic-box bg-pastelVino/10 border-2 border-pastelVino/30 p-6 text-center">
+                        <i class="fa-solid fa-heart text-pastelVino text-3xl mb-3 block animate-pulse"></i>
+                        <p class="font-hand text-xl text-darkText leading-relaxed">
+                            "Cada mensaje que me escriben me llena el corazón. Leo todo con mucho amor." 🌸
+                        </p>
+                        <p class="font-bold font-main text-pastelVino mt-3 text-sm tracking-widest">— ALEHNA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="footer" class="bg-pastelCafe text-pastelBeige py-12 relative overflow-hidden">
+        <div class="absolute top-0 w-full h-8 bg-pastelBeigeDark top-0" style="clip-path: polygon(0% 100%, 2% 15%, 5% 95%, 8% 5%, 11% 85%, 14% 20%, 18% 90%, 21% 10%, 25% 95%, 28% 5%, 32% 80%, 35% 25%, 38% 90%, 41% 10%, 45% 95%, 48% 5%, 52% 85%, 55% 20%, 58% 90%, 62% 10%, 65% 95%, 68% 5%, 72% 80%, 75% 25%, 78% 90%, 82% 10%, 85% 95%, 88% 5%, 92% 85%, 95% 20%, 98% 90%, 100% 100%, 0% 100%); transform: scaleY(-1);"></div>
+        <div class="container mx-auto px-4 mt-8 flex flex-col items-center">
+            <div class="text-center font-main text-sm font-bold opacity-80 mt-4">© 2026 ALEHNA. TODOS LOS DERECHOS RESERVADOS.</div>
+        </div>
+    </footer>
+
+    <!-- CART SIDEBAR & OVERLAY -->
+    <div id="cart-overlay" class="fixed inset-0 bg-black/40 z-[250] hidden transition-opacity backdrop-blur-sm" onclick="toggleCart()"></div>
+    <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-pastelBeige z-[300] transform translate-x-full transition-transform duration-300 shadow-2xl flex flex-col border-l-4 border-pastelCafe">
+        <div class="p-6 border-b border-pastelCafe flex justify-between items-center bg-white">
+            <h3 class="text-2xl font-bold font-marker text-darkText">TU CARRITO</h3>
+            <button onclick="toggleCart()" class="text-4xl text-pastelCafe hover:text-pastelVino"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div id="cart-items" class="flex-1 overflow-y-auto p-6 font-main"></div>
+        <div class="p-6 bg-white border-t border-pastelCafe shadow-[0_-10px_20px_rgba(0,0,0,0.05)]">
+            <div class="flex justify-between items-center mb-6">
+                <span class="text-xl font-bold text-darkText font-hand">TOTAL:</span>
+                <span id="cart-total" class="text-3xl font-bold text-pastelVino">$0</span>
+            </div>
+            <button onclick="checkoutCart()" class="w-full py-4 text-xl bg-pastelVino text-white hover:bg-pastelCafe transition-colors font-bold rounded-xl shadow-md border-2 border-transparent">
+                <i class="fa-brands fa-whatsapp text-2xl mr-2 align-middle"></i><span class="align-middle">Hacer Pedido</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        function submitForm() {
+            const btn = document.getElementById('submit-btn');
+            const msg = document.getElementById('success-msg');
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin mr-2"></i> Enviando...';
+            btn.disabled = true;
+            setTimeout(() => {
+                btn.classList.add('hidden');
+                msg.classList.remove('hidden');
+                document.querySelector('form').reset();
+            }, 1200);
+        }
+    </script>
+</body>
+</html>
