@@ -1,63 +1,68 @@
-import os, glob, re
+import os
+import re
 
-banner_html = '''    <!-- TOP ANNOUNCEMENT BANNER -->
-    <div class="fixed top-0 left-0 w-full z-[80] bg-gradient-to-r from-black via-[#1a000d] to-black border-b-2 border-neonPink shadow-[0_0_20px_rgba(255,0,127,0.4)] h-[70px] flex items-center justify-between px-2 md:px-6">
-        <!-- LEFT: COVER & TEXT -->
-        <div class="flex items-center gap-3 w-[30%] md:w-1/3">
-            <img src="almas/Portada2.jpg.jpeg" alt="ALMAS" class="h-12 w-12 rounded bg-black object-cover shadow-[0_0_10px_rgba(255,0,127,0.8)]">
-            <span class="hidden md:block font-gothic tracking-widest text-white font-bold text-sm lg:text-lg whitespace-nowrap">ALMAS<span class="text-neonPink">.</span> RELEASE</span>
-        </div>
-        
-        <!-- CENTER: COUNTDOWN -->
-        <div class="flex items-center justify-center w-[40%] md:w-1/3 text-center gap-2 md:gap-4 font-gothic">
-            <div class="flex flex-col items-center"><span id="top-days" class="text-xl md:text-3xl font-black text-white leading-none">00</span><span class="text-[9px] md:text-xs uppercase font-bold text-gray-400 tracking-widest mt-1">Días</span></div>
-            <span class="text-xl md:text-3xl font-black text-gray-600 leading-none pb-2 md:pb-4">:</span>
-            <div class="flex flex-col items-center"><span id="top-hours" class="text-xl md:text-3xl font-black text-white leading-none">00</span><span class="text-[9px] md:text-xs uppercase font-bold text-gray-400 tracking-widest mt-1">Hrs</span></div>
-            <span class="text-xl md:text-3xl font-black text-gray-600 leading-none pb-2 md:pb-4">:</span>
-            <div class="flex flex-col items-center"><span id="top-minutes" class="text-xl md:text-3xl font-black text-white leading-none">00</span><span class="text-[9px] md:text-xs uppercase font-bold text-gray-400 tracking-widest mt-1">Min</span></div>
-            <span class="text-xl md:text-3xl font-black text-gray-600 leading-none pb-2 md:pb-4">:</span>
-            <div class="flex flex-col items-center"><span id="top-seconds" class="text-xl md:text-3xl font-black text-neonPink leading-none drop-shadow-[0_0_8px_rgba(255,0,127,1)]">00</span><span class="text-[9px] md:text-xs uppercase font-bold text-neonPink tracking-widest mt-1">Seg</span></div>
-        </div>
+files = ["index.html", "videos.html", "biografia.html", "lanzamientos.html", "merch.html", "music.html"]
 
-        <!-- RIGHT: BUTTON -->
-        <div class="w-[30%] md:w-1/3 flex justify-end">
-            <a id="top-youtube-btn" href="https://www.youtube.com/@ALEHNAOFICIAL" target="_blank" class="bg-white text-black font-extrabold uppercase tracking-widest text-[10px] md:text-xs px-3 py-2 md:px-6 md:py-2.5 rounded hover:bg-neonPink hover:text-white hover:shadow-[0_0_20px_rgba(255,0,127,0.8)] transition-all flex items-center gap-2 whitespace-nowrap">
-                <i class="fa-brands fa-youtube text-lg md:text-xl"></i><span class="hidden lg:inline">Escuchar ahora</span>
-            </a>
-        </div>
-    </div>
-'''
+new_banner = """        <div class="w-full bg-pastelBeige border-b border-pastelCafe h-[53px] grid grid-cols-3 items-center px-2 md:px-4 text-pastelCafe text-xs">
+            <!-- IZQUIERDA: Caratula y Album -->
+            <div class="flex items-center justify-start gap-2">
+                <div class="relative w-8 h-8 md:w-10 md:h-10 ml-2 hidden sm:block">
+                    <div class="absolute inset-0 rounded-full border border-gray-600 bg-gray-900 flex items-center justify-center shadow-md spin-vinyl-auto z-0" style="transform: translateX(8px);">
+                        <img src="almas/Portada2.jpg.jpeg" class="w-1/3 h-1/3 rounded-full border border-white/50">
+                        <div class="absolute w-1 h-1 bg-white rounded-full"></div>
+                    </div>
+                    <div class="absolute inset-0 bg-white border border-gray-300 shadow bg-cover bg-center z-10 rounded-sm" style="background-image: url('almas/Portada2.jpg.jpeg');"></div>
+                </div>
+                <span class="font-marker tracking-widest text-pastelVino md:text-sm lg:block mt-1 hidden sm:block">ALMAS</span>
+            </div>
 
-# First, process each HTML file
-for file in glob.glob('*.html'):
-    if file == 'index.html':
-        continue # index was already manually done
-    
-    with open(file, 'r', encoding='utf-8') as f:
+            <!-- CENTRO: Contador -->
+            <div class="flex items-center justify-center gap-1 md:gap-3 font-bold tracking-widest font-main">
+                <div class="flex items-center gap-1"><span id="days" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[8px] md:text-[10px] uppercase">Días</span></div><span class="hidden sm:inline">:</span>
+                <div class="flex items-center gap-1"><span id="hours" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[8px] md:text-[10px] uppercase">Hrs</span></div><span class="hidden sm:inline">:</span>
+                <div class="flex items-center gap-1"><span id="minutes" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[8px] md:text-[10px] uppercase">Min</span></div><span class="hidden sm:inline">:</span>
+                <div class="flex items-center gap-1"><span id="seconds" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[8px] md:text-[10px] uppercase">Seg</span></div>
+            </div>
+
+            <!-- DERECHA: YouTube -->
+            <div class="flex justify-end">
+                <a href="https://www.youtube.com/@ALEHNAOFICIAL" target="_blank" class="px-3 md:px-4 py-1.5 rounded-full text-[10px] md:text-xs font-bold flex items-center gap-2 transition-all border-2 border-pastelCafe text-pastelCafe hover:bg-pastelVino hover:text-white hover:border-pastelVino shadow-sm bg-white group">
+                    <i class="fa-brands fa-youtube text-sm md:text-base text-pastelVino group-hover:text-white transition-colors"></i> <span class="hidden md:inline">YOUTUBE</span>
+                </a>
+            </div>
+        </div>"""
+
+for file in files:
+    with open(file, "r", encoding="utf-8") as f:
         content = f.read()
-
-    # Avoid duplicate injection
-    if 'TOP ANNOUNCEMENT BANNER' in content:
-        continue
-
-    # Add the top-bar and shift nav
-    new_content = re.sub(
-        r'(<nav[^>]*class="[^"]*fixed)\s+top-0',
-        banner_html + r'\n    \1 top-[70px]',
-        content,
-        count=1
-    )
-
-    # Push down the main content
-    new_content = re.sub(
-        r'(<main[^>]*class="[^"]*pt-)(\d+)',
-        r'\g<1>170px]',
-        new_content,
-        count=1
-    )
     
-    # Optional: ensure we catch pt-32 or pt-24 precisely formatted
-    # e.g. pt-32 -> pt-[170px]
+    # We use regex to replace from <div class="w-full bg-pastelBeige border-b border-pastelCafe h-[53px]
+    # to the closing </div> right before <header id="header"
+    pattern = re.compile(r'(<!-- Top Announcement Banner -->\s*)?<div class="w-full bg-pastelBeige border-b border-pastelCafe h-\[53px\].*?</div>(\s*<header id="header")', re.DOTALL)
+    
+    new_content = pattern.sub(f'{new_banner}\\2', content)
+    
+    if file == "lanzamientos.html":
+        # JS update for click interaction
+        new_content = new_content.replace(
+            "vinylWrapper.classList.toggle('is-open');",
+            "vinylWrapper.classList.toggle('disc-open');\n                vinylWrapper.classList.add('info-open');"
+        )
+        # CSS update
+        new_content = new_content.replace(
+            ".group.is-open .vinyl-disc { transform: translateX(8rem) rotate(90deg); }",
+            ".group.disc-open .vinyl-disc { transform: translateX(8rem) rotate(90deg); }"
+        )
+        new_content = new_content.replace(
+            ".group.is-open .vinyl-sleeve { transform: translateX(-2rem); }",
+            ".group.disc-open .vinyl-sleeve { transform: translateX(-2rem); }"
+        )
+        new_content = new_content.replace(
+            ".group.is-open .info-panel { opacity: 1; transform: translateX(0); pointer-events: auto; }",
+            ".group.info-open .info-panel { opacity: 1; transform: translateX(0); pointer-events: auto; }"
+        )
 
-    with open(file, 'w', encoding='utf-8') as f:
+    with open(file, "w", encoding="utf-8") as f:
         f.write(new_content)
+
+print(f"Updated {len(files)} files successfully.")
