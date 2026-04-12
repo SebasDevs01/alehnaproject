@@ -60,53 +60,83 @@ document.addEventListener('DOMContentLoaded', () => {
     setupMailtoToGmail();
     setupContactForm();
     loadCartFromStorage(); // Cargar carrito guardado si existe
-    initParticles(); // Iniciar sistema de partículas
+    initParticles(); // Iniciar sistema de partículas SDC Antigravity
+    initVuMeter(); // Iniciar vúmetro
 });
 
-// --- SISTEMA DE PARTÍCULAS (CORAZONES Y ESTRELLAS) ---
+// --- SISTEMA DE PARTÍCULAS PRA-OPS (ANTIGRAVITY) ---
 function initParticles() {
-    const container = document.getElementById('particles-container');
+    const container = document.getElementById('sdc-antigrav-layer');
     if (!container) return;
 
     // Crear partículas cada cierto tiempo
     setInterval(() => {
         spawnParticle(container);
-    }, 400); // Aparece 1 partícula cada 400ms
+    }, 200); // Aparece más rápido para el efecto de llamas y chispas
 }
 
 function spawnParticle(container) {
     const particle = document.createElement('div');
-    particle.className = 'particle';
+    particle.className = 'spark'; // Definido en index.css
     
-    // Aleatorizar color de la chispa (blanco brillante, naranja, fucsia intenso)
-    const colors = ['#ffffff', '#ffaa00', '#ff007f', '#ff3300'];
+    // Configurar partículas como chispas (embers) que resplandece
+    particle.innerText = ''; // Sin emojis
+    
+    const colors = ['#ff007f', '#ff0055', '#ff99cc', '#ffffff', '#ff1a1a'];
     const selectedColor = colors[Math.floor(Math.random() * colors.length)];
+    const blurAmount = Math.random() * 10 + 5;
     
-    particle.style.backgroundColor = selectedColor;
-    particle.style.boxShadow = `0 0 ${Math.random() * 10 + 5}px ${selectedColor}`;
+    particle.style.background = selectedColor;
+    particle.style.boxShadow = `0 0 ${blurAmount}px ${blurAmount/2}px ${selectedColor}`;
     particle.style.borderRadius = '50%';
-
-    // Tamaño de chispa (muy pequeñitas: 2px a 6px)
-    const size = Math.random() * 4 + 2;
+    
+    // Tamaño variable, pequeñas como brasas de fuego reales
+    const size = Math.random() * 4 + 1;
     particle.style.width = `${size}px`;
     particle.style.height = `${size}px`;
 
     // Posición horizontal aleatoria
     particle.style.left = `${Math.random() * 100}vw`;
 
-    // Las chispas suben más rápido que los corazones (duración de 2 a 5 segundos)
-    const duration = Math.random() * 3 + 2;
+    // Duración de la animación de deriva (más lento = flotación)
+    const duration = Math.random() * 5 + 3;
     particle.style.animationDuration = `${duration}s`;
-
-    // Retraso aleatorio
-    particle.style.animationDelay = `${Math.random()}s`;
 
     container.appendChild(particle);
 
-    // Limpiar el DOM tras terminar la animación
     setTimeout(() => {
         particle.remove();
-    }, (duration + 1) * 1000);
+    }, duration * 1000);
+}
+
+// --- VÚMETRO PRA-OPS ---
+function initVuMeter() {
+    const meter = document.getElementById('vu-meter');
+    if (!meter) return;
+    
+    // Crear 15 barras
+    for(let i=0; i<15; i++) {
+        const bar = document.createElement('div');
+        bar.className = 'w-2 bg-neonPink transition-all duration-100 ease-in-out';
+        bar.style.height = '10%';
+        bar.style.boxShadow = '0 0 5px rgba(255,0,127,0.8)';
+        meter.appendChild(bar);
+    }
+    
+    // Animar alturas de barras aleatoriamente
+    setInterval(() => {
+        const bars = meter.children;
+        for(let i=0; i<bars.length; i++) {
+            const height = Math.random() * 90 + 10;
+            bars[i].style.height = `${height}%`;
+            // Hacer que barras altas sean blancas/brillantes
+            if(height > 80) {
+                bars[i].style.backgroundColor = '#ffffff';
+            } else {
+                bars[i].style.backgroundColor = '#ff007f';
+            }
+        }
+    }, 150);
 }
 
 // --- DETECCIÓN DE DISPOSITIVO MÓVIL ---
@@ -415,10 +445,10 @@ function setupMailtoToGmail() { /* ... código anterior ... */ }
 
 // --- LÓGICA GLOBAL DEL BANNER DE CUENTA REGRESIVA ---
 (function initBannerCountdown() {
-    const daysEl = document.getElementById("top-days");
-    const hoursEl = document.getElementById("top-hours");
-    const minutesEl = document.getElementById("top-minutes");
-    const secondsEl = document.getElementById("top-seconds");
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
     const btnEl = document.getElementById("top-youtube-btn");
 
     // Solo iniciar el contador si el banner existe en la página
@@ -463,4 +493,79 @@ function setupMailtoToGmail() { /* ... código anterior ... */ }
     
     // Iniciar el intervalo si aún no hemos llegado a la fecha
     countdownInterval = setInterval(updateCountdown, 1000);
+})();
+// --- CARRUSEL AUTOMÁTICO Y2K POP ---
+
+
+// --- SDC.A-Ops: GALERIA SINGLE-IMAGE ROTATION & LIGHTBOX ---
+(function initSdcGallery() {
+    const images = ['imgbio/alebio.jpg', 'almas/Portada2.jpg.jpeg', 'media/lanzamiento.jpg', 'imgbio/fondobio.jpg']; 
+    // Fallback: Si no existen, usa las dos principales
+    
+    let currentIndex = 0;
+    const mainImg = document.getElementById('main-gallery-img');
+    const container = document.getElementById('main-gallery-container');
+    
+    const lightbox = document.getElementById('gallery-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const btnClose = document.getElementById('lightbox-close');
+    const btnPrev = document.getElementById('lightbox-prev');
+    const btnNext = document.getElementById('lightbox-next');
+    
+    if (!mainImg) return;
+
+    // Verificar cuáles imágenes resolverán (fallback a un arreglo seguro)
+    const validImages = ['imgbio/alebio.jpg', 'almas/Portada2.jpg.jpeg'];
+
+    let rotador;
+    
+    function changeMainImage(index) {
+        mainImg.style.opacity = 0; // Fade out
+        setTimeout(() => {
+            mainImg.src = validImages[index];
+            mainImg.style.opacity = 1; // Fade in
+        }, 250); // half duration of CSS transition
+    }
+
+    function startAutoRotation() {
+        rotador = setInterval(() => {
+            currentIndex = (currentIndex + 1) % validImages.length;
+            changeMainImage(currentIndex);
+        }, 1500); // 1.5s as requested
+    }
+
+    function stopAutoRotation() {
+        if(rotador) clearInterval(rotador);
+    }
+
+    // Iniciar rotativo
+    startAutoRotation();
+
+    // Eventos Lightbox
+    container.addEventListener('click', () => {
+        stopAutoRotation();
+        lightboxImg.src = validImages[currentIndex];
+        lightbox.classList.remove('hidden');
+        lightbox.classList.add('flex');
+        setTimeout(() => lightbox.style.opacity = '1', 50);
+    });
+
+    btnClose.addEventListener('click', () => {
+        lightbox.style.opacity = '0';
+        setTimeout(() => {
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('flex');
+            startAutoRotation(); // Reiniciar animación al cerrar
+        }, 300);
+    });
+
+    btnPrev.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + validImages.length) % validImages.length;
+        lightboxImg.src = validImages[currentIndex];
+    });
+
+    btnNext.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % validImages.length;
+        lightboxImg.src = validImages[currentIndex];
+    });
 })();

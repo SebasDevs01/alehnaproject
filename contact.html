@@ -9,7 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=5">
     <script>
         if (localStorage.theme === 'dark') {
             document.documentElement.classList.add('dark');
@@ -45,69 +45,70 @@
     </style>
 </head>
 
-<body
-    class="font-sans antialiased transition-colors duration-300 bg-lightBg text-black dark:bg-darkBg dark:text-white flex flex-col min-h-screen">
-    <div id="particles-container"></div>
-                <!-- TOP ANNOUNCEMENT BANNER -->
-    <div class="fixed top-0 left-0 w-full z-[80] bg-gradient-to-r from-gray-50 via-[#ffe6f2] to-gray-50 dark:from-black dark:via-[#1a000d] dark:to-black border-b-2 border-neonPink shadow-[0_0_20px_rgba(255,0,127,0.3)] dark:shadow-[0_0_20px_rgba(255,0,127,0.4)] h-[70px] flex items-center justify-between px-2 sm:px-4 md:px-6 transition-colors duration-300">
-        <!-- LEFT: COVER & TEXT -->
-        <div class="flex items-center gap-2 md:gap-3 shrink-0">
-            <img src="almas/Portada2.jpg.jpeg" alt="ALMAS" class="h-10 w-10 md:h-12 md:w-12 rounded bg-black object-cover shadow-[0_0_10px_rgba(255,0,127,0.5)] dark:shadow-[0_0_10px_rgba(255,0,127,0.8)]">
-            <span class="hidden md:block font-gothic tracking-widest text-black dark:text-white font-bold text-sm lg:text-lg whitespace-nowrap">ALMAS<span class="text-neonPink">.</span> RELEASE</span>
+<body class="font-sans antialiased transition-colors duration-300 bg-darkBg text-white dark flex flex-col min-h-screen">
+    <div id="sdc-antigrav-layer"></div>
+                    <!-- TOP ANNOUNCEMENT BANNER -->
+    <div class="absolute top-0 left-0 w-full z-[80] chrome-panel border-b-2 border-neonPink h-[70px] flex items-center justify-between px-4 md:px-8 shadow-[0_0_15px_rgba(255,0,127,0.2)]">
+        <!-- Logo / Title -->
+        <div class="flex items-center gap-3">
+            <img src="almas/Portada2.jpg.jpeg" alt="Almas Cover"
+                class="w-10 h-10 object-cover rounded shadow-[0_0_10px_rgba(255,0,127,0.8)] border border-[#ff007f]">
+            <span class="font-industrial tracking-widest chrome-text text-lg md:text-xl font-bold uppercase hidden sm:block" style="letter-spacing: 0.15em;">ALMAS. RELEASE</span>
         </div>
-        
-        <!-- CENTER: COUNTDOWN -->
-        <div class="flex items-center justify-center flex-1 mx-1 sm:mx-2 text-center gap-1 sm:gap-2 md:gap-4 font-gothic">
-            <div class="flex flex-col items-center"><span id="top-days" class="text-base sm:text-xl md:text-3xl font-black text-black dark:text-white leading-none">00</span><span class="text-[8px] sm:text-[9px] md:text-xs uppercase font-bold text-gray-500 dark:text-gray-400 tracking-widest mt-0.5 md:mt-1">Días</span></div>
-            <span class="text-base sm:text-xl md:text-3xl font-black text-gray-400 dark:text-gray-600 leading-none pb-2 md:pb-4">:</span>
-            <div class="flex flex-col items-center"><span id="top-hours" class="text-base sm:text-xl md:text-3xl font-black text-black dark:text-white leading-none">00</span><span class="text-[8px] sm:text-[9px] md:text-xs uppercase font-bold text-gray-500 dark:text-gray-400 tracking-widest mt-0.5 md:mt-1">Hrs</span></div>
-            <span class="text-base sm:text-xl md:text-3xl font-black text-gray-400 dark:text-gray-600 leading-none pb-2 md:pb-4">:</span>
-            <div class="flex flex-col items-center"><span id="top-minutes" class="text-base sm:text-xl md:text-3xl font-black text-black dark:text-white leading-none">00</span><span class="text-[8px] sm:text-[9px] md:text-xs uppercase font-bold text-gray-500 dark:text-gray-400 tracking-widest mt-0.5 md:mt-1">Min</span></div>
-            <span class="text-base sm:text-xl md:text-3xl font-black text-gray-400 dark:text-gray-600 leading-none pb-2 md:pb-4">:</span>
-            <div class="flex flex-col items-center"><span id="top-seconds" class="text-base sm:text-xl md:text-3xl font-black text-neonPink leading-none drop-shadow-[0_0_5px_rgba(255,0,127,0.5)] dark:drop-shadow-[0_0_8px_rgba(255,0,127,1)]">00</span><span class="text-[8px] sm:text-[9px] md:text-xs uppercase font-bold text-neonPink tracking-widest mt-0.5 md:mt-1">Seg</span></div>
-        </div>
-
-        <!-- RIGHT: BUTTON -->
-        <div class="flex justify-end shrink-0">
-            <a id="top-youtube-btn" href="https://www.youtube.com/@ALEHNAOFICIAL" target="_blank" class="bg-black text-white dark:bg-white dark:text-black font-extrabold uppercase tracking-widest text-[9px] md:text-xs px-2.5 py-1.5 md:px-6 md:py-2.5 rounded hover:bg-neonPink hover:text-white dark:hover:bg-neonPink dark:hover:text-white hover:shadow-[0_0_15px_rgba(255,0,127,0.5)] dark:hover:shadow-[0_0_20px_rgba(255,0,127,0.8)] transition-all flex items-center justify-center whitespace-nowrap">
-                <i class="fa-brands fa-youtube text-base sm:text-lg md:text-xl"></i><span class="hidden lg:inline ml-2">Escuchar ahora</span>
-            </a>
-        </div>
-    </div>
-
-    <nav
-        class="fixed top-[70px] w-full z-[60] bg-white/70 dark:bg-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300 h-[72px] flex items-center">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="index.html"
-                class="text-2xl font-gothic logo-metallic hover:scale-105 transition-transform text-black dark:text-white z-[65]">ALEHNA<span
-                    class="text-neonPink text-shadow-none">.</span></a>
-            <div
-                class="hidden md:flex items-center gap-6 font-bold text-sm tracking-widest uppercase text-black dark:text-white z-[65]">
-                <a href="index.html" class="hover:text-neonPink transition-colors">INICIO</a>
-                <a href="biografia.html" class="hover:text-neonPink transition-colors">BIOGRAFÍA</a>
-                <a href="music.html" class="hover:text-neonPink transition-colors">MÚSICA</a>
-                <a href="lanzamientos.html" class="hover:text-neonPink transition-colors">LANZAMIENTOS</a>
-                <a href="videos.html" class="hover:text-neonPink transition-colors">VIDEOS</a>
-                <a href="merch.html" class="hover:text-neonPink transition-colors">MERCH</a>
-                <a href="contact.html" class="text-neonPink transition-colors">CONTACTO</a>
+        <!-- Countdown -->
+        <div class="flex items-center gap-2 md:gap-4 font-industrial font-bold tracking-widest">
+            <div class="flex flex-col items-center">
+                <span id="days" class="text-2xl md:text-3xl leading-none chrome-text drop-shadow-md">00</span>
+                <span class="text-[10px] md:text-xs text-gray-400 uppercase">DÍAS</span>
             </div>
-            <div class="flex items-center gap-4">
-                <!-- BOTÓN CARRITO -->
-                <button onclick="toggleCart()"
-                    class="relative p-2 text-black dark:text-white hover:text-neonPink transition-colors">
+            <span class="text-xl md:text-2xl pb-3 text-gray-600">:</span>
+            <div class="flex flex-col items-center">
+                <span id="hours" class="text-2xl md:text-3xl leading-none chrome-text drop-shadow-md">00</span>
+                <span class="text-[10px] md:text-xs text-gray-400 uppercase">HRS</span>
+            </div>
+            <span class="text-xl md:text-2xl pb-3 text-gray-600">:</span>
+            <div class="flex flex-col items-center">
+                <span id="minutes" class="text-2xl md:text-3xl leading-none chrome-text drop-shadow-md">00</span>
+                <span class="text-[10px] md:text-xs text-gray-400 uppercase">MIN</span>
+            </div>
+            <span class="text-xl md:text-2xl pb-3 text-gray-600">:</span>
+            <div class="flex flex-col items-center">
+                <span id="seconds" class="text-2xl md:text-3xl leading-none text-white drop-shadow-[0_0_8px_rgba(255,0,127,1)]" style="text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f;">00</span>
+                <span class="text-[10px] md:text-xs text-[#ff66b2] uppercase drop-shadow-[0_0_5px_rgba(255,0,127,1)] font-bold">SEG</span>
+            </div>
+        </div>
+        <!-- CTA -->
+        <a href="music.html"
+            class="chrome-panel border-[2px] border-[#ff007f] px-5 py-2 rounded-sm text-white font-industrial uppercase font-bold text-xs md:text-sm flex items-center gap-2 hover:bg-[#ff007f] hover:text-white transition-all shadow-[0_0_15px_rgba(255,0,127,0.3)] hover:shadow-[0_0_25px_rgba(255,0,127,0.8)] group">
+            <i class="fa-brands fa-youtube text-red-500 group-hover:text-white transition-colors text-lg"></i> <span class="hidden md:inline">ESCUCHAR AHORA</span>
+        </a>
+    </div>
+    <nav class="absolute top-[70px] w-full z-[60] chrome-panel h-[100px] flex items-center  transition-all">
+        <div class="container mx-auto px-4 md:px-6 flex justify-between items-center h-full">
+            <!-- Left Links -->
+            <div class="hidden md:flex flex-1 items-center justify-end gap-6 font-industrial text-sm font-bold tracking-widest uppercase z-[65] mr-8">
+                <a href="index.html" class="hover-fuchsia-glow chrome-text px-3 py-1 rounded transition-colors border border-transparent">INICIO</a>
+                <a href="biografia.html" class="hover-fuchsia-glow chrome-text px-3 py-1 rounded transition-colors border border-transparent">BIOGRAFÍA</a>
+                <a href="music.html" class="hover-fuchsia-glow chrome-text px-3 py-1 rounded transition-colors border border-transparent">MÚSICA</a>
+            </div>
+            
+            <!-- Center Logo / Video -->
+            <a href="index.html" class="text-2xl font-industrial-metal chrome-text-metal chrome-text hover:text-white transition-colors text-white z-[65] mx-auto uppercase tracking-widest px-4 hover-fuchsia-glow">ALEHNA<span class="text-neonPink text-shadow-none">.</span></a>
+            
+            <!-- Right Links -->
+            <div class="hidden md:flex flex-1 items-center justify-start gap-6 font-industrial text-sm font-bold tracking-widest uppercase z-[65] ml-8">
+                <a href="lanzamientos.html" class="hover-fuchsia-glow chrome-text px-3 py-1 rounded transition-colors border border-transparent">LANZAMIENTOS</a>
+                <a href="videos.html" class="hover-fuchsia-glow chrome-text px-3 py-1 rounded transition-colors border border-transparent">VIDEOS</a>
+                <a href="merch.html" class="hover-fuchsia-glow chrome-text px-3 py-1 rounded transition-colors border border-transparent">MERCH</a>
+            </div>
+            
+            <!-- Mobile / Cart Icons -->
+            <div class="flex items-center gap-4 z-[65] absolute right-6">
+                <button onclick="toggleCart()" class="relative p-2 text-[#ccc] hover-fuchsia-glow transition-colors rounded-full border border-transparent">
                     <i class="fa-solid fa-cart-shopping text-xl"></i>
-                    <!-- Contador (oculto si es 0) -->
-                    <span id="cart-count"
-                        class="hidden absolute -top-1 -right-1 bg-neonPink text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                    <span id="cart-count" class="hidden absolute -top-1 -right-1 bg-neonPink text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-[0_0_5px_rgba(255,0,127,1)]">0</span>
                 </button>
-
-                <button id="theme-toggle"
-                    class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors focus:outline-none">
-                    <i class="fa-solid fa-sun text-gray-800 dark:text-white text-xl hidden dark:block"></i>
-                    <i class="fa-solid fa-moon text-gray-800 dark:text-white text-xl block dark:hidden"></i>
-                </button>
-                <button id="mobile-menu-btn" class="md:hidden p-2 text-2xl text-black dark:text-white"><i
-                        class="fa-solid fa-bars"></i></button>
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-2xl text-[#ccc] hover-fuchsia-glow border border-transparent rounded"><i class="fa-solid fa-bars"></i></button>
             </div>
         </div>
     </nav>
@@ -126,7 +127,7 @@
     <div id="cart-overlay" onclick="toggleCart()"
         class="fixed inset-0 bg-black/50 z-[70] hidden backdrop-blur-sm transition-opacity"></div>
     <div id="cart-sidebar"
-        class="fixed top-0 right-0 h-full w-full md:w-96 bg-white dark:bg-black z-[80] shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col border-l border-gray-200 dark:border-gray-800">
+        class="absolute top-0 right-0 h-full w-full md:w-96 bg-white dark:bg-black z-[80] shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col border-l border-gray-200 dark:border-gray-800">
         <div class="p-6 border-b border-gray-200 dark:border-gray-800 flex justify-between items-center">
             <h2 class="text-xl font-black tracking-widest text-black dark:text-white">TU CARRITO</h2>
             <button onclick="toggleCart()" class="text-gray-500 hover:text-neonPink"><i
@@ -140,7 +141,7 @@
         </div>
 
         <!-- Footer del carrito -->
-        <div class="p-6 border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-neutral-900">
+        <div class="p-6 border-t border-gray-200 dark:border-gray-800 bg-black chrome-panel">
             <div class="flex justify-between items-center mb-4 text-xl font-bold text-black dark:text-white">
                 <span>Total:</span>
                 <span id="cart-total" class="text-neonPink">$0</span>
@@ -152,10 +153,10 @@
         </div>
     </div>
 
-    <main class="flex-grow pt-[170px] pb-20 px-4 relative z-10">
+    <main class="flex-grow pt-[220px] pb-20 px-4 relative z-10">
         <div class="container mx-auto max-w-5xl">
             <div class="text-center mb-16 flame-glow inline-block w-full">
-                <h1 class="text-4xl md:text-6xl font-gothic logo-metallic mb-4">BUSINESS & <span
+                <h1 class="text-4xl md:text-6xl font-industrial-metal chrome-text-metal chrome-text drop-shadow-md mb-4">BUSINESS & <span
                         class="text-neonPink text-shadow-none">MANAGEMENT</span></h1>
                 <p class="text-gray-500 relative z-20">Estamos listos para trabajar contigo.</p>
             </div>
@@ -228,7 +229,7 @@
         </div>
         <p class="text-gray-500 text-xs">&copy; 2025 ALEHNA. Todos los derechos reservados.</p>
     </footer>
-    <script src="main.js?v=3"></script>
+    <script src="main.js?v=5"></script>
 </body>
 
 </html>
