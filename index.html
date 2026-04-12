@@ -32,8 +32,8 @@
         <!-- Top Announcement Banner -->
         <div class="w-full bg-pastelBeige border-b border-pastelCafe h-[53px] grid grid-cols-3 items-center px-2 md:px-4 text-pastelCafe text-xs">
             <div class="flex items-center justify-start gap-2">
-                <div class="relative w-8 h-8 md:w-10 md:h-10 ml-2 hidden sm:block mt-0.5">
-                    <div class="absolute inset-0 rounded-full border border-gray-600 bg-gray-900 flex items-center justify-center shadow-md spin-vinyl-auto z-0" style="transform: translateX(8px);">
+                <div class="relative flex-shrink-0 w-8 h-8 md:w-10 md:h-10 ml-2 mr-3 md:mr-4 hidden sm:block mt-0.5">
+                    <div class="absolute inset-0 rounded-full border border-gray-600 bg-gray-900 flex items-center justify-center shadow-md spin-vinyl-auto z-0" style="transform: translateX(8px); background: conic-gradient(from 0deg, #181514 0%, #4a403d 10%, #181514 20%, #181514 40%, #4a403d 50%, #181514 60%, #181514 90%, #4a403d 100%);">
                         <img src="almas/Portada2.jpg.jpeg" class="w-1/3 h-1/3 rounded-full border border-white/50">
                         <div class="absolute w-1 h-1 bg-white rounded-full"></div>
                     </div>
@@ -72,10 +72,14 @@
 
                 <div class="flex items-center gap-4 pt-1">
                     <div class="hidden md:flex gap-3 text-lg text-pastelCafe">
-                        <a target="_blank" href="https://instagram.com/alehnaoficial" class="hover:text-pastelVino transition"><i class="fa-brands fa-instagram"></i></a>
-                        <a target="_blank" href="https://www.tiktok.com/@alehnaoficial" class="hover:text-pastelVino transition"><i class="fa-brands fa-tiktok"></i></a>
-                        <a target="_blank" href="https://www.youtube.com/@AlenaMusicoficial" class="hover:text-pastelVino transition"><i class="fa-brands fa-youtube"></i></a>
+                        <a target="_blank" href="https://www.instagram.com/alehnaoficial?igsh=MTI2Y3NidGhpaXFiaQ==" class="hover:text-pastelVino transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a target="_blank" href="https://www.tiktok.com/@alehnaoficial?_r=1&_t=ZS-95T2zD8JSjt" class="hover:text-pastelVino transition"><i class="fa-brands fa-tiktok"></i></a>
+                        <a target="_blank" href="https://www.youtube.com/@ALEHNAOFICIAL" class="hover:text-pastelVino transition"><i class="fa-brands fa-youtube"></i></a>
                     </div>
+                    <button onclick="toggleCart()" class="relative text-xl md:text-2xl text-pastelVino hover:text-pastelCafe focus:outline-none transition-colors mr-2 md:mr-4">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span id="cart-count" class="absolute -top-2 -right-3 bg-pastelCafe text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full font-bold shadow hidden">0</span>
+                    </button>
                     <button id="mobile-menu-btn" class="md:hidden text-3xl text-pastelVino hover:text-pastelCafe focus:outline-none">
                         <i class="fa-solid fa-bars"></i>
                     </button>
@@ -210,6 +214,42 @@
                     </form>
                 </div>
             </div>
+
+            <div class="mt-24 mb-[-80px] w-full h-8 bg-pastelBeigeDark relative z-10" style="clip-path: polygon(0% 100%, 3% 5%, 6% 90%, 9% 15%, 13% 85%, 16% 5%, 19% 95%, 22% 20%, 25% 85%, 28% 5%, 32% 90%, 35% 15%, 38% 85%, 41% 10%, 45% 95%, 48% 20%, 51% 85%, 55% 5%, 58% 90%, 61% 15%, 65% 95%, 68% 10%, 71% 85%, 75% 20%, 78% 90%, 81% 5%, 85% 95%, 88% 10%, 91% 80%, 95% 20%, 98% 90%, 100% 100%, 0% 100%);"></div>
+        </section>
+
+        <!-- SECCIÓN CONTACTO -->
+        <section id="contacto" class="py-24 px-4 bg-pastelBeigeDark pt-32 relative z-10">
+            <div class="container mx-auto max-w-4xl text-center">
+                <div class="text-center mb-12">
+                    <h2 class="text-5xl font-marker text-darkText mb-2 transform rotate-1 inline-block">CONTÁCTANOS</h2>
+                    <div class="w-24 h-1 bg-pastelCafe mx-auto rounded-full mt-2"></div>
+                </div>
+                <div class="organic-box bg-white p-8 md:p-12 shadow-sm border-2 border-pastelCafe text-left w-full mx-auto max-w-2xl">
+                    <form class="flex flex-col gap-6" onsubmit="event.preventDefault(); sendEmail();">
+                        <div>
+                            <label class="block font-bold font-main text-pastelCafe mb-2 uppercase text-sm tracking-wider">Tu Nombre</label>
+                            <input type="text" id="contact-name" required class="w-full px-4 py-3 bg-pastelBeige rounded-md border-b-2 border-pastelCafe focus:border-pastelVino focus:outline-none transition-colors font-main text-darkText">
+                        </div>
+                        <div>
+                            <label class="block font-bold font-main text-pastelCafe mb-2 uppercase text-sm tracking-wider">Tu Correo</label>
+                            <input type="email" id="contact-email" required class="w-full px-4 py-3 bg-pastelBeige rounded-md border-b-2 border-pastelCafe focus:border-pastelVino focus:outline-none transition-colors font-main text-darkText">
+                        </div>
+                        <div>
+                            <label class="block font-bold font-main text-pastelCafe mb-2 uppercase text-sm tracking-wider">Asunto</label>
+                            <input type="text" id="contact-subject" class="w-full px-4 py-3 bg-pastelBeige rounded-md border-b-2 border-pastelCafe focus:border-pastelVino focus:outline-none transition-colors font-main text-darkText">
+                        </div>
+                        <div>
+                            <label class="block font-bold font-main text-pastelCafe mb-2 uppercase text-sm tracking-wider">Mensaje</label>
+                            <textarea id="contact-message" rows="4" required class="w-full px-4 py-3 bg-pastelBeige rounded-md border-b-2 border-pastelCafe focus:border-pastelVino focus:outline-none transition-colors font-main text-darkText resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full organic-btn bg-pastelVino text-white hover:bg-pastelCafe text-xl py-4 mt-2 font-bold uppercase transition-colors rounded-xl shadow-md border-2 border-transparent">
+                            <i class="fa-solid fa-paper-plane mr-2"></i> ENVIAR MENSAJE
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <!-- Divisor decorativo para pasar al footer si es que no lo tiene el footer -->
         </section>
     </main>
 
@@ -223,18 +263,7 @@
 
     <script src="main.js"></script>
     <script>
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        function toggleMenu() { 
-            if(menu.classList.contains('hidden')) {
-                menu.classList.remove('hidden');
-                menu.classList.add('flex');
-            } else {
-                menu.classList.add('hidden');
-                menu.classList.remove('flex');
-            }
-        }
-        btn.addEventListener('click', toggleMenu);
+        // Menu and toggles defined in main.js
 
         // Highlight based on scroll
         const sections = document.querySelectorAll('section');
@@ -260,5 +289,23 @@
             });
         });
     </script>
+    <!-- CART SIDEBAR & OVERLAY -->
+    <div id="cart-overlay" class="fixed inset-0 bg-black/40 z-[250] hidden transition-opacity backdrop-blur-sm" onclick="toggleCart()"></div>
+    <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-pastelBeige z-[300] transform translate-x-full transition-transform duration-300 shadow-2xl flex flex-col border-l-4 border-pastelCafe">
+        <div class="p-6 border-b border-pastelCafe flex justify-between items-center bg-white">
+            <h3 class="text-2xl font-bold font-marker text-darkText">TU CARRITO</h3>
+            <button onclick="toggleCart()" class="text-4xl text-pastelCafe hover:text-pastelVino"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div id="cart-items" class="flex-1 overflow-y-auto p-6 font-main"></div>
+        <div class="p-6 bg-white border-t border-pastelCafe shadow-[0_-10px_20px_rgba(0,0,0,0.05)]">
+            <div class="flex justify-between items-center mb-6">
+                <span class="text-xl font-bold text-darkText font-hand">TOTAL:</span>
+                <span id="cart-total" class="text-3xl font-bold text-pastelVino">$0</span>
+            </div>
+            <button onclick="checkoutCart()" class="w-full py-4 text-xl bg-pastelVino text-white hover:bg-pastelCafe transition-colors font-bold rounded-xl shadow-md border-2 border-transparent">
+                <i class="fa-brands fa-whatsapp text-2xl mr-2 align-middle"></i><span class="align-middle">Hacer Pedido</span>
+            </button>
+        </div>
+    </div>
 </body>
 </html>

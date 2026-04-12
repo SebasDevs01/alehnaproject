@@ -163,10 +163,14 @@ function setupThemeToggle() {
 function initMobileMenu() {
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
+    
+    // Definir funcion global para los enlaces del menu (onclick="toggleMenu()")
+    window.toggleMenu = () => {
+        if(menu) menu.classList.toggle('hidden');
+    };
+
     if (btn && menu) {
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
+        btn.addEventListener('click', window.toggleMenu);
     }
 }
 

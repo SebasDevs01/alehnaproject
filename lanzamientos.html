@@ -35,6 +35,8 @@
         .group.disc-open .vinyl-disc { transform: translateX(8rem) rotate(90deg); }
         .group.disc-open .vinyl-sleeve { transform: translateX(-2rem); }
         .group.info-open .info-panel { opacity: 1; transform: translateX(0); pointer-events: auto; }
+        .group:not(.disc-open):not(.info-open):hover .vinyl-disc { transform: translateX(3rem) rotate(20deg); }
+        .group:not(.disc-open):not(.info-open):hover .vinyl-sleeve { transform: translateX(-1rem); }
     </style>
 </head>
 <body class="bg-pastelBeige text-darkText font-sans transition-colors duration-300">
@@ -43,8 +45,8 @@
     <div class="fixed top-0 left-0 w-full z-[150] shadow-sm flex flex-col">
         <div class="w-full bg-pastelBeige border-b border-pastelCafe h-[53px] grid grid-cols-3 items-center px-2 md:px-4 text-pastelCafe text-xs">
             <div class="flex items-center justify-start gap-2">
-                <div class="relative w-8 h-8 md:w-10 md:h-10 ml-2 hidden sm:block mt-0.5">
-                    <div class="absolute inset-0 rounded-full border border-gray-600 bg-gray-900 flex items-center justify-center shadow-md spin-vinyl-auto z-0" style="transform: translateX(8px);">
+                <div class="relative flex-shrink-0 w-8 h-8 md:w-10 md:h-10 ml-2 mr-3 md:mr-4 hidden sm:block mt-0.5">
+                    <div class="absolute inset-0 rounded-full border border-gray-600 bg-gray-900 flex items-center justify-center shadow-md spin-vinyl-auto z-0" style="transform: translateX(8px); background: conic-gradient(from 0deg, #181514 0%, #4a403d 10%, #181514 20%, #181514 40%, #4a403d 50%, #181514 60%, #181514 90%, #4a403d 100%);">
                         <img src="almas/Portada2.jpg.jpeg" class="w-1/3 h-1/3 rounded-full border border-white/50">
                         <div class="absolute w-1 h-1 bg-white rounded-full"></div>
                     </div>
@@ -80,6 +82,15 @@
                     <a href="index.html#newsletter" class="bg-pastelVino text-white hover:bg-pastelCafe rounded-md px-4 py-1.5 transition-colors shadow-sm">Únete</a>
                 </nav>
                 <div class="flex items-center gap-4 pt-1">
+                    <div class="hidden md:flex gap-3 text-lg text-pastelCafe">
+                        <a target="_blank" href="https://www.instagram.com/alehnaoficial?igsh=MTI2Y3NidGhpaXFiaQ==" class="hover:text-pastelVino transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a target="_blank" href="https://www.tiktok.com/@alehnaoficial?_r=1&_t=ZS-95T2zD8JSjt" class="hover:text-pastelVino transition"><i class="fa-brands fa-tiktok"></i></a>
+                        <a target="_blank" href="https://www.youtube.com/@ALEHNAOFICIAL" class="hover:text-pastelVino transition"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                    <button onclick="toggleCart()" class="relative text-xl md:text-2xl text-pastelVino hover:text-pastelCafe focus:outline-none transition-colors mr-2 md:mr-4">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span id="cart-count" class="absolute -top-2 -right-3 bg-pastelCafe text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full font-bold shadow hidden">0</span>
+                    </button>
                     <button id="mobile-menu-btn" class="md:hidden text-3xl text-pastelVino hover:text-pastelCafe focus:outline-none">
                         <i class="fa-solid fa-bars"></i>
                     </button>
@@ -108,7 +119,7 @@
 
             <div id="vinyl-interactive" class="group vinyl-wrapper flex flex-col md:flex-row items-center justify-center gap-12 max-w-4xl mx-auto w-full cursor-pointer h-auto md:h-[400px]">
                 <div class="relative w-64 h-64 md:w-80 md:h-80 flex-shrink-0 z-20">
-                    <div class="vinyl-disc absolute inset-0 bg-gray-900 rounded-full shadow-2xl flex items-center justify-center border-4 border-black group-hover:translate-x-12 group-hover:rotate-[20deg]" style="z-index: 5;">
+                    <div class="vinyl-disc absolute inset-0 bg-gray-900 rounded-full shadow-2xl flex items-center justify-center border-4 border-black" style="z-index: 5;">
                         <div class="absolute inset-4 rounded-full border border-gray-700/50"></div>
                         <div class="absolute inset-8 rounded-full border border-gray-700/50"></div>
                         <div class="absolute inset-12 rounded-full border border-gray-700/50"></div>
@@ -116,7 +127,7 @@
                         <img src="almas/Portada2.jpg.jpeg" alt="Almas Record Label" class="w-1/3 h-1/3 object-cover rounded-full spin-slow border-[3px] border-pastelCafe">
                         <div class="absolute w-3 h-3 bg-white rounded-full z-[100]"></div>
                     </div>
-                    <div class="vinyl-sleeve absolute inset-0 z-10 bg-white drop-shadow-xl p-1 organic-box-simple group-hover:-translate-x-4 border border-gray-300">
+                    <div class="vinyl-sleeve absolute inset-0 z-10 bg-white drop-shadow-xl p-1 organic-box-simple border border-gray-300">
                         <img src="almas/Portada2.jpg.jpeg" alt="Almas Cover Sleeve" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-tr from-white/10 to-white/40 pointer-events-none"></div>
                     </div>
@@ -146,16 +157,7 @@
     
     <script src="main.js"></script>
     <script>
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        function toggleMenu() { 
-            if(menu.classList.contains('hidden')) {
-                menu.classList.remove('hidden'); menu.classList.add('flex');
-            } else {
-                menu.classList.add('hidden'); menu.classList.remove('flex');
-            }
-        }
-        btn.addEventListener('click', toggleMenu);
+        // Menu and toggles defined in main.js
 
         const vinylWrapper = document.getElementById('vinyl-interactive');
         if(vinylWrapper) {
@@ -165,5 +167,23 @@
             });
         }
     </script>
+    <!-- CART SIDEBAR & OVERLAY -->
+    <div id="cart-overlay" class="fixed inset-0 bg-black/40 z-[250] hidden transition-opacity backdrop-blur-sm" onclick="toggleCart()"></div>
+    <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-pastelBeige z-[300] transform translate-x-full transition-transform duration-300 shadow-2xl flex flex-col border-l-4 border-pastelCafe">
+        <div class="p-6 border-b border-pastelCafe flex justify-between items-center bg-white">
+            <h3 class="text-2xl font-bold font-marker text-darkText">TU CARRITO</h3>
+            <button onclick="toggleCart()" class="text-4xl text-pastelCafe hover:text-pastelVino"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div id="cart-items" class="flex-1 overflow-y-auto p-6 font-main"></div>
+        <div class="p-6 bg-white border-t border-pastelCafe shadow-[0_-10px_20px_rgba(0,0,0,0.05)]">
+            <div class="flex justify-between items-center mb-6">
+                <span class="text-xl font-bold text-darkText font-hand">TOTAL:</span>
+                <span id="cart-total" class="text-3xl font-bold text-pastelVino">$0</span>
+            </div>
+            <button onclick="checkoutCart()" class="w-full py-4 text-xl bg-pastelVino text-white hover:bg-pastelCafe transition-colors font-bold rounded-xl shadow-md border-2 border-transparent">
+                <i class="fa-brands fa-whatsapp text-2xl mr-2 align-middle"></i><span class="align-middle">Hacer Pedido</span>
+            </button>
+        </div>
+    </div>
 </body>
 </html>
