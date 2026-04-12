@@ -5,27 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ALEHNA | Official Website</title>
-    <meta name="description" content="Sitio oficial de ALEHNA. Múscia, Videos, y Merch.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Cargar Fuentes -->
-    <link rel="stylesheet" href="styles.css?v=10">
+    <link rel="stylesheet" href="styles.css?v=12">
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        pastelBeige: '#F9F6F0',
-                        pastelBeigeDark: '#EAE3D5',
-                        pastelCafe: '#A8866E',
-                        pastelVino: '#C57D84',
-                        darkText: '#4A3E38',
+                        pastelBeige: '#F9F6F0', pastelBeigeDark: '#EAE3D5',
+                        pastelCafe: '#A8866E', pastelVino: '#C57D84', darkText: '#4A3E38',
                     },
                     fontFamily: {
-                        sans: ['Nunito', 'sans-serif'],
-                        hand: ['Caveat', 'cursive'],
-                        marker: ['Permanent Marker', 'cursive'],
+                        sans: ['Nunito', 'sans-serif'], hand: ['Caveat', 'cursive'], marker: ['Permanent Marker', 'cursive'],
                     }
                 }
             }
@@ -35,25 +28,34 @@
 
 <body class="bg-pastelBeige text-darkText font-sans transition-colors duration-300">
 
-    <!-- HEADER / NAV -->
-    <header id="header" class="fixed top-0 w-full z-[100] bg-pastelBeige/95 backdrop-blur-sm border-b-2 border-pastelCafe shadow-sm transition-all h-[80px] flex items-center">
-        <div class="container mx-auto px-4 w-full flex items-center justify-between">
-            <!-- LOGO -->
-            <a href="index.html" class="text-3xl font-marker text-pastelVino tracking-wider hover:text-pastelCafe transition-colors">
-                Alehna
-            </a>
+    <!-- Top Announcement Banner -->
+    <div class="fixed top-0 left-0 w-full z-[110] bg-pastelBeige border-b border-pastelCafe h-[40px] flex items-center justify-between px-4 shadow-sm text-pastelCafe text-xs">
+        <div class="flex items-center gap-2">
+            <span class="font-marker tracking-widest text-pastelVino md:text-sm hidden sm:block mt-1">ALMAS. PRONTO</span>
+        </div>
+        <div class="flex items-center gap-2 md:gap-4 font-bold tracking-widest font-main">
+            <div class="flex items-center gap-1"><span id="days" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[9px] uppercase">Días</span></div>:
+            <div class="flex items-center gap-1"><span id="hours" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[9px] uppercase">Hrs</span></div>:
+            <div class="flex items-center gap-1"><span id="minutes" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[9px] uppercase">Min</span></div>:
+            <div class="flex items-center gap-1"><span id="seconds" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[9px] uppercase">Seg</span></div>
+        </div>
+    </div>
 
-            <!-- ENLACES DESKTOP -->
-            <nav class="hidden md:flex gap-8 font-bold text-sm tracking-widest text-darkText uppercase items-center">
-                <a href="#music" class="hover:text-pastelVino transition-colors">Música</a>
-                <a href="#videos" class="hover:text-pastelVino transition-colors">Videos</a>
-                <a href="biografia.html" class="hover:text-pastelVino transition-colors">Biografía</a>
-                <a href="lanzamientos.html" class="hover:text-pastelVino transition-colors">Lanzamientos</a>
-                <a href="merch.html" class="hover:text-pastelVino transition-colors">La Tienda</a>
-                <a href="#newsletter" class="organic-btn text-xs px-4 py-2">Únete</a>
+    <!-- HEADER / NAV -->
+    <header id="header" class="fixed top-[40px] w-full z-[100] bg-pastelBeige/95 backdrop-blur-sm border-b-2 border-pastelCafe shadow-sm transition-all h-[80px] flex items-center">
+        <div class="container mx-auto px-4 w-full flex items-center justify-between">
+            <a href="index.html" class="text-3xl font-marker text-pastelVino tracking-wider hover:text-pastelCafe transition-colors mt-2">Alehna</a>
+            
+            <!-- ENLACES DESKTOP con script activo basado en scroll para index -->
+            <nav id="desktop-nav" class="hidden md:flex gap-8 font-bold text-sm tracking-widest text-darkText uppercase items-center">
+                <a href="#music" class="hover:text-pastelVino transition-colors px-2 py-1" data-section="music">Música</a>
+                <a href="#videos" class="hover:text-pastelVino transition-colors px-2 py-1" data-section="videos">Videos</a>
+                <a href="biografia.html" class="hover:text-pastelVino transition-colors px-2 py-1">Biografía</a>
+                <a href="lanzamientos.html" class="hover:text-pastelVino transition-colors px-2 py-1">Lanzamientos</a>
+                <a href="merch.html" class="hover:text-pastelVino transition-colors px-2 py-1">La Tienda</a>
+                <a href="#newsletter" class="bg-pastelVino text-white hover:bg-pastelCafe rounded-md px-4 py-2 transition-colors">Únete</a>
             </nav>
 
-            <!-- ICONOS REDES / MOBILE MENU BTN -->
             <div class="flex items-center gap-4">
                 <div class="hidden md:flex gap-3 text-lg text-pastelCafe">
                     <a target="_blank" href="https://instagram.com/alehnaoficial" class="hover:text-pastelVino transition"><i class="fa-brands fa-instagram"></i></a>
@@ -67,19 +69,14 @@
         </div>
     </header>
 
-    <!-- MOBILE MENU -->
     <div id="mobile-menu" class="fixed inset-0 z-[90] bg-pastelBeige/95 backdrop-blur-md flex-col items-center justify-center space-y-8 hidden pt-20">
         <a href="#music" class="text-2xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Música</a>
         <a href="#videos" class="text-2xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Videos</a>
-        <a href="biografia.html" class="text-2xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Biografía</a>
-        <a href="lanzamientos.html" class="text-2xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Lanzamientos</a>
-        <a href="merch.html" class="text-2xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">La Tienda</a>
-        <a href="#newsletter" class="text-2xl font-bold font-hand text-pastelVino uppercase" onclick="toggleMenu()">Únete</a>
         <button onclick="toggleMenu()" class="absolute top-6 right-6 text-3xl text-darkText"><i class="fa-solid fa-xmark"></i></button>
     </div>
 
     <!-- WRAPPER PRINCIPAL -->
-    <main id="main" class="pt-[80px]">
+    <main id="main" class="pt-[120px]">
         
         <!-- HERO SECTION -->
         <section class="relative w-full h-[70vh] flex items-center justify-center bg-pastelBeigeDark overflow-hidden">
@@ -88,35 +85,29 @@
                 <h1 class="text-7xl md:text-9xl font-marker text-white drop-shadow-lg mb-4 transform -rotate-2 text-pastelBeige">ALEHNA</h1>
                 <p class="text-2xl md:text-4xl font-hand text-white drop-shadow-md">Bienvenido a casa.</p>
             </div>
-            <!-- Borde de papel rasgado inferior -->
+            <!-- Borde rasgado inferior -->
             <div class="absolute bottom-0 w-full h-8 bg-pastelBeige" style="clip-path: polygon(0% 100%, 2% 20%, 5% 90%, 8% 10%, 12% 85%, 15% 15%, 18% 90%, 21% 5%, 25% 85%, 28% 20%, 31% 95%, 34% 10%, 37% 85%, 41% 15%, 44% 90%, 48% 5%, 52% 80%, 55% 15%, 58% 95%, 62% 10%, 65% 85%, 68% 20%, 72% 90%, 75% 5%, 78% 85%, 81% 15%, 85% 90%, 88% 5%, 92% 80%, 95% 15%, 98% 90%, 100% 100%, 0% 100%);"></div>
         </section>
 
         <!-- SECCIÓN MÚSICA -->
         <section id="music" class="py-20 px-4 bg-pastelBeige">
             <div class="container mx-auto max-w-6xl">
-                <!-- Título -->
                 <div class="text-center mb-16">
                     <h2 class="text-5xl font-marker text-pastelCafe mb-2 transform rotate-1 inline-block">MÚSICA</h2>
                     <div class="w-24 h-1 bg-pastelVino mx-auto rounded-full mt-2"></div>
                 </div>
 
-                <!-- Grid de Álbumes al estilo Camilo -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12 max-w-4xl mx-auto">
-                    
                     <!-- ÁLBUM 1: ALMAS -->
                     <div class="flex flex-col items-center group">
                         <div class="organic-box p-4 mb-6 hover:scale-105 transition-transform duration-300 w-full max-w-[350px]">
                             <img src="almas/Portada2.jpg.jpeg" alt="Almas Cover" class="w-full aspect-square object-cover rounded-lg">
                         </div>
                         <h3 class="text-2xl font-bold font-hand text-darkText mb-4">ALMAS</h3>
-                        <!-- DSP Icons -->
                         <div class="flex gap-4 text-2xl text-pastelCafe">
-                            <a target="_blank" href="#" class="hover:text-pastelVino transition-transform hover:scale-110"><i class="fas fa-star"></i></a>
                             <a target="_blank" href="#" class="hover:text-pastelVino transition-transform hover:scale-110"><i class="fab fa-spotify"></i></a>
                             <a target="_blank" href="#" class="hover:text-pastelVino transition-transform hover:scale-110"><i class="fab fa-apple"></i></a>
                             <a target="_blank" href="#" class="hover:text-pastelVino transition-transform hover:scale-110"><i class="fab fa-youtube"></i></a>
-                            <a target="_blank" href="#" class="hover:text-pastelVino transition-transform hover:scale-110"><i class="fab fa-deezer"></i></a>
                         </div>
                     </div>
 
@@ -126,66 +117,58 @@
                             <img src="karma-portada/karma.jpg" alt="Karma Cover" class="w-full aspect-square object-cover rounded-lg">
                         </div>
                         <h3 class="text-2xl font-bold font-hand text-darkText mb-4">EL KARMA</h3>
-                        <!-- DSP Icons -->
                         <div class="flex gap-4 text-2xl text-pastelCafe">
-                            <a target="_blank" href="#" class="hover:text-pastelVino transition-transform hover:scale-110"><i class="fas fa-star"></i></a>
-                            <a target="_blank" href="#" class="hover:text-pastelVino transition-transform hover:scale-110"><i class="fab fa-spotify"></i></a>
+                            <a target="_blank" href="https://open.spotify.com/intl-es/track/6WCIljsn5rcWF699Siq2TM" class="hover:text-pastelVino transition-transform hover:scale-110"><i class="fab fa-spotify"></i></a>
                             <a target="_blank" href="#" class="hover:text-pastelVino transition-transform hover:scale-110"><i class="fab fa-apple"></i></a>
                             <a target="_blank" href="#" class="hover:text-pastelVino transition-transform hover:scale-110"><i class="fab fa-youtube"></i></a>
-                            <a target="_blank" href="#" class="hover:text-pastelVino transition-transform hover:scale-110"><i class="fab fa-deezer"></i></a>
                         </div>
                     </div>
-
                 </div>
             </div>
             
-            <!-- Borde de papel hacia videos -->
             <div class="mt-24 mb-[-80px] w-full h-8 bg-pastelBeigeDark relative z-10" style="clip-path: polygon(0% 100%, 3% 5%, 6% 90%, 9% 15%, 13% 85%, 16% 5%, 19% 95%, 22% 20%, 25% 85%, 28% 5%, 32% 90%, 35% 15%, 38% 85%, 41% 10%, 45% 95%, 48% 20%, 51% 85%, 55% 5%, 58% 90%, 61% 15%, 65% 95%, 68% 10%, 71% 85%, 75% 20%, 78% 90%, 81% 5%, 85% 95%, 88% 10%, 91% 80%, 95% 20%, 98% 90%, 100% 100%, 0% 100%);"></div>
         </section>
 
         <!-- SECCIÓN VIDEOS -->
         <section id="videos" class="py-24 px-4 bg-pastelBeigeDark pt-32">
             <div class="container mx-auto max-w-6xl">
-                <!-- Título -->
                 <div class="text-center mb-16">
                     <h2 class="text-5xl font-marker text-darkText mb-2 transform -rotate-1 inline-block">VIDEOS</h2>
                     <div class="w-24 h-1 bg-pastelCafe mx-auto rounded-full mt-2"></div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                    <!-- Video 1 -->
-                    <div class="organic-box bg-pastelBeige p-3 overflow-hidden flex flex-col group">
+                    <!-- Video 1: KARMA -->
+                    <div class="organic-box bg-pastelBeige p-3 flex flex-col group h-full justify-between">
                         <div class="relative w-full pt-[56.25%] bg-black rounded">
                             <iframe class="absolute top-0 left-0 w-full h-full rounded" 
-                                src="https://www.youtube.com/embed/lx6t1zS-bC8" 
+                                src="https://www.youtube.com/embed/EWMMuV1Hf3U?si=I0mpYdQLGmEiBTjv" 
                                 title="YouTube video player" frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
-                        <div class="p-4 text-center">
-                            <h4 class="font-bold font-main text-lg text-pastelCafe">ALEHNA - ALMAS (Video Oficial)</h4>
+                        <div class="p-4 text-center mt-auto">
+                            <h4 class="font-bold font-main text-lg text-darkText">ALEHNA - EL KARMA <span class="text-pastelCafe text-sm block">Video Oficial</span></h4>
                         </div>
                     </div>
 
-                    <!-- Video 2 -->
-                    <div class="organic-box bg-pastelBeige p-3 overflow-hidden flex flex-col group">
-                        <div class="relative w-full pt-[56.25%] bg-black rounded">
-                            <iframe class="absolute top-0 left-0 w-full h-full rounded" 
-                                src="https://www.youtube.com/embed/j09cI6t18NA" 
-                                title="YouTube video player" frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <!-- Video 2: PRONTO (Almas) -->
+                    <div class="organic-box bg-pastelVino p-3 flex flex-col group h-full shadow-[0_0_20px_rgba(197,125,132,0.3)]">
+                        <div class="relative w-full pt-[56.25%] bg-white/10 flex items-center justify-center rounded">
+                            <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-6 border-2 border-white/20 m-2 rounded">
+                                <i class="fa-solid fa-video text-5xl text-white/50 mb-4 animate-pulse"></i>
+                                <h2 class="text-4xl md:text-5xl font-marker text-white tracking-widest leading-none drop-shadow-sm">PRONTO</h2>
+                                <p class="font-hand text-white/80 text-xl md:text-2xl mt-4">ALMAS. El Nuevo Video</p>
+                            </div>
                         </div>
-                        <div class="p-4 text-center">
-                            <h4 class="font-bold font-main text-lg text-pastelCafe">ALEHNA - EL KARMA (Video Oficial)</h4>
+                        <div class="p-4 text-center mt-auto text-white">
+                            <h4 class="font-bold font-main text-lg">ALEHNA - ALMAS <span class="text-white/70 text-sm block">Estreno Próximamente</span></h4>
                         </div>
                     </div>
-                </div>
-
-                <div class="text-center mt-12">
-                    <a target="_blank" href="https://www.youtube.com/@AlenaMusicoficial" class="organic-btn text-lg">Ver todos los videos</a>
                 </div>
             </div>
             
-            <!-- Borde de papel hacia newsletter -->
+            <!-- Borde haca newsletter -->
             <div class="mt-24 mb-[-80px] w-full h-8 bg-pastelBeige relative z-10" style="clip-path: polygon(0% 100%, 2% 15%, 5% 95%, 8% 5%, 11% 85%, 14% 20%, 18% 90%, 21% 10%, 25% 95%, 28% 5%, 32% 80%, 35% 25%, 38% 90%, 41% 10%, 45% 95%, 48% 5%, 52% 85%, 55% 20%, 58% 90%, 62% 10%, 65% 95%, 68% 5%, 72% 80%, 75% 25%, 78% 90%, 82% 10%, 85% 95%, 88% 5%, 92% 85%, 95% 20%, 98% 90%, 100% 100%, 0% 100%); transform: scaleY(-1); top: -8px;"></div>
         </section>
 
@@ -210,40 +193,46 @@
                 </div>
             </div>
         </section>
-
     </main>
 
     <!-- FOOTER -->
     <footer id="footer" class="bg-pastelCafe text-pastelBeige py-12 relative overflow-hidden">
-        <!-- Borde rasgado arriba del footer -->
         <div class="absolute top-0 w-full h-8 bg-pastelBeige" style="clip-path: polygon(0% 100%, 2% 15%, 5% 95%, 8% 5%, 11% 85%, 14% 20%, 18% 90%, 21% 10%, 25% 95%, 28% 5%, 32% 80%, 35% 25%, 38% 90%, 41% 10%, 45% 95%, 48% 5%, 52% 85%, 55% 20%, 58% 90%, 62% 10%, 65% 95%, 68% 5%, 72% 80%, 75% 25%, 78% 90%, 82% 10%, 85% 95%, 88% 5%, 92% 85%, 95% 20%, 98% 90%, 100% 100%, 0% 100%); transform: scaleY(-1); top: 0;"></div>
-        
         <div class="container mx-auto px-4 mt-8 flex flex-col items-center">
-            
-            <div class="flex gap-6 mb-8 text-3xl">
-                <a target="_blank" href="https://instagram.com/alehnaoficial" class="hover:text-pastelVino transition transform hover:scale-110"><i class="fa-brands fa-instagram"></i></a>
-                <a target="_blank" href="https://www.tiktok.com/@alehnaoficial" class="hover:text-pastelVino transition transform hover:scale-110"><i class="fa-brands fa-tiktok"></i></a>
-                <a target="_blank" href="https://www.youtube.com/@AlenaMusicoficial" class="hover:text-pastelVino transition transform hover:scale-110"><i class="fa-brands fa-youtube"></i></a>
-            </div>
-            
-            <div class="text-center font-main text-sm font-bold opacity-80 space-x-2">
-                <span>© 2026 ALEHNA. TODOS LOS DERECHOS RESERVADOS.</span>
-            </div>
+            <div class="text-center font-main text-sm font-bold opacity-80">© 2026 ALEHNA. TODOS LOS DERECHOS RESERVADOS.</div>
         </div>
     </footer>
 
-    <!-- SCRIPT BASICO -->
+    <script src="main.js"></script>
     <script>
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
-        
-        function toggleMenu() {
-            menu.classList.toggle('hidden');
-            menu.classList.toggle('flex');
-        }
-
+        function toggleMenu() { menu.classList.toggle('hidden'); menu.classList.toggle('flex'); }
         btn.addEventListener('click', toggleMenu);
+
+        // Highlight based on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('#desktop-nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-pastelVino', 'border-b-2', 'border-pastelVino');
+                link.classList.add('text-darkText');
+                if (link.dataset.section === current) {
+                    link.classList.remove('text-darkText');
+                    link.classList.add('text-pastelVino', 'border-b-2', 'border-pastelVino');
+                }
+            });
+        });
     </script>
 </body>
-
 </html>

@@ -7,7 +7,7 @@
     <title>ALEHNA | Videos</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=11">
+    <link rel="stylesheet" href="styles.css?v=12">
     <script>
         tailwind.config = {
             theme: {
@@ -26,16 +26,34 @@
 </head>
 
 <body class="bg-pastelBeigeDark text-darkText font-sans transition-colors duration-300">
-    <header id="header" class="fixed top-0 w-full z-[100] bg-pastelBeige/95 backdrop-blur-sm border-b-2 border-pastelCafe shadow-sm h-[80px] flex items-center">
+    
+    <!-- Top Announcement Banner -->
+    <div class="fixed top-0 left-0 w-full z-[110] bg-pastelBeige border-b border-pastelCafe h-[40px] flex items-center justify-between px-4 shadow-sm text-pastelCafe text-xs">
+        <div class="flex items-center gap-2">
+            <span class="font-marker tracking-widest text-pastelVino md:text-sm hidden sm:block mt-1">ALMAS. PRONTO</span>
+        </div>
+        <div class="flex items-center gap-2 md:gap-4 font-bold tracking-widest font-main">
+            <div class="flex items-center gap-1"><span id="days" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[9px] uppercase">Días</span></div>:
+            <div class="flex items-center gap-1"><span id="hours" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[9px] uppercase">Hrs</span></div>:
+            <div class="flex items-center gap-1"><span id="minutes" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[9px] uppercase">Min</span></div>:
+            <div class="flex items-center gap-1"><span id="seconds" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[9px] uppercase">Seg</span></div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header id="header" class="fixed top-[40px] w-full z-[100] bg-pastelBeige/95 backdrop-blur-sm border-b-2 border-pastelCafe shadow-sm h-[80px] flex items-center">
         <div class="container mx-auto px-4 w-full flex items-center justify-between">
-            <a href="index.html" class="text-3xl font-marker text-pastelVino tracking-wider hover:text-pastelCafe transition-colors">Alehna</a>
+            <a href="index.html" class="text-3xl font-marker text-pastelVino tracking-wider hover:text-pastelCafe transition-colors mt-2">Alehna</a>
             <nav class="hidden md:flex gap-8 font-bold text-sm tracking-widest text-darkText uppercase items-center">
-                <a href="index.html#music" class="hover:text-pastelVino transition-colors">Música</a>
-                <a href="videos.html" class="text-pastelCafe hover:text-pastelVino transition-colors">Videos</a>
-                <a href="biografia.html" class="hover:text-pastelVino transition-colors">Biografía</a>
-                <a href="lanzamientos.html" class="hover:text-pastelVino transition-colors">Lanzamientos</a>
-                <a href="merch.html" class="hover:text-pastelVino transition-colors">La Tienda</a>
-                <a href="index.html#newsletter" class="organic-btn text-xs px-4 py-2">Únete</a>
+                <a href="index.html#music" class="hover:text-pastelVino transition-colors px-2 py-1">Música</a>
+                
+                <!-- ACTIVO -->
+                <a href="videos.html" class="text-pastelVino font-bold border-b-2 border-pastelVino transition-colors px-2 py-1">Videos</a>
+                
+                <a href="biografia.html" class="hover:text-pastelVino transition-colors px-2 py-1">Biografía</a>
+                <a href="lanzamientos.html" class="hover:text-pastelVino transition-colors px-2 py-1">Lanzamientos</a>
+                <a href="merch.html" class="hover:text-pastelVino transition-colors px-2 py-1">La Tienda</a>
+                <a href="index.html#newsletter" class="bg-pastelVino text-white hover:bg-pastelCafe rounded-md px-4 py-2 transition-colors">Únete</a>
             </nav>
             <div class="flex items-center gap-4">
                 <div class="hidden md:flex gap-3 text-lg text-pastelCafe">
@@ -50,27 +68,47 @@
 
     <div id="mobile-menu" class="fixed inset-0 z-[90] bg-pastelBeige/95 backdrop-blur-md flex-col items-center justify-center space-y-8 hidden pt-20">
         <a href="index.html#music" class="text-2xl font-bold font-hand text-darkText uppercase" onclick="toggleMenu()">Música</a>
-        <a href="videos.html" class="text-2xl font-bold font-hand text-pastelCafe uppercase" onclick="toggleMenu()">Videos</a>
+        <a href="videos.html" class="text-2xl font-bold font-hand text-pastelVino uppercase" onclick="toggleMenu()">Videos</a>
         <button onclick="toggleMenu()" class="absolute top-6 right-6 text-3xl text-darkText"><i class="fa-solid fa-xmark"></i></button>
     </div>
 
-    <main class="flex-grow pt-[160px] pb-20 px-4">
+    <main class="flex-grow pt-[180px] pb-20 px-4">
         <div class="container mx-auto max-w-6xl">
             <div class="text-center mb-16">
                 <h1 class="text-5xl md:text-7xl font-marker text-darkText drop-shadow-sm border-b-2 border-pastelCafe inline-block pb-2 transform -rotate-1">VIDEOS</h1>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <div class="organic-box bg-pastelBeige p-3 group">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                
+                <!-- Video 1: Karma (YouTube iframe) -->
+                <div class="organic-box bg-pastelBeige p-3 flex flex-col group h-full justify-between">
                     <div class="relative w-full pt-[56.25%] bg-black rounded">
-                        <iframe class="absolute top-0 left-0 w-full h-full rounded" src="https://www.youtube.com/embed/lx6t1zS-bC8" title="YouTube video" frameborder="0" allowfullscreen></iframe>
+                        <iframe class="absolute top-0 left-0 w-full h-full rounded" 
+                            src="https://www.youtube.com/embed/EWMMuV1Hf3U?si=I0mpYdQLGmEiBTjv" 
+                            title="YouTube video player" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-4 text-center mt-auto">
+                        <h4 class="font-bold font-main text-xl text-darkText">ALEHNA - EL KARMA <span class="text-pastelCafe text-sm block">Video Oficial</span></h4>
                     </div>
                 </div>
-                <div class="organic-box bg-pastelBeige p-3 group">
-                    <div class="relative w-full pt-[56.25%] bg-black rounded">
-                        <iframe class="absolute top-0 left-0 w-full h-full rounded" src="https://www.youtube.com/embed/j09cI6t18NA" title="YouTube video" frameborder="0" allowfullscreen></iframe>
+
+                <!-- Video 2: Almas (Bloque PRONTO Vinotinto) -->
+                <div class="organic-box bg-pastelVino p-3 flex flex-col group h-full shadow-[0_0_20px_rgba(197,125,132,0.3)]">
+                    <div class="relative w-full pt-[56.25%] bg-white/10 flex items-center justify-center rounded">
+                        <!-- Estructura del teaser (caja de texto centrada en absoluto) -->
+                        <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-6 border-2 border-white/20 m-2 rounded">
+                            <i class="fa-solid fa-video text-5xl text-white/50 mb-4 animate-pulse"></i>
+                            <h2 class="text-4xl md:text-5xl font-marker text-white tracking-widest leading-none drop-shadow-sm">PRONTO</h2>
+                            <p class="font-hand text-white/80 text-xl md:text-2xl mt-4">ALMAS. El Nuevo Video</p>
+                        </div>
+                    </div>
+                    <div class="p-4 text-center mt-auto text-white">
+                        <h4 class="font-bold font-main text-xl">ALEHNA - ALMAS <span class="text-white/70 text-sm block">Trailer / Estreno Próximamente</span></h4>
                     </div>
                 </div>
+
             </div>
         </div>
     </main>
@@ -81,6 +119,7 @@
             <div class="text-center font-main text-sm font-bold opacity-80">© 2026 ALEHNA. TODOS LOS DERECHOS RESERVADOS.</div>
         </div>
     </footer>
+    <script src="main.js"></script>
     <script>
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');

@@ -5,26 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ALEHNA | Música</title>
-    <meta name="description" content="Música de ALEHNA en todas las plataformas.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=11">
-    
+    <link rel="stylesheet" href="styles.css?v=12">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        pastelBeige: '#F9F6F0',
-                        pastelBeigeDark: '#EAE3D5',
-                        pastelCafe: '#A8866E',
-                        pastelVino: '#C57D84',
-                        darkText: '#4A3E38',
+                        pastelBeige: '#F9F6F0', pastelBeigeDark: '#EAE3D5',
+                        pastelCafe: '#A8866E', pastelVino: '#C57D84', darkText: '#4A3E38',
                     },
                     fontFamily: {
-                        sans: ['Nunito', 'sans-serif'],
-                        hand: ['Caveat', 'cursive'],
-                        marker: ['Permanent Marker', 'cursive'],
+                        sans: ['Nunito', 'sans-serif'], hand: ['Caveat', 'cursive'], marker: ['Permanent Marker', 'cursive'],
                     }
                 }
             }
@@ -33,103 +26,64 @@
 </head>
 
 <body class="bg-pastelBeige text-darkText font-sans transition-colors duration-300">
+    <!-- Top Announcement Banner -->
+    <div class="fixed top-0 left-0 w-full z-[110] bg-pastelBeige border-b border-pastelCafe h-[40px] flex items-center justify-between px-4 shadow-sm text-pastelCafe text-xs">
+        <div class="flex items-center gap-2">
+            <span class="font-marker tracking-widest text-pastelVino md:text-sm hidden sm:block mt-1">ALMAS. PRONTO</span>
+        </div>
+        <div class="flex items-center gap-2 md:gap-4 font-bold tracking-widest font-main">
+            <div class="flex items-center gap-1"><span id="days" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[9px] uppercase">Días</span></div>:
+            <div class="flex items-center gap-1"><span id="hours" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[9px] uppercase">Hrs</span></div>:
+            <div class="flex items-center gap-1"><span id="minutes" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[9px] uppercase">Min</span></div>:
+            <div class="flex items-center gap-1"><span id="seconds" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[9px] uppercase">Seg</span></div>
+        </div>
+    </div>
 
-    <!-- HEADER / NAV -->
-    <header id="header" class="fixed top-0 w-full z-[100] bg-pastelBeige/95 backdrop-blur-sm border-b-2 border-pastelCafe shadow-sm transition-all h-[80px] flex items-center">
+    <!-- HEADER -->
+    <header id="header" class="fixed top-[40px] w-full z-[100] bg-pastelBeige/95 backdrop-blur-sm border-b-2 border-pastelCafe shadow-sm h-[80px] flex items-center">
         <div class="container mx-auto px-4 w-full flex items-center justify-between">
-            <a href="index.html" class="text-3xl font-marker text-pastelVino tracking-wider hover:text-pastelCafe transition-colors">Alehna</a>
+            <a href="index.html" class="text-3xl font-marker text-pastelVino tracking-wider hover:text-pastelCafe transition-colors mt-2">Alehna</a>
             <nav class="hidden md:flex gap-8 font-bold text-sm tracking-widest text-darkText uppercase items-center">
-                <a href="index.html#music" class="text-pastelCafe hover:text-pastelVino transition-colors">Música</a>
-                <a href="index.html#videos" class="hover:text-pastelVino transition-colors">Videos</a>
-                <a href="biografia.html" class="hover:text-pastelVino transition-colors">Biografía</a>
-                <a href="lanzamientos.html" class="hover:text-pastelVino transition-colors">Lanzamientos</a>
-                <a href="merch.html" class="hover:text-pastelVino transition-colors">La Tienda</a>
-                <a href="index.html#newsletter" class="organic-btn text-xs px-4 py-2">Únete</a>
+                <!-- ACTIVO -->
+                <a href="music.html" class="text-pastelVino font-bold border-b-2 border-pastelVino transition-colors px-2 py-1">Música</a>
+                <a href="videos.html" class="hover:text-pastelVino transition-colors px-2 py-1">Videos</a>
+                <a href="biografia.html" class="hover:text-pastelVino transition-colors px-2 py-1">Biografía</a>
+                <a href="lanzamientos.html" class="hover:text-pastelVino transition-colors px-2 py-1">Lanzamientos</a>
+                <a href="merch.html" class="hover:text-pastelVino transition-colors px-2 py-1">La Tienda</a>
+                <a href="index.html#newsletter" class="bg-pastelVino text-white hover:bg-pastelCafe rounded-md px-4 py-2 transition-colors">Únete</a>
             </nav>
             <div class="flex items-center gap-4">
-                <div class="hidden md:flex gap-3 text-lg text-pastelCafe">
-                    <a target="_blank" href="https://instagram.com/alehnaoficial" class="hover:text-pastelVino transition"><i class="fa-brands fa-instagram"></i></a>
-                    <a target="_blank" href="https://www.tiktok.com/@alehnaoficial" class="hover:text-pastelVino transition"><i class="fa-brands fa-tiktok"></i></a>
-                    <a target="_blank" href="https://www.youtube.com/@AlenaMusicoficial" class="hover:text-pastelVino transition"><i class="fa-brands fa-youtube"></i></a>
-                </div>
-                <button id="mobile-menu-btn" class="md:hidden text-2xl text-pastelCafe hover:text-pastelVino"><i class="fa-solid fa-bars"></i></button>
+                <button id="mobile-menu-btn" class="md:hidden text-2xl text-pastelCafe"><i class="fa-solid fa-bars"></i></button>
             </div>
         </div>
     </header>
 
-    <!-- MOBILE MENU -->
     <div id="mobile-menu" class="fixed inset-0 z-[90] bg-pastelBeige/95 backdrop-blur-md flex-col items-center justify-center space-y-8 hidden pt-20">
-        <a href="index.html#music" class="text-2xl font-bold font-hand text-pastelCafe uppercase" onclick="toggleMenu()">Música</a>
-        <a href="index.html#videos" class="text-2xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Videos</a>
-        <a href="biografia.html" class="text-2xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Biografía</a>
-        <a href="lanzamientos.html" class="text-2xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Lanzamientos</a>
-        <a href="merch.html" class="text-2xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">La Tienda</a>
-        <a href="index.html#newsletter" class="text-2xl font-bold font-hand text-pastelVino uppercase" onclick="toggleMenu()">Únete</a>
+        <a href="music.html" class="text-2xl font-bold font-hand text-pastelVino uppercase" onclick="toggleMenu()">Música</a>
         <button onclick="toggleMenu()" class="absolute top-6 right-6 text-3xl text-darkText"><i class="fa-solid fa-xmark"></i></button>
     </div>
 
-    <!-- MAIN CONTENT -->
-    <main class="flex-grow pt-[160px] pb-20 px-4 relative z-10 overflow-hidden">
-        <div class="container mx-auto max-w-6xl">
-            <div class="text-center mb-16 space-y-4">
-                <h1 class="text-5xl md:text-7xl font-marker text-pastelCafe drop-shadow-sm border-b-2 border-pastelVino inline-block pb-2 transform rotate-1">MÚSICA</h1>
-                <p class="text-darkText font-main text-lg uppercase tracking-widest relative z-20 mt-4">Ya disponible en tu plataforma favorita</p>
-            </div>
-            
-            <div class="max-w-4xl mx-auto space-y-12 relative z-20">
-                <div class="grid md:grid-cols-3 gap-6">
-                    <a href="https://open.spotify.com/intl-es/track/6WCIljsn5rcWF699Siq2TM" target="_blank"
-                        class="organic-box flex flex-col items-center justify-center p-8 bg-white text-[#1DB954] hover:bg-[#1DB954] hover:text-white group">
-                        <i class="fa-brands fa-spotify text-5xl mb-4 group-hover:scale-110 transition-transform"></i>
-                        <span class="font-bold text-xl font-hand">Spotify</span>
-                    </a>
-                    <a href="https://music.apple.com/co/album/el-karma/1562923305?i=1562923306" target="_blank"
-                        class="organic-box flex flex-col items-center justify-center p-8 bg-white text-[#FA243C] hover:bg-[#FA243C] hover:text-white group">
-                        <i class="fa-brands fa-apple text-5xl mb-4 group-hover:scale-110 transition-transform"></i>
-                        <span class="font-bold text-xl font-hand">Apple Music</span>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=EWMMuV1Hf3U" target="_blank"
-                        class="organic-box flex flex-col items-center justify-center p-8 bg-white text-[#FF0000] hover:bg-[#FF0000] hover:text-white group">
-                        <i class="fa-brands fa-youtube text-5xl mb-4 group-hover:scale-110 transition-transform"></i>
-                        <span class="font-bold text-xl font-hand">YouTube</span>
-                    </a>
-                </div>
-                
-                <div class="mt-12 organic-box p-4 bg-white">
-                    <iframe style="border-radius:12px"
-                        src="https://open.spotify.com/embed/track/6WCIljsn5rcWF699Siq2TM?utm_source=generator"
-                        width="100%" height="152" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="eager"></iframe>
-                </div>
+    <main class="flex-grow pt-[180px] pb-20 px-4 relative z-10 overflow-hidden">
+        <div class="container mx-auto max-w-6xl text-center">
+            <h1 class="text-5xl md:text-7xl font-marker text-pastelCafe mb-16 inline-block transform rotate-1">MÚSICA</h1>
+            <div class="mt-4 organic-box p-4 bg-white max-w-4xl mx-auto">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6WCIljsn5rcWF699Siq2TM?utm_source=generator" width="100%" height="152" frameBorder="0" loading="eager"></iframe>
             </div>
         </div>
     </main>
 
-    <!-- FOOTER -->
-    <footer id="footer" class="bg-pastelCafe text-pastelBeige py-12 relative overflow-hidden mt-12">
-        <div class="absolute top-0 w-full h-8 bg-pastelBeige" style="clip-path: polygon(0% 100%, 2% 15%, 5% 95%, 8% 5%, 11% 85%, 14% 20%, 18% 90%, 21% 10%, 25% 95%, 28% 5%, 32% 80%, 35% 25%, 38% 90%, 41% 10%, 45% 95%, 48% 5%, 52% 85%, 55% 20%, 58% 90%, 62% 10%, 65% 95%, 68% 5%, 72% 80%, 75% 25%, 78% 90%, 82% 10%, 85% 95%, 88% 5%, 92% 85%, 95% 20%, 98% 90%, 100% 100%, 0% 100%); transform: scaleY(-1); top: 0;"></div>
+    <footer id="footer" class="bg-pastelCafe text-pastelBeige py-12 relative mt-12 bg-pastelBeigeDark">
         <div class="container mx-auto px-4 mt-8 flex flex-col items-center">
-            <div class="flex gap-6 mb-8 text-3xl">
-                <a target="_blank" href="https://instagram.com/alehnaoficial" class="hover:text-pastelVino transition transform hover:scale-110"><i class="fa-brands fa-instagram"></i></a>
-                <a target="_blank" href="https://www.tiktok.com/@alehnaoficial" class="hover:text-pastelVino transition transform hover:scale-110"><i class="fa-brands fa-tiktok"></i></a>
-                <a target="_blank" href="https://www.youtube.com/@AlenaMusicoficial" class="hover:text-pastelVino transition transform hover:scale-110"><i class="fa-brands fa-youtube"></i></a>
-            </div>
-            <div class="text-center font-main text-sm font-bold opacity-80 space-x-2">
-                <span>© 2026 ALEHNA. TODOS LOS DERECHOS RESERVADOS.</span>
-            </div>
+            <div class="text-center font-main text-sm font-bold opacity-80">© 2026 ALEHNA. TODOS LOS DERECHOS RESERVADOS.</div>
         </div>
     </footer>
 
+    <script src="main.js"></script>
     <script>
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
-        function toggleMenu() {
-            menu.classList.toggle('hidden');
-            menu.classList.toggle('flex');
-        }
+        function toggleMenu() { menu.classList.toggle('hidden'); menu.classList.toggle('flex'); }
         btn.addEventListener('click', toggleMenu);
     </script>
 </body>
-
 </html>

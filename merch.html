@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ALEHNA | La Tienda</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=11">
+    <link rel="stylesheet" href="styles.css?v=12">
     <script>
         tailwind.config = {
             theme: {
@@ -18,28 +19,56 @@
         }
     </script>
 </head>
+
 <body class="bg-pastelBeigeDark text-darkText font-sans transition-colors duration-300">
-    <header id="header" class="fixed top-0 w-full z-[100] bg-pastelBeige/95 backdrop-blur-sm border-b-2 border-pastelCafe shadow-sm h-[80px] flex items-center">
+    <!-- Top Announcement Banner -->
+    <div class="fixed top-0 left-0 w-full z-[110] bg-pastelBeige border-b border-pastelCafe h-[40px] flex items-center justify-between px-4 shadow-sm text-pastelCafe text-xs">
+        <div class="flex items-center gap-2">
+            <span class="font-marker tracking-widest text-pastelVino md:text-sm hidden sm:block mt-1">ALMAS. PRONTO</span>
+        </div>
+        <div class="flex items-center gap-2 md:gap-4 font-bold tracking-widest font-main">
+            <div class="flex items-center gap-1"><span id="days" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[9px] uppercase">Días</span></div>:
+            <div class="flex items-center gap-1"><span id="hours" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[9px] uppercase">Hrs</span></div>:
+            <div class="flex items-center gap-1"><span id="minutes" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[9px] uppercase">Min</span></div>:
+            <div class="flex items-center gap-1"><span id="seconds" class="text-pastelVino text-sm md:text-base">00</span><span class="text-[9px] uppercase">Seg</span></div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header id="header" class="fixed top-[40px] w-full z-[100] bg-pastelBeige/95 backdrop-blur-sm border-b-2 border-pastelCafe shadow-sm h-[80px] flex items-center">
         <div class="container mx-auto px-4 w-full flex items-center justify-between">
-            <a href="index.html" class="text-3xl font-marker text-pastelVino tracking-wider hover:text-pastelCafe transition-colors">Alehna</a>
+            <a href="index.html" class="text-3xl font-marker text-pastelVino tracking-wider hover:text-pastelCafe transition-colors mt-2">Alehna</a>
             <nav class="hidden md:flex gap-8 font-bold text-sm tracking-widest text-darkText uppercase items-center">
-                <a href="index.html#music" class="hover:text-pastelVino transition-colors">Música</a>
-                <a href="videos.html" class="hover:text-pastelVino transition-colors">Videos</a>
-                <a href="biografia.html" class="hover:text-pastelVino transition-colors">Biografía</a>
-                <a href="lanzamientos.html" class="hover:text-pastelVino transition-colors">Lanzamientos</a>
-                <a href="merch.html" class="text-pastelCafe hover:text-pastelVino transition-colors">La Tienda</a>
+                <a href="index.html#music" class="hover:text-pastelVino transition-colors px-2 py-1">Música</a>
+                <a href="videos.html" class="hover:text-pastelVino transition-colors px-2 py-1">Videos</a>
+                <a href="biografia.html" class="hover:text-pastelVino transition-colors px-2 py-1">Biografía</a>
+                <a href="lanzamientos.html" class="hover:text-pastelVino transition-colors px-2 py-1">Lanzamientos</a>
+                
+                <!-- ACTIVO -->
+                <a href="merch.html" class="text-pastelVino font-bold border-b-2 border-pastelVino transition-colors px-2 py-1">La Tienda</a>
+                
+                <a href="index.html#newsletter" class="bg-pastelVino text-white hover:bg-pastelCafe rounded-md px-4 py-2 transition-colors">Únete</a>
             </nav>
-            <button id="mobile-menu-btn" class="md:hidden text-2xl text-pastelCafe"><i class="fa-solid fa-bars"></i></button>
+            <div class="flex items-center gap-4">
+                <button id="mobile-menu-btn" class="md:hidden text-2xl text-pastelCafe"><i class="fa-solid fa-bars"></i></button>
+            </div>
         </div>
     </header>
 
-    <main class="flex-grow pt-[160px] pb-20 px-4 text-center">
+    <div id="mobile-menu" class="fixed inset-0 z-[90] bg-pastelBeige/95 backdrop-blur-md flex-col items-center justify-center space-y-8 hidden pt-20">
+        <a href="index.html#music" class="text-2xl font-bold font-hand text-darkText uppercase" onclick="toggleMenu()">Música</a>
+        <a href="merch.html" class="text-2xl font-bold font-hand text-pastelVino uppercase" onclick="toggleMenu()">La Tienda</a>
+        <button onclick="toggleMenu()" class="absolute top-6 right-6 text-3xl text-darkText"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <main class="flex-grow pt-[180px] pb-20 px-4 text-center">
         <h1 class="text-5xl font-marker text-pastelCafe mb-8">LA TIENDA DE ALEHNA</h1>
         <div class="organic-box max-w-xl mx-auto p-12 bg-white">
             <p class="text-xl font-hand text-darkText mb-4">Estamos preparando cosas hermosas para ustedes.</p>
             <i class="fa-solid fa-shirt text-6xl text-pastelVino my-4"></i>
-            <p class="text-base font-main text-darkText mt-4">Camisetas, posters y vinilos estarán disponibles muy pronto.</p>
         </div>
     </main>
+
+    <script src="main.js"></script>
 </body>
 </html>

@@ -1,0 +1,18 @@
+/* Add to styles.css at end */
+/* ANIMACIÓN DEL VINILO Y HOVERS */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+    animation: spin 5s linear infinite;
+}
+.vinyl-container:hover .vinyl-disc {
+    transform: translateX(4rem) rotate(45deg);
+}
+.vinyl-active .vinyl-disc {
+    transform: translateX(6rem) scale(1.1) rotate(90deg) !important;
+}
+.vinyl-active .vinyl-sleeve {
+    transform: translateX(-4rem) scale(0.9);
+}
