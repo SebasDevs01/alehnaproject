@@ -1,1 +1,0 @@
-;if ("serviceWorker" in navigator) {window.addEventListener("load", function() {navigator.serviceWorker.register("/sw.js").catch(function() {console.log("Service worker registration failed");});});}
