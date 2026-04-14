@@ -44,16 +44,16 @@
         #bio-zoom-viewport { overflow: hidden; position: relative; width: 100%; }
         #bio-zoom-content { 
             transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            transform-origin: center 25%;
+            transform-origin: center 10%;
             position: relative;
             width: 100%;
         }
-        .bio-zoomed-left { transform: scale(1.6) translateX(12%); }
-        .bio-zoomed-right { transform: scale(1.6) translateX(-12%); }
+        .bio-zoomed-left { transform: scale(1.6) translateX(15%); }
+        .bio-zoomed-right { transform: scale(1.6) translateX(-15%); }
         
         @media (max-width: 768px) {
-            .bio-zoomed-left { transform: scale(1.6) translateX(8%); }
-            .bio-zoomed-right { transform: scale(1.6) translateX(-8%); }
+            .bio-zoomed-left { transform: scale(1.6) translateX(12%); }
+            .bio-zoomed-right { transform: scale(1.6) translateX(-12%); }
         }
 
         .bio-panel { transition: all 0.5s ease; width: 100%; position: relative; z-index: 20; }
@@ -272,7 +272,7 @@
                 </div>
             </div>
         <!-- NUEVA SECCIÓN BIOGRAFÍA CON ZOOM ÓPTICO -->
-        <section id="bio-interactive" class="relative overflow-hidden bg-white">
+        <section id="bio-interactive" class="relative overflow-hidden bg-white min-h-[500px] md:min-h-[600px] pb-12">
             
             <!-- Overlay for reset click (Global) -->
             <div id="bio-reset-overlay" class="bio-overlay fixed inset-0 z-[100] bg-black/5 opacity-0 pointer-events-none" onclick="resetBioZoom()"></div>
@@ -286,7 +286,7 @@
                     <div class="absolute inset-0 z-10">
                         
                         <div id="bio-left" onclick="toggleBioZoom('left')" 
-                            class="bio-panel cursor-pointer absolute top-[10%] md:top-[12%] left-[5%] md:left-[15%] max-w-[280px] md:max-w-[420px]">
+                            class="bio-panel cursor-pointer absolute top-[10%] md:top-[12%] left-[5%] md:left-[8%] max-w-[280px] md:max-w-[360px]">
                             <h3 class="text-2xl md:text-5xl font-marker text-pastelVino mb-4 drop-shadow-sm leading-tight">Nacimiento y Vocación</h3>
                             <p class="text-base md:text-2xl font-hand text-darkText leading-relaxed">
                                 Nace el 21 de Octubre de 2001 en la ciudad de Cali. Desde muy temprana edad identifica su innata vocación artística...
@@ -295,7 +295,7 @@
                         </div>
  
                         <div id="bio-right" onclick="toggleBioZoom('right')" 
-                            class="bio-panel cursor-pointer absolute top-[10%] md:top-[12%] right-[5%] md:right-[15%] max-w-[280px] md:max-w-[420px] text-right">
+                            class="bio-panel cursor-pointer absolute top-[10%] md:top-[12%] right-[5%] md:right-[8%] max-w-[280px] md:max-w-[360px] text-right">
                             <h3 class="text-2xl md:text-5xl font-marker text-pastelCafe mb-4 drop-shadow-sm leading-tight">Filosofía y "ALMAS"</h3>
                             <p class="text-base md:text-2xl font-hand text-darkText leading-relaxed">
                                 ALEHNA transforma experiencias íntimas en universos sonoros. "Almas" es su recordatorio de que siempre podemos volver...
