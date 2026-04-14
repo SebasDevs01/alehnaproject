@@ -44,7 +44,7 @@
         #bio-zoom-viewport { overflow: hidden; position: relative; width: 100%; }
         #bio-zoom-content { 
             transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            transform-origin: center center;
+            transform-origin: center 25%;
             position: relative;
             width: 100%;
         }
@@ -285,21 +285,19 @@
                     <!-- Text Overlay Panels -->
                     <div class="absolute inset-0 z-10">
                         
-                        <!-- Left Info Panel -->
                         <div id="bio-left" onclick="toggleBioZoom('left')" 
-                            class="bio-panel cursor-pointer absolute top-[25%] md:top-[30%] left-[5%] md:left-[10%] max-w-[280px] md:max-w-[400px]">
-                            <h3 class="text-3xl md:text-5xl font-marker text-pastelVino mb-4 drop-shadow-sm">Nacimiento y Vocación</h3>
-                            <p class="text-lg md:text-2xl font-hand text-darkText leading-relaxed">
+                            class="bio-panel cursor-pointer absolute top-[10%] md:top-[12%] left-[5%] md:left-[15%] max-w-[280px] md:max-w-[420px]">
+                            <h3 class="text-2xl md:text-5xl font-marker text-pastelVino mb-4 drop-shadow-sm leading-tight">Nacimiento y Vocación</h3>
+                            <p class="text-base md:text-2xl font-hand text-darkText leading-relaxed">
                                 Nace el 21 de Octubre de 2001 en la ciudad de Cali. Desde muy temprana edad identifica su innata vocación artística...
                             </p>
                             <div class="mt-4 w-12 h-0.5 bg-pastelVino/30"></div>
                         </div>
  
-                        <!-- Right Info Panel -->
                         <div id="bio-right" onclick="toggleBioZoom('right')" 
-                            class="bio-panel cursor-pointer absolute top-[25%] md:top-[30%] right-[5%] md:right-[10%] max-w-[280px] md:max-w-[400px] text-right">
-                            <h3 class="text-3xl md:text-5xl font-marker text-pastelCafe mb-4 drop-shadow-sm">Filosofía y "ALMAS"</h3>
-                            <p class="text-lg md:text-2xl font-hand text-darkText leading-relaxed">
+                            class="bio-panel cursor-pointer absolute top-[10%] md:top-[12%] right-[5%] md:right-[15%] max-w-[280px] md:max-w-[420px] text-right">
+                            <h3 class="text-2xl md:text-5xl font-marker text-pastelCafe mb-4 drop-shadow-sm leading-tight">Filosofía y "ALMAS"</h3>
+                            <p class="text-base md:text-2xl font-hand text-darkText leading-relaxed">
                                 ALEHNA transforma experiencias íntimas en universos sonoros. "Almas" es su recordatorio de que siempre podemos volver...
                             </p>
                             <div class="mt-4 w-12 h-0.5 bg-pastelCafe/30 ml-auto"></div>
