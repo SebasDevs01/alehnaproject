@@ -19,9 +19,16 @@
         }
     </script>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { overflow-x: hidden; }
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
         .spin-vinyl-auto {
             animation: spin-vinyl-auto 4s linear infinite;
         }
@@ -35,30 +42,69 @@
                 transform: translateX(12px) rotate(360deg);
             }
         }
+
         /* Carousel Styles */
-        .carousel-slide { transition: opacity 1s ease-in-out; }
-        .carousel-active { opacity: 1 !important; z-index: 10; }
-        .carousel-inactive { opacity: 0 !important; z-index: 0; }
+        .carousel-slide {
+            transition: opacity 1s ease-in-out;
+        }
+
+        .carousel-active {
+            opacity: 1 !important;
+            z-index: 10;
+        }
+
+        .carousel-inactive {
+            opacity: 0 !important;
+            z-index: 0;
+        }
 
         /* Bio Zoom Styles */
-        #bio-zoom-viewport { overflow: hidden; position: relative; width: 100%; }
-        #bio-zoom-content { 
+        #bio-zoom-viewport {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+
+        #bio-zoom-content {
             transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
             transform-origin: center 10%;
             position: relative;
             width: 100%;
         }
-        .bio-zoomed-left { transform: scale(1.6) translateX(15%); }
-        .bio-zoomed-right { transform: scale(1.6) translateX(-15%); }
-        
-        @media (max-width: 768px) {
-            .bio-zoomed-left { transform: scale(1.6) translateX(12%); }
-            .bio-zoomed-right { transform: scale(1.6) translateX(-12%); }
+
+        .bio-zoomed-left {
+            transform: scale(1.6) translateX(15%);
         }
 
-        .bio-panel { transition: all 0.5s ease; width: 100%; position: relative; z-index: 20; }
-        .bio-overlay { transition: opacity 0.3s ease; }
-        .bio-overlay-active { opacity: 1 !important; pointer-events: auto !important; }
+        .bio-zoomed-right {
+            transform: scale(1.6) translateX(-15%);
+        }
+
+        @media (max-width: 768px) {
+            .bio-zoomed-left {
+                transform: scale(1.6) translateX(12%);
+            }
+
+            .bio-zoomed-right {
+                transform: scale(1.6) translateX(-12%);
+            }
+        }
+
+        .bio-panel {
+            transition: all 0.5s ease;
+            width: 100%;
+            position: relative;
+            z-index: 20;
+        }
+
+        .bio-overlay {
+            transition: opacity 0.3s ease;
+        }
+
+        .bio-overlay-active {
+            opacity: 1 !important;
+            pointer-events: auto !important;
+        }
     </style>
 </head>
 
@@ -189,7 +235,8 @@
     <main id="main">
 
         <!-- HERO SECTION: AUTOMATIC CAROUSEL -->
-        <section class="relative w-full h-[70vh] md:h-[85vh] flex items-center justify-center bg-pastelBeige overflow-hidden">
+        <section
+            class="relative w-full h-[70vh] md:h-[85vh] flex items-center justify-center bg-pastelBeige overflow-hidden">
             <!-- Background Carousel -->
             <div id="hero-carousel" class="absolute inset-0 w-full h-full">
                 <div class="carousel-slide absolute inset-0 w-full h-full carousel-active bg-pastelBeige">
@@ -208,7 +255,8 @@
 
             <!-- Content Overlay -->
             <div class="relative z-20 text-center flex flex-col items-center">
-                <h1 class="text-7xl md:text-9xl font-marker text-white drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] mb-4 transform -rotate-2">
+                <h1
+                    class="text-7xl md:text-9xl font-marker text-white drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] mb-4 transform -rotate-2">
                     ALEHNA</h1>
                 <p class="text-2xl md:text-4xl font-hand text-white drop-shadow-md">Bienvenido a casa.</p>
             </div>
@@ -271,122 +319,144 @@
                     </div>
                 </div>
             </div>
-        <!-- NUEVA SECCIÓN BIOGRAFÍA CON ZOOM ÓPTICO -->
-        <section id="bio-interactive" class="relative overflow-hidden bg-white min-h-[500px] md:min-h-[600px] pb-12">
-            
-            <!-- Overlay for reset click (Global) -->
-            <div id="bio-reset-overlay" class="bio-overlay fixed inset-0 z-[100] bg-black/5 opacity-0 pointer-events-none" onclick="resetBioZoom()"></div>
+            <!-- NUEVA SECCIÓN BIOGRAFÍA CON ZOOM ÓPTICO -->
+            <section id="bio-interactive"
+                class="relative overflow-hidden bg-white min-h-[500px] md:min-h-[600px] pb-12">
 
-            <div id="bio-zoom-viewport">
-                <div id="bio-zoom-content">
-                    <!-- Photo Background -->
-                    <img src="bioinicio/DSC_0705.jpg" class="w-full h-auto block transition-all duration-1000">
+                <!-- Overlay for reset click (Global) -->
+                <div id="bio-reset-overlay"
+                    class="bio-overlay fixed inset-0 z-[100] bg-black/5 opacity-0 pointer-events-none"
+                    onclick="resetBioZoom()"></div>
 
-                    <!-- Text Overlay Panels -->
-                    <div class="absolute inset-0 z-10">
-                        
-                        <div id="bio-left" onclick="toggleBioZoom('left')" 
-                            class="bio-panel cursor-pointer absolute top-[10%] md:top-[12%] left-[5%] md:left-[8%] max-w-[280px] md:max-w-[360px]">
-                            <h3 class="text-2xl md:text-5xl font-marker text-pastelVino mb-4 drop-shadow-sm leading-tight">Nacimiento y Vocación</h3>
-                            <p class="text-base md:text-2xl font-hand text-darkText leading-relaxed">
-                                Nace el 21 de Octubre de 2001 en la ciudad de Cali. Desde muy temprana edad identifica su innata vocación artística...
-                            </p>
-                            <div class="mt-4 w-12 h-0.5 bg-pastelVino/30"></div>
-                        </div>
- 
-                        <div id="bio-right" onclick="toggleBioZoom('right')" 
-                            class="bio-panel cursor-pointer absolute top-[10%] md:top-[12%] right-[5%] md:right-[8%] max-w-[280px] md:max-w-[360px] text-right">
-                            <h3 class="text-2xl md:text-5xl font-marker text-pastelCafe mb-4 drop-shadow-sm leading-tight">Filosofía y "ALMAS"</h3>
-                            <p class="text-base md:text-2xl font-hand text-darkText leading-relaxed">
-                                ALEHNA transforma experiencias íntimas en universos sonoros. "Almas" es su recordatorio de que siempre podemos volver...
-                            </p>
-                            <div class="mt-4 w-12 h-0.5 bg-pastelCafe/30 ml-auto"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                <div id="bio-zoom-viewport">
+                    <div id="bio-zoom-content">
+                        <!-- Photo Background -->
+                        <img src="bioinicio/DSC_0705.jpg" class="w-full h-auto block transition-all duration-1000">
 
-            <!-- Borde rasgado inferior -->
-            <div class="absolute bottom-0 left-0 w-full h-8 bg-pastelBeigeDark z-20"
-                style="clip-path: polygon(0% 100%, 3% 5%, 6% 90%, 9% 15%, 13% 85%, 16% 5%, 19% 95%, 22% 20%, 25% 85%, 28% 5%, 32% 90%, 35% 15%, 38% 85%, 41% 10%, 45% 95%, 48% 20%, 51% 85%, 55% 5%, 58% 90%, 61% 15%, 65% 95%, 68% 10%, 71% 85%, 75% 20%, 78% 90%, 81% 5%, 85% 95%, 88% 10%, 91% 80%, 95% 20%, 98% 90%, 100% 100%, 0% 100%);">
-            </div>
-        </section>
+                        <!-- Text Overlay Panels -->
+                        <div class="absolute inset-0 z-10">
 
+                            <div id="bio-left" onclick="toggleBioZoom('left')"
+                                class="bio-panel cursor-pointer absolute top-[10%] md:top-[12%] left-[5%] md:left-[8%] max-w-[280px] md:max-w-[360px]">
+                                <h3
+                                    class="text-2xl md:text-5xl font-marker text-pastelVino mb-4 drop-shadow-sm leading-tight">
+                                    Nacimiento y Vocación</h3>
+                                <p class="text-base md:text-2xl font-hand text-darkText leading-relaxed">
+                                    Nace el 21 de Octubre de 2001 en la ciudad de Cali. Desde muy temprana edad
+                                    identifica su innata vocación artística...
+                                </p>
+                                <div class="mt-4 w-12 h-0.5 bg-pastelVino/30"></div>
+                                <center>
+                                    <p class="text-base md:text-2xl font-hand text-darkText leading-relaxed">
+                                        (Dale click aqui)
+                                    </p>
+                                </center>
+                            </div>
 
-        <!-- SECCIÓN VIDEOS -->
-        <section id="videos" class="relative py-10 md:py-20 bg-pastelBeigeDark pb-16">
-            <div class="w-full px-4 md:px-10">
-                <div class="text-center mb-10 md:mb-16">
-                    <h2 class="text-5xl font-marker text-darkText mb-2 transform -rotate-1 inline-block">VIDEOS</h2>
-                    <div class="w-24 h-1 bg-pastelCafe mx-auto rounded-full mt-2"></div>
-                </div>
+                            <div id="bio-right" onclick="toggleBioZoom('right')"
+                                class="bio-panel cursor-pointer absolute top-[10%] md:top-[12%] right-[5%] md:right-[8%] max-w-[280px] md:max-w-[360px] text-right">
+                                <h3
+                                    class="text-2xl md:text-5xl font-marker text-pastelCafe mb-4 drop-shadow-sm leading-tight">
+                                    Filosofía y "ALMAS"</h3>
+                                <p class="text-base md:text-2xl font-hand text-darkText leading-relaxed">
+                                    ALEHNA transforma experiencias íntimas en universos sonoros. "Almas" es su
+                                    recordatorio de que siempre podemos volver...
+                                </p>
+                                <div class="mt-4 w-12 h-0.5 bg-pastelCafe/30 ml-auto"></div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full mx-auto">
-                    <!-- Video 1: KARMA -->
-                    <div
-                        class="organic-box bg-pastelBeige p-3 flex flex-col group h-full justify-between shadow-md border-2 border-white">
-                        <div class="relative w-full pt-[56.25%] bg-black rounded">
-                            <iframe class="absolute top-0 left-0 w-full h-full rounded"
-                                src="https://www.youtube.com/embed/EWMMuV1Hf3U?si=I0mpYdQLGmEiBTjv"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                        </div>
-                        <div class="p-4 text-center mt-auto">
-                            <h4 class="font-bold font-main text-lg text-darkText">ALEHNA - EL KARMA <span
-                                    class="text-pastelCafe text-sm block font-normal">Video Oficial</span></h4>
-                        </div>
-                    </div>
-
-                    <!-- Video 2: PRONTO (Almas) -->
-                    <div
-                        class="organic-box bg-pastelVino p-3 flex flex-col group h-full shadow-[0_0_20px_rgba(197,125,132,0.4)] border-2 border-white">
-                        <div
-                            class="relative w-full pt-[56.25%] bg-white/10 flex items-center justify-center rounded overflow-hidden">
-                            <div
-                                class="absolute inset-0 flex flex-col items-center justify-center text-center p-6 border border-white/20 m-2 rounded">
-                                <i class="fa-solid fa-video text-5xl text-white/50 mb-4 animate-pulse"></i>
-                                <h2
-                                    class="text-4xl md:text-5xl font-marker text-white tracking-widest leading-none drop-shadow-sm">
-                                    PRONTO</h2>
-                                <p class="font-hand text-white/80 text-xl md:text-2xl mt-4">ALMAS. El Nuevo Video</p>
+                                <center>
+                                    <p class="text-base md:text-2xl font-hand text-darkText leading-relaxed">
+                                        (Dale click aqui)
+                                    </p>
+                                </center>
                             </div>
                         </div>
-                        <div class="p-4 text-center mt-auto text-white">
-                            <h4 class="font-bold font-main text-lg">ALEHNA - ALMAS <span
-                                    class="text-white/70 text-sm block font-normal">Estreno Próximamente</span></h4>
+                    </div>
+                </div>
+
+                <!-- Borde rasgado inferior -->
+                <div class="absolute bottom-0 left-0 w-full h-8 bg-pastelBeigeDark z-20"
+                    style="clip-path: polygon(0% 100%, 3% 5%, 6% 90%, 9% 15%, 13% 85%, 16% 5%, 19% 95%, 22% 20%, 25% 85%, 28% 5%, 32% 90%, 35% 15%, 38% 85%, 41% 10%, 45% 95%, 48% 20%, 51% 85%, 55% 5%, 58% 90%, 61% 15%, 65% 95%, 68% 10%, 71% 85%, 75% 20%, 78% 90%, 81% 5%, 85% 95%, 88% 10%, 91% 80%, 95% 20%, 98% 90%, 100% 100%, 0% 100%);">
+                </div>
+            </section>
+
+
+            <!-- SECCIÓN VIDEOS -->
+            <section id="videos" class="relative py-10 md:py-20 bg-pastelBeigeDark pb-16">
+                <div class="w-full px-4 md:px-10">
+                    <div class="text-center mb-10 md:mb-16">
+                        <h2 class="text-5xl font-marker text-darkText mb-2 transform -rotate-1 inline-block">VIDEOS</h2>
+                        <div class="w-24 h-1 bg-pastelCafe mx-auto rounded-full mt-2"></div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full mx-auto">
+                        <!-- Video 1: KARMA -->
+                        <div
+                            class="organic-box bg-pastelBeige p-3 flex flex-col group h-full justify-between shadow-md border-2 border-white">
+                            <div class="relative w-full pt-[56.25%] bg-black rounded">
+                                <iframe class="absolute top-0 left-0 w-full h-full rounded"
+                                    src="https://www.youtube.com/embed/EWMMuV1Hf3U?si=I0mpYdQLGmEiBTjv"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                            <div class="p-4 text-center mt-auto">
+                                <h4 class="font-bold font-main text-lg text-darkText">ALEHNA - EL KARMA <span
+                                        class="text-pastelCafe text-sm block font-normal">Video Oficial</span></h4>
+                            </div>
+                        </div>
+
+                        <!-- Video 2: PRONTO (Almas) -->
+                        <div
+                            class="organic-box bg-pastelVino p-3 flex flex-col group h-full shadow-[0_0_20px_rgba(197,125,132,0.4)] border-2 border-white">
+                            <div
+                                class="relative w-full pt-[56.25%] bg-white/10 flex items-center justify-center rounded overflow-hidden">
+                                <div
+                                    class="absolute inset-0 flex flex-col items-center justify-center text-center p-6 border border-white/20 m-2 rounded">
+                                    <i class="fa-solid fa-video text-5xl text-white/50 mb-4 animate-pulse"></i>
+                                    <h2
+                                        class="text-4xl md:text-5xl font-marker text-white tracking-widest leading-none drop-shadow-sm">
+                                        PRONTO</h2>
+                                    <p class="font-hand text-white/80 text-xl md:text-2xl mt-4">ALMAS. El Nuevo Video
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="p-4 text-center mt-auto text-white">
+                                <h4 class="font-bold font-main text-lg">ALEHNA - ALMAS <span
+                                        class="text-white/70 text-sm block font-normal">Estreno Próximamente</span></h4>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- Divider rasgado al pie de la sección -->
-            <div class="absolute bottom-0 left-0 w-full h-8 bg-pastelBeige"
-                style="clip-path: polygon(0% 100%, 2% 15%, 5% 95%, 8% 5%, 11% 85%, 14% 20%, 18% 90%, 21% 10%, 25% 95%, 28% 5%, 32% 80%, 35% 25%, 38% 90%, 41% 10%, 45% 95%, 48% 5%, 52% 85%, 55% 20%, 58% 90%, 62% 10%, 65% 95%, 68% 5%, 72% 80%, 75% 25%, 78% 90%, 82% 10%, 85% 95%, 88% 5%, 92% 85%, 95% 20%, 98% 90%, 100% 100%, 0% 100%);">
-            </div>
-        </section>
-
-        <!-- SECCIÓN NEWSLETTER -->
-        <section id="newsletter" class="relative py-10 md:py-20 bg-pastelBeige">
-            <div class="w-full px-4 md:px-10 text-center">
-                <div
-                    class="organic-box p-8 md:p-12 bg-white flex flex-col items-center shadow-lg border-2 border-pastelBeigeDark w-full mx-auto">
-                    <i class="fa-solid fa-envelope-open-text text-5xl text-pastelVino mb-6 transform -rotate-6"></i>
-                    <h2 class="text-3xl md:text-5xl font-marker text-darkText mb-6">EL DIARIO DE ALEHNA</h2>
-                    <p class="text-lg font-main text-pastelCafe mb-8 max-w-2xl leading-relaxed">
-                        A toda persona curiosa que le interesa saber cosas bonitas de las nuevas canciones de Alehna,
-                        anécdotas de nuestros encuentros, emociones puras y muchas otras cosas más.
-                    </p>
-
-                    <form class="w-full max-w-md flex flex-col gap-4"
-                        onsubmit="event.preventDefault(); alert('¡Gracias por unirte!');">
-                        <input type="email" placeholder="Tu correo electrónico" required
-                            class="w-full px-6 py-4 rounded-xl bg-pastelBeige border-2 border-pastelCafe text-darkText font-main focus:border-pastelVino focus:outline-none transition-colors organic-box shadow-inner">
-                        <button type="submit"
-                            class="organic-btn text-xl md:text-2xl py-4 mt-2 shadow-md">SUSCRÍBETE</button>
-                    </form>
+                <!-- Divider rasgado al pie de la sección -->
+                <div class="absolute bottom-0 left-0 w-full h-8 bg-pastelBeige"
+                    style="clip-path: polygon(0% 100%, 2% 15%, 5% 95%, 8% 5%, 11% 85%, 14% 20%, 18% 90%, 21% 10%, 25% 95%, 28% 5%, 32% 80%, 35% 25%, 38% 90%, 41% 10%, 45% 95%, 48% 5%, 52% 85%, 55% 20%, 58% 90%, 62% 10%, 65% 95%, 68% 5%, 72% 80%, 75% 25%, 78% 90%, 82% 10%, 85% 95%, 88% 5%, 92% 85%, 95% 20%, 98% 90%, 100% 100%, 0% 100%);">
                 </div>
-            </div>
-        </section>
+            </section>
+
+            <!-- SECCIÓN NEWSLETTER -->
+            <section id="newsletter" class="relative py-10 md:py-20 bg-pastelBeige">
+                <div class="w-full px-4 md:px-10 text-center">
+                    <div
+                        class="organic-box p-8 md:p-12 bg-white flex flex-col items-center shadow-lg border-2 border-pastelBeigeDark w-full mx-auto">
+                        <i class="fa-solid fa-envelope-open-text text-5xl text-pastelVino mb-6 transform -rotate-6"></i>
+                        <h2 class="text-3xl md:text-5xl font-marker text-darkText mb-6">EL DIARIO DE ALEHNA</h2>
+                        <p class="text-lg font-main text-pastelCafe mb-8 max-w-2xl leading-relaxed">
+                            A toda persona curiosa que le interesa saber cosas bonitas de las nuevas canciones de
+                            Alehna,
+                            anécdotas de nuestros encuentros, emociones puras y muchas otras cosas más.
+                        </p>
+
+                        <form class="w-full max-w-md flex flex-col gap-4"
+                            onsubmit="event.preventDefault(); alert('¡Gracias por unirte!');">
+                            <input type="email" placeholder="Tu correo electrónico" required
+                                class="w-full px-6 py-4 rounded-xl bg-pastelBeige border-2 border-pastelCafe text-darkText font-main focus:border-pastelVino focus:outline-none transition-colors organic-box shadow-inner">
+                            <button type="submit"
+                                class="organic-btn text-xl md:text-2xl py-4 mt-2 shadow-md">SUSCRÍBETE</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
 
     </main>
 
@@ -453,7 +523,7 @@
                 content.classList.remove('bio-zoomed-left', 'bio-zoomed-right');
                 content.classList.add(`bio-zoomed-${side}`);
                 overlay.classList.add('bio-overlay-active');
-                
+
                 // Dim the other side
                 if (side === 'left') {
                     right.classList.add('opacity-0', 'pointer-events-none');
@@ -470,7 +540,7 @@
             const overlay = document.getElementById('bio-reset-overlay');
             const left = document.getElementById('bio-left');
             const right = document.getElementById('bio-right');
-            
+
             content.classList.remove('bio-zoomed-left', 'bio-zoomed-right');
             overlay.classList.remove('bio-overlay-active');
             left.classList.remove('opacity-0', 'pointer-events-none');
