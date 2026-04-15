@@ -48,15 +48,36 @@
             transition: opacity 1s ease-in-out;
         }
 
+        .carousel-slide {
+            transition: opacity 1.2s ease-in-out, transform 4s ease-out;
+            transform: scale(1);
+        }
+
         .carousel-active {
             opacity: 1 !important;
             z-index: 10;
+            transform: scale(1.08);
         }
 
         .carousel-inactive {
             opacity: 0 !important;
             z-index: 0;
             pointer-events: none;
+            transform: scale(1);
+        }
+
+        /* Pagination Dots */
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 99px;
+            background-color: #D1D5DB; /* gray-300 */
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .dot-active {
+            background-color: #8B5E61; /* brand color */
+            width: 24px;
         }
 
         /* Modal Styles */
@@ -305,21 +326,14 @@
         </section>
 
         <!-- SECCIÓN MÚSICA -->
-        <section id="music" class="relative py-10 md:py-20 bg-pastelBeige pb-16">
+        <section id="music" class="relative py-10 md:py-20 bg-pastelBeige pb-10">
             <div class="w-full px-4 md:px-10">
                 <div class="text-center mb-10 md:mb-16">
                     <h2 class="text-5xl font-marker text-pastelCafe mb-2 transform rotate-1 inline-block">MÚSICA</h2>
                     <div class="w-24 h-1 bg-pastelVino mx-auto rounded-full mt-2"></div>
                 </div>
 
-                <div class="relative group">
-                    <button onclick="scrollSection('music-slider', -1)" class="md:hidden absolute left-2 top-[35%] -translate-y-1/2 z-30 bg-white w-12 h-12 rounded-full flex items-center justify-center shadow-xl text-pastelVino active:scale-90 transition-transform">
-                        <i class="fa-solid fa-chevron-left text-lg"></i>
-                    </button>
-                    <button onclick="scrollSection('music-slider', 1)" class="md:hidden absolute right-2 top-[35%] -translate-y-1/2 z-30 bg-white w-12 h-12 rounded-full flex items-center justify-center shadow-xl text-pastelVino active:scale-90 transition-transform">
-                        <i class="fa-solid fa-chevron-right text-lg"></i>
-                    </button>
-
+                <div class="relative">
                     <div id="music-slider" class="flex md:grid md:grid-cols-2 lg:grid-cols-2 gap-8 md:gap-12 w-full mx-auto overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth pb-4">
                         <!-- ÁLBUM 1: ALMAS -->
                         <div class="flex flex-col items-center group flex-shrink-0 w-[85vw] md:w-full snap-center">
@@ -363,15 +377,25 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Pagination Dots (Music) -->
+                    <div id="music-dots" class="flex md:hidden justify-center items-center gap-3 mt-6 w-full">
+                        <div class="dot dot-active" onclick="scrollSliderTo('music-slider', 0)"></div>
+                        <div class="dot" onclick="scrollSliderTo('music-slider', 1)"></div>
+                    </div>
+                </div>
+
+                <!-- Borde rasgado inferior (Transición hacia Bio - Blanco hacia arriba) -->
+                <div class="absolute bottom-0 left-0 w-full h-8 bg-white z-20"
+                    style="clip-path: polygon(0% 100%, 3% 5%, 6% 90%, 9% 15%, 13% 85%, 16% 5%, 19% 95%, 22% 20%, 25% 85%, 28% 5%, 32% 90%, 35% 15%, 38% 85%, 41% 10%, 45% 95%, 48% 20%, 51% 85%, 55% 5%, 58% 90%, 61% 15%, 65% 95%, 68% 10%, 71% 85%, 75% 20%, 78% 90%, 81% 5%, 85% 95%, 88% 10%, 91% 80%, 95% 20%, 98% 90%, 100% 100%, 0% 100%);">
                 </div>
             </div>
-            <section id="bio-interactive"
-                class="relative overflow-hidden bg-white md:min-h-[600px]">
-
-                <!-- Overlay for reset click (Global) -->
-                <div id="bio-reset-overlay"
-                    class="bio-overlay fixed inset-0 z-[100] bg-black/5 opacity-0 pointer-events-none"
-                    onclick="resetBioZoom()"></div>
+            <section id="bio-interactive" class="relative overflow-hidden bg-white md:min-h-[600px] pt-0 pb-10 md:py-0">
+                <div class="max-w-7xl mx-auto md:px-10"> <!-- Wrapper -->
+                    <!-- Overlay for reset click (Global) -->
+                    <div id="bio-reset-overlay"
+                        class="bio-overlay fixed inset-0 z-[100] bg-black/5 opacity-0 pointer-events-none"
+                        onclick="resetBioZoom()"></div>
 
                 <div id="bio-zoom-viewport">
                     <div id="bio-zoom-content">
@@ -381,11 +405,11 @@
                             
                             <!-- Mobile Buttons Overlay (No boxes, minimal text) -->
                             <div class="md:hidden absolute inset-0 z-10">
-                                <button onclick="openBioModal('left')" class="absolute top-[12%] left-[6%] max-w-[140px] text-left active:scale-95 transition-transform">
+                                <button onclick="openBioModal('left')" class="absolute top-[15%] left-[6%] max-w-[140px] text-left active:scale-95 transition-transform">
                                     <h3 class="text-2xl font-marker text-pastelVino leading-tight drop-shadow-[0_2px_2px_rgba(255,255,255,0.8)]">Nacimiento y Vocación</h3>
                                     <p class="font-hand text-lg text-darkText mt-1 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">(Clic aquí)</p>
                                 </button>
-                                <button onclick="openBioModal('right')" class="absolute bottom-[15%] right-[6%] max-w-[140px] text-right active:scale-95 transition-transform">
+                                <button onclick="openBioModal('right')" class="absolute top-[15%] right-[6%] max-w-[140px] text-right active:scale-95 transition-transform">
                                     <h3 class="text-2xl font-marker text-pastelCafe leading-tight drop-shadow-[0_2px_2px_rgba(255,255,255,0.8)]">Filosofía y "ALMAS"</h3>
                                     <p class="font-hand text-lg text-darkText mt-1 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">(Clic aquí)</p>
                                 </button>
@@ -418,9 +442,10 @@
                         </div>
                     </div>
                 </div>
+            </div> <!-- Closing Wrapper -->
 
-                <!-- Borde rasgado inferior -->
-                <div class="absolute bottom-0 left-0 w-full h-8 bg-pastelBeigeDark z-20"
+            <!-- Borde rasgado inferior -->
+            <div class="absolute bottom-0 left-0 w-full h-8 bg-pastelBeigeDark z-20"
                     style="clip-path: polygon(0% 100%, 3% 5%, 6% 90%, 9% 15%, 13% 85%, 16% 5%, 19% 95%, 22% 20%, 25% 85%, 28% 5%, 32% 90%, 35% 15%, 38% 85%, 41% 10%, 45% 95%, 48% 20%, 51% 85%, 55% 5%, 58% 90%, 61% 15%, 65% 95%, 68% 10%, 71% 85%, 75% 20%, 78% 90%, 81% 5%, 85% 95%, 88% 10%, 91% 80%, 95% 20%, 98% 90%, 100% 100%, 0% 100%);">
                 </div>
             </section>
@@ -434,15 +459,7 @@
                         <div class="w-24 h-1 bg-pastelCafe mx-auto rounded-full mt-2"></div>
                     </div>
 
-                    <div class="relative group">
-                        <!-- Navigation Arrows (Mobile Only) -->
-                        <button onclick="scrollSection('video-slider', -1)" class="md:hidden absolute left-2 top-1/2 -translate-y-1/2 z-30 bg-white w-12 h-12 rounded-full flex items-center justify-center shadow-xl text-pastelVino active:scale-90 transition-transform">
-                            <i class="fa-solid fa-chevron-left text-lg"></i>
-                        </button>
-                        <button onclick="scrollSection('video-slider', 1)" class="md:hidden absolute right-2 top-1/2 -translate-y-1/2 z-30 bg-white w-12 h-12 rounded-full flex items-center justify-center shadow-xl text-pastelVino active:scale-90 transition-transform">
-                            <i class="fa-solid fa-chevron-right text-lg"></i>
-                        </button>
-
+                    <div class="relative">
                         <div id="video-slider" class="flex md:grid md:grid-cols-2 gap-8 overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth pb-4">
                             <!-- Video 1: KARMA -->
                             <div
@@ -480,6 +497,12 @@
                                             class="text-white/70 text-sm block font-normal">Estreno Próximamente</span></h4>
                                 </div>
                             </div>
+                        </div>
+
+                        <!-- Pagination Dots (Videos) -->
+                        <div id="video-dots" class="flex md:hidden justify-center items-center gap-3 mt-6 w-full">
+                            <div class="dot dot-active" onclick="scrollSliderTo('video-slider', 0)"></div>
+                            <div class="dot" onclick="scrollSliderTo('video-slider', 1)"></div>
                         </div>
                     </div>
                 </div>
@@ -597,7 +620,7 @@
                         currentSlide = (currentSlide + 1) % carouselSlides.length;
                         carouselSlides[currentSlide].classList.remove('carousel-inactive');
                         carouselSlides[currentSlide].classList.add('carousel-active');
-                    }, 2000);
+                    }, 4000); // 4 seconds for a smoother pace
                 }
             } else {
                 clearInterval(carouselInterval);
@@ -617,6 +640,33 @@
 
         window.addEventListener('resize', startCarousel);
         startCarousel();
+
+        // Dots Synchronization Logic
+        function syncSliderDots(sliderId, dotsId) {
+            const slider = document.getElementById(sliderId);
+            const dotsContainer = document.getElementById(dotsId);
+            if (!slider || !dotsContainer) return;
+            
+            const dots = dotsContainer.querySelectorAll('.dot');
+            
+            slider.addEventListener('scroll', () => {
+                const index = Math.round(slider.scrollLeft / (slider.clientWidth * 0.8));
+                dots.forEach((dot, i) => {
+                    if (i === index) dot.classList.add('dot-active');
+                    else dot.classList.remove('dot-active');
+                });
+            });
+        }
+
+        function scrollSliderTo(sliderId, index) {
+            const slider = document.getElementById(sliderId);
+            const scrollAmount = slider.clientWidth * 0.85;
+            slider.scrollTo({ left: index * scrollAmount, behavior: 'smooth' });
+        }
+
+        // Initialize dots syncing
+        syncSliderDots('music-slider', 'music-dots');
+        syncSliderDots('video-slider', 'video-dots');
 
         // Bio Zoom Logic
         function toggleBioZoom(side) {
