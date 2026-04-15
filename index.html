@@ -56,6 +56,25 @@
         .carousel-inactive {
             opacity: 0 !important;
             z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Modal Styles */
+        #bio-modal {
+            transition: all 0.3s ease-out;
+            opacity: 0;
+            pointer-events: none;
+        }
+        #bio-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        #bio-modal-content {
+            transform: scale(0.9);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        #bio-modal.active #bio-modal-content {
+            transform: scale(1);
         }
 
         /* Bio Zoom Styles */
@@ -104,6 +123,23 @@
         .bio-overlay-active {
             opacity: 1 !important;
             pointer-events: auto !important;
+        }
+
+        .bio-click-hint {
+            transition: opacity 0.5s ease;
+        }
+
+        .gallery-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Video Slider Styles */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
     </style>
 </head>
@@ -239,16 +275,17 @@
             class="relative w-full h-[70vh] md:h-[85vh] flex items-center justify-center bg-pastelBeige overflow-hidden">
             <!-- Background Carousel -->
             <div id="hero-carousel" class="absolute inset-0 w-full h-full">
-                <div class="carousel-slide absolute inset-0 w-full h-full carousel-active bg-pastelBeige">
+                <div id="slide-0" class="carousel-slide absolute inset-0 w-full h-full carousel-active bg-pastelBeige">
                     <img src="imagenescarrusel/DSC_0814.jpg" class="w-full h-full object-cover object-top">
                 </div>
-                <div class="carousel-slide absolute inset-0 w-full h-full carousel-inactive bg-pastelBeige">
+                <!-- Extra slides only for mobile (opacity-0 on md+) -->
+                <div id="slide-1" class="carousel-slide absolute inset-0 w-full h-full carousel-inactive bg-pastelBeige md:hidden">
                     <img src="imagenescarrusel/DSC_0822.jpg" class="w-full h-full object-cover object-top">
                 </div>
-                <div class="carousel-slide absolute inset-0 w-full h-full carousel-inactive bg-pastelBeige">
+                <div id="slide-2" class="carousel-slide absolute inset-0 w-full h-full carousel-inactive bg-pastelBeige md:hidden">
                     <img src="imagenescarrusel/DSC_0846.jpg" class="w-full h-full object-cover object-top">
                 </div>
-                <div class="carousel-slide absolute inset-0 w-full h-full carousel-inactive bg-pastelBeige">
+                <div id="slide-3" class="carousel-slide absolute inset-0 w-full h-full carousel-inactive bg-pastelBeige md:hidden">
                     <img src="imagenescarrusel/DSC_0851.jpg" class="w-full h-full object-cover object-top">
                 </div>
             </div>
@@ -275,53 +312,61 @@
                     <div class="w-24 h-1 bg-pastelVino mx-auto rounded-full mt-2"></div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 md:gap-12 w-full mx-auto">
-                    <!-- ÁLBUM 1: ALMAS -->
-                    <div class="flex flex-col items-center group">
-                        <div
-                            class="organic-box p-4 mb-6 hover:scale-105 transition-transform duration-300 w-full max-w-[350px] shadow-sm bg-white">
-                            <img src="almas/Portada2.jpg.jpeg" alt="Almas Cover"
-                                class="w-full aspect-square object-cover rounded-sm">
-                        </div>
-                        <h3 class="text-2xl font-bold font-hand text-darkText mb-4">ALMAS</h3>
-                        <div class="flex gap-4 text-2xl text-pastelCafe">
-                            <a target="_blank" href="#"
-                                class="hover:text-pastelVino transition-transform hover:scale-110"><i
-                                    class="fab fa-spotify"></i></a>
-                            <a target="_blank" href="#"
-                                class="hover:text-pastelVino transition-transform hover:scale-110"><i
-                                    class="fab fa-apple"></i></a>
-                            <a target="_blank" href="https://www.youtube.com/@ALEHNAOFICIAL"
-                                class="hover:text-pastelVino transition-transform hover:scale-110"><i
-                                    class="fab fa-youtube"></i></a>
-                        </div>
-                    </div>
+                <div class="relative group">
+                    <button onclick="scrollSection('music-slider', -1)" class="md:hidden absolute left-2 top-[35%] -translate-y-1/2 z-30 bg-white w-12 h-12 rounded-full flex items-center justify-center shadow-xl text-pastelVino active:scale-90 transition-transform">
+                        <i class="fa-solid fa-chevron-left text-lg"></i>
+                    </button>
+                    <button onclick="scrollSection('music-slider', 1)" class="md:hidden absolute right-2 top-[35%] -translate-y-1/2 z-30 bg-white w-12 h-12 rounded-full flex items-center justify-center shadow-xl text-pastelVino active:scale-90 transition-transform">
+                        <i class="fa-solid fa-chevron-right text-lg"></i>
+                    </button>
 
-                    <!-- ÁLBUM 2: KARMA -->
-                    <div class="flex flex-col items-center group">
-                        <div
-                            class="organic-box p-4 mb-6 hover:scale-105 transition-transform duration-300 w-full max-w-[350px] shadow-sm bg-white">
-                            <img src="karma-portada/karma.jpg" alt="Karma Cover"
-                                class="w-full aspect-square object-cover rounded-sm">
+                    <div id="music-slider" class="flex md:grid md:grid-cols-2 lg:grid-cols-2 gap-8 md:gap-12 w-full mx-auto overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth pb-4">
+                        <!-- ÁLBUM 1: ALMAS -->
+                        <div class="flex flex-col items-center group flex-shrink-0 w-[85vw] md:w-full snap-center">
+                            <div
+                                class="organic-box p-4 mb-6 hover:scale-105 transition-transform duration-300 w-full max-w-[350px] shadow-sm bg-white border-2">
+                                <img src="almas/Portada2.jpg.jpeg" alt="Almas Cover"
+                                    class="w-full aspect-square object-cover rounded-sm">
+                            </div>
+                            <h3 class="text-2xl font-bold font-hand text-darkText mb-4">ALMAS</h3>
+                            <div class="flex gap-4 text-2xl text-pastelCafe">
+                                <a target="_blank" href="#"
+                                    class="hover:text-pastelVino transition-transform hover:scale-110"><i
+                                        class="fab fa-spotify"></i></a>
+                                <a target="_blank" href="#"
+                                    class="hover:text-pastelVino transition-transform hover:scale-110"><i
+                                        class="fab fa-apple"></i></a>
+                                <a target="_blank" href="https://www.youtube.com/@ALEHNAOFICIAL"
+                                    class="hover:text-pastelVino transition-transform hover:scale-110"><i
+                                        class="fab fa-youtube"></i></a>
+                            </div>
                         </div>
-                        <h3 class="text-2xl font-bold font-hand text-darkText mb-4">EL KARMA</h3>
-                        <div class="flex gap-4 text-2xl text-pastelCafe">
-                            <a target="_blank" href="https://open.spotify.com/intl-es/track/6WCIljsn5rcWF699Siq2TM"
-                                class="hover:text-pastelVino transition-transform hover:scale-110"><i
-                                    class="fab fa-spotify"></i></a>
-                            <a target="_blank" href="#"
-                                class="hover:text-pastelVino transition-transform hover:scale-110"><i
-                                    class="fab fa-apple"></i></a>
-                            <a target="_blank" href="#"
-                                class="hover:text-pastelVino transition-transform hover:scale-110"><i
-                                    class="fab fa-youtube"></i></a>
+
+                        <!-- ÁLBUM 2: KARMA -->
+                        <div class="flex flex-col items-center group flex-shrink-0 w-[85vw] md:w-full snap-center">
+                            <div
+                                class="organic-box p-4 mb-6 hover:scale-105 transition-transform duration-300 w-full max-w-[350px] shadow-sm bg-white border-2">
+                                <img src="karma-portada/karma.jpg" alt="Karma Cover"
+                                    class="w-full aspect-square object-cover rounded-sm">
+                            </div>
+                            <h3 class="text-2xl font-bold font-hand text-darkText mb-4">EL KARMA</h3>
+                            <div class="flex gap-4 text-2xl text-pastelCafe">
+                                <a target="_blank" href="https://open.spotify.com/intl-es/track/6WCIljsn5rcWF699Siq2TM"
+                                    class="hover:text-pastelVino transition-transform hover:scale-110"><i
+                                        class="fab fa-spotify"></i></a>
+                                <a target="_blank" href="#"
+                                    class="hover:text-pastelVino transition-transform hover:scale-110"><i
+                                        class="fab fa-apple"></i></a>
+                                <a target="_blank" href="#"
+                                    class="hover:text-pastelVino transition-transform hover:scale-110"><i
+                                        class="fab fa-youtube"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- NUEVA SECCIÓN BIOGRAFÍA CON ZOOM ÓPTICO -->
             <section id="bio-interactive"
-                class="relative overflow-hidden bg-white min-h-[500px] md:min-h-[600px] pb-12">
+                class="relative overflow-hidden bg-white md:min-h-[600px]">
 
                 <!-- Overlay for reset click (Global) -->
                 <div id="bio-reset-overlay"
@@ -331,44 +376,44 @@
                 <div id="bio-zoom-viewport">
                     <div id="bio-zoom-content">
                         <!-- Photo Background -->
-                        <img src="bioinicio/DSC_0705.jpg" class="w-full h-auto block transition-all duration-1000">
+                        <div class="relative w-full">
+                            <img src="bioinicio/DSC_0705.jpg" class="w-full h-auto block transition-all duration-1000">
+                            
+                            <!-- Mobile Buttons Overlay (No boxes, minimal text) -->
+                            <div class="md:hidden absolute inset-0 z-10">
+                                <button onclick="openBioModal('left')" class="absolute top-[12%] left-[6%] max-w-[140px] text-left active:scale-95 transition-transform">
+                                    <h3 class="text-2xl font-marker text-pastelVino leading-tight drop-shadow-[0_2px_2px_rgba(255,255,255,0.8)]">Nacimiento y Vocación</h3>
+                                    <p class="font-hand text-lg text-darkText mt-1 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">(Clic aquí)</p>
+                                </button>
+                                <button onclick="openBioModal('right')" class="absolute bottom-[15%] right-[6%] max-w-[140px] text-right active:scale-95 transition-transform">
+                                    <h3 class="text-2xl font-marker text-pastelCafe leading-tight drop-shadow-[0_2px_2px_rgba(255,255,255,0.8)]">Filosofía y "ALMAS"</h3>
+                                    <p class="font-hand text-lg text-darkText mt-1 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">(Clic aquí)</p>
+                                </button>
+                            </div>
+                        </div>
 
-                        <!-- Text Overlay Panels -->
-                        <div class="absolute inset-0 z-10">
-
+                        <!-- Desktop Overlay (Original Optical Zoom) -->
+                        <div class="hidden md:block absolute inset-0 z-10">
                             <div id="bio-left" onclick="toggleBioZoom('left')"
-                                class="bio-panel cursor-pointer absolute top-[10%] md:top-[12%] left-[5%] md:left-[8%] max-w-[280px] md:max-w-[360px]">
-                                <h3
-                                    class="text-2xl md:text-5xl font-marker text-pastelVino mb-4 drop-shadow-sm leading-tight">
+                                class="bio-panel cursor-pointer absolute top-[12%] left-[8%] max-w-[360px]">
+                                <h3 class="text-5xl font-marker text-pastelVino mb-4 drop-shadow-sm leading-tight">
                                     Nacimiento y Vocación</h3>
-                                <p class="text-base md:text-2xl font-hand text-darkText leading-relaxed">
-                                    Nace el 21 de Octubre de 2001 en la ciudad de Cali. Desde muy temprana edad
-                                    identifica su innata vocación artística...
+                                <p class="text-2xl font-hand text-darkText leading-relaxed">
+                                    Nace el 21 de Octubre de 2001 en la ciudad de Cali. Desde muy temprana edad identifica su innata vocación artística...
                                 </p>
                                 <div class="mt-4 w-12 h-0.5 bg-pastelVino/30"></div>
-                                <center>
-                                    <p class="text-base md:text-2xl font-hand text-darkText leading-relaxed">
-                                        (Dale click aqui)
-                                    </p>
-                                </center>
+                                <center><p class="bio-click-hint text-2xl font-hand text-darkText leading-relaxed mt-2">(Dale click aqui)</p></center>
                             </div>
 
                             <div id="bio-right" onclick="toggleBioZoom('right')"
-                                class="bio-panel cursor-pointer absolute top-[10%] md:top-[12%] right-[5%] md:right-[8%] max-w-[280px] md:max-w-[360px] text-right">
-                                <h3
-                                    class="text-2xl md:text-5xl font-marker text-pastelCafe mb-4 drop-shadow-sm leading-tight">
+                                class="bio-panel cursor-pointer absolute top-[12%] right-[8%] max-w-[360px] text-right">
+                                <h3 class="text-5xl font-marker text-pastelCafe mb-4 drop-shadow-sm leading-tight">
                                     Filosofía y "ALMAS"</h3>
-                                <p class="text-base md:text-2xl font-hand text-darkText leading-relaxed">
-                                    ALEHNA transforma experiencias íntimas en universos sonoros. "Almas" es su
-                                    recordatorio de que siempre podemos volver...
+                                <p class="text-2xl font-hand text-darkText leading-relaxed">
+                                    ALEHNA transforma experiencias íntimas en universos sonoros. "Almas" es su recordatorio de que siempre podemos volver...
                                 </p>
                                 <div class="mt-4 w-12 h-0.5 bg-pastelCafe/30 ml-auto"></div>
-
-                                <center>
-                                    <p class="text-base md:text-2xl font-hand text-darkText leading-relaxed">
-                                        (Dale click aqui)
-                                    </p>
-                                </center>
+                                <center><p class="bio-click-hint text-2xl font-hand text-darkText leading-relaxed mt-2">(Dale click aqui)</p></center>
                             </div>
                         </div>
                     </div>
@@ -389,48 +434,87 @@
                         <div class="w-24 h-1 bg-pastelCafe mx-auto rounded-full mt-2"></div>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full mx-auto">
-                        <!-- Video 1: KARMA -->
-                        <div
-                            class="organic-box bg-pastelBeige p-3 flex flex-col group h-full justify-between shadow-md border-2 border-white">
-                            <div class="relative w-full pt-[56.25%] bg-black rounded">
-                                <iframe class="absolute top-0 left-0 w-full h-full rounded"
-                                    src="https://www.youtube.com/embed/EWMMuV1Hf3U?si=I0mpYdQLGmEiBTjv"
-                                    title="YouTube video player" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                            </div>
-                            <div class="p-4 text-center mt-auto">
-                                <h4 class="font-bold font-main text-lg text-darkText">ALEHNA - EL KARMA <span
-                                        class="text-pastelCafe text-sm block font-normal">Video Oficial</span></h4>
-                            </div>
-                        </div>
+                    <div class="relative group">
+                        <!-- Navigation Arrows (Mobile Only) -->
+                        <button onclick="scrollSection('video-slider', -1)" class="md:hidden absolute left-2 top-1/2 -translate-y-1/2 z-30 bg-white w-12 h-12 rounded-full flex items-center justify-center shadow-xl text-pastelVino active:scale-90 transition-transform">
+                            <i class="fa-solid fa-chevron-left text-lg"></i>
+                        </button>
+                        <button onclick="scrollSection('video-slider', 1)" class="md:hidden absolute right-2 top-1/2 -translate-y-1/2 z-30 bg-white w-12 h-12 rounded-full flex items-center justify-center shadow-xl text-pastelVino active:scale-90 transition-transform">
+                            <i class="fa-solid fa-chevron-right text-lg"></i>
+                        </button>
 
-                        <!-- Video 2: PRONTO (Almas) -->
-                        <div
-                            class="organic-box bg-pastelVino p-3 flex flex-col group h-full shadow-[0_0_20px_rgba(197,125,132,0.4)] border-2 border-white">
+                        <div id="video-slider" class="flex md:grid md:grid-cols-2 gap-8 overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth pb-4">
+                            <!-- Video 1: KARMA -->
                             <div
-                                class="relative w-full pt-[56.25%] bg-white/10 flex items-center justify-center rounded overflow-hidden">
-                                <div
-                                    class="absolute inset-0 flex flex-col items-center justify-center text-center p-6 border border-white/20 m-2 rounded">
-                                    <i class="fa-solid fa-video text-5xl text-white/50 mb-4 animate-pulse"></i>
-                                    <h2
-                                        class="text-4xl md:text-5xl font-marker text-white tracking-widest leading-none drop-shadow-sm">
-                                        PRONTO</h2>
-                                    <p class="font-hand text-white/80 text-xl md:text-2xl mt-4">ALMAS. El Nuevo Video
-                                    </p>
+                                class="organic-box bg-pastelBeige p-3 flex-shrink-0 w-[85vw] md:w-full snap-center flex flex-col group h-full justify-between shadow-md border-2 border-white">
+                                <div class="relative w-full pt-[56.25%] bg-black rounded">
+                                    <iframe class="absolute top-0 left-0 w-full h-full rounded"
+                                        src="https://www.youtube.com/embed/EWMMuV1Hf3U?si=I0mpYdQLGmEiBTjv"
+                                        title="YouTube video player" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                </div>
+                                <div class="p-4 text-center mt-auto">
+                                    <h4 class="font-bold font-main text-lg text-darkText">ALEHNA - EL KARMA <span
+                                            class="text-pastelCafe text-sm block font-normal">Video Oficial</span></h4>
                                 </div>
                             </div>
-                            <div class="p-4 text-center mt-auto text-white">
-                                <h4 class="font-bold font-main text-lg">ALEHNA - ALMAS <span
-                                        class="text-white/70 text-sm block font-normal">Estreno Próximamente</span></h4>
+
+                            <!-- Video 2: PRONTO (Almas) -->
+                            <div
+                                class="organic-box bg-pastelVino p-3 flex-shrink-0 w-[85vw] md:w-full snap-center flex flex-col group h-full shadow-[0_0_20px_rgba(197,125,132,0.4)] border-2 border-white">
+                                <div
+                                    class="relative w-full pt-[56.25%] bg-white/10 flex items-center justify-center rounded overflow-hidden">
+                                    <div
+                                        class="absolute inset-0 flex flex-col items-center justify-center text-center p-6 border border-white/20 m-2 rounded">
+                                        <i class="fa-solid fa-video text-5xl text-white/50 mb-4 animate-pulse"></i>
+                                        <h2
+                                            class="text-4xl md:text-5xl font-marker text-white tracking-widest leading-none drop-shadow-sm">
+                                            PRONTO</h2>
+                                        <p class="font-hand text-white/80 text-xl md:text-2xl mt-4">ALMAS. El Nuevo Video
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="p-4 text-center mt-auto text-white">
+                                    <h4 class="font-bold font-main text-lg">ALEHNA - ALMAS <span
+                                            class="text-white/70 text-sm block font-normal">Estreno Próximamente</span></h4>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- Divider rasgado al pie de la sección -->
-                <div class="absolute bottom-0 left-0 w-full h-8 bg-pastelBeige"
+                <div class="absolute bottom-0 left-0 w-full h-8 bg-white"
                     style="clip-path: polygon(0% 100%, 2% 15%, 5% 95%, 8% 5%, 11% 85%, 14% 20%, 18% 90%, 21% 10%, 25% 95%, 28% 5%, 32% 80%, 35% 25%, 38% 90%, 41% 10%, 45% 95%, 48% 5%, 52% 85%, 55% 20%, 58% 90%, 62% 10%, 65% 95%, 68% 5%, 72% 80%, 75% 25%, 78% 90%, 82% 10%, 85% 95%, 88% 5%, 92% 85%, 95% 20%, 98% 90%, 100% 100%, 0% 100%);">
+                </div>
+            </section>
+
+            <!-- SECCIÓN GALERÍA (PC ONLY) -->
+            <section id="gallery" class="relative py-10 md:py-20 bg-white hidden md:block">
+                <div class="w-full px-4 md:px-10">
+                    <div class="text-center mb-10 md:mb-16">
+                        <h2 class="text-5xl font-marker text-pastelVino mb-2 transform rotate-1 inline-block">GALERÍA</h2>
+                        <div class="w-24 h-1 bg-pastelCafe mx-auto rounded-full mt-2"></div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="organic-box p-3 bg-pastelBeige gallery-image shadow-md">
+                            <img src="imagenescarrusel/DSC_0814.jpg" class="w-full aspect-[4/5] object-cover rounded shadow-inner">
+                        </div>
+                        <div class="organic-box p-3 bg-pastelBeige gallery-image shadow-md">
+                            <img src="imagenescarrusel/DSC_0822.jpg" class="w-full aspect-[4/5] object-cover rounded shadow-inner">
+                        </div>
+                        <div class="organic-box p-3 bg-pastelBeige gallery-image shadow-md">
+                            <img src="imagenescarrusel/DSC_0846.jpg" class="w-full aspect-[4/5] object-cover rounded shadow-inner">
+                        </div>
+                        <div class="organic-box p-3 bg-pastelBeige gallery-image shadow-md">
+                            <img src="imagenescarrusel/DSC_0851.jpg" class="w-full aspect-[4/5] object-cover rounded shadow-inner">
+                        </div>
+                    </div>
+                </div>
+                <!-- Borde rasgado inferior -->
+                <div class="absolute bottom-0 left-0 w-full h-8 bg-pastelBeige z-20"
+                    style="clip-path: polygon(0% 100%, 3% 5%, 6% 90%, 9% 15%, 13% 85%, 16% 5%, 19% 95%, 22% 20%, 25% 85%, 28% 5%, 32% 90%, 35% 15%, 38% 85%, 41% 10%, 45% 95%, 48% 20%, 51% 85%, 55% 5%, 58% 90%, 61% 15%, 65% 95%, 68% 10%, 71% 85%, 75% 20%, 78% 90%, 81% 5%, 85% 95%, 88% 10%, 91% 80%, 95% 20%, 98% 90%, 100% 100%, 0% 100%);">
                 </div>
             </section>
 
@@ -499,16 +583,40 @@
             });
         });
 
-        // Hero Carousel Logic (2 seconds)
+        // Hero Carousel Logic (2 seconds) - Mobile Only
         const carouselSlides = document.querySelectorAll('.carousel-slide');
         let currentSlide = 0;
-        setInterval(() => {
-            carouselSlides[currentSlide].classList.remove('carousel-active');
-            carouselSlides[currentSlide].classList.add('carousel-inactive');
-            currentSlide = (currentSlide + 1) % carouselSlides.length;
-            carouselSlides[currentSlide].classList.remove('carousel-inactive');
-            carouselSlides[currentSlide].classList.add('carousel-active');
-        }, 2000);
+        let carouselInterval;
+
+        function startCarousel() {
+            if (window.innerWidth <= 768) {
+                if (!carouselInterval) {
+                    carouselInterval = setInterval(() => {
+                        carouselSlides[currentSlide].classList.remove('carousel-active');
+                        carouselSlides[currentSlide].classList.add('carousel-inactive');
+                        currentSlide = (currentSlide + 1) % carouselSlides.length;
+                        carouselSlides[currentSlide].classList.remove('carousel-inactive');
+                        carouselSlides[currentSlide].classList.add('carousel-active');
+                    }, 2000);
+                }
+            } else {
+                clearInterval(carouselInterval);
+                carouselInterval = null;
+                // Reset to first slide on desktop
+                carouselSlides.forEach((slide, index) => {
+                    if (index === 0) {
+                        slide.classList.add('carousel-active');
+                        slide.classList.remove('carousel-inactive');
+                    } else {
+                        slide.classList.remove('carousel-active');
+                        slide.classList.add('carousel-inactive');
+                    }
+                });
+            }
+        }
+
+        window.addEventListener('resize', startCarousel);
+        startCarousel();
 
         // Bio Zoom Logic
         function toggleBioZoom(side) {
@@ -516,6 +624,7 @@
             const overlay = document.getElementById('bio-reset-overlay');
             const left = document.getElementById('bio-left');
             const right = document.getElementById('bio-right');
+            const hints = document.querySelectorAll('.bio-click-hint');
 
             if (content.classList.contains(`bio-zoomed-${side}`)) {
                 resetBioZoom();
@@ -523,6 +632,9 @@
                 content.classList.remove('bio-zoomed-left', 'bio-zoomed-right');
                 content.classList.add(`bio-zoomed-${side}`);
                 overlay.classList.add('bio-overlay-active');
+
+                // Hide hints
+                hints.forEach(h => h.classList.add('opacity-0'));
 
                 // Dim the other side
                 if (side === 'left') {
@@ -540,12 +652,60 @@
             const overlay = document.getElementById('bio-reset-overlay');
             const left = document.getElementById('bio-left');
             const right = document.getElementById('bio-right');
+            const hints = document.querySelectorAll('.bio-click-hint');
 
             content.classList.remove('bio-zoomed-left', 'bio-zoomed-right');
             overlay.classList.remove('bio-overlay-active');
-            left.classList.remove('opacity-0', 'pointer-events-none');
-            right.classList.remove('opacity-0', 'pointer-events-none');
+            if (left) left.classList.remove('opacity-0', 'pointer-events-none');
+            if (right) right.classList.remove('opacity-0', 'pointer-events-none');
+
+            hints.forEach(h => h.classList.remove('opacity-0'));
         }
+
+        // Horizontal Scroll for Sections
+        function scrollSection(id, dir) {
+            const slider = document.getElementById(id);
+            const scrollAmount = slider.clientWidth * 0.85;
+            slider.scrollBy({ left: dir * scrollAmount, behavior: 'smooth' });
+        }
+
+        // Bio Modal Logic
+        const bioData = {
+            left: {
+                title: "Nacimiento y Vocación",
+                text: "Nace el 21 de Octubre de 2001 en la ciudad de Cali. Desde muy temprana edad identifica su innata vocación artística, comenzando su formación musical a los 8 años. Su estilo fusiona el pop con influencias urbanas y rockeras, creando una identidad única en la escena actual."
+            },
+            right: {
+                title: "Filosofía y 'ALMAS'",
+                text: "ALEHNA transforma experiencias íntimas en universos sonoros. Su proyecto 'ALMAS' es un viaje introspectivo donde cada canción representa una emoción pura. Para ella, la música es un recordatorio constante de que siempre podemos volver a nuestra esencia creativa."
+            }
+        };
+
+        function openBioModal(side) {
+            const modal = document.getElementById('bio-modal');
+            const title = document.getElementById('bio-modal-title');
+            const text = document.getElementById('bio-modal-text');
+            
+            title.innerText = bioData[side].title;
+            text.innerText = bioData[side].text;
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Set dynamic color based on side
+            title.className = `text-3xl font-marker mb-6 ${side === 'left' ? 'text-pastelVino' : 'text-pastelCafe'}`;
+        }
+
+        function closeBioModal() {
+            const modal = document.getElementById('bio-modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on escape
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeBioModal();
+        });
     </script>
     <!-- CART SIDEBAR & OVERLAY -->
     <div id="cart-overlay" class="fixed inset-0 bg-black/40 z-[250] hidden transition-opacity backdrop-blur-sm"
@@ -568,6 +728,20 @@
                 <i class="fa-brands fa-whatsapp text-2xl mr-2 align-middle"></i><span class="align-middle">Hacer
                     Pedido</span>
             </button>
+        </div>
+    </div>
+
+    <!-- BIO MODAL (MOBILE) -->
+    <div id="bio-modal" class="fixed inset-0 z-[400] bg-black/60 backdrop-blur-md flex items-center justify-center p-6" onclick="if(event.target === this) closeBioModal()">
+        <div id="bio-modal-content" class="bg-pastelBeige w-full max-w-md organic-box p-8 relative shadow-2xl border-4">
+            <button onclick="closeBioModal()" class="absolute -top-4 -right-4 w-10 h-10 bg-pastelVino text-white rounded-full flex items-center justify-center text-2xl shadow-lg border-2 border-white">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 id="bio-modal-title" class="text-3xl font-marker text-pastelVino mb-6"></h3>
+            <p id="bio-modal-text" class="font-hand text-2xl text-darkText leading-relaxed"></p>
+            <div class="mt-8 flex justify-center">
+                <button onclick="closeBioModal()" class="organic-btn text-lg py-2 px-8">CERRAR</button>
+            </div>
         </div>
     </div>
 </body>
