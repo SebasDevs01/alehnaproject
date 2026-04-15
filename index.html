@@ -319,14 +319,14 @@
                 <p class="text-2xl md:text-4xl font-hand text-white drop-shadow-md">Bienvenido a casa.</p>
             </div>
 
-            <!-- Borde rasgado inferior -->
-            <div class="absolute bottom-0 w-full h-8 bg-pastelBeige z-30"
+            <!-- Borde rasgado inferior (Overlap para evitar saltos visuales) -->
+            <div class="absolute bottom-[-4px] w-full h-10 bg-pastelBeige z-30"
                 style="clip-path: polygon(0% 100%, 2% 20%, 5% 90%, 8% 10%, 12% 85%, 15% 15%, 18% 90%, 21% 5%, 25% 85%, 28% 20%, 31% 95%, 34% 10%, 37% 85%, 41% 15%, 44% 90%, 48% 5%, 52% 80%, 55% 15%, 58% 95%, 62% 10%, 65% 85%, 68% 20%, 72% 90%, 75% 5%, 78% 85%, 81% 15%, 85% 90%, 88% 5%, 92% 80%, 95% 15%, 98% 90%, 100% 100%, 0% 100%);">
             </div>
         </section>
 
         <!-- SECCIÓN MÚSICA -->
-        <section id="music" class="relative py-10 md:py-20 bg-pastelBeige pb-10">
+        <section id="music" class="relative pt-6 pb-10 md:py-20 bg-pastelBeige">
             <div class="w-full px-4 md:px-10">
                 <div class="text-center mb-10 md:mb-16">
                     <h2 class="text-5xl font-marker text-pastelCafe mb-2 transform rotate-1 inline-block">MÚSICA</h2>
@@ -334,7 +334,7 @@
                 </div>
 
                 <div class="relative">
-                    <div id="music-slider" class="flex md:grid md:grid-cols-2 lg:grid-cols-2 gap-8 md:gap-12 w-full mx-auto overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth pb-4">
+                    <div id="music-slider" class="flex md:grid md:grid-cols-2 lg:grid-cols-2 gap-8 md:gap-12 w-full mx-auto overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth pb-0 px-[7.5vw] md:px-0 scroll-pl-[7.5vw]">
                         <!-- ÁLBUM 1: ALMAS -->
                         <div class="flex flex-col items-center group flex-shrink-0 w-[85vw] md:w-full snap-center">
                             <div
@@ -379,14 +379,14 @@
                     </div>
 
                     <!-- Pagination Dots (Music) -->
-                    <div id="music-dots" class="flex md:hidden justify-center items-center gap-3 mt-6 w-full">
+                    <div id="music-dots" class="flex md:hidden justify-center items-center gap-3 mt-4 w-full">
                         <div class="dot dot-active" onclick="scrollSliderTo('music-slider', 0)"></div>
                         <div class="dot" onclick="scrollSliderTo('music-slider', 1)"></div>
                     </div>
                 </div>
 
                 <!-- Borde rasgado inferior (Transición hacia Bio - Blanco hacia arriba) -->
-                <div class="absolute bottom-0 left-0 w-full h-8 bg-white z-20"
+                <div class="absolute bottom-[-3px] left-0 w-full h-10 bg-white z-20"
                     style="clip-path: polygon(0% 100%, 3% 5%, 6% 90%, 9% 15%, 13% 85%, 16% 5%, 19% 95%, 22% 20%, 25% 85%, 28% 5%, 32% 90%, 35% 15%, 38% 85%, 41% 10%, 45% 95%, 48% 20%, 51% 85%, 55% 5%, 58% 90%, 61% 15%, 65% 95%, 68% 10%, 71% 85%, 75% 20%, 78% 90%, 81% 5%, 85% 95%, 88% 10%, 91% 80%, 95% 20%, 98% 90%, 100% 100%, 0% 100%);">
                 </div>
             </div>
@@ -405,12 +405,12 @@
                             
                             <!-- Mobile Buttons Overlay (No boxes, minimal text) -->
                             <div class="md:hidden absolute inset-0 z-10">
-                                <button onclick="openBioModal('left')" class="absolute top-[15%] left-[6%] max-w-[140px] text-left active:scale-95 transition-transform">
-                                    <h3 class="text-2xl font-marker text-pastelVino leading-tight drop-shadow-[0_2px_2px_rgba(255,255,255,0.8)]">Nacimiento y Vocación</h3>
+                                <button onclick="openBioModal('left')" class="absolute top-[18%] left-[10%] max-w-[130px] text-left active:scale-95 transition-transform">
+                                    <h3 class="text-xl font-marker text-pastelVino leading-tight drop-shadow-[0_2px_2px_rgba(255,255,255,0.8)]">Nacimiento y Vocación</h3>
                                     <p class="font-hand text-lg text-darkText mt-1 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">(Clic aquí)</p>
                                 </button>
-                                <button onclick="openBioModal('right')" class="absolute top-[15%] right-[6%] max-w-[140px] text-right active:scale-95 transition-transform">
-                                    <h3 class="text-2xl font-marker text-pastelCafe leading-tight drop-shadow-[0_2px_2px_rgba(255,255,255,0.8)]">Filosofía y "ALMAS"</h3>
+                                <button onclick="openBioModal('right')" class="absolute top-[18%] right-[10%] max-w-[130px] text-right active:scale-95 transition-transform">
+                                    <h3 class="text-xl font-marker text-pastelCafe leading-tight drop-shadow-[0_2px_2px_rgba(255,255,255,0.8)]">Filosofía y "ALMAS"</h3>
                                     <p class="font-hand text-lg text-darkText mt-1 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">(Clic aquí)</p>
                                 </button>
                             </div>
@@ -452,7 +452,7 @@
 
 
             <!-- SECCIÓN VIDEOS -->
-            <section id="videos" class="relative py-10 md:py-20 bg-pastelBeigeDark pb-16">
+            <section id="videos" class="relative pt-6 pb-16 md:py-20 bg-pastelBeigeDark">
                 <div class="w-full px-4 md:px-10">
                     <div class="text-center mb-10 md:mb-16">
                         <h2 class="text-5xl font-marker text-darkText mb-2 transform -rotate-1 inline-block">VIDEOS</h2>
@@ -460,7 +460,7 @@
                     </div>
 
                     <div class="relative">
-                        <div id="video-slider" class="flex md:grid md:grid-cols-2 gap-8 overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth pb-4">
+                        <div id="video-slider" class="flex md:grid md:grid-cols-2 gap-8 overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth pb-0 px-[7.5vw] md:px-0 scroll-pl-[7.5vw]">
                             <!-- Video 1: KARMA -->
                             <div
                                 class="organic-box bg-pastelBeige p-3 flex-shrink-0 w-[85vw] md:w-full snap-center flex flex-col group h-full justify-between shadow-md border-2 border-white">
@@ -500,7 +500,7 @@
                         </div>
 
                         <!-- Pagination Dots (Videos) -->
-                        <div id="video-dots" class="flex md:hidden justify-center items-center gap-3 mt-6 w-full">
+                        <div id="video-dots" class="flex md:hidden justify-center items-center gap-3 mt-4 w-full">
                             <div class="dot dot-active" onclick="scrollSliderTo('video-slider', 0)"></div>
                             <div class="dot" onclick="scrollSliderTo('video-slider', 1)"></div>
                         </div>
