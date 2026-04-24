@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,52 +20,121 @@
         }
     </script>
     <style>
-        .spin-vinyl-auto { animation: spin-vinyl-auto 4s linear infinite; }
+        .spin-vinyl-auto {
+            animation: spin-vinyl-auto 4s linear infinite;
+        }
+
         @keyframes spin-vinyl-auto {
-            from { transform: translateX(12px) rotate(0deg); }
-            to { transform: translateX(12px) rotate(360deg); }
+            from {
+                transform: translateX(12px) rotate(0deg);
+            }
+
+            to {
+                transform: translateX(12px) rotate(360deg);
+            }
         }
 
         /* Vinyl Interactions */
-        .spin-slow { animation: spin 4s linear infinite; }
-        @keyframes spin { 100% { transform: rotate(360deg); } }
-        .vinyl-wrapper { perspective: 1000px; }
-        .vinyl-disc { transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); }
-        .vinyl-sleeve { transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); z-index: 10; }
-        .info-panel { transition: all 0.6s ease; opacity: 0; transform: translateX(20px); pointer-events: none; }
-        
+        .spin-slow {
+            animation: spin 4s linear infinite;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .vinyl-wrapper {
+            perspective: 1000px;
+        }
+
+        .vinyl-disc {
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .vinyl-sleeve {
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            z-index: 10;
+        }
+
+        .info-panel {
+            transition: all 0.6s ease;
+            opacity: 0;
+            transform: translateX(20px);
+            pointer-events: none;
+        }
+
         /* Desktop: disc slides right */
-        .group.disc-open .vinyl-disc { transform: translateX(8rem) rotate(90deg); }
-        .group.disc-open .vinyl-sleeve { transform: translateX(-2rem); }
-        .group.info-open .info-panel { opacity: 1; transform: translateX(0); pointer-events: auto; }
-        .group:not(.disc-open):not(.info-open):hover .vinyl-disc { transform: translateX(3rem) rotate(20deg); }
-        .group:not(.disc-open):not(.info-open):hover .vinyl-sleeve { transform: translateX(-1rem); }
+        .group.disc-open .vinyl-disc {
+            transform: translateX(8rem) rotate(90deg);
+        }
+
+        .group.disc-open .vinyl-sleeve {
+            transform: translateX(-2rem);
+        }
+
+        .group.info-open .info-panel {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: auto;
+        }
+
+        .group:not(.disc-open):not(.info-open):hover .vinyl-disc {
+            transform: translateX(3rem) rotate(20deg);
+        }
+
+        .group:not(.disc-open):not(.info-open):hover .vinyl-sleeve {
+            transform: translateX(-1rem);
+        }
 
         /* Mobile: disc slides down instead of sideways */
         @media (max-width: 767px) {
-            .info-panel { transform: translateY(20px); }
-            .group.info-open .info-panel { transform: translateY(0); }
-            .group.disc-open .vinyl-disc { transform: translateY(5rem) rotate(90deg) !important; }
-            .group.disc-open .vinyl-sleeve { transform: translateY(-1rem) !important; }
-            .group:not(.disc-open):not(.info-open):hover .vinyl-disc { transform: translateY(2rem) rotate(20deg) !important; }
-            .group:not(.disc-open):not(.info-open):hover .vinyl-sleeve { transform: translateY(-0.5rem) !important; }
+            .info-panel {
+                transform: translateY(20px);
+            }
+
+            .group.info-open .info-panel {
+                transform: translateY(0);
+            }
+
+            .group.disc-open .vinyl-disc {
+                transform: translateY(5rem) rotate(90deg) !important;
+            }
+
+            .group.disc-open .vinyl-sleeve {
+                transform: translateY(-1rem) !important;
+            }
+
+            .group:not(.disc-open):not(.info-open):hover .vinyl-disc {
+                transform: translateY(2rem) rotate(20deg) !important;
+            }
+
+            .group:not(.disc-open):not(.info-open):hover .vinyl-sleeve {
+                transform: translateY(-0.5rem) !important;
+            }
         }
     </style>
 </head>
+
 <body class="bg-pastelBeige text-darkText font-sans transition-colors duration-300">
 
     <!-- WRAPPER STICKY (BANNER + HEADER) -->
     <div class="sticky top-0 w-full z-[150] shadow-sm flex flex-col">
-        <div class="w-full bg-pastelBeige border-b border-pastelCafe h-[53px] grid items-center px-3 md:px-6 text-pastelCafe text-xs" style="grid-template-columns: auto 1fr auto; gap: 12px;">
+        <div class="w-full bg-pastelBeige border-b border-pastelCafe h-[53px] grid items-center px-3 md:px-6 text-pastelCafe text-xs"
+            style="grid-template-columns: auto 1fr auto; gap: 12px;">
             <div class="flex items-center gap-8 flex-shrink-0">
                 <div class="relative flex-shrink-0 ml-1" style="width:35px;height:32px;">
-                    <div class="absolute top-0 right-0 w-8 h-8 rounded-full border border-gray-600 flex items-center justify-center spin-vinyl-auto z-0" style="background:conic-gradient(from 0deg,#181514 0%,#4a403d 10%,#181514 20%,#181514 40%,#4a403d 50%,#181514 60%,#181514 90%,#4a403d 100%);">
+                    <div class="absolute top-0 right-0 w-8 h-8 rounded-full border border-gray-600 flex items-center justify-center spin-vinyl-auto z-0"
+                        style="background:conic-gradient(from 0deg,#181514 0%,#4a403d 10%,#181514 20%,#181514 40%,#4a403d 50%,#181514 60%,#181514 90%,#4a403d 100%);">
                         <img src="almas/Portada2.jpg.jpeg" class="w-1/3 h-1/3 rounded-full border border-white/50">
                         <div class="absolute w-1 h-1 bg-white rounded-full"></div>
                     </div>
-                    <div class="absolute top-0 left-0 w-8 h-8 bg-cover bg-center z-10 rounded-sm border border-white/30 shadow" style="background-image:url('almas/Portada2.jpg.jpeg');"></div>
+                    <div class="absolute top-0 left-0 w-8 h-8 bg-cover bg-center z-10 rounded-sm border border-white/30 shadow"
+                        style="background-image:url('almas/Portada2.jpg.jpeg');"></div>
                 </div>
-                <span class="font-marker text-pastelVino text-xs sm:text-sm whitespace-nowrap leading-none self-center">ALMAS</span>
+                <span
+                    class="font-marker text-pastelVino text-xs sm:text-sm whitespace-nowrap leading-none self-center">ALMAS</span>
             </div>
             <div class="flex items-center justify-center gap-2 md:gap-4 font-main">
                 <div class="flex items-baseline gap-0.5">
@@ -88,36 +158,48 @@
                 </div>
             </div>
             <div class="flex items-center justify-end flex-shrink-0">
-                <a href="https://www.youtube.com/@ALEHNAOFICIAL" target="_blank" class="w-8 h-8 rounded-full flex items-center justify-center border-2 border-pastelCafe text-pastelVino hover:bg-pastelVino hover:text-white hover:border-pastelVino transition-all shadow-sm bg-white">
+                <a href="https://www.youtube.com/@ALEHNAOFICIAL" target="_blank"
+                    class="w-8 h-8 rounded-full flex items-center justify-center border-2 border-pastelCafe text-pastelVino hover:bg-pastelVino hover:text-white hover:border-pastelVino transition-all shadow-sm bg-white">
                     <i class="fa-brands fa-youtube text-sm"></i>
                 </a>
             </div>
         </div>
 
-        <header id="header" class="w-full bg-pastelBeige/95 backdrop-blur-sm border-b-2 border-pastelCafe shadow-md h-[70px] md:h-[80px] flex items-center">
+        <header id="header"
+            class="w-full bg-pastelBeige/95 backdrop-blur-sm border-b-2 border-pastelCafe shadow-md h-[70px] md:h-[80px] flex items-center">
             <div class="container mx-auto px-4 w-full flex items-center justify-between">
-                <a href="index.html" class="text-3xl font-marker text-pastelVino tracking-wider hover:text-pastelCafe transition-colors mt-1">Alehna</a>
-                <nav id="desktop-nav" class="hidden md:flex gap-8 font-bold text-sm tracking-widest text-darkText uppercase items-center pt-2">
+                <a href="index.html"
+                    class="text-3xl font-marker text-pastelVino tracking-wider hover:text-pastelCafe transition-colors mt-1">Alehna</a>
+                <nav id="desktop-nav"
+                    class="hidden md:flex gap-8 font-bold text-sm tracking-widest text-darkText uppercase items-center pt-2">
                     <a href="index.html#music" class="hover:text-pastelVino transition-colors px-2 py-1">Música</a>
                     <a href="videos.html" class="hover:text-pastelVino transition-colors px-2 py-1">Videos</a>
                     <a href="biografia.html" class="hover:text-pastelVino transition-colors px-2 py-1">Biografía</a>
                     <!-- ACTIVO -->
-                    <a href="lanzamientos.html" class="text-pastelVino font-bold border-b-2 border-pastelVino transition-colors px-2 py-1">Lanzamientos</a>
+                    <a href="lanzamientos.html"
+                        class="text-pastelVino font-bold border-b-2 border-pastelVino transition-colors px-2 py-1">Lanzamientos</a>
                     <a href="merch.html" class="hover:text-pastelVino transition-colors px-2 py-1">Merch</a>
                     <a href="contacto.html" class="hover:text-pastelVino transition-colors px-2 py-1">Contacto</a>
-                    <a href="index.html#newsletter" class="bg-pastelVino text-white hover:bg-pastelCafe rounded-md px-4 py-1.5 transition-colors shadow-sm">Únete</a>
+                    <a href="index.html#newsletter"
+                        class="bg-pastelVino text-white hover:bg-pastelCafe rounded-md px-4 py-1.5 transition-colors shadow-sm">Únete</a>
                 </nav>
                 <div class="flex items-center gap-4 pt-1">
                     <div class="hidden md:flex gap-3 text-lg text-pastelCafe">
-                        <a target="_blank" href="https://www.instagram.com/alehnaoficial?igsh=MTI2Y3NidGhpaXFiaQ==" class="hover:text-pastelVino transition"><i class="fa-brands fa-instagram"></i></a>
-                        <a target="_blank" href="https://www.tiktok.com/@alehnaoficial?_r=1&_t=ZS-95T2zD8JSjt" class="hover:text-pastelVino transition"><i class="fa-brands fa-tiktok"></i></a>
-                        <a target="_blank" href="https://www.youtube.com/@ALEHNAOFICIAL" class="hover:text-pastelVino transition"><i class="fa-brands fa-youtube"></i></a>
+                        <a target="_blank" href="https://www.instagram.com/alehnaoficial?igsh=MTI2Y3NidGhpaXFiaQ=="
+                            class="hover:text-pastelVino transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a target="_blank" href="https://www.tiktok.com/@alehnaoficial?_r=1&_t=ZS-95T2zD8JSjt"
+                            class="hover:text-pastelVino transition"><i class="fa-brands fa-tiktok"></i></a>
+                        <a target="_blank" href="https://www.youtube.com/@ALEHNAOFICIAL"
+                            class="hover:text-pastelVino transition"><i class="fa-brands fa-youtube"></i></a>
                     </div>
-                    <button onclick="toggleCart()" class="relative text-xl md:text-2xl text-pastelVino hover:text-pastelCafe focus:outline-none transition-colors mr-2 md:mr-4">
+                    <button onclick="toggleCart()"
+                        class="relative text-xl md:text-2xl text-pastelVino hover:text-pastelCafe focus:outline-none transition-colors mr-2 md:mr-4">
                         <i class="fa-solid fa-cart-shopping"></i>
-                        <span id="cart-count" class="absolute -top-2 -right-3 bg-pastelCafe text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full font-bold shadow hidden">0</span>
+                        <span id="cart-count"
+                            class="absolute -top-2 -right-3 bg-pastelCafe text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full font-bold shadow hidden">0</span>
                     </button>
-                    <button id="mobile-menu-btn" class="md:hidden text-3xl text-pastelVino hover:text-pastelCafe focus:outline-none">
+                    <button id="mobile-menu-btn"
+                        class="md:hidden text-3xl text-pastelVino hover:text-pastelCafe focus:outline-none">
                         <i class="fa-solid fa-bars"></i>
                     </button>
                 </div>
@@ -126,49 +208,70 @@
     </div>
 
     <!-- MOBILE MENU RESPONSIVE -->
-    <div id="mobile-menu" class="fixed inset-0 z-[200] bg-pastelBeige/98 backdrop-blur-xl flex-col items-center justify-center space-y-8 hidden pt-12 transform transition-transform duration-300">
-        <button onclick="toggleMenu()" class="absolute top-6 right-6 text-4xl text-pastelCafe hover:text-pastelVino"><i class="fa-solid fa-xmark"></i></button>
-        <a href="index.html" onclick="toggleMenu()" class="font-marker text-4xl text-pastelVino mb-4 hover:text-pastelCafe transition-colors">Alehna</a>
-        <a href="index.html#music" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Música</a>
-        <a href="videos.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Videos</a>
-        <a href="biografia.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Biografía</a>
-        <a href="lanzamientos.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Lanzamientos</a>
-        <a href="merch.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Merch</a>
-        <a href="contacto.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Contacto</a>
-        <a href="index.html#newsletter" class="bg-pastelVino text-white px-8 py-3 rounded-full font-bold uppercase mt-6" onclick="toggleMenu()">Únete</a>
+    <div id="mobile-menu"
+        class="fixed inset-0 z-[200] bg-pastelBeige/98 backdrop-blur-xl flex-col items-center justify-center space-y-8 hidden pt-12 transform transition-transform duration-300">
+        <button onclick="toggleMenu()" class="absolute top-6 right-6 text-4xl text-pastelCafe hover:text-pastelVino"><i
+                class="fa-solid fa-xmark"></i></button>
+        <a href="index.html" onclick="toggleMenu()"
+            class="font-marker text-4xl text-pastelVino mb-4 hover:text-pastelCafe transition-colors">Alehna</a>
+        <a href="index.html#music" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase"
+            onclick="toggleMenu()">Música</a>
+        <a href="videos.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase"
+            onclick="toggleMenu()">Videos</a>
+        <a href="biografia.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase"
+            onclick="toggleMenu()">Biografía</a>
+        <a href="lanzamientos.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase"
+            onclick="toggleMenu()">Lanzamientos</a>
+        <a href="merch.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase"
+            onclick="toggleMenu()">Merch</a>
+        <a href="contacto.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase"
+            onclick="toggleMenu()">Contacto</a>
+        <a href="index.html#newsletter" class="bg-pastelVino text-white px-8 py-3 rounded-full font-bold uppercase mt-6"
+            onclick="toggleMenu()">Únete</a>
     </div>
 
     <main class="pb-0 px-4 flex flex-col items-center overflow-x-hidden">
-        <h1 class="text-4xl sm:text-5xl md:text-7xl font-marker text-pastelVino mb-8 text-center transform -rotate-1 md:-rotate-2 px-2">LANZAMIENTOS</h1>
-        
-        <p class="text-center font-main text-pastelCafe font-bold text-sm tracking-[0.2em] mb-12 uppercase bg-white/50 backdrop-blur-sm py-3 px-6 rounded-full inline-block mx-auto transform -rotate-1 shadow-sm border border-pastelCafe/20">Haz clic en el vinilo para descubrir la historia</p>
+        <h1
+            class="text-4xl sm:text-5xl md:text-7xl font-marker text-pastelVino mb-8 text-center transform -rotate-1 md:-rotate-2 px-2">
+            LANZAMIENTOS</h1>
+
+        <p
+            class="text-center font-main text-pastelCafe font-bold text-sm tracking-[0.2em] mb-12 uppercase bg-white/50 backdrop-blur-sm py-3 px-6 rounded-full inline-block mx-auto transform -rotate-1 shadow-sm border border-pastelCafe/20">
+            Haz clic en el vinilo para descubrir la historia</p>
 
         <div class="container max-w-5xl mx-auto organic-box bg-white p-8 md:p-12 mb-10 shadow-md border border-white">
 
-            <div class="group vinyl-wrapper vinyl-interactive flex flex-col md:flex-row items-center justify-center gap-12 max-w-4xl mx-auto w-full cursor-pointer h-auto md:h-[400px]">
+            <div
+                class="group vinyl-wrapper vinyl-interactive flex flex-col md:flex-row items-center justify-center gap-12 max-w-4xl mx-auto w-full cursor-pointer h-auto md:h-[400px]">
                 <div class="relative w-64 h-64 md:w-80 md:h-80 flex-shrink-0 z-20">
-                    <div class="vinyl-disc absolute inset-0 bg-gray-900 rounded-full shadow-2xl flex items-center justify-center border-4 border-black" style="z-index: 5;">
+                    <div class="vinyl-disc absolute inset-0 bg-gray-900 rounded-full shadow-2xl flex items-center justify-center border-4 border-black"
+                        style="z-index: 5;">
                         <div class="absolute inset-4 rounded-full border border-gray-700/50"></div>
                         <div class="absolute inset-8 rounded-full border border-gray-700/50"></div>
                         <div class="absolute inset-12 rounded-full border border-gray-700/50"></div>
                         <div class="absolute inset-16 rounded-full border border-gray-700/50"></div>
-                        <img src="almas/Portada2.jpg.jpeg" alt="Almas Record Label" class="w-1/3 h-1/3 object-cover rounded-full spin-slow border-[3px] border-pastelCafe">
+                        <img src="almas/Portada2.jpg.jpeg" alt="Almas Record Label"
+                            class="w-1/3 h-1/3 object-cover rounded-full spin-slow border-[3px] border-pastelCafe">
                         <div class="absolute w-3 h-3 bg-white rounded-full z-[100]"></div>
                     </div>
-                    <div class="vinyl-sleeve absolute inset-0 z-10 bg-white drop-shadow-xl p-1 organic-box-simple border border-gray-300">
+                    <div
+                        class="vinyl-sleeve absolute inset-0 z-10 bg-white drop-shadow-xl p-1 organic-box-simple border border-gray-300">
                         <img src="almas/Portada2.jpg.jpeg" alt="Almas Cover Sleeve" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-tr from-white/10 to-white/40 pointer-events-none"></div>
+                        <div class="absolute inset-0 bg-gradient-to-tr from-white/10 to-white/40 pointer-events-none">
+                        </div>
                     </div>
                 </div>
 
-                <div class="info-panel flex-1 flex flex-col justify-center text-left max-w-lg mt-8 md:mt-0 z-0 pl-0 md:pl-12 w-full">
+                <div
+                    class="info-panel flex-1 flex flex-col justify-center text-left max-w-lg mt-8 md:mt-0 z-0 pl-0 md:pl-12 w-full">
                     <h2 class="text-4xl md:text-5xl font-marker text-pastelCafe mb-4">ALMAS</h2>
                     <div class="h-1 w-16 bg-pastelVino rounded-full mb-6 relative"></div>
-                    <p class="font-main text-darkText font-bold mb-4 text-base tracking-wide text-pastelVino uppercase">Un viaje hacia el reencuentro.</p>
+                    <p class="font-main text-darkText font-bold mb-4 text-base tracking-wide text-pastelVino uppercase">
+                        Un viaje hacia el reencuentro.</p>
                     <p class="font-hand text-xl md:text-2xl text-darkText leading-relaxed">
-                        "Esta canción nació en un momento de desconexión. 
+                        "Esta canción nació en un momento de desconexión.
                         Sentía que el ruido de afuera apagaba por completo mi voz interior. <br><br>
-                        'Almas' es una carta personal para volver a casa, 
+                        'Almas' es una carta personal para volver a casa,
                         para recordar quiénes somos cuando absolutamente nadie está mirando."
                     </p>
                 </div>
@@ -177,28 +280,39 @@
 
         <!-- SECCIÓN KARMA -->
         <div class="container max-w-5xl mx-auto organic-box bg-white p-8 md:p-12 mb-10 shadow-md border border-white">
-            <div class="group vinyl-wrapper vinyl-interactive flex flex-col md:flex-row items-center justify-center gap-12 max-w-4xl mx-auto w-full cursor-pointer h-auto md:h-[400px]">
+            <div
+                class="group vinyl-wrapper vinyl-interactive flex flex-col md:flex-row items-center justify-center gap-12 max-w-4xl mx-auto w-full cursor-pointer h-auto md:h-[400px]">
                 <div class="relative w-64 h-64 md:w-80 md:h-80 flex-shrink-0 z-20">
-                    <div class="vinyl-disc absolute inset-0 bg-gray-900 rounded-full shadow-2xl flex items-center justify-center border-4 border-black" style="z-index: 5;">
+                    <div class="vinyl-disc absolute inset-0 bg-gray-900 rounded-full shadow-2xl flex items-center justify-center border-4 border-black"
+                        style="z-index: 5;">
                         <div class="absolute inset-4 rounded-full border border-gray-700/50"></div>
                         <div class="absolute inset-8 rounded-full border border-gray-700/50"></div>
                         <div class="absolute inset-12 rounded-full border border-gray-700/50"></div>
                         <div class="absolute inset-16 rounded-full border border-gray-700/50"></div>
-                        <img src="karma/image.png" alt="Karma Record Label" class="w-1/3 h-1/3 object-cover rounded-full spin-slow border-[3px] border-pastelCafe">
+                        <img src="karma/image.png" alt="Karma Record Label"
+                            class="w-1/3 h-1/3 object-cover rounded-full spin-slow border-[3px] border-pastelCafe">
                         <div class="absolute w-3 h-3 bg-white rounded-full z-[100]"></div>
                     </div>
-                    <div class="vinyl-sleeve absolute inset-0 z-10 bg-white drop-shadow-xl p-1 organic-box-simple border border-gray-300">
+                    <div
+                        class="vinyl-sleeve absolute inset-0 z-10 bg-white drop-shadow-xl p-1 organic-box-simple border border-gray-300">
                         <img src="karma/image.png" alt="Karma Cover Sleeve" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-tr from-white/10 to-white/40 pointer-events-none"></div>
+                        <div class="absolute inset-0 bg-gradient-to-tr from-white/10 to-white/40 pointer-events-none">
+                        </div>
                     </div>
                 </div>
 
-                <div class="info-panel flex-1 flex flex-col justify-center text-left max-w-lg mt-8 md:mt-0 z-0 pl-0 md:pl-12 w-full">
+                <div
+                    class="info-panel flex-1 flex flex-col justify-center text-left max-w-lg mt-8 md:mt-0 z-0 pl-0 md:pl-12 w-full">
                     <h2 class="text-4xl md:text-5xl font-marker text-pastelCafe mb-4 uppercase">KARMA</h2>
                     <div class="h-1 w-16 bg-pastelVino rounded-full mb-6 relative"></div>
-                    <p class="font-main text-darkText font-bold mb-4 text-base tracking-wide text-pastelVino uppercase">"Nada es coincidencia."</p>
+                    <p class="font-main text-darkText font-bold mb-4 text-base tracking-wide text-pastelVino uppercase">
+                        "Una canción nacida desde la tusa."</p>
                     <p class="font-hand text-xl md:text-2xl text-darkText leading-relaxed">
-                        "texto de prueba mientras mandan el indicado"
+                        "Transforma el dolor en poder…
+                        La nueva canción “Karma” llega como un himno de desahogo emocional y reivindicación personal,
+                        inspirado en una historia de amor marcada por la indiferencia, el desamor y el despertar del
+                        amor propio. Esta propuesta musical conecta con quienes han vivido una decepción amorosa y han
+                        encontrado la fuerza para seguir adelante."
                     </p>
                 </div>
             </div>
@@ -206,12 +320,15 @@
     </main>
 
     <footer id="footer" class="bg-pastelCafe text-pastelBeige py-12 relative">
-        <div class="absolute top-0 w-full h-8 bg-pastelBeigeDark top-0" style="clip-path: polygon(0% 100%, 2% 15%, 5% 95%, 8% 5%, 11% 85%, 14% 20%, 18% 90%, 21% 10%, 25% 95%, 28% 5%, 32% 80%, 35% 25%, 38% 90%, 41% 10%, 45% 95%, 48% 5%, 52% 85%, 55% 20%, 58% 90%, 62% 10%, 65% 95%, 68% 5%, 72% 80%, 75% 25%, 78% 90%, 82% 10%, 85% 95%, 88% 5%, 92% 85%, 95% 20%, 98% 90%, 100% 100%, 0% 100%); transform: scaleY(-1);"></div>
+        <div class="absolute top-0 w-full h-8 bg-pastelBeigeDark top-0"
+            style="clip-path: polygon(0% 100%, 2% 15%, 5% 95%, 8% 5%, 11% 85%, 14% 20%, 18% 90%, 21% 10%, 25% 95%, 28% 5%, 32% 80%, 35% 25%, 38% 90%, 41% 10%, 45% 95%, 48% 5%, 52% 85%, 55% 20%, 58% 90%, 62% 10%, 65% 95%, 68% 5%, 72% 80%, 75% 25%, 78% 90%, 82% 10%, 85% 95%, 88% 5%, 92% 85%, 95% 20%, 98% 90%, 100% 100%, 0% 100%); transform: scaleY(-1);">
+        </div>
         <div class="container mx-auto px-4 mt-8 flex flex-col items-center">
-            <div class="text-center font-main text-sm md:text-base font-bold opacity-80 mt-4">© 2026 ALEHNA. TODOS LOS DERECHOS RESERVADOS.</div>
+            <div class="text-center font-main text-sm md:text-base font-bold opacity-80 mt-4">© 2026 ALEHNA. TODOS LOS
+                DERECHOS RESERVADOS.</div>
         </div>
     </footer>
-    
+
     <script src="main.js"></script>
     <script>
         // Menu and toggles defined in main.js
@@ -225,11 +342,14 @@
         });
     </script>
     <!-- CART SIDEBAR & OVERLAY -->
-    <div id="cart-overlay" class="fixed inset-0 bg-black/40 z-[250] hidden transition-opacity backdrop-blur-sm" onclick="toggleCart()"></div>
-    <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-pastelBeige z-[300] transform translate-x-full transition-transform duration-300 shadow-2xl flex flex-col border-l-4 border-pastelCafe">
+    <div id="cart-overlay" class="fixed inset-0 bg-black/40 z-[250] hidden transition-opacity backdrop-blur-sm"
+        onclick="toggleCart()"></div>
+    <div id="cart-sidebar"
+        class="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-pastelBeige z-[300] transform translate-x-full transition-transform duration-300 shadow-2xl flex flex-col border-l-4 border-pastelCafe">
         <div class="p-6 border-b border-pastelCafe flex justify-between items-center bg-white">
             <h3 class="text-2xl font-bold font-marker text-darkText">TU CARRITO</h3>
-            <button onclick="toggleCart()" class="text-4xl text-pastelCafe hover:text-pastelVino"><i class="fa-solid fa-xmark"></i></button>
+            <button onclick="toggleCart()" class="text-4xl text-pastelCafe hover:text-pastelVino"><i
+                    class="fa-solid fa-xmark"></i></button>
         </div>
         <div id="cart-items" class="flex-1 overflow-y-auto p-6 font-main"></div>
         <div class="p-6 bg-white border-t border-pastelCafe shadow-[0_-10px_20px_rgba(0,0,0,0.05)]">
@@ -237,10 +357,13 @@
                 <span class="text-xl font-bold text-darkText font-hand">TOTAL:</span>
                 <span id="cart-total" class="text-3xl font-bold text-pastelVino">$0</span>
             </div>
-            <button onclick="checkoutCart()" class="w-full py-4 text-xl bg-pastelVino text-white hover:bg-pastelCafe transition-colors font-bold rounded-xl shadow-md border-2 border-transparent">
-                <i class="fa-brands fa-whatsapp text-2xl mr-2 align-middle"></i><span class="align-middle">Hacer Pedido</span>
+            <button onclick="checkoutCart()"
+                class="w-full py-4 text-xl bg-pastelVino text-white hover:bg-pastelCafe transition-colors font-bold rounded-xl shadow-md border-2 border-transparent">
+                <i class="fa-brands fa-whatsapp text-2xl mr-2 align-middle"></i><span class="align-middle">Hacer
+                    Pedido</span>
             </button>
         </div>
     </div>
 </body>
+
 </html>
