@@ -28,7 +28,8 @@
 </head>
 <body class="bg-pastelBeige text-darkText font-sans transition-colors duration-300">
 
-    <div class="sticky top-0 w-full z-[150] shadow-sm flex flex-col">
+    <!-- WRAPPER RELATIVE (BANNER + HEADER) -->
+    <div class="relative w-full z-[150] shadow-sm flex flex-col">
         <div class="w-full bg-pastelBeige border-b border-pastelCafe h-[53px] grid items-center px-3 md:px-6 text-pastelCafe text-xs" style="grid-template-columns: auto 1fr auto; gap: 12px;">
             <div class="flex items-center gap-8 flex-shrink-0">
                 <div class="relative flex-shrink-0 ml-1" style="width:35px;height:32px;">
@@ -77,7 +78,7 @@
                     <!-- ACTIVO -->
                     <a href="biografia.html" class="text-pastelVino font-bold border-b-2 border-pastelVino transition-colors px-2 py-1">Biografía</a>
                     <a href="lanzamientos.html" class="hover:text-pastelVino transition-colors px-2 py-1">Lanzamientos</a>
-                    <a href="merch.html" class="hover:text-pastelVino transition-colors px-2 py-1">Merch</a>
+                    <a href="merch.html" class="hidden hover:text-pastelVino transition-colors px-2 py-1">Merch</a>
                     <a href="contacto.html" class="hover:text-pastelVino transition-colors px-2 py-1">Contacto</a>
                     <a href="index.html#newsletter" class="bg-pastelVino text-white hover:bg-pastelCafe rounded-md px-4 py-1.5 transition-colors shadow-sm">Únete</a>
                 </nav>
@@ -87,7 +88,7 @@
                         <a target="_blank" href="https://www.tiktok.com/@alehnaoficial?_r=1&_t=ZS-95T2zD8JSjt" class="hover:text-pastelVino transition"><i class="fa-brands fa-tiktok"></i></a>
                         <a target="_blank" href="https://www.youtube.com/@ALEHNAOFICIAL" class="hover:text-pastelVino transition"><i class="fa-brands fa-youtube"></i></a>
                     </div>
-                    <button onclick="toggleCart()" class="relative text-xl md:text-2xl text-pastelVino hover:text-pastelCafe focus:outline-none transition-colors mr-2 md:mr-4">
+                    <button onclick="toggleCart()" class="hidden relative text-xl md:text-2xl text-pastelVino hover:text-pastelCafe focus:outline-none transition-colors mr-2 md:mr-4">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <span id="cart-count" class="absolute -top-2 -right-3 bg-pastelCafe text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full font-bold shadow hidden">0</span>
                     </button>
@@ -107,7 +108,7 @@
         <a href="videos.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Videos</a>
         <a href="biografia.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Biografía</a>
         <a href="lanzamientos.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Lanzamientos</a>
-        <a href="merch.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Merch</a>
+        <a href="merch.html" class="hidden text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Merch</a>
         <a href="contacto.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase" onclick="toggleMenu()">Contacto</a>
         <a href="index.html#newsletter" class="bg-pastelVino text-white px-8 py-3 rounded-full font-bold uppercase mt-6" onclick="toggleMenu()">Únete</a>
     </div>
@@ -142,7 +143,7 @@
         </div>
     </footer>
 
-    <script src="main.js"></script>
+    <script src="main.js?v=20260424"></script>
     <script>
         // Menu and toggles defined in main.js
     </script>

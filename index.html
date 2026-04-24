@@ -168,12 +168,10 @@
 
 <body class="bg-pastelBeige text-darkText font-sans transition-colors duration-300">
 
-    <!-- WRAPPER STICKY (BANNER + HEADER) -->
-    <div class="sticky top-0 w-full z-[150] shadow-sm flex flex-col">
-        <!-- Top Announcement Banner -->
-        <div class="w-full bg-pastelBeige h-[53px] grid items-center px-3 md:px-6 text-pastelCafe text-xs"
+    <!-- WRAPPER RELATIVE (BANNER + HEADER) -->
+    <div class="relative w-full z-[150] shadow-sm flex flex-col">
+        <div class="w-full bg-pastelBeige border-b border-pastelCafe h-[53px] grid items-center px-3 md:px-6 text-pastelCafe text-xs"
             style="grid-template-columns: auto 1fr auto; gap: 12px;">
-            <!-- Izquierda: portada + nombre -->
             <div class="flex items-center gap-8 flex-shrink-0">
                 <div class="relative flex-shrink-0 ml-1" style="width:35px;height:32px;">
                     <div class="absolute top-0 right-0 w-8 h-8 rounded-full border border-gray-600 flex items-center justify-center spin-vinyl-auto z-0"
@@ -187,8 +185,6 @@
                 <span
                     class="font-marker text-pastelVino text-xs sm:text-sm whitespace-nowrap leading-none self-center">ALMAS</span>
             </div>
-
-            <!-- Centro: contador -->
             <div class="flex items-center justify-center gap-2 md:gap-4 font-main">
                 <div class="flex items-baseline gap-0.5">
                     <span id="days" class="text-pastelVino font-bold text-sm md:text-base">00</span>
@@ -210,8 +206,6 @@
                     <span class="text-[7px] uppercase text-pastelCafe tracking-wide">seg</span>
                 </div>
             </div>
-
-            <!-- Derecha: YouTube -->
             <div class="flex items-center justify-end flex-shrink-0">
                 <a href="https://www.youtube.com/@ALEHNAOFICIAL" target="_blank"
                     class="w-8 h-8 rounded-full flex items-center justify-center border-2 border-pastelCafe text-pastelVino hover:bg-pastelVino hover:text-white hover:border-pastelVino transition-all shadow-sm bg-white">
@@ -220,28 +214,23 @@
             </div>
         </div>
 
-        <!-- HEADER / NAV -->
         <header id="header"
             class="w-full bg-pastelBeige/95 backdrop-blur-sm border-b-2 border-pastelCafe shadow-md h-[70px] md:h-[80px] flex items-center">
-            <div class="w-full px-6 md:px-12 flex items-center justify-between">
+            <div class="container mx-auto px-4 w-full flex items-center justify-between">
                 <a href="index.html"
                     class="text-3xl font-marker text-pastelVino tracking-wider hover:text-pastelCafe transition-colors mt-1">Alehna</a>
-
                 <nav id="desktop-nav"
-                    class="hidden md:flex gap-6 font-bold text-sm tracking-widest text-darkText uppercase items-center pt-2">
-                    <a href="#music" class="hover:text-pastelVino transition-colors px-2 py-1"
-                        data-section="music">Música</a>
-                    <a href="#videos" class="hover:text-pastelVino transition-colors px-2 py-1"
-                        data-section="videos">Videos</a>
+                    class="hidden md:flex gap-8 font-bold text-sm tracking-widest text-darkText uppercase items-center pt-2">
+                    <a href="#music" class="hover:text-pastelVino transition-colors px-2 py-1" data-section="music">Música</a>
+                    <a href="#videos" class="hover:text-pastelVino transition-colors px-2 py-1" data-section="videos">Videos</a>
                     <a href="biografia.html" class="hover:text-pastelVino transition-colors px-2 py-1">Biografía</a>
                     <a href="lanzamientos.html"
                         class="hover:text-pastelVino transition-colors px-2 py-1">Lanzamientos</a>
-                    <a href="merch.html" class="hover:text-pastelVino transition-colors px-2 py-1">Merch</a>
+                    <a href="merch.html" class="hidden hover:text-pastelVino transition-colors px-2 py-1">Merch</a>
                     <a href="contacto.html" class="hover:text-pastelVino transition-colors px-2 py-1">Contacto</a>
                     <a href="#newsletter"
                         class="bg-pastelVino text-white hover:bg-pastelCafe rounded-md px-4 py-1.5 transition-colors shadow-sm">Únete</a>
                 </nav>
-
                 <div class="flex items-center gap-4 pt-1">
                     <div class="hidden md:flex gap-3 text-lg text-pastelCafe">
                         <a target="_blank" href="https://www.instagram.com/alehnaoficial?igsh=MTI2Y3NidGhpaXFiaQ=="
@@ -252,7 +241,7 @@
                             class="hover:text-pastelVino transition"><i class="fa-brands fa-youtube"></i></a>
                     </div>
                     <button onclick="toggleCart()"
-                        class="relative text-xl md:text-2xl text-pastelVino hover:text-pastelCafe focus:outline-none transition-colors mr-2 md:mr-4">
+                        class="hidden relative text-xl md:text-2xl text-pastelVino hover:text-pastelCafe focus:outline-none transition-colors mr-2 md:mr-4">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <span id="cart-count"
                             class="absolute -top-2 -right-3 bg-pastelCafe text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full font-bold shadow hidden">0</span>
@@ -281,7 +270,7 @@
             onclick="toggleMenu()">Biografía</a>
         <a href="lanzamientos.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase"
             onclick="toggleMenu()">Lanzamientos</a>
-        <a href="merch.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase"
+        <a href="merch.html" class="hidden text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase"
             onclick="toggleMenu()">Merch</a>
         <a href="contacto.html" class="text-3xl font-bold font-hand text-darkText hover:text-pastelVino uppercase"
             onclick="toggleMenu()">Contacto</a>
@@ -578,7 +567,7 @@
         </div>
     </footer>
 
-    <script src="main.js"></script>
+    <script src="main.js?v=20260424"></script>
     <script>
         // Menu and toggles defined in main.js
 

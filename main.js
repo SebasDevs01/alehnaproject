@@ -404,27 +404,224 @@ window.openCart = () => {
     }
 }
 
-// 5. Checkout (WhatsApp con lista completa)
+// 5. Checkout (Abrir formulario flotante)
 window.checkoutCart = () => {
     if (cart.length === 0) return;
 
-    let message = "Hola ALEHNA, quiero realizar el siguiente pedido:\n\n";
+    const modal = ensureCheckoutModal();
+    const summary = document.getElementById('checkout-summary');
+    
+    // Generar resumen
     let grandTotal = 0;
-
+    let summaryHtml = '<h4 class="font-bold text-sm mb-2 text-pastelVino">Resumen de tu orden:</h4><ul class="text-xs space-y-2">';
     cart.forEach(item => {
         const subtotal = item.price * item.quantity;
         grandTotal += subtotal;
         const colorName = item.selectedColor === 'white' ? 'Blanco' : 'Negro';
+        summaryHtml += `<li class="flex justify-between border-b border-gray-100 pb-1">
+            <span><b>${item.quantity}x</b> ${item.name} (${colorName}, Talla: ${item.selectedSize})</span>
+            <span class="font-bold text-darkText">$${subtotal.toLocaleString('es-CO')}</span>
+        </li>`;
+    });
+    summaryHtml += `</ul><div class="mt-3 pt-2 font-bold text-base text-pastelVino flex justify-between"><span>TOTAL:</span> <span>$${grandTotal.toLocaleString('es-CO')}</span></div>`;
+    summary.innerHTML = summaryHtml;
 
-        message += `▪ ${item.name}\n   Color: ${colorName} | Talla: ${item.selectedSize}\n   Cantidad: ${item.quantity} | Subtotal: $${subtotal.toLocaleString('es-CO')}\n\n`;
+    // Ocultar sidebar del carrito
+    const cartSidebar = document.getElementById('cart-sidebar');
+    const cartOverlay = document.getElementById('cart-overlay');
+    if (cartSidebar && cartOverlay) {
+        cartSidebar.classList.add('translate-x-full');
+        cartOverlay.classList.add('hidden');
+    }
+
+    // Mostrar modal
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+};
+
+window.closeCheckoutModal = () => {
+    const modal = document.getElementById('checkout-modal');
+    if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+    }
+};
+
+window.submitOrder = (event) => {
+    event.preventDefault();
+    if (cart.length === 0) return;
+
+    const nombres = document.getElementById('co-nombres').value.trim();
+    const apellidos = document.getElementById('co-apellidos').value.trim();
+    const telefono = document.getElementById('co-telefono').value.trim();
+    const departamento = document.getElementById('co-departamento').value.trim();
+    const ciudad = document.getElementById('co-ciudad').value.trim();
+    const direccion = document.getElementById('co-direccion').value.trim();
+    const referencia = document.getElementById('co-referencia').value.trim();
+    const notas = document.getElementById('co-notas').value.trim();
+
+    let message = `Hola soy ${nombres} ${apellidos} y quiero confirmar mi compra por ALEHNA\n\n`;
+    message += `📦 *Datos de Envío:*\n`;
+
+    let grandTotal = 0;
+    cart.forEach(item => {
+        const subtotal = item.price * item.quantity;
+        grandTotal += subtotal;
+        const colorName = item.selectedColor === 'white' ? 'Blanco' : 'Negro';
+        message += `▪ Producto: ${item.quantity} - ${item.name} | ${colorName}, Talla: ${item.selectedSize}\n`;
     });
 
-    message += `💰 *TOTAL A PAGAR: $${grandTotal.toLocaleString('es-CO')}*\n\n`;
-    message += "Mis datos de envío son:\n(Por favor completa aquí)";
+    message += `\n💰 *Total a Pagar:* $${grandTotal.toLocaleString('es-CO')}\n\n`;
+    message += `👤 *Nombre:* ${nombres} ${apellidos}\n`;
+    message += `📱 *Teléfono:* ${telefono}\n`;
+    message += `📍 *Dirección:* ${direccion}, ${referencia}\n`;
+    if (notas) {
+        message += `📝 *Complementos:* ${notas}\n`;
+    }
+    message += `🗺️ *Departamento:* ${departamento}\n`;
+    message += `🏙️ *Ciudad:* ${ciudad}\n`;
 
     const url = `https://wa.me/573164280293?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
+    closeCheckoutModal();
 };
+
+const colombiaData = {
+    "Amazonas": ["Leticia", "Puerto Nariño"],
+    "Antioquia": ["Medellín", "Bello", "Itagüí", "Envigado", "Apartadó", "Rionegro", "Turbo", "Caucasia", "Marinilla"],
+    "Arauca": ["Arauca", "Tame", "Saravena", "Arauquita"],
+    "Atlántico": ["Barranquilla", "Soledad", "Malambo", "Sabanalarga", "Baranoa"],
+    "Bogotá D.C.": ["Bogotá"],
+    "Bolívar": ["Cartagena", "Magangué", "Turbaco", "El Carmen de Bolívar", "Arjona"],
+    "Boyacá": ["Tunja", "Sogamoso", "Duitama", "Chiquinquirá", "Puerto Boyacá", "Paipa"],
+    "Caldas": ["Manizales", "La Dorada", "Villamaría", "Chinchiná", "Riosucio"],
+    "Caquetá": ["Florencia", "San Vicente del Caguán", "Cartagena del Chairá", "El Paujil"],
+    "Casanare": ["Yopal", "Aguazul", "Villanueva", "Paz de Ariporo"],
+    "Cauca": ["Popayán", "Santander de Quilichao", "Puerto Tejada", "El Tambo", "Miranda"],
+    "Cesar": ["Valledupar", "Aguachica", "Agustín Codazzi", "Bosconia", "El Paso"],
+    "Chocó": ["Quibdó", "Istmina", "Tadó", "Condoto"],
+    "Córdoba": ["Montería", "Santa Cruz de Lorica", "Sahagún", "Cereté", "Montelíbano"],
+    "Cundinamarca": ["Soacha", "Fusagasugá", "Facatativá", "Zipaquirá", "Chía", "Girardot", "Mosquera", "Madrid", "Funza"],
+    "Guainía": ["Inírida"],
+    "Guaviare": ["San José del Guaviare", "Calamar"],
+    "Huila": ["Neiva", "Pitalito", "Garzón", "La Plata", "Campoalegre"],
+    "La Guajira": ["Riohacha", "Maicao", "Uribia", "San Juan del Cesar", "Fonseca"],
+    "Magdalena": ["Santa Marta", "Ciénaga", "Zona Bananera", "Fundación", "El Banco"],
+    "Meta": ["Villavicencio", "Acacías", "Granada", "Puerto López", "Puerto Gaitán"],
+    "Nariño": ["Pasto", "Tumaco", "Ipiales", "Sandoná", "Tuquerres"],
+    "Norte de Santander": ["Cúcuta", "Ocaña", "Villa del Rosario", "Los Patios", "Pamplona"],
+    "Putumayo": ["Mocoa", "Puerto Asís", "Orito", "Valle del Guamuez"],
+    "Quindío": ["Armenia", "Calarcá", "Montenegro", "La Tebaida", "Quimbaya"],
+    "Risaralda": ["Pereira", "Dosquebradas", "Santa Rosa de Cabal", "La Virginia"],
+    "San Andrés y Providencia": ["San Andrés", "Providencia"],
+    "Santander": ["Bucaramanga", "Floridablanca", "Barrancabermeja", "Girón", "Piedecuesta", "San Gil"],
+    "Sucre": ["Sincelejo", "Corozal", "San Marcos", "Tolú"],
+    "Tolima": ["Ibagué", "Espinal", "Melgar", "Chaparral", "Líbano"],
+    "Valle del Cauca": ["Cali", "Buenaventura", "Palmira", "Tuluá", "Yumbo", "Cartago", "Jamundí", "Buga"],
+    "Vaupés": ["Mitú"],
+    "Vichada": ["Puerto Carreño"]
+};
+
+window.updateCities = () => {
+    const depSelect = document.getElementById('co-departamento');
+    const citySelect = document.getElementById('co-ciudad');
+    const selectedDep = depSelect.value;
+    
+    citySelect.innerHTML = '<option value="" disabled selected>Selecciona tu ciudad</option>';
+    if (selectedDep && colombiaData[selectedDep]) {
+        colombiaData[selectedDep].sort().forEach(city => {
+            const option = document.createElement('option');
+            option.value = city;
+            option.textContent = city;
+            citySelect.appendChild(option);
+        });
+        citySelect.disabled = false;
+    } else {
+        citySelect.disabled = true;
+    }
+};
+
+function ensureCheckoutModal() {
+    let modal = document.getElementById('checkout-modal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'checkout-modal';
+        modal.className = 'fixed inset-0 z-[400] hidden items-center justify-center p-4';
+        modal.innerHTML = `
+            <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" onclick="closeCheckoutModal()"></div>
+            <div class="relative z-10 bg-pastelBeige w-full max-w-lg rounded-xl shadow-2xl overflow-hidden border-l-4 border-pastelCafe flex flex-col max-h-[90vh]">
+                <div class="p-6 border-b border-pastelCafe bg-white flex justify-between items-center shrink-0">
+                    <h3 class="text-2xl font-bold font-marker text-darkText">DATOS DE ENVÍO</h3>
+                    <button onclick="closeCheckoutModal()" type="button" class="text-3xl text-pastelCafe hover:text-pastelVino transition-colors"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="p-6 overflow-y-auto font-main">
+                    <div id="checkout-summary" class="mb-6 p-5 bg-white rounded-lg border-2 border-pastelBeigeDark shadow-sm"></div>
+                    <form id="checkout-form" onsubmit="submitOrder(event)" class="space-y-5">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block font-bold font-main text-pastelCafe mb-1.5 uppercase text-[10px] tracking-widest">Nombres <span class="text-pastelVino">*</span></label>
+                                <input type="text" id="co-nombres" required class="w-full px-4 py-3 bg-white rounded-lg border-2 border-pastelBeigeDark focus:border-pastelVino focus:outline-none transition-colors font-main text-darkText text-sm">
+                            </div>
+                            <div>
+                                <label class="block font-bold font-main text-pastelCafe mb-1.5 uppercase text-[10px] tracking-widest">Apellidos <span class="text-pastelVino">*</span></label>
+                                <input type="text" id="co-apellidos" required class="w-full px-4 py-3 bg-white rounded-lg border-2 border-pastelBeigeDark focus:border-pastelVino focus:outline-none transition-colors font-main text-darkText text-sm">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block font-bold font-main text-pastelCafe mb-1.5 uppercase text-[10px] tracking-widest">Teléfono (con Whatsapp) <span class="text-pastelVino">*</span></label>
+                            <input type="tel" id="co-telefono" required class="w-full px-4 py-3 bg-white rounded-lg border-2 border-pastelBeigeDark focus:border-pastelVino focus:outline-none transition-colors font-main text-darkText text-sm" placeholder="Ej: +57 300 000 0000">
+                            <p class="text-[10px] text-pastelCafe mt-1.5 font-bold">👉 A este número te enviaremos tu confirmación de compra.</p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block font-bold font-main text-pastelCafe mb-1.5 uppercase text-[10px] tracking-widest">Departamento <span class="text-pastelVino">*</span></label>
+                                <select id="co-departamento" onchange="updateCities()" required class="w-full px-4 py-3 bg-white rounded-lg border-2 border-pastelBeigeDark focus:border-pastelVino focus:outline-none transition-colors font-main text-darkText text-sm">
+                                    <option value="" disabled selected>Selecciona tu departamento</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block font-bold font-main text-pastelCafe mb-1.5 uppercase text-[10px] tracking-widest">Ciudad / Municipio <span class="text-pastelVino">*</span></label>
+                                <select id="co-ciudad" required disabled class="w-full px-4 py-3 bg-white rounded-lg border-2 border-pastelBeigeDark focus:border-pastelVino focus:outline-none transition-colors font-main text-darkText text-sm disabled:opacity-50">
+                                    <option value="" disabled selected>Selecciona tu ciudad</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block font-bold font-main text-pastelCafe mb-1.5 uppercase text-[10px] tracking-widest">Dirección Completa <span class="text-pastelVino">*</span></label>
+                            <input type="text" id="co-direccion" required class="w-full px-4 py-3 bg-white rounded-lg border-2 border-pastelBeigeDark focus:border-pastelVino focus:outline-none transition-colors font-main text-darkText text-sm" placeholder="Ej: Calle 20 # 4-50">
+                        </div>
+                        <div>
+                            <label class="block font-bold font-main text-pastelCafe mb-1.5 uppercase text-[10px] tracking-widest">Punto de referencia <span class="text-pastelVino">*</span></label>
+                            <input type="text" id="co-referencia" required class="w-full px-4 py-3 bg-white rounded-lg border-2 border-pastelBeigeDark focus:border-pastelVino focus:outline-none transition-colors font-main text-darkText text-sm" placeholder="Ej: Conjunto, Barrio, Torre">
+                        </div>
+                        <div>
+                            <label class="block font-bold font-main text-pastelCafe mb-1.5 uppercase text-[10px] tracking-widest">Notas (Opcional)</label>
+                            <textarea id="co-notas" rows="2" class="w-full px-4 py-3 bg-white rounded-lg border-2 border-pastelBeigeDark focus:border-pastelVino focus:outline-none transition-colors font-main text-darkText text-sm resize-none" placeholder="Especifica datos complementarios de la entrega"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 text-xl bg-pastelVino text-white hover:bg-pastelCafe transition-colors font-bold rounded-xl shadow-md border-2 border-transparent mt-6 flex flex-col items-center justify-center">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <span>COMPLETAR COMPRA</span>
+                            </div>
+                            <span class="text-[10px] font-normal mt-0.5 opacity-90 uppercase tracking-widest">Pago al momento de recibir</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+
+        // Populate departments
+        const depSelect = document.getElementById('co-departamento');
+        Object.keys(colombiaData).sort().forEach(dep => {
+            const option = document.createElement('option');
+            option.value = dep;
+            option.textContent = dep;
+            depSelect.appendChild(option);
+        });
+    }
+    return modal;
+}
 
 // Persistencia (Guardar carrito si refresca la página)
 function saveCart() {
