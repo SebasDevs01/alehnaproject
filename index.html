@@ -544,28 +544,32 @@
                         </p>
 
                         <!-- Formulario conectado a Brevo -->
-                        <div id="sib-form-container" class="w-full max-w-md mx-auto mt-2">
-                            <div id="error-message" style="display:none;" class="bg-red-100 border border-red-400 text-red-700 p-3 rounded-lg mb-4 font-main text-sm text-left shadow-sm">
-                                Hubo un error, intenta de nuevo.
-                            </div>
-                            <div id="success-message" style="display:none;" class="bg-green-100 border border-green-400 text-green-700 p-3 rounded-lg mb-4 font-main text-sm text-center shadow-sm font-bold">
-                                ¡Gracias por unirte al diario de Alehna!
-                            </div>
-                            
-                            <form id="sib-form" method="POST" action="https://dd861525.sibforms.com/serve/MUIFANX7EGU_SxlpfHzehPvC00PU2-6_4sWJ4bGRNa2XZn_6CdtJET9CY01S7k9cg616wLII7va6qWXL2YScTZxg32Fg4qjOvZkX_T1oPWbaseUapn0MRTCfTCOhkqpMBtMokHEOTTyB4b_s7y1Z3TatUNvb1FbTE3roCdhXUDADylMxnKJs2gLuooVfg-mWK76WkCmrmcKSscYh5w==" data-type="subscription" class="w-full flex flex-col gap-4">
-                                <div class="form__entry entry_block w-full relative">
-                                    <div class="entry__field">
-                                        <input type="email" id="EMAIL" name="EMAIL" placeholder="Tu correo electrónico" required
-                                            class="input w-full px-6 py-4 rounded-xl bg-pastelBeige border-2 border-pastelCafe text-darkText font-main focus:border-pastelVino focus:outline-none transition-colors organic-box shadow-inner" data-required="true" autocomplete="off">
-                                    </div>
-                                    <label class="entry__error entry__error--primary text-red-500 text-xs mt-1 block text-left absolute -bottom-5" style="display:none;"></label>
+                        <div class="sib-form">
+                            <div id="sib-form-container" class="sib-form-container w-full max-w-md mx-auto mt-2">
+                                <div id="error-message" style="display:none;" class="sib-form-message-panel bg-red-100 border border-red-400 text-red-700 p-3 rounded-lg mb-4 font-main text-sm text-left shadow-sm">
+                                    Hubo un error, intenta de nuevo.
                                 </div>
-                                <input type="text" name="email_address_check" value="" style="display:none;">
-                                <input type="hidden" name="locale" value="es">
+                                <div id="success-message" style="display:none;" class="sib-form-message-panel bg-green-100 border border-green-400 text-green-700 p-3 rounded-lg mb-4 font-main text-sm text-center shadow-sm font-bold">
+                                    ¡Gracias por unirte al diario de Alehna!
+                                </div>
                                 
-                                <button form="sib-form" type="submit"
-                                    class="organic-btn text-xl md:text-2xl py-4 mt-4 shadow-md w-full">SUSCRÍBETE</button>
-                            </form>
+                                <div id="sib-container">
+                                    <form id="sib-form" method="POST" action="https://dd861525.sibforms.com/serve/MUIFANX7EGU_SxlpfHzehPvC00PU2-6_4sWJ4bGRNa2XZn_6CdtJET9CY01S7k9cg616wLII7va6qWXL2YScTZxg32Fg4qjOvZkX_T1oPWbaseUapn0MRTCfTCOhkqpMBtMokHEOTTyB4b_s7y1Z3TatUNvb1FbTE3roCdhXUDADylMxnKJs2gLuooVfg-mWK76WkCmrmcKSscYh5w==" data-type="subscription" class="w-full flex flex-col gap-4">
+                                        <div class="sib-input sib-form-block form__entry entry_block w-full relative">
+                                            <div class="entry__field">
+                                                <input type="email" id="EMAIL" name="EMAIL" placeholder="Tu correo electrónico" required
+                                                    class="input w-full px-6 py-4 rounded-xl bg-pastelBeige border-2 border-pastelCafe text-darkText font-main focus:border-pastelVino focus:outline-none transition-colors organic-box shadow-inner" data-required="true" autocomplete="off">
+                                            </div>
+                                            <label class="entry__error entry__error--primary text-red-500 text-xs mt-1 block text-left absolute -bottom-5" style="display:none;"></label>
+                                        </div>
+                                        <input type="text" name="email_address_check" value="" class="input--hidden" style="display:none;">
+                                        <input type="hidden" name="locale" value="es">
+                                        
+                                        <button form="sib-form" type="submit"
+                                            class="sib-form-block__button organic-btn text-xl md:text-2xl py-4 mt-4 shadow-md w-full">SUSCRÍBETE</button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                         
                         <!-- Scripts de Brevo -->
