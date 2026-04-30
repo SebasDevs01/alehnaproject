@@ -320,17 +320,17 @@
             <!-- Background Carousel (MOBILE ONLY) -->
             <div id="hero-carousel" class="absolute inset-0 w-full h-full md:hidden z-0">
                 <div id="slide-0" class="carousel-slide absolute inset-0 w-full h-full carousel-active bg-pastelBeige">
-                    <img src="imagenescarrusel/DSC_0814.jpg" class="w-full h-full object-cover object-top">
+                    <img id="mobile-img-0" src="imagenescarrusel/DSC_0814.jpg" class="w-full h-full object-cover object-top transition-opacity duration-1000 opacity-100">
                 </div>
                 <!-- Extra slides only for mobile (opacity-0 on md+) -->
                 <div id="slide-1" class="carousel-slide absolute inset-0 w-full h-full carousel-inactive bg-pastelBeige md:hidden">
-                    <img src="imagenescarrusel/DSC_0822.jpg" class="w-full h-full object-cover object-top">
+                    <img id="mobile-img-1" src="imagenescarrusel/DSC_0822.jpg" class="w-full h-full object-cover object-top transition-opacity duration-1000 opacity-100">
                 </div>
                 <div id="slide-2" class="carousel-slide absolute inset-0 w-full h-full carousel-inactive bg-pastelBeige md:hidden">
-                    <img src="imagenescarrusel/DSC_0846.jpg" class="w-full h-full object-cover object-top">
+                    <img id="mobile-img-2" src="imagenescarrusel/DSC_0846.jpg" class="w-full h-full object-cover object-top transition-opacity duration-1000 opacity-100">
                 </div>
                 <div id="slide-3" class="carousel-slide absolute inset-0 w-full h-full carousel-inactive bg-pastelBeige md:hidden">
-                    <img src="imagenescarrusel/DSC_0851.jpg" class="w-full h-full object-cover object-top">
+                    <img id="mobile-img-3" src="imagenescarrusel/DSC_0851.jpg" class="w-full h-full object-cover object-top transition-opacity duration-1000 opacity-100">
                 </div>
             </div>
 
@@ -852,8 +852,12 @@
                 const nextSet = currentSet === 1 ? imagesSet2 : imagesSet1;
                 
                 for (let i = 0; i < 4; i++) {
-                    const img = document.getElementById(`collage-img-${i}`);
-                    if (img) {
+                    const imgDesktop = document.getElementById(`collage-img-${i}`);
+                    const imgMobile = document.getElementById(`mobile-img-${i}`);
+                    
+                    const imgsToUpdate = [imgDesktop, imgMobile].filter(Boolean);
+                    
+                    imgsToUpdate.forEach(img => {
                         // Fade out
                         img.classList.remove('opacity-100');
                         img.classList.add('opacity-0');
@@ -864,13 +868,13 @@
                             img.classList.remove('opacity-0');
                             img.classList.add('opacity-100');
                         }, 1000); // Wait for the 1000ms CSS transition
-                    }
+                    });
                 }
                 currentSet = currentSet === 1 ? 2 : 1;
             }
 
-            // Iniciar el ciclo de cambio si estamos en desktop y existen los IDs
-            if (document.getElementById('collage-img-0')) {
+            // Iniciar el ciclo de cambio si estamos en desktop o móvil
+            if (document.getElementById('collage-img-0') || document.getElementById('mobile-img-0')) {
                 setInterval(swapCollage, swapInterval);
             }
         })();
