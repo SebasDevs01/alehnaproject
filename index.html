@@ -55,11 +55,7 @@
 
         /* Carousel Styles */
         .carousel-slide {
-            transition: opacity 1s ease-in-out;
-        }
-
-        .carousel-slide {
-            transition: opacity 1.2s ease-in-out, transform 4s ease-out;
+            transition: opacity 2.5s ease-in-out, transform 8s ease-out;
             transform: scale(1);
         }
 
@@ -701,7 +697,7 @@
                         currentSlide = (currentSlide + 1) % carouselSlides.length;
                         carouselSlides[currentSlide].classList.remove('carousel-inactive');
                         carouselSlides[currentSlide].classList.add('carousel-active');
-                    }, 4000); // 4 seconds for a smoother pace
+                    }, 7000); // 7 seconds for a slower, smoother pace
                 }
             } else {
                 clearInterval(carouselInterval);

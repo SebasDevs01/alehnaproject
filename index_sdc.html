@@ -57,18 +57,20 @@
     </style>
 </head>
 
-<body
-    class="font-sans antialiased transition-colors duration-300 bg-darkBg text-white dark flex flex-col min-h-screen">
+<body class="font-sans antialiased transition-colors duration-300 bg-darkBg text-white dark flex flex-col min-h-screen">
 
     <div id="sdc-antigrav-layer"></div>
 
-                <!-- TOP ANNOUNCEMENT BANNER -->
-    <div class="absolute top-0 left-0 w-full z-[80] chrome-panel border-b-2 border-neonPink h-[70px] flex items-center justify-between px-4 md:px-8 shadow-[0_0_15px_rgba(255,0,127,0.2)]">
+    <!-- TOP ANNOUNCEMENT BANNER -->
+    <div
+        class="absolute top-0 left-0 w-full z-[80] chrome-panel border-b-2 border-neonPink h-[70px] flex items-center justify-between px-4 md:px-8 shadow-[0_0_15px_rgba(255,0,127,0.2)]">
         <!-- Logo / Title -->
         <div class="flex items-center gap-3">
             <img src="almas/Portada2.jpg.jpeg" alt="Almas Cover"
                 class="w-10 h-10 object-cover rounded shadow-[0_0_10px_rgba(255,0,127,0.8)] border border-[#ff007f]">
-            <span class="font-industrial tracking-widest chrome-text text-lg md:text-xl font-bold uppercase hidden sm:block" style="letter-spacing: 0.15em;">ALMAS. RELEASE</span>
+            <span
+                class="font-industrial tracking-widest chrome-text text-lg md:text-xl font-bold uppercase hidden sm:block"
+                style="letter-spacing: 0.15em;">ALMAS. RELEASE</span>
         </div>
         <!-- Countdown -->
         <div class="flex items-center gap-2 md:gap-4 font-industrial font-bold tracking-widest">
@@ -88,47 +90,67 @@
             </div>
             <span class="text-xl md:text-2xl pb-3 text-gray-600">:</span>
             <div class="flex flex-col items-center">
-                <span id="seconds" class="text-2xl md:text-3xl leading-none text-white drop-shadow-[0_0_8px_rgba(255,0,127,1)]" style="text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f;">00</span>
-                <span class="text-[10px] md:text-xs text-[#ff66b2] uppercase drop-shadow-[0_0_5px_rgba(255,0,127,1)] font-bold">SEG</span>
+                <span id="seconds"
+                    class="text-2xl md:text-3xl leading-none text-white drop-shadow-[0_0_8px_rgba(255,0,127,1)]"
+                    style="text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f;">00</span>
+                <span
+                    class="text-[10px] md:text-xs text-[#ff66b2] uppercase drop-shadow-[0_0_5px_rgba(255,0,127,1)] font-bold">SEG</span>
             </div>
         </div>
         <!-- CTA -->
         <a href="music.html"
             class="chrome-panel border-[2px] border-[#ff007f] px-5 py-2 rounded-sm text-white font-industrial uppercase font-bold text-xs md:text-sm flex items-center gap-2 hover:bg-[#ff007f] hover:text-white transition-all shadow-[0_0_15px_rgba(255,0,127,0.3)] hover:shadow-[0_0_25px_rgba(255,0,127,0.8)] group">
-            <i class="fa-brands fa-youtube text-red-500 group-hover:text-white transition-colors text-lg"></i> <span class="hidden md:inline">ESCUCHAR AHORA</span>
+            <i class="fa-brands fa-youtube text-red-500 group-hover:text-white transition-colors text-lg"></i> <span
+                class="hidden md:inline">ESCUCHAR AHORA</span>
         </a>
     </div>
     <nav class="absolute top-[70px] w-full z-[60] chrome-panel h-[100px] flex items-center  transition-all">
         <div class="container mx-auto px-4 md:px-6 flex justify-between items-center h-full">
             <!-- Left Links -->
-            <div class="hidden md:flex flex-1 items-center justify-end gap-6 font-industrial text-sm font-bold tracking-widest uppercase z-[65] mr-8">
-                <a href="index.html" class="hover-fuchsia-glow chrome-text px-3 py-1 rounded transition-colors border border-transparent">INICIO</a>
-                <a href="biografia.html" class="hover-fuchsia-glow chrome-text px-3 py-1 rounded transition-colors border border-transparent">BIOGRAFÍA</a>
-                <a href="music.html" class="hover-fuchsia-glow chrome-text px-3 py-1 rounded transition-colors border border-transparent">MÚSICA</a>
+            <div
+                class="hidden md:flex flex-1 items-center justify-end gap-6 font-industrial text-sm font-bold tracking-widest uppercase z-[65] mr-8">
+                <a href="index.html"
+                    class="hover-fuchsia-glow chrome-text px-3 py-1 rounded transition-colors border border-transparent">INICIO</a>
+                <a href="biografia.html"
+                    class="hover-fuchsia-glow chrome-text px-3 py-1 rounded transition-colors border border-transparent">BIOGRAFÍA</a>
+                <a href="music.html"
+                    class="hover-fuchsia-glow chrome-text px-3 py-1 rounded transition-colors border border-transparent">MÚSICA</a>
             </div>
-            
+
             <!-- Center Logo / Video -->
-            <a href="index.html" class="z-[65] flex-shrink-0 mx-auto h-[120px] w-[200px] flex items-center justify-center transform hover:scale-105 transition-transform relative">
-                <div class="absolute inset-0 bg-gradient-to-t from-[#ff007f] to-transparent opacity-20 filter blur-xl rounded-full"></div>
-                <video autoplay loop muted playsinline class="w-full h-full object-cover filter drop-shadow-[0_0_15px_rgba(255,0,127,0.8)]">
+            <a href="index.html"
+                class="z-[65] flex-shrink-0 mx-auto h-[120px] w-[200px] flex items-center justify-center transform hover:scale-105 transition-transform relative">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-[#ff007f] to-transparent opacity-20 filter blur-xl rounded-full">
+                </div>
+                <video autoplay loop muted playsinline
+                    class="w-full h-full object-cover filter drop-shadow-[0_0_15px_rgba(255,0,127,0.8)]">
                     <source src="logoanimado/Logo_Animado_Para_Página_Web.mp4" type="video/mp4">
                 </video>
             </a>
-            
+
             <!-- Right Links -->
-            <div class="hidden md:flex flex-1 items-center justify-start gap-6 font-industrial text-sm font-bold tracking-widest uppercase z-[65] ml-8">
-                <a href="lanzamientos.html" class="hover-fuchsia-glow chrome-text px-3 py-1 rounded transition-colors border border-transparent">LANZAMIENTOS</a>
-                <a href="videos.html" class="hover-fuchsia-glow chrome-text px-3 py-1 rounded transition-colors border border-transparent">VIDEOS</a>
-                <a href="merch.html" class="hover-fuchsia-glow chrome-text px-3 py-1 rounded transition-colors border border-transparent">MERCH</a>
+            <div
+                class="hidden md:flex flex-1 items-center justify-start gap-6 font-industrial text-sm font-bold tracking-widest uppercase z-[65] ml-8">
+                <a href="lanzamientos.html"
+                    class="hover-fuchsia-glow chrome-text px-3 py-1 rounded transition-colors border border-transparent">LANZAMIENTOS</a>
+                <a href="videos.html"
+                    class="hover-fuchsia-glow chrome-text px-3 py-1 rounded transition-colors border border-transparent">VIDEOS</a>
+                <a href="merch.html"
+                    class="hover-fuchsia-glow chrome-text px-3 py-1 rounded transition-colors border border-transparent">MERCH</a>
             </div>
-            
+
             <!-- Mobile / Cart Icons -->
             <div class="flex items-center gap-4 z-[65] absolute right-6">
-                <button onclick="toggleCart()" class="relative p-2 text-[#ccc] hover-fuchsia-glow transition-colors rounded-full border border-transparent">
+                <button onclick="toggleCart()"
+                    class="relative p-2 text-[#ccc] hover-fuchsia-glow transition-colors rounded-full border border-transparent">
                     <i class="fa-solid fa-cart-shopping text-xl"></i>
-                    <span id="cart-count" class="hidden absolute -top-1 -right-1 bg-neonPink text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-[0_0_5px_rgba(255,0,127,1)]">0</span>
+                    <span id="cart-count"
+                        class="hidden absolute -top-1 -right-1 bg-neonPink text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-[0_0_5px_rgba(255,0,127,1)]">0</span>
                 </button>
-                <button id="mobile-menu-btn" class="md:hidden p-2 text-2xl text-[#ccc] hover-fuchsia-glow border border-transparent rounded"><i class="fa-solid fa-bars"></i></button>
+                <button id="mobile-menu-btn"
+                    class="md:hidden p-2 text-2xl text-[#ccc] hover-fuchsia-glow border border-transparent rounded"><i
+                        class="fa-solid fa-bars"></i></button>
             </div>
         </div>
     </nav>
@@ -175,89 +197,131 @@
         </div>
     </div>
 
-    <main class="flex-grow flex flex-col items-center justify-center pt-[170px] pb-12 px-4 relative z-10 overflow-hidden">
+    <main
+        class="flex-grow flex flex-col items-center justify-center pt-[170px] pb-12 px-4 relative z-10 overflow-hidden">
         <!-- SDC.A-Ops Hero Section -->
-        <div class="relative w-full max-w-6xl mx-auto flex flex-col items-center justify-center min-h-[60vh] mt-10 mb-20">
+        <div
+            class="relative w-full max-w-6xl mx-auto flex flex-col items-center justify-center min-h-[60vh] mt-10 mb-20">
             <!-- Portrait with underglow -->
             <div class="relative mb-8 group pulse-fuchsia cursor-pointer">
-                <div class="absolute inset-x-0 -bottom-10 h-1/2 bg-gradient-to-t from-neonPink to-transparent opacity-50 mix-blend-color-dodge filter blur-2xl"></div>
-                <img src="imgbio/alebio.jpg" alt="Alehna" class="w-[300px] md:w-[450px] aspect-[4/5] object-cover border-4 chrome-plate-border shadow-[0_0_40px_rgba(255,0,127,0.8)] relative z-10 transition-transform duration-700 group-hover:scale-[1.02]">
-                
+                <div
+                    class="absolute inset-x-0 -bottom-10 h-1/2 bg-gradient-to-t from-neonPink to-transparent opacity-50 mix-blend-color-dodge filter blur-2xl">
+                </div>
+                <img src="imgbio/alebio.jpg" alt="Alehna"
+                    class="w-[300px] md:w-[450px] aspect-[4/5] object-cover border-4 chrome-plate-border shadow-[0_0_40px_rgba(255,0,127,0.8)] relative z-10 transition-transform duration-700 group-hover:scale-[1.02]">
+
                 <!-- Floating sparks around portrait injected later by JS -->
             </div>
 
             <!-- Chrome Multilayer Button -->
-            <a href="music.html" class="relative z-20 overflow-hidden chrome-panel px-12 py-5 border-2 chrome-plate-border hover-fuchsia-glow group block bg-black">
+            <a href="music.html"
+                class="relative z-20 overflow-hidden chrome-panel px-12 py-5 border-2 chrome-plate-border hover-fuchsia-glow group block bg-black">
                 <span class="glint-effect"></span>
-                <span class="relative z-10 chrome-text font-industrial font-bold text-3xl tracking-[0.2em] group-hover:text-white transition-colors">LISTEN NOW</span>
+                <span
+                    class="relative z-10 chrome-text font-industrial font-bold text-3xl tracking-[0.2em] group-hover:text-white transition-colors">LISTEN
+                    NOW</span>
             </a>
         </div>
-        
+
         <div class="w-full max-w-6xl mx-auto grid md:grid-cols-2 gap-12 mt-20 mb-32 z-20 relative">
             <!-- MUSIC PLAYER SDC PANEL -->
-            <div class="chrome-panel p-8 relative overflow-hidden flex flex-col items-center border-[3px] chrome-plate-border group hover-fuchsia-glow">
-                <div class="absolute top-0 w-full h-1 bg-gradient-to-r from-transparent via-neonPink to-transparent opacity-80 pulse-fuchsia"></div>
-                
+            <div
+                class="chrome-panel p-8 relative overflow-hidden flex flex-col items-center border-[3px] chrome-plate-border group hover-fuchsia-glow">
+                <div
+                    class="absolute top-0 w-full h-1 bg-gradient-to-r from-transparent via-neonPink to-transparent opacity-80 pulse-fuchsia">
+                </div>
+
                 <h3 class="text-3xl font-industrial-metal chrome-text mb-6">LATEST RELEASE</h3>
                 <div class="relative">
-                    <img src="almas/Portada2.jpg.jpeg" class="w-48 h-48 mb-6 border-[3px] border-[#333] shadow-[0_0_20px_rgba(255,0,127,0.5)] z-10 relative">
-                    <div class="absolute inset-0 bg-neonPink opacity-0 group-hover:opacity-20 filter blur-xl transition-opacity duration-500"></div>
+                    <img src="almas/Portada2.jpg.jpeg"
+                        class="w-48 h-48 mb-6 border-[3px] border-[#333] shadow-[0_0_20px_rgba(255,0,127,0.5)] z-10 relative">
+                    <div
+                        class="absolute inset-0 bg-neonPink opacity-0 group-hover:opacity-20 filter blur-xl transition-opacity duration-500">
+                    </div>
                 </div>
-                
+
                 <!-- SDC VU Meter -->
-                <div class="w-full h-16 bg-black border-[2px] chrome-plate-border mb-6 flex items-end justify-center gap-[2px] p-1" id="vu-meter">
+                <div class="w-full h-16 bg-black border-[2px] chrome-plate-border mb-6 flex items-end justify-center gap-[2px] p-1"
+                    id="vu-meter">
                     <!-- Bars inserted by JS -->
                 </div>
-                
-                <div class="w-full flex items-center justify-between chrome-text font-industrial font-bold mb-4 px-2 tracking-widest text-sm">
+
+                <div
+                    class="w-full flex items-center justify-between chrome-text font-industrial font-bold mb-4 px-2 tracking-widest text-sm">
                     <span>01:14</span>
-                    <input type="range" class="w-3/4 h-2 accent-neonPink bg-[#222] rounded-full appearance-none cursor-pointer border border-[#444]" min="0" max="100" value="35">
+                    <input type="range"
+                        class="w-3/4 h-2 accent-neonPink bg-[#222] rounded-full appearance-none cursor-pointer border border-[#444]"
+                        min="0" max="100" value="35">
                     <span>03:42</span>
                 </div>
-                
+
                 <div class="flex gap-6 mt-4">
-                    <button class="text-[#888] hover-fuchsia-glow chrome-panel w-12 h-12 flex items-center justify-center rounded-full border border-[#444] transition-colors"><i class="fa-solid fa-backward-step"></i></button>
-                    <button class="text-white chrome-panel w-16 h-16 flex items-center justify-center rounded-full border border-neonPink shadow-[0_0_20px_rgba(255,0,127,0.9)] hover:scale-105 transition-transform"><i class="fa-solid fa-play text-2xl"></i></button>
-                    <button class="text-[#888] hover-fuchsia-glow chrome-panel w-12 h-12 flex items-center justify-center rounded-full border border-[#444] transition-colors"><i class="fa-solid fa-forward-step"></i></button>
+                    <button
+                        class="text-[#888] hover-fuchsia-glow chrome-panel w-12 h-12 flex items-center justify-center rounded-full border border-[#444] transition-colors"><i
+                            class="fa-solid fa-backward-step"></i></button>
+                    <button
+                        class="text-white chrome-panel w-16 h-16 flex items-center justify-center rounded-full border border-neonPink shadow-[0_0_20px_rgba(255,0,127,0.9)] hover:scale-105 transition-transform"><i
+                            class="fa-solid fa-play text-2xl"></i></button>
+                    <button
+                        class="text-[#888] hover-fuchsia-glow chrome-panel w-12 h-12 flex items-center justify-center rounded-full border border-[#444] transition-colors"><i
+                            class="fa-solid fa-forward-step"></i></button>
                 </div>
             </div>
-            
+
             <!-- TOUR DATES SDC PANEL -->
             <div class="flex flex-col justify-center gap-6 z-20">
-                <h3 class="text-5xl font-industrial-metal chrome-text text-center md:text-left drop-shadow-md mb-2">UPCOMING TOUR</h3>
-                
-                <div class="chrome-panel border-l-4 border-l-[#fff] p-5 flex justify-between items-center hover-fuchsia-glow cursor-pointer transition-colors group relative overflow-hidden">
+                <h3 class="text-5xl font-industrial-metal chrome-text text-center md:text-left drop-shadow-md mb-2">
+                    UPCOMING TOUR</h3>
+
+                <div
+                    class="chrome-panel border-l-4 border-l-[#fff] p-5 flex justify-between items-center hover-fuchsia-glow cursor-pointer transition-colors group relative overflow-hidden">
                     <div class="flex flex-col z-10">
-                        <span class="text-neonPink font-industrial font-bold tracking-[0.2em] group-hover:drop-shadow-[0_0_8px_rgba(255,0,127,1)] transition-all">NOV 15, 2026</span>
-                        <span class="text-gray-300 font-body text-xl md:text-2xl font-bold uppercase tracking-wide">Arena Ciudad de México</span>
+                        <span
+                            class="text-neonPink font-industrial font-bold tracking-[0.2em] group-hover:drop-shadow-[0_0_8px_rgba(255,0,127,1)] transition-all">NOV
+                            15, 2026</span>
+                        <span
+                            class="text-gray-300 font-body text-xl md:text-2xl font-bold uppercase tracking-wide">Arena
+                            Ciudad de México</span>
                     </div>
-                    <div class="px-5 py-2 text-center font-industrial text-sm md:text-md font-bold text-white bg-[#800020] border border-neonPink shadow-[0_0_15px_rgba(255,0,127,1)] relative z-10 tracking-widest pulse-fuchsia">
+                    <div
+                        class="px-5 py-2 text-center font-industrial text-sm md:text-md font-bold text-white bg-[#800020] border border-neonPink shadow-[0_0_15px_rgba(255,0,127,1)] relative z-10 tracking-widest pulse-fuchsia">
                         SOLD OUT
                     </div>
                 </div>
-                
-                <div class="chrome-panel border-l-4 border-l-[#555] p-5 flex justify-between items-center hover-fuchsia-glow cursor-pointer transition-colors group relative overflow-hidden">
+
+                <div
+                    class="chrome-panel border-l-4 border-l-[#555] p-5 flex justify-between items-center hover-fuchsia-glow cursor-pointer transition-colors group relative overflow-hidden">
                     <div class="flex flex-col z-10">
-                        <span class="text-neonPink font-industrial font-bold tracking-[0.2em] group-hover:drop-shadow-[0_0_8px_rgba(255,0,127,1)] transition-all">NOV 22, 2026</span>
-                        <span class="text-gray-300 font-body text-xl md:text-2xl font-bold uppercase tracking-wide">Movistar Arena, Bogotá</span>
+                        <span
+                            class="text-neonPink font-industrial font-bold tracking-[0.2em] group-hover:drop-shadow-[0_0_8px_rgba(255,0,127,1)] transition-all">NOV
+                            22, 2026</span>
+                        <span
+                            class="text-gray-300 font-body text-xl md:text-2xl font-bold uppercase tracking-wide">Movistar
+                            Arena, Bogotá</span>
                     </div>
-                    <div class="px-5 py-2 text-center font-industrial text-sm md:text-md font-bold chrome-text border border-[#666] bg-black/50 z-10 tracking-widest group-hover:border-white transition-colors">
+                    <div
+                        class="px-5 py-2 text-center font-industrial text-sm md:text-md font-bold chrome-text border border-[#666] bg-black/50 z-10 tracking-widest group-hover:border-white transition-colors">
                         TICKETS
                     </div>
                 </div>
-                
-                <div class="chrome-panel border-l-4 border-l-[#333] p-5 flex justify-between items-center hover-fuchsia-glow cursor-pointer transition-colors group relative overflow-hidden">
+
+                <div
+                    class="chrome-panel border-l-4 border-l-[#333] p-5 flex justify-between items-center hover-fuchsia-glow cursor-pointer transition-colors group relative overflow-hidden">
                     <div class="flex flex-col z-10">
-                        <span class="text-[#666] font-industrial font-bold tracking-[0.2em] transition-all">DIC 05, 2026</span>
-                        <span class="text-gray-500 font-body text-xl md:text-2xl font-bold uppercase tracking-wide">Estadio Nacional, Lima</span>
+                        <span class="text-[#666] font-industrial font-bold tracking-[0.2em] transition-all">DIC 05,
+                            2026</span>
+                        <span
+                            class="text-gray-500 font-body text-xl md:text-2xl font-bold uppercase tracking-wide">Estadio
+                            Nacional, Lima</span>
                     </div>
-                    <div class="px-5 py-2 text-center font-industrial text-sm md:text-md font-bold text-[#666] border border-[#333] bg-black/50 z-10 tracking-widest">
+                    <div
+                        class="px-5 py-2 text-center font-industrial text-sm md:text-md font-bold text-[#666] border border-[#333] bg-black/50 z-10 tracking-widest">
                         TBA
                     </div>
                 </div>
             </div>
         </div>
-        </main>
+    </main>
     <footer
         class="py-8 border-t border-gray-200 dark:border-gray-800 text-center bg-white dark:bg-black transition-colors">
         <div class="flex justify-center gap-8 mb-4">
