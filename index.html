@@ -65,6 +65,12 @@
             transform: scale(1.08);
         }
 
+        .carousel-previous {
+            opacity: 1 !important;
+            z-index: 5;
+            transform: scale(1.08);
+        }
+
         .carousel-inactive {
             opacity: 0 !important;
             z-index: 0;
@@ -692,10 +698,23 @@
             if (window.innerWidth <= 768) {
                 if (!carouselInterval) {
                     carouselInterval = setInterval(() => {
-                        carouselSlides[currentSlide].classList.remove('carousel-active');
-                        carouselSlides[currentSlide].classList.add('carousel-inactive');
+                        const prevSlide = currentSlide;
                         currentSlide = (currentSlide + 1) % carouselSlides.length;
-                        carouselSlides[currentSlide].classList.remove('carousel-inactive');
+                        
+                        // Las demás a inactive
+                        carouselSlides.forEach((slide, index) => {
+                            if (index !== prevSlide && index !== currentSlide) {
+                                slide.classList.remove('carousel-active', 'carousel-previous');
+                                slide.classList.add('carousel-inactive');
+                            }
+                        });
+
+                        // La actual pasa a ser 'previous' (se queda detrás sin perder opacidad)
+                        carouselSlides[prevSlide].classList.remove('carousel-active');
+                        carouselSlides[prevSlide].classList.add('carousel-previous');
+
+                        // La nueva pasa a ser 'active' (aparece por encima suavemente)
+                        carouselSlides[currentSlide].classList.remove('carousel-inactive', 'carousel-previous');
                         carouselSlides[currentSlide].classList.add('carousel-active');
                     }, 7000); // 7 seconds for a slower, smoother pace
                 }
@@ -706,9 +725,9 @@
                 carouselSlides.forEach((slide, index) => {
                     if (index === 0) {
                         slide.classList.add('carousel-active');
-                        slide.classList.remove('carousel-inactive');
+                        slide.classList.remove('carousel-inactive', 'carousel-previous');
                     } else {
-                        slide.classList.remove('carousel-active');
+                        slide.classList.remove('carousel-active', 'carousel-previous');
                         slide.classList.add('carousel-inactive');
                     }
                 });
