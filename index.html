@@ -56,26 +56,29 @@
         /* Carousel Styles */
         .carousel-slide {
             transition: opacity 2.5s ease-in-out, transform 8s ease-out;
-            transform: scale(1);
+            transform: scale(1) translateZ(0);
+            will-change: transform, opacity;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
         }
 
         .carousel-active {
             opacity: 1 !important;
             z-index: 10;
-            transform: scale(1.08);
+            transform: scale(1.08) translateZ(0);
         }
 
         .carousel-previous {
             opacity: 1 !important;
             z-index: 5;
-            transform: scale(1.08);
+            transform: scale(1.08) translateZ(0);
         }
 
         .carousel-inactive {
             opacity: 0 !important;
             z-index: 0;
             pointer-events: none;
-            transform: scale(1);
+            transform: scale(1) translateZ(0);
         }
 
         /* Pagination Dots */
@@ -331,16 +334,16 @@
                 </div>
                 <!-- Extra slides only for mobile (opacity-0 on md+) -->
                 <div id="slide-1" class="carousel-slide absolute inset-0 w-full h-full carousel-inactive bg-pastelBeige md:hidden">
-                    <img src="imagenescarrusel/DSC_0822.jpg" class="absolute inset-0 w-full h-full object-cover object-top z-0">
-                    <img id="mobile-img-1-vino" src="imagenesvinotinto/vinotinto2.jpeg" class="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-1000 opacity-0 z-10">
+                    <img src="imagenescarrusel/DSC_0822.jpg" loading="lazy" class="absolute inset-0 w-full h-full object-cover object-top z-0">
+                    <img id="mobile-img-1-vino" src="imagenesvinotinto/vinotinto2.jpeg" loading="lazy" class="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-1000 opacity-0 z-10">
                 </div>
                 <div id="slide-2" class="carousel-slide absolute inset-0 w-full h-full carousel-inactive bg-pastelBeige md:hidden">
-                    <img src="imagenescarrusel/DSC_0846.jpg" class="absolute inset-0 w-full h-full object-cover object-top z-0">
-                    <img id="mobile-img-2-vino" src="imagenesvinotinto/vinitinto3.jpeg" class="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-1000 opacity-0 z-10">
+                    <img src="imagenescarrusel/DSC_0846.jpg" loading="lazy" class="absolute inset-0 w-full h-full object-cover object-top z-0">
+                    <img id="mobile-img-2-vino" src="imagenesvinotinto/vinitinto3.jpeg" loading="lazy" class="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-1000 opacity-0 z-10">
                 </div>
                 <div id="slide-3" class="carousel-slide absolute inset-0 w-full h-full carousel-inactive bg-pastelBeige md:hidden">
-                    <img src="imagenescarrusel/DSC_0851.jpg" class="absolute inset-0 w-full h-full object-cover object-top z-0">
-                    <img id="mobile-img-3-vino" src="imagenesvinotinto/vinotinto4.jpeg" class="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-1000 opacity-0 z-10">
+                    <img src="imagenescarrusel/DSC_0851.jpg" loading="lazy" class="absolute inset-0 w-full h-full object-cover object-top z-0">
+                    <img id="mobile-img-3-vino" src="imagenesvinotinto/vinotinto4.jpeg" loading="lazy" class="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-1000 opacity-0 z-10">
                 </div>
             </div>
 
