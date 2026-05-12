@@ -929,6 +929,54 @@
             </div>
         </div>
     </div>
+
+    <!-- POPUP ALMAS -->
+    <div id="almas-popup" class="fixed inset-0 z-[5000] flex items-center justify-center opacity-0 pointer-events-none transition-all duration-500 bg-black/80 backdrop-blur-sm" onclick="if(event.target === this) closeAlmasPopup()">
+        <div id="almas-popup-content" class="relative transform scale-95 transition-transform duration-500 bg-pastelBeige p-3 rounded-xl border-4 border-pastelCafe shadow-2xl mx-4 max-w-sm w-full">
+            <button onclick="closeAlmasPopup()" class="absolute -top-4 -right-4 w-10 h-10 bg-pastelVino text-white rounded-full flex items-center justify-center text-xl shadow-lg hover:scale-110 transition-transform z-10 border-2 border-white focus:outline-none">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <a href="almas.html" class="block group relative overflow-hidden rounded-lg">
+                <img src="almas/Portada2.jpg.jpeg" alt="ALMAS" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <i class="fa-solid fa-play text-white text-5xl mb-3 drop-shadow-lg"></i>
+                    <span class="font-marker text-white text-2xl tracking-wider drop-shadow-md text-center px-2">ESCUCHAR AHORA</span>
+                </div>
+            </a>
+            <div class="text-center mt-4 mb-2">
+                <h3 class="font-marker text-pastelVino text-3xl mb-1">ALEHNA</h3>
+                <p class="font-hand text-darkText text-2xl font-bold leading-none">¡Ya disponible "ALMAS"!</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function closeAlmasPopup() {
+            const popup = document.getElementById('almas-popup');
+            const content = document.getElementById('almas-popup-content');
+            popup.classList.remove('opacity-100', 'pointer-events-auto');
+            content.classList.remove('scale-100');
+            popup.classList.add('opacity-0', 'pointer-events-none');
+            content.classList.add('scale-95');
+            sessionStorage.setItem('almasPopupClosed', 'true');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mostrar después de 1.5 segundos si no ha sido cerrado en esta sesión
+            if (!sessionStorage.getItem('almasPopupClosed')) {
+                setTimeout(() => {
+                    const popup = document.getElementById('almas-popup');
+                    const content = document.getElementById('almas-popup-content');
+                    if (popup && content) {
+                        popup.classList.remove('opacity-0', 'pointer-events-none');
+                        popup.classList.add('opacity-100', 'pointer-events-auto');
+                        content.classList.remove('scale-95');
+                        content.classList.add('scale-100');
+                    }
+                }, 1500);
+            }
+        });
+    </script>
 </body>
 
 </html>
