@@ -201,15 +201,17 @@ function initMobileMenu() {
                         isActive = hrefHash === activeSectionId;
                     }
                 } else {
-                    // On other pages: match filename
-                    isActive = hrefPage === currentPage && !hrefHash;
+                    // On other pages: match filename (handle cases with or without .html and query params)
+                    const cleanCurrent = currentPage.split('?')[0].split('#')[0].replace('.html', '');
+                    const cleanHref = hrefPage.split('?')[0].split('#')[0].replace('.html', '');
+                    isActive = (cleanCurrent === cleanHref) && !hrefHash;
                 }
 
                 if (isActive) {
-                    link.classList.add('text-pastelVino', 'border-b-2', 'border-pastelVino', 'pb-1');
+                    link.classList.add('text-pastelVino');
                     link.classList.remove('text-darkText');
                 } else {
-                    link.classList.remove('text-pastelVino', 'border-b-2', 'border-pastelVino', 'pb-1');
+                    link.classList.remove('text-pastelVino');
                     link.classList.add('text-darkText');
                 }
             });

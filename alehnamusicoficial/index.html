@@ -17,11 +17,26 @@
 /* RESET */
 html, body {
     margin: 0;
+    height: 100%;
+    overflow: hidden;
     font-family: 'Inter', sans-serif;
     color: white;
     -webkit-font-smoothing: antialiased;
     background-color: #0f0a0c;
     overscroll-behavior-y: none;
+}
+
+/* SCROLL WRAPPER */
+.scroll-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    overscroll-behavior-y: none;
+    -webkit-overflow-scrolling: touch;
+    z-index: 10;
 }
 
 /* BACKGROUND DYNAMICS (SLIDESHOW) */
@@ -438,6 +453,7 @@ html, body {
 <div class="bg-overlay"></div>
 <div class="particles"></div>
 
+<div class="scroll-wrapper">
 <div class="layout">
 
     <!-- PERFIL -->
@@ -529,6 +545,8 @@ html, body {
     <div class="footer">
         © 2026 ALEHNA · Todos los derechos reservados
     </div>
+
+</div>
 
 </div>
 
