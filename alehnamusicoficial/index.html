@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>alehnamusicoficial | Link Tree Oficial</title>
+<!-- OPEN GRAPH -->
+<meta property="og:title" content="ALEHNA | Redes y Lanzamientos">
+<meta property="og:description" content="Cantante y compositora Colombiana. Escucha ALMAS y únete a mi comunidad.">
+<meta property="og:image" content="../imagenesvinotinto/vinotinto4.jpeg">
+<meta property="og:type" content="website">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Outfit:wght@400;700&display=swap');
+
+/* RESET */
+html, body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    background-color: #0f0a0c;
+    overscroll-behavior-y: none;
+}
+
+/* BACKGROUND DYNAMICS (SLIDESHOW) */
+.bg-slideshow, .bg-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+}
+
+.bg-slideshow { z-index: -3; }
+
+.slide {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center top;
+    opacity: 0;
+    animation: slideAnim 24s infinite linear;
+}
+
+/* Tiempos de animación para un crossfade perfecto de 4 imágenes */
+.slide:nth-child(1) { animation-delay: 0s; }
+.slide:nth-child(2) { animation-delay: 6s; }
+.slide:nth-child(3) { animation-delay: 12s; }
+.slide:nth-child(4) { animation-delay: 18s; }
+
+@keyframes slideAnim {
+    0% { opacity: 0; transform: scale(1.1); }
+    10% { opacity: 1; transform: scale(1.08); }
+    25% { opacity: 1; transform: scale(1.04); }
+    35% { opacity: 0; transform: scale(1); }
+    100% { opacity: 0; }
+}
+
+/* OVERLAY CON DEGRADADO PREMIUM */
+.bg-overlay {
+    z-index: -2;
+    background: linear-gradient(to bottom, rgba(15, 10, 12, 0.6), rgba(15, 10, 12, 0.95));
+    pointer-events: none;
+}
+
+/* EFECTO DE LUZ ESTELAR / DESTELLOS (PARTICULAS CSS) */
+.particles {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    background-image: 
+        radial-gradient(1px 1px at 20px 30px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 40px 70px, #ffe4e1, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 50px 160px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 90px 40px, #ffd700, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 130px 80px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 160px 120px, #ffb6c1, rgba(0,0,0,0));
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    animation: stars 60s linear infinite;
+    opacity: 0.4;
+}
+
+@keyframes stars {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-200px); }
+}
+
+/* LAYOUT VERTICAL PARA PC Y MÓVIL */
+.layout {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 20px;
+    align-items: center;
+    max-width: 480px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+/* PERFIL */
+.perfil {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* AVATAR ANIMADO Y PREMIUM */
+.avatar-box {
+    position: relative;
+    display: inline-block;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+
+.avatar {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 40px rgba(197, 125, 132, 0.6);
+    object-fit: cover;
+    padding: 3px;
+    background: linear-gradient(45deg, #C57D84, #A8866E);
+    animation: pulseAvatar 4s infinite alternate;
+}
+
+@keyframes pulseAvatar {
+    0% { box-shadow: 0 0 20px rgba(197, 125, 132, 0.4); }
+    100% { box-shadow: 0 0 50px rgba(197, 125, 132, 0.9); }
+}
+
+.verificado {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: white;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.verificado img {
+    width: 32px;
+}
+
+/* TEXTOS DEL PERFIL */
+.perfil h1 {
+    margin-top: 25px;
+    margin-bottom: 5px;
+    font-size: 28px;
+    font-weight: 800;
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+
+.perfil p.bio {
+    color: rgba(255,255,255,0.9);
+    font-size: 15px;
+    margin-bottom: 25px;
+    font-weight: 400;
+    line-height: 1.4;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.8);
+}
+
+/* CONTADOR DE VISITAS (MICRO CARD) */
+.micro-card {
+    margin-bottom: 30px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    font-size: 13px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.micro-card i {
+    color: #C57D84;
+}
+
+/* MAIN CONTENT */
+.main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* TARJETA DESTACADA (ALMAS) */
+.featured-card {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid rgba(197, 125, 132, 0.4);
+    margin-bottom: 15px;
+    color: white !important;
+}
+
+.featured-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 50%; height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+    transform: skewX(-20deg);
+    animation: shine 6s infinite;
+    z-index: 5;
+}
+
+@keyframes shine {
+    0% { left: -100%; }
+    20% { left: 200%; }
+    100% { left: 200%; }
+}
+
+.featured-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 25px 50px rgba(197, 125, 132, 0.5);
+    border-color: rgba(197, 125, 132, 0.8);
+}
+
+.featured-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../almas/Portada2.jpg.jpeg') no-repeat center center;
+    background-size: cover;
+    filter: blur(2px) brightness(0.6);
+    transition: all 0.7s ease;
+}
+
+.featured-card:hover .featured-bg {
+    filter: blur(0px) brightness(0.85);
+    transform: scale(1.08);
+}
+
+.featured-content {
+    position: relative;
+    padding: 35px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 2;
+}
+
+.badge {
+    background: #C57D84;
+    color: white;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 6px 16px;
+    border-radius: 20px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    animation: pulse 2s infinite;
+    box-shadow: 0 0 15px rgba(197, 125, 132, 0.8);
+}
+
+.featured-content h2 {
+    margin: 0;
+    font-size: 38px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.8);
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.featured-card:hover .featured-content h2 {
+    color: #EAC9CC;
+}
+
+.featured-content p {
+    font-size: 15px;
+    margin: 8px 0 25px 0;
+    opacity: 0.95;
+    color: white;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+
+.featured-btn {
+    background: white;
+    color: #1a1a1a;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 800;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.featured-card:hover .featured-btn {
+    background: #C57D84;
+    color: white;
+    box-shadow: 0 15px 30px rgba(197, 125, 132, 0.6);
+}
+
+/* BOTONES NORMALES GLASSMORPHISM PREMIUM */
+.btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.07);
+    padding: 20px 24px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    font-weight: 600;
+    font-size: 16px;
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.left i {
+    font-size: 22px;
+    width: 28px;
+    text-align: center;
+    transition: transform 0.4s;
+}
+
+.btn:hover .left i {
+    transform: scale(1.2);
+}
+
+.right i {
+    opacity: 0.4;
+    font-size: 16px;
+    transition: 0.4s;
+}
+
+.btn:hover .right i {
+    opacity: 1;
+    transform: translateX(5px);
+    color: #C57D84;
+}
+
+/* COLORES DE ICONOS EN BOTONES */
+.fa-star { color: #FFD700; } 
+.fa-whatsapp { color: #25D366; }
+.fa-instagram { color: #E1306C; }
+.fa-tiktok { color: #ffffff; text-shadow: 2px 2px 0px #00f2fe, -2px -2px 0px #fe0979; }
+.fa-youtube { color: #ff0000; }
+.fa-facebook-f { color: #1877f2; }
+.fa-book { color: #A8866E; } 
+.fa-compact-disc { color: #C57D84; } 
+.fa-globe { color: #8ab4f8; }
+
+/* TITULOS */
+.section-title {
+    margin-top: 35px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 800;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND ANIMADO DINÁMICO (CARRUSEL CROSSFADE) -->
+<div class="bg-slideshow">
+    <div class="slide" style="background-image: url('../imagenesvinotinto/vinotinto1.jpeg');"></div>
+    <div class="slide" style="background-image: url('../imagenesvinotinto/vinotinto2.jpeg');"></div>
+    <div class="slide" style="background-image: url('../imagenesvinotinto/vinitinto3.jpeg');"></div>
+    <div class="slide" style="background-image: url('../imagenesvinotinto/vinotinto4.jpeg');"></div>
+</div>
+<!-- SUPERPOSICIÓN OSCURA Y EFECTO DE PARTÍCULAS -->
+<div class="bg-overlay"></div>
+<div class="particles"></div>
+
+<div class="layout">
+
+    <!-- PERFIL -->
+    <div class="perfil">
+        <div class="avatar-box">
+            <img src="../imagenesvinotinto/vinotinto4.jpeg" class="avatar" alt="Alehna">
+            <div class="verificado">
+                <img src="https://cdn-icons-png.flaticon.com/512/11820/11820285.png" alt="Verificado">
+            </div>
+        </div>
+
+        <h1>alehnamusicoficial</h1>
+        <p class="bio">Cantante y compositora Colombiana Cali, col 📍</p>
+
+        <!-- CONTADOR DE VISITAS -->
+        <div class="micro-card" id="visitas-card">
+            <i class="fa-solid fa-chart-line"></i> Visitas: <strong id="visitas-count">--</strong> <span id="visitas-status"></span>
+        </div>
+    </div>
+
+    <!-- MAIN LINKS -->
+    <div class="main">
+
+        <!-- TARJETA DESTACADA: ALMAS -->
+        <a href="https://tr.ee/6aBkTffT7l" target="_blank" class="featured-card">
+            <div class="featured-bg"></div>
+            <div class="featured-content">
+                <span class="badge">¡NUEVO LANZAMIENTO!</span>
+                <h2>ALMAS</h2>
+                <p>Escúchalo ahora en tu plataforma favorita</p>
+                <div class="featured-btn">
+                    <i class="fa-solid fa-play"></i> REPRODUCIR
+                </div>
+            </div>
+        </a>
+
+        <!-- BOTONES PRINCIPALES DIRECTOS -->
+        <a href="https://tr.ee/QOIfCMpgux" target="_blank" class="btn">
+            <div class="left"><i class="fa-solid fa-star"></i><span>Lista de Deseos</span></div>
+            <div class="right"><i class="fa-solid fa-chevron-right"></i></div>
+        </a>
+
+        <div class="section-title">Comunidad y Redes</div>
+
+        <a href="https://www.whatsapp.com/channel/0029VbBW9IFAO7R8F5cZWN0x" target="_blank" class="btn">
+            <div class="left"><i class="fa-brands fa-whatsapp"></i><span>Comunidad Alehnitos</span></div>
+            <div class="right"><i class="fa-solid fa-chevron-right"></i></div>
+        </a>
+
+        <a href="https://www.instagram.com/alehnaoficial" target="_blank" class="btn">
+            <div class="left"><i class="fa-brands fa-instagram"></i><span>Instagram</span></div>
+            <div class="right"><i class="fa-solid fa-chevron-right"></i></div>
+        </a>
+
+        <a href="https://www.tiktok.com/@alehnaoficial" target="_blank" class="btn">
+            <div class="left"><i class="fa-brands fa-tiktok"></i><span>TikTok</span></div>
+            <div class="right"><i class="fa-solid fa-chevron-right"></i></div>
+        </a>
+
+        <a href="https://www.youtube.com/@alehnaoficial" target="_blank" class="btn">
+            <div class="left"><i class="fa-brands fa-youtube"></i><span>YouTube</span></div>
+            <div class="right"><i class="fa-solid fa-chevron-right"></i></div>
+        </a>
+
+        <a href="https://www.facebook.com/Alehnaoficial?mibextid=wwXIfr&rdid=swLQbfO5kMJUlt9x" target="_blank" class="btn">
+            <div class="left"><i class="fa-brands fa-facebook-f"></i><span>Facebook</span></div>
+            <div class="right"><i class="fa-solid fa-chevron-right"></i></div>
+        </a>
+
+        <div class="section-title">Sitio Oficial</div>
+
+        <a href="../biografia.html" class="btn">
+            <div class="left"><i class="fa-solid fa-book"></i><span>Mi Biografía</span></div>
+            <div class="right"><i class="fa-solid fa-chevron-right"></i></div>
+        </a>
+
+        <a href="../lanzamientos.html" class="btn">
+            <div class="left"><i class="fa-solid fa-compact-disc"></i><span>Todos mis Lanzamientos</span></div>
+            <div class="right"><i class="fa-solid fa-chevron-right"></i></div>
+        </a>
+
+        <a href="../index.html" class="btn">
+            <div class="left"><i class="fa-solid fa-globe"></i><span>Sitio Web Oficial</span></div>
+            <div class="right"><i class="fa-solid fa-chevron-right"></i></div>
+        </a>
+
+    </div>
+
+    <div class="footer">
+        © 2026 ALEHNA · Todos los derechos reservados
+    </div>
+
+</div>
+
+<!-- SCRIPT CONTADOR DE VISITAS (API GLOBAL REAL) -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const counterNamespace = "alehna_oficial_linktree";
+    const counterKey = "visitas_2026_v1";
+    const localKey = 'alehna_user_status';
+    
+    // 1. Determinar si el visitante es nuevo en este navegador
+    let isNewUser = !localStorage.getItem(localKey);
+    if (isNewUser) {
+        localStorage.setItem(localKey, 'visited');
+        document.getElementById('visitas-status').innerHTML = "<strong>- Visitante nuevo</strong> 🎉";
+    } else {
+        document.getElementById('visitas-status').innerHTML = "<strong>- Visitante recurrente</strong> 🔥";
+    }
+
+    // 2. Conectar a un contador API global gratuito en tiempo real
+    fetch(`https://api.counterapi.dev/v1/${counterNamespace}/${counterKey}/up`)
+        .then(response => response.json())
+        .then(data => {
+            // Si funciona, mostramos los clics reales globales + una base inicial de 845 para mantener consistencia
+            let totalVisitas = (data.count || 0) + 845;
+            document.getElementById('visitas-count').innerText = totalVisitas.toLocaleString();
+        })
+        .catch(error => {
+            // Fallback de seguridad
+            let baseGlobal = 845;
+            let currentLocal = localStorage.getItem('fallback_count') || baseGlobal;
+            currentLocal = parseInt(currentLocal) + (isNewUser ? 1 : 0);
+            localStorage.setItem('fallback_count', currentLocal);
+            document.getElementById('visitas-count').innerText = currentLocal.toLocaleString();
+        });
+});
+</script>
+
+</body>
+</html>
