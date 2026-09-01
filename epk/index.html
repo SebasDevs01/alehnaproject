@@ -1256,72 +1256,198 @@ a { text-decoration: none; color: inherit; }
     .contact-content { padding: 80px 48px; max-width: 850px; margin: 0 auto; }
 }
 
-/* PRINT / PDF — Una página por sección, todo cliqueable */
+/* PRINT / PDF — Una página por sección, todo visible y cliqueable */
 @media print {
-    /* ── Ocultar controles de pantalla ── */
+    /* ── FORZAR VISIBILIDAD TOTAL DE TODOS LOS ELEMENTOS ── */
+    *, *::before, *::after {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        animation: none !important;
+        transition: none !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* ── Ocultar controles interactivos innecesarios en PDF ── */
     #pdf-download-btn,
     .cover-scroll-hint,
     .gallery-hover-overlay,
     .lightbox { display: none !important; }
 
-    /* ── Reproducción fiel de colores ── */
-    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    html, body {
+        width: 100% !important;
+        height: auto !important;
+        overflow: visible !important;
+        background: var(--deep) !important;
+    }
 
-    html, body { width: 100%; height: auto; overflow: visible; }
-
-    /* ── Una sección = una página ── */
+    /* ── Una sección = una página de PDF ── */
     .epk-section {
-        width: 100%;
-        min-height: 100vh;
-        height: 100vh;
-        page-break-before: always;
-        page-break-after: always;
-        break-before: page;
-        break-after: page;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
+        width: 100% !important;
+        min-height: 100vh !important;
+        height: auto !important;
+        page-break-before: always !important;
+        page-break-after: always !important;
+        break-before: page !important;
+        break-after: page !important;
+        overflow: visible !important;
+        display: block !important;
+        position: relative !important;
+        padding: 40px 32px !important;
     }
-    #sec-0 { page-break-before: avoid; break-before: avoid; }
 
-    /* ── Portada: imagen estática ── */
+    /* Portada: primera página */
+    #sec-0 {
+        page-break-before: avoid !important;
+        break-before: avoid !important;
+        height: 100vh !important;
+        min-height: 100vh !important;
+        padding: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+    }
+
+    #cover-img-1 { opacity: 1 !important; display: block !important; }
     #cover-img-2, #cover-img-3, #cover-img-4 { display: none !important; }
-    #cover-img-1 { opacity: 1 !important; animation: none !important; }
 
-    /* ── No cortar grids ni cards ── */
-    .bio-layout, .releases-grid, .videos-grid,
-    .identity-grid, .digital-grid, .booking-layout,
-    .gallery-masonry, .contact-cards {
-        page-break-inside: avoid;
-        break-inside: avoid;
+    /* ── Layouts de contenido en PDF ── */
+    .bio-layout {
+        display: grid !important;
+        grid-template-columns: 1fr 1.2fr !important;
+        gap: 32px !important;
+        align-items: center !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
     }
-    .bio-quote-card, .identity-card, .release-card,
-    .video-card, .digital-card, .show-item,
-    .contact-card { page-break-inside: avoid; break-inside: avoid; }
+    .bio-photo-frame { height: 480px !important; max-height: 480px !important; }
+    .bio-photo-frame img { height: 100% !important; object-fit: cover !important; }
 
-    /* ── VIDEOS: ocultar iframe, mostrar thumbnail cliqueable ── */
+    .identity-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 16px !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+    .identity-card {
+        display: flex !important;
+        opacity: 1 !important;
+        background: rgba(255,255,255,0.08) !important;
+        border: 1px solid rgba(255,255,255,0.18) !important;
+    }
+
+    .releases-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 24px !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+    .release-card {
+        display: flex !important;
+        opacity: 1 !important;
+        background: white !important;
+        border: 1px solid rgba(0,0,0,0.08) !important;
+    }
+    .release-links { display: flex !important; flex-wrap: wrap !important; gap: 8px !important; }
+
+    .videos-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 24px !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+    .video-card {
+        display: flex !important;
+        flex-direction: column !important;
+        opacity: 1 !important;
+        background: rgba(255,255,255,0.06) !important;
+    }
+
+    /* VIDEOS: Ocultar iframe y mostrar miniatura cliqueable con botón YouTube */
     .video-iframe { display: none !important; }
     .video-pdf-thumb {
         display: block !important;
-        position: absolute !important;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16/9 !important;
+    }
+    .video-pdf-thumb img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        display: block !important;
+    }
+    .video-pdf-play {
+        display: flex !important;
+        background: rgba(0,0,0,0.4) !important;
     }
 
-    /* ── LINKS: todos preservan su href (cliqueable en PDF) ── */
-    a { color: inherit !important; text-decoration: none !important; }
+    .gallery-masonry {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 8px !important;
+        padding: 0 !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+    .gallery-item { display: block !important; opacity: 1 !important; height: 180px !important; }
+    .gallery-item img { height: 100% !important; object-fit: cover !important; }
 
-    /* Los botones de plataformas muestran sus links */
-    .cover-social-pill,
-    .platform-btn,
-    .release-link,
-    .digital-card,
-    .contact-card,
-    .video-ext-link,
-    .channel-btn,
-    .booking-cta-btn { cursor: pointer; }
+    .digital-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 12px !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+    .digital-card {
+        display: flex !important;
+        opacity: 1 !important;
+        background: rgba(255,255,255,0.08) !important;
+        border: 1px solid rgba(255,255,255,0.15) !important;
+    }
 
-    #epk-wrapper { background: transparent; }
+    .booking-layout {
+        display: grid !important;
+        grid-template-columns: 1fr 1.2fr !important;
+        gap: 32px !important;
+        align-items: center !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+    .booking-photo { height: 480px !important; max-height: 480px !important; }
+    .booking-photo img { height: 100% !important; object-fit: cover !important; }
+    .show-item { display: flex !important; opacity: 1 !important; }
+
+    .contact-cards {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        max-width: 650px !important;
+        margin: 0 auto !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+    .contact-card {
+        display: flex !important;
+        opacity: 1 !important;
+        background: rgba(255,255,255,0.08) !important;
+        border: 1px solid rgba(255,255,255,0.15) !important;
+    }
+
+    /* ── TODOS LOS ENLACES CLIQUEABLES EN PDF ── */
+    a {
+        color: inherit !important;
+        text-decoration: none !important;
+        cursor: pointer !important;
+    }
+
+    #epk-wrapper { background: transparent !important; }
 }
 </style>
 </head>
@@ -1563,9 +1689,8 @@ a { text-decoration: none; color: inherit; }
                             </iframe>
                             <!-- PDF: Thumbnail cliqueable que abre YouTube -->
                             <a href="https://youtu.be/EWMMuV1Hf3U" target="_blank" class="video-pdf-thumb" aria-label="Ver EL KARMA en YouTube">
-                                <img src="https://img.youtube.com/vi/EWMMuV1Hf3U/maxresdefault.jpg"
-                                     alt="ALEHNA - EL KARMA | Video Oficial"
-                                     onerror="this.src='https://img.youtube.com/vi/EWMMuV1Hf3U/hqdefault.jpg'">
+                                <img src="https://img.youtube.com/vi/EWMMuV1Hf3U/hqdefault.jpg"
+                                     alt="ALEHNA - EL KARMA | Video Oficial">
                                 <div class="video-pdf-play">
                                     <i class="fa-brands fa-youtube"></i>
                                     <span>Ver en YouTube</span>
@@ -1596,9 +1721,8 @@ a { text-decoration: none; color: inherit; }
                             </iframe>
                             <!-- PDF: Thumbnail cliqueable que abre YouTube -->
                             <a href="https://youtu.be/8AOeZrQ1KjY" target="_blank" class="video-pdf-thumb" aria-label="Ver ALMAS en YouTube">
-                                <img src="https://img.youtube.com/vi/8AOeZrQ1KjY/maxresdefault.jpg"
-                                     alt="ALEHNA - ALMAS | Video Oficial"
-                                     onerror="this.src='https://img.youtube.com/vi/8AOeZrQ1KjY/hqdefault.jpg'">
+                                <img src="https://img.youtube.com/vi/8AOeZrQ1KjY/hqdefault.jpg"
+                                     alt="ALEHNA - ALMAS | Video Oficial">
                                 <div class="video-pdf-play">
                                     <i class="fa-brands fa-youtube"></i>
                                     <span>Ver en YouTube</span>
@@ -1941,9 +2065,27 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeLightbox();
 });
 
+// REVEAL ALL FOR PRINT
+function revealAllForPrint() {
+    const revealElements = document.querySelectorAll(
+        '.identity-card, .release-card, .video-card, .digital-card, .show-item, .contact-card, .bio-tags, .bio-quote-card, .release-links'
+    );
+    revealElements.forEach(el => {
+        el.classList.add('revealed');
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+        el.style.visibility = 'visible';
+    });
+}
+
+window.addEventListener('beforeprint', revealAllForPrint);
+
 // PDF DOWNLOAD (UNA SOLA VEZ)
 function downloadEPK() {
     const btn = document.getElementById('pdf-download-btn');
+    
+    // Asegurar que todo el contenido esté visible
+    revealAllForPrint();
     
     // Ocultar botón inmediatamente
     if (btn) {
@@ -1960,7 +2102,7 @@ function downloadEPK() {
     // Disparar ventana de impresión/guardar PDF
     setTimeout(() => {
         window.print();
-    }, 250);
+    }, 200);
 }
 
 // Ocultar si ya fue descargado previamente
@@ -1984,6 +2126,8 @@ function downloadEPK() {
             if (entry.isIntersecting) {
                 entry.target.style.animationDelay = `${i * 0.06}s`;
                 entry.target.classList.add('revealed');
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'none';
                 revealObserver.unobserve(entry.target);
             }
         });
@@ -1997,7 +2141,7 @@ function downloadEPK() {
     });
 
     const style = document.createElement('style');
-    style.textContent = '.revealed { opacity: 1 !important; transform: translateY(0) !important; }';
+    style.textContent = '.revealed { opacity: 1 !important; transform: translateY(0) !important; visibility: visible !important; }';
     document.head.appendChild(style);
 })();
     </script>

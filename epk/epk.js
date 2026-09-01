@@ -33,6 +33,21 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeLightbox();
 });
 
+// ─── REVEAL ALL CONTENT FOR PRINT / PDF ─────────────────
+function revealAllForPrint() {
+    const revealElements = document.querySelectorAll(
+        '.identity-card, .release-card, .video-card, .digital-card, .show-item, .contact-card, .bio-tags, .bio-quote-card, .release-links'
+    );
+    revealElements.forEach(el => {
+        el.classList.add('revealed');
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+        el.style.visibility = 'visible';
+    });
+}
+
+window.addEventListener('beforeprint', revealAllForPrint);
+
 // ─── PDF DOWNLOAD (UNA SOLA VEZ) ────────────────────────
 /**
  * Descarga el EPK como PDF usando la función de impresión del navegador.
@@ -40,6 +55,9 @@ document.addEventListener('keydown', (e) => {
  */
 function downloadEPK() {
     const btn = document.getElementById('pdf-download-btn');
+
+    // Asegurar que absolutamente todo el contenido sea visible antes de generar el PDF
+    revealAllForPrint();
 
     // Ocultar botón inmediatamente con animación
     if (btn) {
@@ -56,7 +74,7 @@ function downloadEPK() {
     // Disparar ventana de impresión / guardar como PDF
     setTimeout(() => {
         window.print();
-    }, 250);
+    }, 200);
 }
 
 // Verificar si ya se descargó y ocultar el botón
@@ -80,6 +98,8 @@ function downloadEPK() {
             if (entry.isIntersecting) {
                 entry.target.style.animationDelay = `${i * 0.06}s`;
                 entry.target.classList.add('revealed');
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'none';
                 revealObserver.unobserve(entry.target);
             }
         });
@@ -93,6 +113,6 @@ function downloadEPK() {
     });
 
     const style = document.createElement('style');
-    style.textContent = '.revealed { opacity: 1 !important; transform: translateY(0) !important; }';
+    style.textContent = '.revealed { opacity: 1 !important; transform: translateY(0) !important; visibility: visible !important; }';
     document.head.appendChild(style);
 })();

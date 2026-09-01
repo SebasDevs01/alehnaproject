@@ -1232,53 +1232,197 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* ═══════════════════════════════════════════════════════
-   PRINT / PDF — Una página por sección
+   PRINT / PDF — Una página por sección, todo visible y cliqueable
 ════════════════════════════════════════════════════════ */
 @media print {
-    /* Ocultar elementos interactivos */
+    /* ── FORZAR VISIBILIDAD TOTAL DE TODOS LOS ELEMENTOS ── */
+    *, *::before, *::after {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        animation: none !important;
+        transition: none !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* ── Ocultar controles interactivos innecesarios en PDF ── */
     #pdf-download-btn,
     .cover-scroll-hint,
     .gallery-hover-overlay,
     .lightbox { display: none !important; }
 
-    /* Colores exactos */
-    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    html, body {
+        width: 100% !important;
+        height: auto !important;
+        overflow: visible !important;
+        background: var(--deep) !important;
+    }
 
-    html, body { width: 100%; height: auto; overflow: visible; }
-
-    /* Cada sección ocupa exactamente una página */
+    /* ── Una sección = una página de PDF ── */
     .epk-section {
-        width: 100%;
-        min-height: 100vh;
-        height: 100vh;
-        page-break-before: always;
-        page-break-after: always;
-        break-before: page;
-        break-after: page;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
+        width: 100% !important;
+        min-height: 100vh !important;
+        height: auto !important;
+        page-break-before: always !important;
+        page-break-after: always !important;
+        break-before: page !important;
+        break-after: page !important;
+        overflow: visible !important;
+        display: block !important;
+        position: relative !important;
+        padding: 40px 32px !important;
     }
 
-    /* Portada — primera página, no romper antes */
-    #sec-0 { page-break-before: avoid; break-before: avoid; }
+    /* Portada: primera página */
+    #sec-0 {
+        page-break-before: avoid !important;
+        break-before: avoid !important;
+        height: 100vh !important;
+        min-height: 100vh !important;
+        padding: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+    }
 
-    /* Solo la primera imagen de la portada */
+    #cover-img-1 { opacity: 1 !important; display: block !important; }
     #cover-img-2, #cover-img-3, #cover-img-4 { display: none !important; }
-    #cover-img-1 { opacity: 1 !important; animation: none !important; }
 
-    /* No cortar grids internos */
-    .bio-layout, .releases-grid, .videos-grid,
-    .identity-grid, .digital-grid, .booking-layout,
-    .gallery-masonry, .contact-cards {
-        page-break-inside: avoid;
-        break-inside: avoid;
+    /* ── Layouts de contenido en PDF ── */
+    .bio-layout {
+        display: grid !important;
+        grid-template-columns: 1fr 1.2fr !important;
+        gap: 32px !important;
+        align-items: center !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+    .bio-photo-frame { height: 480px !important; max-height: 480px !important; }
+    .bio-photo-frame img { height: 100% !important; object-fit: cover !important; }
+
+    .identity-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 16px !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+    .identity-card {
+        display: flex !important;
+        opacity: 1 !important;
+        background: rgba(255,255,255,0.08) !important;
+        border: 1px solid rgba(255,255,255,0.18) !important;
     }
 
-    /* Elementos que no deben cortarse */
-    .bio-quote-card, .identity-card, .release-card,
-    .video-card, .digital-card, .show-item,
-    .contact-card { page-break-inside: avoid; break-inside: avoid; }
+    .releases-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 24px !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+    .release-card {
+        display: flex !important;
+        opacity: 1 !important;
+        background: white !important;
+        border: 1px solid rgba(0,0,0,0.08) !important;
+    }
+    .release-links { display: flex !important; flex-wrap: wrap !important; gap: 8px !important; }
 
-    #epk-wrapper { background: transparent; }
+    .videos-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 24px !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+    .video-card {
+        display: flex !important;
+        flex-direction: column !important;
+        opacity: 1 !important;
+        background: rgba(255,255,255,0.06) !important;
+    }
+
+    /* VIDEOS: Ocultar iframe y mostrar miniatura cliqueable con botón YouTube */
+    .video-iframe { display: none !important; }
+    .video-pdf-thumb {
+        display: block !important;
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16/9 !important;
+    }
+    .video-pdf-thumb img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        display: block !important;
+    }
+    .video-pdf-play {
+        display: flex !important;
+        background: rgba(0,0,0,0.4) !important;
+    }
+
+    .gallery-masonry {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 8px !important;
+        padding: 0 !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+    .gallery-item { display: block !important; opacity: 1 !important; height: 180px !important; }
+    .gallery-item img { height: 100% !important; object-fit: cover !important; }
+
+    .digital-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 12px !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+    .digital-card {
+        display: flex !important;
+        opacity: 1 !important;
+        background: rgba(255,255,255,0.08) !important;
+        border: 1px solid rgba(255,255,255,0.15) !important;
+    }
+
+    .booking-layout {
+        display: grid !important;
+        grid-template-columns: 1fr 1.2fr !important;
+        gap: 32px !important;
+        align-items: center !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+    .booking-photo { height: 480px !important; max-height: 480px !important; }
+    .booking-photo img { height: 100% !important; object-fit: cover !important; }
+    .show-item { display: flex !important; opacity: 1 !important; }
+
+    .contact-cards {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        max-width: 650px !important;
+        margin: 0 auto !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+    .contact-card {
+        display: flex !important;
+        opacity: 1 !important;
+        background: rgba(255,255,255,0.08) !important;
+        border: 1px solid rgba(255,255,255,0.15) !important;
+    }
+
+    /* ── TODOS LOS ENLACES CLIQUEABLES EN PDF ── */
+    a {
+        color: inherit !important;
+        text-decoration: none !important;
+        cursor: pointer !important;
+    }
+
+    #epk-wrapper { background: transparent !important; }
 }
