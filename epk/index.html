@@ -28,16 +28,21 @@
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="../fotosgaleriaepk/image00021.jpeg">
     
+    <!-- Performance & Preload Optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image" href="../fotosgaleriaepk/image00021.jpeg">
+    
     <!-- Icons & Stylesheet -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="epk.css">
+    <link rel="stylesheet" href="epk.css?v=20260902">
 </head>
 <body>
 
     <!-- BOTÓN FLOTANTE: DESCARGA PDF / PRINT -->
-    <button id="pdf-download-btn" title="Descargar o Guardar EPK en formato PDF" aria-label="Descargar EPK en PDF">
+    <button id="pdf-download-btn" title="Descargar EPK en formato PDF" aria-label="Descargar EPK en PDF">
         <i class="fa-solid fa-file-pdf"></i>
-        <span>DESCARGAR EPK (PDF)</span>
+        <span>DESCARGAR PDF</span>
     </button>
 
     <!-- ═══════════════════════════════════════════════════════
@@ -59,7 +64,7 @@
             </div>
             <div class="hero-print-body">
                 <div class="hero-print-portrait">
-                    <img src="../fotosgaleriaepk/image00021.jpeg" alt="ALEHNA Pop Rock Latino">
+                    <img src="../fotosgaleriaepk/image00021.jpeg" alt="ALEHNA Pop Rock Latino" decoding="async">
                 </div>
                 <div class="hero-print-info">
                     <h1 class="hero-print-title">ALEHNA</h1>
@@ -85,7 +90,7 @@
 
         <!-- HEADER WEB INTERACTIVO -->
         <header class="hero-header">
-            <div class="hero-badge">ELECTRONIC PRESS KIT · 2026</div>
+            <div class="hero-badge">EPK 2026</div>
             <div class="hero-location"><i class="fa-solid fa-location-dot"></i> Cali, Colombia</div>
         </header>
 
@@ -103,11 +108,11 @@
                 </a>
                 <a href="#sec-video-aotronivel" class="hero-btn hero-btn-outline">
                     <i class="fa-solid fa-play"></i>
-                    <span>A OTRO NIVEL 2026</span>
+                    <span>A OTRO NIVEL</span>
                 </a>
                 <a href="#sec-musica" class="hero-btn hero-btn-outline">
                     <i class="fa-solid fa-music"></i>
-                    <span>LANZAMIENTOS</span>
+                    <span>MÚSICA</span>
                 </a>
             </div>
 
@@ -131,13 +136,15 @@
          ═══════════════════════════════════════════════════════ -->
     <section id="sec-bio" class="epk-section">
         <div class="section-container">
-            <span class="section-label"><i class="fa-solid fa-user-astronaut"></i> PERFIL ARTÍSTICO</span>
-            <h2 class="section-title">Una Nueva Voz del <em>Pop Rock Latino</em></h2>
-            <div class="section-underline"></div>
+            <div class="section-header-wrap">
+                <span class="section-label"><i class="fa-solid fa-user-astronaut"></i> PERFIL ARTÍSTICO</span>
+                <h2 class="section-title">Una Nueva Voz del <em>Pop Rock Latino</em></h2>
+                <div class="section-underline"></div>
+            </div>
 
             <div class="bio-grid">
                 <div class="bio-portrait-wrap">
-                    <img src="../fotosgaleriaepk/image00021.jpeg" alt="ALEHNA - Cantante de Pop Rock Latino" class="bio-portrait-img">
+                    <img src="../fotosgaleriaepk/image00021.jpeg" alt="ALEHNA - Cantante de Pop Rock Latino" class="bio-portrait-img" loading="lazy" decoding="async">
                     <div class="bio-portrait-overlay">
                         <p class="bio-quote">"La fuerza vocal y la sensibilidad lírica unidas en una experiencia escénica envolvente."</p>
                         <span class="bio-quote-author">ALEHNA · ARTISTA POP ROCK</span>
@@ -155,7 +162,7 @@
                         Su trayectoria incluye participación en concursos como <em>Yo Soy Popular</em>, <em>Uceda's Got Talent</em> —donde obtuvo el primer lugar—, <em>Nuevos Talentos Los Santos Food Truck</em> —primer lugar—, <em>Intercolegiados</em> y <strong>A Otro Nivel 2026</strong>.
                     </p>
                     <p class="bio-paragraph">
-                        Además, ha participado en proyectos culturales de la <strong>Gobernación de Cali</strong> y ha abierto conciertos para artistas como <strong>Yeison Jiménez</strong>, <strong>Dyango</strong> y <strong>El Charrito Negro</strong>. Hoy, Alehna enfoca su propuesta en el pop rock, buscando construir una identidad musical auténtica y una música que perdure en el tiempo.
+                        Además, ha participado en proyectos culturales de la <strong>Gobernación de Cali</strong> y ha compartido escenarios y aperturas de conciertos con artistas como <strong>Yeison Jiménez</strong>, <strong>Dyango</strong>, <strong>Jhonny Rivera</strong> y <strong>El Charrito Negro</strong>. Hoy, Alehna enfoca su propuesta en el pop rock, buscando construir una identidad musical auténtica y una música que perdure en el tiempo.
                     </p>
 
                     <div class="bio-tag-list">
@@ -171,7 +178,7 @@
             <!-- CREDENCIALES / ALEHNA EN NÚMEROS -->
             <div class="stats-header">
                 <span class="section-label gold"><i class="fa-solid fa-chart-line"></i> CREDENCIALES & TRAYECTORIA</span>
-                <h3 class="section-title" style="font-size: 2rem;">ALEHNA en <em>Números</em></h3>
+                <h3 class="section-title" style="font-size: clamp(1.6rem, 4.5vw, 2.2rem);">ALEHNA en <em>Números</em></h3>
                 <div class="section-underline center"></div>
             </div>
 
@@ -189,7 +196,7 @@
                 <div class="stat-card">
                     <div class="stat-number" data-target="3" data-suffix="+">3+</div>
                     <div class="stat-label">Grandes Artistas</div>
-                    <div class="stat-sublabel">Escenarios junto a Dyango, Yeison Jiménez y más</div>
+                    <div class="stat-sublabel">Escenarios junto a Dyango, Yeison Jiménez, Jhonny Rivera y El Charrito Negro</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number primary-color" data-target="2">2</div>
@@ -210,9 +217,11 @@
          ═══════════════════════════════════════════════════════ -->
     <section id="sec-concepto" class="epk-section">
         <div class="section-container">
-            <span class="section-label"><i class="fa-solid fa-compass"></i> PROPUESTA & VISIÓN</span>
-            <h2 class="section-title">Concepto <em>Artístico</em></h2>
-            <div class="section-underline"></div>
+            <div class="section-header-wrap">
+                <span class="section-label"><i class="fa-solid fa-compass"></i> PROPUESTA & VISIÓN</span>
+                <h2 class="section-title">Concepto <em>Artístico</em></h2>
+                <div class="section-underline"></div>
+            </div>
 
             <div class="concepto-box">
                 <p class="concepto-p">
@@ -236,9 +245,11 @@
          ═══════════════════════════════════════════════════════ -->
     <section id="sec-genero" class="epk-section">
         <div class="section-container">
-            <span class="section-label"><i class="fa-solid fa-sliders"></i> IDENTIDAD SONORA</span>
-            <h2 class="section-title">Género & <em>Sonido</em></h2>
-            <div class="section-underline"></div>
+            <div class="section-header-wrap">
+                <span class="section-label"><i class="fa-solid fa-sliders"></i> IDENTIDAD SONORA</span>
+                <h2 class="section-title">Género & <em>Sonido</em></h2>
+                <div class="section-underline"></div>
+            </div>
 
             <div class="sound-hero-card">
                 <h3 class="sound-hero-title">POP ROCK</h3>
@@ -281,7 +292,7 @@
          ═══════════════════════════════════════════════════════ -->
     <section id="sec-escenarios" class="epk-section">
         <div class="escenarios-bg">
-            <img src="../fotosgaleriaepk/image00004.jpeg" alt="ALEHNA en Concierto Masivo">
+            <img src="../fotosgaleriaepk/image00004.jpeg" alt="ALEHNA en Concierto Masivo" loading="lazy" decoding="async">
         </div>
         <div class="escenarios-overlay"></div>
 
@@ -321,9 +332,11 @@
          ═══════════════════════════════════════════════════════ -->
     <section id="sec-internacional" class="epk-section">
         <div class="section-container">
-            <span class="section-label"><i class="fa-solid fa-earth-americas"></i> ALCANCE GLOBAL</span>
-            <h2 class="section-title">Presencia <em>Internacional</em></h2>
-            <div class="section-underline"></div>
+            <div class="section-header-wrap">
+                <span class="section-label"><i class="fa-solid fa-earth-americas"></i> ALCANCE GLOBAL</span>
+                <h2 class="section-title">Presencia <em>Internacional</em></h2>
+                <div class="section-underline"></div>
+            </div>
 
             <div class="international-card">
                 <div class="intl-countries-strip">
@@ -372,12 +385,12 @@
                         </defs>
                         <rect width="900" height="360" fill="url(#grid)" />
 
-                        <!-- World Outlines (Simplified stylized contours) -->
+                        <!-- World Outlines -->
                         <path d="M 120 70 Q 180 60 220 90 T 260 140 T 240 180 T 260 210 T 280 230" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="4 4" />
                         <path d="M 280 230 Q 340 250 350 290 T 320 340 T 290 350 T 270 280 Z" fill="rgba(197, 125, 132, 0.08)" stroke="rgba(197, 125, 132, 0.3)" stroke-width="1.5" />
                         <path d="M 460 70 Q 520 60 550 90 T 560 130 T 490 140 Z" fill="rgba(212, 175, 55, 0.08)" stroke="rgba(212, 175, 55, 0.3)" stroke-width="1.5" />
 
-                        <!-- Connection Arcs from Colombia (Base) -->
+                        <!-- Connection Arcs from Colombia -->
                         <path d="M 285 240 Q 380 140 510 105" fill="none" stroke="var(--gold)" stroke-width="2" stroke-dasharray="6 4" opacity="0.8"/>
                         <path d="M 285 240 Q 250 200 235 180" fill="none" stroke="var(--primary)" stroke-width="2" stroke-dasharray="4 4" opacity="0.8"/>
                         <path d="M 285 240 Q 275 260 270 275" fill="none" stroke="var(--primary)" stroke-width="2" stroke-dasharray="4 4" opacity="0.8"/>
@@ -414,9 +427,11 @@
          ═══════════════════════════════════════════════════════ -->
     <section id="sec-artistas" class="epk-section">
         <div class="section-container">
-            <span class="section-label"><i class="fa-solid fa-handshake"></i> APERTURA DE CONCIERTOS & ESCENARIOS COMPARTIDOS</span>
-            <h2 class="section-title">Artistas con los que ha <em>Compartido Escenario</em></h2>
-            <div class="section-underline"></div>
+            <div class="section-header-wrap">
+                <span class="section-label"><i class="fa-solid fa-handshake"></i> APERTURA DE CONCIERTOS & ESCENARIOS COMPARTIDOS</span>
+                <h2 class="section-title">Artistas con los que ha <em>Compartido Escenario</em></h2>
+                <div class="section-underline"></div>
+            </div>
 
             <div class="artistas-lead-box">
                 <p>Apertura de conciertos y participación en magnos eventos junto a grandes figuras de la música.</p>
@@ -428,7 +443,7 @@
                 <article class="artista-card">
                     <div class="artista-img-wrap">
                         <span class="artista-tag">GIRA INTERNACIONAL</span>
-                        <img src="fotosconartistas y publicidad/dyango.png" alt="Afiche Dyango Tour Cali con artista invitada ALEHNA en Arena USC">
+                        <img src="fotosconartistas y publicidad/dyango.png" alt="Afiche Dyango Tour Cali con artista invitada ALEHNA en Arena USC" loading="lazy" decoding="async">
                     </div>
                     <div class="artista-info">
                         <span class="artista-role">Artista Invitada / Apertura</span>
@@ -443,7 +458,7 @@
                 <article class="artista-card">
                     <div class="artista-img-wrap">
                         <span class="artista-tag">CONCIERTO DE ESTADIO</span>
-                        <img src="fotosconartistas y publicidad/AFICHE1_ALEHNA.png" alt="Afiche Concierto Yeison Jiménez con artista invitada ALEHNA en Estadio Cacique">
+                        <img src="fotosconartistas y publicidad/AFICHE1_ALEHNA.png" alt="Afiche Concierto Yeison Jiménez con artista invitada ALEHNA en Estadio Cacique" loading="lazy" decoding="async">
                     </div>
                     <div class="artista-info">
                         <span class="artista-role">Artista Invitada / Escenario Masivo</span>
@@ -454,17 +469,17 @@
                     </div>
                 </article>
 
-                <!-- EL CHARRITO NEGRO -->
+                <!-- JHONNY RIVERA -->
                 <article class="artista-card">
                     <div class="artista-img-wrap">
                         <span class="artista-tag">GRANDES ESCENARIOS</span>
-                        <img src="fotosconartistas y publicidad/AFICHE2_ALEHNA.png" alt="Alehna con reconocidos artistas de la industria">
+                        <img src="fotosconartistas y publicidad/AFICHE2_ALEHNA.png" alt="Alehna con Jhonny Rivera" loading="lazy" decoding="async">
                     </div>
                     <div class="artista-info">
-                        <span class="artista-role">Apertura de Concierto</span>
-                        <h3 class="artista-name">EL CHARRITO NEGRO</h3>
+                        <span class="artista-role">Escenarios Compartidos</span>
+                        <h3 class="artista-name">JHONNY RIVERA</h3>
                         <p class="artista-desc">
-                            Apertura de presentaciones en vivo para el reconocido ícono de la música popular colombiana, sumando además colaboraciones y encuentros con figuras de primer orden.
+                            Encuentros y momentos compartidos junto al reconocido cantautor <strong>Jhonny Rivera</strong>, sumando además presentaciones y aperturas de conciertos para <strong>El Charrito Negro</strong>.
                         </p>
                     </div>
                 </article>
@@ -477,9 +492,11 @@
          ═══════════════════════════════════════════════════════ -->
     <section id="sec-trayectoria" class="epk-section">
         <div class="section-container">
-            <span class="section-label"><i class="fa-solid fa-trophy"></i> LOGROS DESTACADOS</span>
-            <h2 class="section-title">Trayectoria & <em>Reconocimientos</em></h2>
-            <div class="section-underline"></div>
+            <div class="section-header-wrap">
+                <span class="section-label"><i class="fa-solid fa-trophy"></i> LOGROS DESTACADOS</span>
+                <h2 class="section-title">Trayectoria & <em>Reconocimientos</em></h2>
+                <div class="section-underline"></div>
+            </div>
 
             <p class="section-lead">
                 Una carrera construida a base de disciplina vocal, victorias en certámenes de talento y proyección en las principales plataformas televisivas de Colombia.
@@ -580,7 +597,7 @@
                 <div class="video-tv-header">
                     <span class="video-tv-badge"><i class="fa-solid fa-tv"></i> CARACOL TELEVISIÓN · AUDICIÓN 2026</span>
                     <h2 class="section-title">ALEHNA en <em>A Otro Nivel</em></h2>
-                    <p class="section-lead" style="margin: 0 auto;">
+                    <p class="section-lead" style="margin: 0 auto 20px;">
                         Interpretación en vivo del clásico del rock: <strong>"The Final Countdown"</strong>
                     </p>
                 </div>
@@ -599,7 +616,7 @@
                 <!-- FALLBACK VISUAL ELEGANTE EXCLUSIVO PARA PDF / PRINT -->
                 <div class="video-print-fallback">
                     <div class="video-print-preview">
-                        <img src="https://img.youtube.com/vi/EZBPmalH4M8/hqdefault.jpg" alt="Video Audición A Otro Nivel ALEHNA">
+                        <img src="https://img.youtube.com/vi/EZBPmalH4M8/hqdefault.jpg" alt="Video Audición A Otro Nivel ALEHNA" loading="lazy" decoding="async">
                         <div class="video-print-overlay">
                             <span class="video-print-play-badge"><i class="fa-solid fa-play"></i> VER PRESENTACIÓN TELEVISIVA</span>
                             <span class="video-print-url">https://youtu.be/EZBPmalH4M8</span>
@@ -623,16 +640,18 @@
          ═══════════════════════════════════════════════════════ -->
     <section id="sec-musica" class="epk-section">
         <div class="section-container">
-            <span class="section-label"><i class="fa-solid fa-music"></i> DISCOGRAFÍA OFICIAL</span>
-            <h2 class="section-title">Música & <em>Lanzamientos</em></h2>
-            <div class="section-underline"></div>
+            <div class="section-header-wrap">
+                <span class="section-label"><i class="fa-solid fa-music"></i> DISCOGRAFÍA OFICIAL</span>
+                <h2 class="section-title">Música & <em>Lanzamientos</em></h2>
+                <div class="section-underline"></div>
+            </div>
 
             <div class="releases-grid">
                 <!-- SENCILLO 1: ALMAS -->
                 <article class="release-card">
                     <div class="release-cover-wrap">
                         <span class="release-badge">POP ROCK / ALTERNATIVO</span>
-                        <img src="../almas/Portada2.jpg.jpeg" alt="Portada de ALMAS feat. Sur Tónica">
+                        <img src="../almas/Portada2.jpg.jpeg" alt="Portada de ALMAS feat. Sur Tónica" loading="lazy" decoding="async">
                     </div>
                     <div class="release-body">
                         <h3 class="release-title">ALMAS</h3>
@@ -658,7 +677,7 @@
                 <article class="release-card">
                     <div class="release-cover-wrap">
                         <span class="release-badge">BALADA POP ROCK</span>
-                        <img src="../karma-portada/karma.jpg" alt="Portada de EL KARMA - ALEHNA">
+                        <img src="../karma-portada/karma.jpg" alt="Portada de EL KARMA - ALEHNA" loading="lazy" decoding="async">
                     </div>
                     <div class="release-body">
                         <h3 class="release-title">EL KARMA</h3>
@@ -688,9 +707,11 @@
          ═══════════════════════════════════════════════════════ -->
     <section id="sec-galeria" class="epk-section">
         <div class="section-container">
-            <span class="section-label"><i class="fa-solid fa-camera"></i> PORTAFOLIO VISUAL</span>
-            <h2 class="section-title">Momentos de <em>Escenario & Editorial</em></h2>
-            <div class="section-underline"></div>
+            <div class="section-header-wrap">
+                <span class="section-label"><i class="fa-solid fa-camera"></i> PORTAFOLIO VISUAL</span>
+                <h2 class="section-title">Momentos de <em>Escenario & Editorial</em></h2>
+                <div class="section-underline"></div>
+            </div>
 
             <p class="section-lead">
                 Imágenes oficiales de alta resolución para prensa, medios de comunicación, festivales y material promocional.
@@ -699,7 +720,7 @@
             <div class="gallery-grid">
                 <!-- 1. Retrato Principal Editorial -->
                 <div class="gallery-item tall" data-caption="ALEHNA — Retrato Editorial Oficial">
-                    <img src="../fotosgaleriaepk/image00021.jpeg" alt="ALEHNA Retrato Editorial">
+                    <img src="../fotosgaleriaepk/image00021.jpeg" alt="ALEHNA Retrato Editorial" loading="lazy" decoding="async">
                     <div class="gallery-overlay">
                         <span><i class="fa-solid fa-expand"></i> Retrato Editorial</span>
                     </div>
@@ -707,7 +728,7 @@
 
                 <!-- 2. En Vivo Bajo la Luz -->
                 <div class="gallery-item" data-caption="ALEHNA — Concierto en Vivo bajo el reflector">
-                    <img src="../fotosgaleriaepk/image00004.jpeg" alt="ALEHNA en Vivo bajo los reflectores">
+                    <img src="../fotosgaleriaepk/image00004.jpeg" alt="ALEHNA en Vivo bajo los reflectores" loading="lazy" decoding="async">
                     <div class="gallery-overlay">
                         <span><i class="fa-solid fa-expand"></i> Live Spotlight</span>
                     </div>
@@ -715,7 +736,7 @@
 
                 <!-- 3. Banda de Rock en Vivo -->
                 <div class="gallery-item" data-caption="ALEHNA — Concierto Rock con banda en directo">
-                    <img src="../fotosgaleriaepk/image00012.jpeg" alt="ALEHNA en Concierto Rock con Banda">
+                    <img src="../fotosgaleriaepk/image00012.jpeg" alt="ALEHNA en Concierto Rock con Banda" loading="lazy" decoding="async">
                     <div class="gallery-overlay">
                         <span><i class="fa-solid fa-expand"></i> Rock Show Live</span>
                     </div>
@@ -723,7 +744,7 @@
 
                 <!-- 4. Retrato Studio Glam -->
                 <div class="gallery-item" data-caption="ALEHNA — Sesión Fotográfica de Estudio">
-                    <img src="../fotosgaleriaepk/image00016.jpeg" alt="ALEHNA Sesión de Estudio">
+                    <img src="../fotosgaleriaepk/image00016.jpeg" alt="ALEHNA Sesión de Estudio" loading="lazy" decoding="async">
                     <div class="gallery-overlay">
                         <span><i class="fa-solid fa-expand"></i> Studio Session</span>
                     </div>
@@ -731,7 +752,7 @@
 
                 <!-- 5. Performance Escénica Masiva -->
                 <div class="gallery-item" data-caption="ALEHNA — Voz y presencia en gran escenario">
-                    <img src="../fotosgaleriaepk/image00001.jpeg" alt="ALEHNA en Escenario Masivo">
+                    <img src="../fotosgaleriaepk/image00001.jpeg" alt="ALEHNA en Escenario Masivo" loading="lazy" decoding="async">
                     <div class="gallery-overlay">
                         <span><i class="fa-solid fa-expand"></i> Gran Escenario</span>
                     </div>
@@ -739,7 +760,7 @@
 
                 <!-- 6. Rock Performance con Batería -->
                 <div class="gallery-item tall" data-caption="ALEHNA — Energía en vivo con batería y full band">
-                    <img src="../fotosgaleriaepk/image00013.jpeg" alt="ALEHNA Performance Rock en Vivo">
+                    <img src="../fotosgaleriaepk/image00013.jpeg" alt="ALEHNA Performance Rock en Vivo" loading="lazy" decoding="async">
                     <div class="gallery-overlay">
                         <span><i class="fa-solid fa-expand"></i> Rock Energy Live</span>
                     </div>
@@ -747,7 +768,7 @@
 
                 <!-- 7. Close-up Studio Expresión -->
                 <div class="gallery-item" data-caption="ALEHNA — Expresión y carisma">
-                    <img src="../fotosgaleriaepk/image00014.jpeg" alt="ALEHNA Sonrisa y Carisma">
+                    <img src="../fotosgaleriaepk/image00014.jpeg" alt="ALEHNA Sonrisa y Carisma" loading="lazy" decoding="async">
                     <div class="gallery-overlay">
                         <span><i class="fa-solid fa-expand"></i> Close-Up</span>
                     </div>
@@ -755,7 +776,7 @@
 
                 <!-- 8. Silueta Escénica Cinematográfica -->
                 <div class="gallery-item" data-caption="ALEHNA — Silueta Cinematográfica en Escenario">
-                    <img src="../fotosgaleriaepk/image00011.jpeg" alt="ALEHNA Silueta Escénica">
+                    <img src="../fotosgaleriaepk/image00011.jpeg" alt="ALEHNA Silueta Escénica" loading="lazy" decoding="async">
                     <div class="gallery-overlay">
                         <span><i class="fa-solid fa-expand"></i> Cinematic Live</span>
                     </div>
@@ -763,7 +784,7 @@
 
                 <!-- 9. Perfil Artístico -->
                 <div class="gallery-item" data-caption="ALEHNA — Perfil Artístico Profesional">
-                    <img src="../fotosgaleriaepk/image00010.jpeg" alt="ALEHNA Perfil de Estudio">
+                    <img src="../fotosgaleriaepk/image00010.jpeg" alt="ALEHNA Perfil de Estudio" loading="lazy" decoding="async">
                     <div class="gallery-overlay">
                         <span><i class="fa-solid fa-expand"></i> Perfil Artístico</span>
                     </div>
@@ -771,7 +792,7 @@
 
                 <!-- 10. Concierto en Directo -->
                 <div class="gallery-item" data-caption="ALEHNA — Cantando en directo">
-                    <img src="../fotosgaleriaepk/image00003.jpeg" alt="ALEHNA Cantando en Vivo">
+                    <img src="../fotosgaleriaepk/image00003.jpeg" alt="ALEHNA Cantando en Vivo" loading="lazy" decoding="async">
                     <div class="gallery-overlay">
                         <span><i class="fa-solid fa-expand"></i> Live Vocal</span>
                     </div>
@@ -779,7 +800,7 @@
 
                 <!-- 11. Retrato Vinotinto -->
                 <div class="gallery-item" data-caption="ALEHNA — Editorial Tono Vinotinto">
-                    <img src="../imagenesvinotinto/vinotinto1.jpeg" alt="ALEHNA Editorial Vinotinto">
+                    <img src="../imagenesvinotinto/vinotinto1.jpeg" alt="ALEHNA Editorial Vinotinto" loading="lazy" decoding="async">
                     <div class="gallery-overlay">
                         <span><i class="fa-solid fa-expand"></i> Editorial Vinotinto</span>
                     </div>
@@ -787,7 +808,7 @@
 
                 <!-- 12. Retrato Glamour Rock -->
                 <div class="gallery-item" data-caption="ALEHNA — Identidad Pop Rock">
-                    <img src="../fotosgaleriaepk/image00023.jpeg" alt="ALEHNA Identidad Pop Rock">
+                    <img src="../fotosgaleriaepk/image00023.jpeg" alt="ALEHNA Identidad Pop Rock" loading="lazy" decoding="async">
                     <div class="gallery-overlay">
                         <span><i class="fa-solid fa-expand"></i> Pop Rock Identity</span>
                     </div>
@@ -807,9 +828,11 @@
          ═══════════════════════════════════════════════════════ -->
     <section id="sec-booking" class="epk-section">
         <div class="section-container">
-            <span class="section-label gold"><i class="fa-solid fa-handshake-angle"></i> PRODUCCIÓN & BOOKING</span>
-            <h2 class="section-title">Contrataciones & <em>Ficha Técnica</em></h2>
-            <div class="section-underline"></div>
+            <div class="section-header-wrap">
+                <span class="section-label gold"><i class="fa-solid fa-handshake-angle"></i> PRODUCCIÓN & BOOKING</span>
+                <h2 class="section-title">Contrataciones & <em>Ficha Técnica</em></h2>
+                <div class="section-underline"></div>
+            </div>
 
             <div class="booking-box">
                 <div class="booking-specs-grid">
@@ -862,9 +885,11 @@
          ═══════════════════════════════════════════════════════ -->
     <section id="sec-contacto" class="epk-section">
         <div class="section-container">
-            <span class="section-label"><i class="fa-solid fa-address-book"></i> CONTACTO DIRECTO</span>
-            <h2 class="section-title">Canales <em>Oficiales</em></h2>
-            <div class="section-underline"></div>
+            <div class="section-header-wrap">
+                <span class="section-label"><i class="fa-solid fa-address-book"></i> CONTACTO DIRECTO</span>
+                <h2 class="section-title">Canales <em>Oficiales</em></h2>
+                <div class="section-underline"></div>
+            </div>
 
             <div class="contact-channels-grid">
                 <!-- WhatsApp Booking -->
