@@ -2,2228 +2,942 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALEHNA — Electronic Press Kit 2026</title>
-    <meta name="description" content="EPK Oficial de ALEHNA — Cantante y compositora colombiana. Cali, Colombia.">
-    <meta property="og:title" content="ALEHNA | EPK 2026">
-    <meta property="og:description" content="Cantante y compositora colombiana. Descubre la propuesta artística de ALEHNA.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@400;600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>ALEHNA — Pop Rock Latino | EPK Oficial 2026</title>
+    
+    <!-- SEO & Metadata -->
+    <meta name="description" content="Electronic Press Kit (EPK) oficial de ALEHNA, cantante colombiana de Pop Rock Latino. Biografía, trayectoria en escenarios de 4.000+ personas, A Otro Nivel 2026, festivales internacionales, lanzamientos y contratación.">
+    <meta name="keywords" content="ALEHNA, cantante pop rock, pop rock latino, balada pop rock, rock melodico, Alehna Colombia, cantante Cali, A Otro Nivel 2026, The Final Countdown Alehna, Yeison Jimenez Alehna, Dyango Cali Alehna, EPK Alehna, booking Alehna">
+    <meta name="author" content="ALEHNA Management">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="ALEHNA — Pop Rock Latino | EPK Oficial 2026">
+    <meta property="og:description" content="Electronic Press Kit oficial de ALEHNA. Una nueva voz del pop rock latino con trayectoria comprobable en grandes escenarios, televisión y festivales internacionales.">
+    <meta property="og:image" content="../fotosgaleriaepk/image00021.jpeg">
+    <meta property="og:url" content="https://alehna.com/epk">
+    <meta property="og:site_name" content="ALEHNA">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ALEHNA — Pop Rock Latino | EPK Oficial 2026">
+    <meta name="twitter:description" content="Descubre el EPK oficial de ALEHNA: Pop Rock Latino, baladas emotivas y grandes escenarios.">
+    <meta name="twitter:image" content="../fotosgaleriaepk/image00021.jpeg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="../fotosgaleriaepk/image00021.jpeg">
+    
+    <!-- Icons & Stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="epk.css">
-    <style>
-/* ═══════════════════════════════════════════════════════
-   ALEHNA — EPK 2026 — CSS Mobile-First
-   ═══════════════════════════════════════════════════════ */
-
-:root {
-    --beige:      #F9F6F0;
-    --beige-dark: #EAE3D5;
-    --cafe:       #A8866E;
-    --vino:       #C57D84;
-    --dark:       #4A3E38;
-    --deep:       #2A1E1A;
-    --white:      #FFFFFF;
-    --black:      #0f0a0c;
-
-    --ff-display: 'Playfair Display', Georgia, serif;
-    --ff-sans:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --ff-hand:    'Caveat', cursive;
-    --ff-marker:  'Permanent Marker', Impact, sans-serif;
-}
-
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-    font-family: var(--ff-sans);
-    background: var(--deep);
-    color: var(--dark);
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-}
-img { display: block; max-width: 100%; height: auto; }
-a { text-decoration: none; color: inherit; }
-
-/* PDF BUTTON */
-#pdf-download-btn {
-    position: fixed;
-    bottom: 16px;
-    right: 16px;
-    z-index: 9000;
-    background: var(--vino);
-    color: white;
-    border: none;
-    border-radius: 50px;
-    padding: 10px 16px;
-    font-family: var(--ff-sans);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.3px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    cursor: pointer;
-    box-shadow: 0 4px 16px rgba(197,125,132,0.55);
-    transition: all 0.3s ease;
-    max-width: calc(100vw - 32px);
-}
-#pdf-download-btn:hover {
-    background: var(--cafe);
-    transform: translateY(-2px);
-}
-#pdf-download-btn.hidden { display: none !important; }
-
-/* SECTION BASE */
-.epk-section {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-}
-
-.section-label {
-    font-family: var(--ff-sans);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--cafe);
-    margin-bottom: 12px;
-    display: block;
-}
-.section-label.light { color: rgba(255,255,255,0.55); }
-
-.section-title-text {
-    font-family: var(--ff-display);
-    font-size: 2.4rem;
-    font-weight: 700;
-    line-height: 1.1;
-    color: var(--dark);
-    margin-bottom: 16px;
-}
-.section-title-text em { font-style: italic; color: var(--vino); }
-.section-title-text.light { color: white; }
-.section-title-text.light em { color: rgba(197,125,132,0.9); }
-
-.title-underline {
-    width: 50px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--vino), var(--cafe));
-    border-radius: 2px;
-    margin-bottom: 32px;
-}
-.title-underline.light {
-    background: linear-gradient(90deg, var(--vino), rgba(255,255,255,0.4));
-}
-
-.section-bg-texture {
-    position: absolute;
-    inset: 0;
-    background-color: var(--beige);
-    background-image:
-        radial-gradient(circle at 20% 20%, rgba(197,125,132,0.06) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(168,134,110,0.06) 0%, transparent 50%);
-    z-index: 0;
-}
-.section-bg-texture.light-texture { background-color: var(--white); }
-
-/* SECCIÓN 1 — PORTADA */
-#sec-0 {
-    min-height: 100svh;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 0;
-    position: relative;
-    overflow: hidden;
-}
-
-.cover-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-}
-
-.cover-img {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center top;
-    opacity: 0;
-    animation: coverSlide 20s infinite;
-}
-#cover-img-1 { animation-delay: 0s; }
-#cover-img-2 { animation-delay: 5s; }
-#cover-img-3 { animation-delay: 10s; }
-#cover-img-4 { animation-delay: 15s; }
-
-@keyframes coverSlide {
-    0%   { opacity: 0; transform: scale(1.04); }
-    8%   { opacity: 1; transform: scale(1.02); }
-    25%  { opacity: 1; transform: scale(1.0); }
-    33%  { opacity: 0; transform: scale(0.98); }
-    100% { opacity: 0; }
-}
-
-.cover-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(15,10,12,0.30) 0%,
-        rgba(15,10,12,0.02) 25%,
-        rgba(15,10,12,0.10) 55%,
-        rgba(15,10,12,0.82) 75%,
-        rgba(15,10,12,0.97) 100%
-    );
-    z-index: 1;
-}
-
-.cover-grain {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    opacity: 0.03;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    pointer-events: none;
-}
-
-.cover-header {
-    position: relative;
-    z-index: 10;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 18px 16px;
-    width: 100%;
-    gap: 10px;
-}
-
-.cover-tag {
-    font-family: var(--ff-sans);
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.9);
-    background: rgba(0,0,0,0.45);
-    border: 1px solid rgba(255,255,255,0.2);
-    padding: 7px 12px;
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    white-space: nowrap;
-    line-height: 1.4;
-    flex-shrink: 0;
-}
-
-.cover-location {
-    font-family: var(--ff-sans);
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    color: rgba(255,255,255,0.9);
-    background: rgba(0,0,0,0.45);
-    border: 1px solid rgba(255,255,255,0.2);
-    padding: 7px 12px;
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    white-space: nowrap;
-    flex-shrink: 0;
-}
-.cover-location i { color: var(--vino); font-size: 10px; }
-
-.cover-center-spacer {
-    flex: 1;
-    min-height: 80px;
-    pointer-events: none;
-}
-
-.cover-footer-content {
-    position: relative;
-    z-index: 10;
-    width: 100%;
-    padding: 12px 16px 56px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.cover-name {
-    font-family: var(--ff-display);
-    font-size: clamp(2.8rem, 12vw, 6.2rem);
-    font-weight: 900;
-    color: white;
-    letter-spacing: clamp(2px, 1vw, 6px);
-    line-height: 0.95;
-    text-transform: uppercase;
-    text-shadow: 0 4px 24px rgba(0,0,0,0.9), 0 0 50px rgba(197,125,132,0.3);
-    margin-bottom: 6px;
-    animation: nameReveal 1.2s ease both;
-}
-
-@keyframes nameReveal {
-    from { opacity: 0; transform: translateY(16px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-.cover-descriptor {
-    font-family: var(--ff-hand);
-    font-size: clamp(1.1rem, 4vw, 1.5rem);
-    color: var(--beige-dark);
-    letter-spacing: 1.5px;
-    margin-bottom: 10px;
-}
-
-.cover-divider {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-.cover-divider span {
-    width: 36px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--vino));
-}
-.cover-divider span:last-child {
-    background: linear-gradient(90deg, var(--vino), transparent);
-}
-.cover-divider i { color: var(--vino); font-size: 10px; }
-
-.cover-genre {
-    font-family: var(--ff-sans);
-    font-size: 9.5px;
-    font-weight: 600;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.7);
-    margin-bottom: 14px;
-    line-height: 1.5;
-}
-
-.cover-social-strip {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 7px;
-    margin-bottom: 16px;
-}
-
-.cover-social-pill {
-    font-family: var(--ff-sans);
-    font-size: 11px;
-    font-weight: 600;
-    color: rgba(255,255,255,0.85);
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15);
-    padding: 7px 14px;
-    border-radius: 20px;
-    backdrop-filter: blur(6px);
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: all 0.25s ease;
-}
-.cover-social-pill:hover {
-    background: rgba(197,125,132,0.3);
-    border-color: var(--vino);
-    color: white;
-    transform: translateY(-2px);
-}
-
-.cover-scroll-hint {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    color: rgba(255,255,255,0.35);
-    font-family: var(--ff-sans);
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    animation: scrollBounce 2s ease infinite;
-}
-
-@keyframes scrollBounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(5px); }
-}
-
-/* SECCIÓN 2 — BIOGRAFÍA */
-#sec-1 { background: var(--beige); }
-
-.bio-layout {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.bio-image-col {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-}
-
-.bio-photo-frame {
-    position: relative;
-    overflow: hidden;
-    height: 65vw;
-    max-height: 480px;
-    min-height: 280px;
-}
-.bio-photo-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-}
-.bio-photo-accent {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 50%;
-    background: linear-gradient(to top, var(--beige), transparent);
-    pointer-events: none;
-}
-
-.bio-quote-card {
-    background: white;
-    padding: 24px 24px;
-    border-left: 4px solid var(--vino);
-}
-.bio-quote-card i {
-    color: var(--vino);
-    font-size: 20px;
-    margin-bottom: 10px;
-    display: block;
-    opacity: 0.4;
-}
-.bio-quote-card p {
-    font-family: var(--ff-hand);
-    font-size: 18px;
-    line-height: 1.6;
-    color: var(--dark);
-    margin-bottom: 10px;
-}
-.bio-quote-card span {
-    font-family: var(--ff-sans);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: var(--vino);
-    text-transform: uppercase;
-}
-
-.bio-text-col {
-    padding: 32px 24px 40px;
-    background: var(--beige);
-}
-
-.bio-lead {
-    font-family: var(--ff-hand);
-    font-size: 20px;
-    line-height: 1.65;
-    color: var(--dark);
-    margin-bottom: 20px;
-}
-
-.bio-text-col p {
-    font-family: var(--ff-sans);
-    font-size: 14px;
-    line-height: 1.85;
-    color: var(--dark);
-    margin-bottom: 14px;
-    opacity: 0.85;
-}
-
-.bio-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-    margin-top: 24px;
-}
-.bio-tag {
-    font-family: var(--ff-sans);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--cafe);
-    border: 1.5px solid var(--cafe);
-    padding: 4px 12px;
-    border-radius: 20px;
-    transition: all 0.25s;
-}
-.bio-tag:hover { background: var(--cafe); color: white; }
-
-/* SECCIÓN 3 — IDENTIDAD */
-#sec-2 { position: relative; }
-
-.identity-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-}
-.identity-bg img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-}
-.identity-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(15,10,12,0.88) 0%, rgba(42,30,26,0.93) 100%);
-}
-
-.identity-content {
-    position: relative;
-    z-index: 1;
-    padding: 48px 24px 48px;
-}
-
-.identity-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 14px;
-    margin-bottom: 36px;
-}
-
-.identity-card {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.12);
-    padding: 22px 20px;
-    transition: all 0.35s ease;
-}
-.identity-card:hover {
-    background: rgba(197,125,132,0.12);
-    border-color: rgba(197,125,132,0.3);
-}
-.id-icon {
-    width: 40px; height: 40px;
-    background: rgba(197,125,132,0.2);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 17px;
-    color: var(--vino);
-    margin-bottom: 14px;
-}
-.identity-card h3 {
-    font-family: var(--ff-display);
-    font-size: 16px;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 8px;
-}
-.identity-card p {
-    font-family: var(--ff-sans);
-    font-size: 13px;
-    line-height: 1.65;
-    color: rgba(255,255,255,0.65);
-}
-
-/* SECCIÓN 4 — MÚSICA */
-#sec-3 {
-    background: white;
-    padding: 48px 24px 48px;
-}
-
-.music-content {
-    max-width: 1100px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-}
-
-.releases-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
-    margin-bottom: 36px;
-}
-
-.release-card {
-    background: var(--beige);
-    border: 1.5px solid var(--beige-dark, #EAE3D5);
-    padding: 22px;
-    position: relative;
-    transition: all 0.35s ease;
-}
-.release-card:hover {
-    border-color: var(--vino);
-    box-shadow: 0 12px 32px rgba(197,125,132,0.12);
-}
-.featured-release {
-    background: linear-gradient(135deg, var(--beige) 0%, white 100%);
-    border-color: var(--vino);
-}
-
-.release-badge {
-    position: absolute;
-    top: -12px; left: 20px;
-    background: var(--vino);
-    color: white;
-    font-family: var(--ff-sans);
-    font-size: 9px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 3px 12px;
-    border-radius: 20px;
-}
-
-.release-cover-wrap {
-    position: relative;
-    aspect-ratio: 1;
-    overflow: hidden;
-    margin-bottom: 18px;
-    max-width: 280px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.release-cover-wrap img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-}
-.release-card:hover .release-cover-wrap img { transform: scale(1.04); }
-.release-cover-shine {
-    position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 50%);
-    pointer-events: none;
-}
-
-.release-info h3 {
-    font-family: var(--ff-marker);
-    font-size: 26px;
-    color: var(--dark);
-    margin-bottom: 4px;
-    text-align: center;
-}
-.release-feat {
-    font-family: var(--ff-sans);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    color: var(--cafe);
-    text-transform: uppercase;
-    margin-bottom: 12px;
-    text-align: center;
-}
-.release-desc {
-    font-family: var(--ff-hand);
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--dark);
-    opacity: 0.75;
-    margin-bottom: 18px;
-}
-
-.release-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-    justify-content: center;
-}
-
-.platform-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    padding: 7px 14px;
-    border-radius: 25px;
-    font-family: var(--ff-sans);
-    font-size: 11px;
-    font-weight: 700;
-    transition: all 0.25s ease;
-    border: 1.5px solid transparent;
-}
-.platform-btn.spotify  { background: #1DB954; color: white; }
-.platform-btn.spotify:hover  { background: white; color: #1DB954; border-color: #1DB954; }
-.platform-btn.apple    { background: var(--dark); color: white; }
-.platform-btn.apple:hover    { background: white; color: var(--dark); border-color: var(--dark); }
-.platform-btn.youtube  { background: #FF0000; color: white; }
-.platform-btn.youtube:hover  { background: white; color: #FF0000; border-color: #FF0000; }
-
-.music-cta {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    padding-top: 24px;
-    border-top: 1px solid var(--beige-dark, #EAE3D5);
-    text-align: center;
-}
-.music-cta p {
-    font-family: var(--ff-sans);
-    font-size: 13px;
-    color: var(--cafe);
-}
-.music-cta-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    background: #1DB954;
-    color: white;
-    padding: 10px 22px;
-    border-radius: 25px;
-    font-family: var(--ff-sans);
-    font-size: 13px;
-    font-weight: 700;
-    transition: all 0.25s ease;
-}
-.music-cta-btn:hover { background: #18a34a; }
-
-/* SECCIÓN 5 — VIDEOS */
-#sec-4 { position: relative; }
-
-.video-bg {
-    position: absolute; inset: 0; z-index: 0;
-}
-.video-bg img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    filter: blur(4px) saturate(0.5);
-}
-.video-overlay-dark {
-    position: absolute; inset: 0;
-    background: linear-gradient(to bottom, rgba(15,10,12,0.85), rgba(42,30,26,0.95));
-}
-
-.video-content {
-    position: relative;
-    z-index: 1;
-    padding: 48px 20px 48px;
-}
-
-.videos-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    margin-bottom: 32px;
-}
-
-.video-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    overflow: hidden;
-    transition: all 0.35s ease;
-}
-.video-card:hover {
-    border-color: rgba(197,125,132,0.35);
-    transform: translateY(-3px);
-}
-
-.video-embed-wrap {
-    position: relative;
-    width: 100%;
-    padding-top: 56.25%;
-    background: #000;
-}
-.video-embed-wrap iframe {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    border: none;
-}
-
-/* PDF thumbnail — oculto en web, visible solo en print */
-.video-pdf-thumb {
-    display: none;
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    text-decoration: none;
-    color: white;
-}
-.video-pdf-thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-.video-pdf-play {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0,0,0,0.45);
-    gap: 10px;
-    transition: background 0.25s;
-}
-.video-pdf-play i { font-size: 3rem; color: #FF0000; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.7)); }
-.video-pdf-play span {
-    font-family: var(--ff-sans);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: white;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.8);
-}
-
-.video-info {
-    padding: 14px 18px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-.video-info h3 {
-    font-family: var(--ff-marker);
-    font-size: 17px;
-    color: white;
-    flex: 1;
-}
-.video-type {
-    font-family: var(--ff-sans);
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
-    width: 100%;
-}
-.video-ext-link {
-    font-family: var(--ff-sans);
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--vino);
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    transition: color 0.25s;
-}
-.video-ext-link:hover { color: white; }
-
-.channel-cta { text-align: center; }
-.channel-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: #FF0000;
-    color: white;
-    padding: 12px 26px;
-    font-family: var(--ff-sans);
-    font-size: 13px;
-    font-weight: 700;
-    transition: all 0.25s ease;
-}
-.channel-btn:hover { background: #cc0000; }
-
-/* SECCIÓN 6 — GALERÍA */
-#sec-5 { background: var(--beige); }
-
-.gallery-content {
-    position: relative;
-    z-index: 1;
-    padding: 48px 24px 24px;
-}
-
-.gallery-masonry {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 4px;
-    padding: 0 12px 40px;
-}
-
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    aspect-ratio: 1;
-    background: var(--beige-dark);
-}
-.gallery-item.gallery-tall { aspect-ratio: 1; }
-.gallery-item.gallery-wide { grid-column: span 2; aspect-ratio: 2/1; }
-
-.gallery-item img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    object-position: top center;
-    transition: transform 0.6s ease;
-}
-.gallery-item:hover img { transform: scale(1.05); }
-
-.gallery-hover-overlay {
-    position: absolute; inset: 0;
-    background: rgba(197,125,132,0.3);
-    display: flex; align-items: center; justify-content: center;
-    opacity: 0;
-    transition: opacity 0.25s ease;
-}
-.gallery-hover-overlay i {
-    color: white;
-    font-size: 24px;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
-}
-.gallery-item:hover .gallery-hover-overlay { opacity: 1; }
-
-/* LIGHTBOX */
-.lightbox {
-    display: none;
-    position: fixed; inset: 0;
-    z-index: 99999;
-    background: rgba(0,0,0,0.95);
-    align-items: center; justify-content: center;
-    cursor: pointer;
-    padding: 16px;
-}
-.lightbox.active { display: flex; }
-.lightbox img {
-    max-width: 100%;
-    max-height: 90vh;
-    object-fit: contain;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.8);
-}
-.lightbox-close {
-    position: fixed;
-    top: 16px; right: 16px;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
-    color: white;
-    width: 40px; height: 40px;
-    border-radius: 50%;
-    font-size: 16px;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    transition: background 0.25s;
-    z-index: 99999;
-}
-.lightbox-close:hover { background: rgba(197,125,132,0.5); }
-
-/* SECCIÓN 7 — PRESENCIA DIGITAL */
-#sec-6 { position: relative; }
-
-.digital-bg {
-    position: absolute; inset: 0; z-index: 0;
-}
-.digital-bg img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    object-position: top center;
-    filter: saturate(0.3) brightness(0.25);
-}
-.digital-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(42,30,26,0.97), rgba(74,62,56,0.97));
-}
-
-.digital-content {
-    position: relative; z-index: 1;
-    padding: 48px 20px 48px;
-}
-
-.digital-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-}
-
-.digital-card {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 14px 16px;
-    transition: all 0.3s ease;
-    color: white;
-}
-.digital-card:hover {
-    background: rgba(255,255,255,0.12);
-    border-color: rgba(255,255,255,0.22);
-    transform: translateX(5px);
-    color: white;
-}
-
-.digital-icon {
-    width: 40px; height: 40px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 18px;
-    flex-shrink: 0;
-}
-
-.spotify-card   .digital-icon { background: #1DB954; color: white; }
-.apple-card     .digital-icon { background: #333; color: white; }
-.youtube-card   .digital-icon { background: #FF0000; color: white; }
-.instagram-card .digital-icon { background: linear-gradient(45deg,#833ab4,#fd1d1d,#fcb045); color: white; }
-.tiktok-card    .digital-icon { background: #010101; color: white; border: 1px solid rgba(255,255,255,0.1); }
-.facebook-card  .digital-icon { background: #1877F2; color: white; }
-.whatsapp-card  .digital-icon { background: #25D366; color: white; }
-.website-card   .digital-icon { background: var(--cafe); color: white; }
-
-.digital-info { flex: 1; min-width: 0; }
-.digital-info h3 {
-    font-family: var(--ff-sans);
-    font-size: 14px;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 2px;
-}
-.digital-info p {
-    font-family: var(--ff-sans);
-    font-size: 11px;
-    color: rgba(255,255,255,0.45);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.digital-arrow {
-    color: rgba(255,255,255,0.18);
-    font-size: 12px;
-    transition: all 0.25s;
-    flex-shrink: 0;
-}
-.digital-card:hover .digital-arrow { color: var(--vino); transform: translateX(3px); }
-
-/* SECCIÓN 8 — BOOKING */
-#sec-7 { background: var(--beige); }
-
-.booking-layout {
-    display: flex;
-    flex-direction: column;
-    position: relative; z-index: 1;
-}
-
-.booking-photo {
-    position: relative;
-    overflow: hidden;
-    height: 55vw;
-    max-height: 380px;
-    min-height: 200px;
-}
-.booking-photo img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    object-position: center 20%;
-}
-.booking-photo-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to bottom, transparent 50%, var(--beige) 100%);
-}
-
-.booking-info {
-    padding: 32px 24px 48px;
-    background: var(--beige);
-}
-
-.show-details {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 28px;
-}
-
-.show-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    padding: 16px;
-    background: white;
-    border-left: 3px solid var(--vino);
-    transition: transform 0.25s ease;
-}
-.show-item:hover { transform: translateX(3px); }
-
-.show-icon {
-    width: 36px; height: 36px;
-    background: rgba(197,125,132,0.12);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    color: var(--vino);
-    font-size: 14px;
-    flex-shrink: 0;
-}
-.show-item h4 {
-    font-family: var(--ff-sans);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--cafe);
-    margin-bottom: 3px;
-}
-.show-item p {
-    font-family: var(--ff-sans);
-    font-size: 13px;
-    line-height: 1.55;
-    color: var(--dark);
-    opacity: 0.8;
-}
-
-.booking-cta-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: #25D366;
-    color: white;
-    padding: 14px 26px;
-    font-family: var(--ff-sans);
-    font-size: 14px;
-    font-weight: 700;
-    transition: all 0.25s ease;
-    width: 100%;
-    justify-content: center;
-}
-.booking-cta-btn:hover { background: #20b756; }
-
-/* SECCIÓN 9 — CONTACTO */
-#sec-8 { position: relative; }
-
-.contact-bg { position: absolute; inset: 0; z-index: 0; }
-.contact-bg img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    filter: saturate(0.4);
-}
-.contact-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(15,10,12,0.93), rgba(74,62,56,0.96));
-}
-
-.contact-content {
-    position: relative; z-index: 1;
-    padding: 48px 20px 48px;
-}
-
-.contact-subtitle {
-    font-family: var(--ff-hand);
-    font-size: 17px;
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 32px;
-    line-height: 1.5;
-}
-
-.contact-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 40px;
-}
-
-.contact-card {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 16px 18px;
-    color: white;
-    transition: all 0.3s ease;
-}
-.contact-card:hover {
-    background: rgba(255,255,255,0.11);
-    border-color: rgba(197,125,132,0.35);
-    transform: translateX(6px);
-    color: white;
-}
-
-.contact-card-icon {
-    width: 46px; height: 46px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 19px;
-    color: white;
-    flex-shrink: 0;
-}
-.contact-card-info {
-    flex: 1; min-width: 0;
-    display: flex; flex-direction: column; gap: 2px;
-}
-.contact-card-type {
-    font-family: var(--ff-sans);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
-}
-.contact-card-value {
-    font-family: var(--ff-sans);
-    font-size: 13px;
-    font-weight: 600;
-    color: white;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.contact-card-arrow {
-    color: rgba(255,255,255,0.18);
-    font-size: 13px;
-    transition: all 0.25s;
-    flex-shrink: 0;
-}
-.contact-card:hover .contact-card-arrow { color: var(--vino); transform: translateX(3px); }
-
-.contact-footer-strip {
-    padding-top: 32px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    text-align: center;
-}
-.contact-footer-strip p {
-    font-family: var(--ff-sans);
-    font-size: 12px;
-    color: rgba(255,255,255,0.3);
-    letter-spacing: 0.5px;
-    margin-bottom: 4px;
-}
-.contact-footer-tagline {
-    font-family: var(--ff-hand);
-    font-size: 15px;
-    color: rgba(197,125,132,0.55);
-}
-
-/* TABLET — 640px+ */
-@media (min-width: 640px) {
-    .section-title-text { font-size: 3rem; }
-    .cover-social-strip { flex-direction: row; }
-    .cover-sep { display: inline; color: rgba(255,255,255,0.25); }
-    .bio-photo-frame { height: 50vw; max-height: 520px; }
-    .identity-grid { grid-template-columns: repeat(2, 1fr); }
-    .releases-grid { grid-template-columns: repeat(2, 1fr); }
-    .release-cover-wrap { max-width: 100%; }
-    .release-info h3 { text-align: left; }
-    .release-feat { text-align: left; }
-    .release-links { justify-content: flex-start; }
-    .videos-grid { grid-template-columns: repeat(2, 1fr); }
-    .gallery-masonry { grid-template-columns: repeat(3, 1fr); gap: 5px; padding: 0 20px 40px; }
-    .gallery-item.gallery-tall { grid-row: span 2; aspect-ratio: auto; }
-    .gallery-item.gallery-wide { grid-column: span 2; aspect-ratio: 2/1; }
-    .digital-grid { grid-template-columns: repeat(2, 1fr); }
-    .music-cta { flex-direction: row; justify-content: center; }
-}
-
-/* DESKTOP — 1024px+ */
-@media (min-width: 1024px) {
-    .section-title-text { font-size: clamp(3.2rem, 5vw, 4.5rem); }
-    .cover-header { padding: 36px 64px; align-items: center; gap: 20px; }
-    .cover-tag { font-size: 11px; padding: 8px 20px; letter-spacing: 2.5px; white-space: nowrap; }
-    .cover-location { font-size: 12px; padding: 8px 20px; white-space: nowrap; }
-    .cover-footer-content { padding: 20px 64px 56px; max-width: 1100px; margin: 0 auto; }
-    .cover-name { font-size: 5.5rem; letter-spacing: 6px; }
-    .cover-descriptor { font-size: 1.8rem; letter-spacing: 2.5px; }
-    .cover-genre { font-size: 12px; letter-spacing: 3px; line-height: 1.4; }
-    .cover-social-strip { gap: 12px; margin-bottom: 20px; }
-    .cover-social-pill { font-size: 12px; padding: 9px 18px; }
-    #pdf-download-btn { bottom: 24px; right: 24px; font-size: 13px; padding: 12px 20px; }
-
-    .bio-layout { display: grid; grid-template-columns: 1fr 1fr; min-height: 650px; }
-    .bio-photo-frame { height: 100%; max-height: none; min-height: 650px; }
-    .bio-photo-accent {
-        background: linear-gradient(to right, transparent 65%, var(--beige) 100%);
-        top: 0; bottom: 0; height: 100%;
-    }
-    .bio-text-col { padding: 64px 72px; display: flex; flex-direction: column; justify-content: center; }
-    .bio-lead { font-size: 21px; }
-
-    .identity-content { padding: 80px; max-width: 1200px; margin: 0 auto; }
-    .identity-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
-
-    #sec-3 { padding: 80px 48px; }
-    .music-content { max-width: 1100px; margin: 0 auto; }
-    .releases-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
-    .release-cover-wrap { max-width: 100%; }
-    .music-cta { flex-direction: row; justify-content: center; padding-top: 32px; }
-
-    .video-content { padding: 80px 48px; max-width: 1200px; margin: 0 auto; }
-    .videos-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
-
-    .gallery-content { padding: 80px 48px 32px; }
-    .gallery-masonry { grid-template-columns: repeat(4, 1fr); gap: 8px; padding: 0 48px 60px; max-width: 1400px; margin: 0 auto; }
-
-    .digital-content { padding: 80px 48px; max-width: 1100px; margin: 0 auto; }
-    .digital-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-
-    .booking-layout { display: grid; grid-template-columns: 1fr 1fr; min-height: 600px; }
-    .booking-photo { height: 100%; max-height: none; min-height: 600px; }
-    .booking-photo-overlay {
-        background: linear-gradient(to right, transparent 60%, var(--beige) 100%);
-        top: 0; bottom: 0; height: 100%;
-    }
-    .booking-info { padding: 64px 72px; display: flex; flex-direction: column; justify-content: center; }
-    .booking-cta-btn { width: fit-content; padding: 14px 32px; }
-
-    .contact-content { padding: 80px 48px; max-width: 850px; margin: 0 auto; }
-}
-
-/* PRINT / PDF — Una página por sección, todo visible y cliqueable */
-@media print {
-    /* ── FORZAR VISIBILIDAD TOTAL DE TODOS LOS ELEMENTOS ── */
-    *, *::before, *::after {
-        opacity: 1 !important;
-        visibility: visible !important;
-        transform: none !important;
-        animation: none !important;
-        transition: none !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-    }
-
-    /* ── Ocultar controles interactivos innecesarios y textura ruidosa en PDF ── */
-    #pdf-download-btn,
-    .cover-scroll-hint,
-    .gallery-hover-overlay,
-    .lightbox,
-    .cover-grain { display: none !important; }
-
-    html, body {
-        width: 100% !important;
-        height: auto !important;
-        overflow: visible !important;
-        background: var(--deep) !important;
-    }
-
-    /* ── Una sección = una página de PDF ── */
-    .epk-section {
-        width: 100% !important;
-        min-height: 100vh !important;
-        height: auto !important;
-        page-break-before: always !important;
-        page-break-after: always !important;
-        break-before: page !important;
-        break-after: page !important;
-        overflow: visible !important;
-        display: block !important;
-        position: relative !important;
-        padding: 40px 32px !important;
-    }
-
-    /* Portada: primera página */
-    #sec-0 {
-        page-break-before: avoid !important;
-        break-before: avoid !important;
-        height: 100vh !important;
-        min-height: 100vh !important;
-        padding: 0 !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: space-between !important;
-        position: relative !important;
-        overflow: hidden !important;
-    }
-
-    .cover-img {
-        background-position: center top !important;
-        background-size: cover !important;
-    }
-    #cover-img-1 { opacity: 1 !important; display: block !important; }
-    #cover-img-2, #cover-img-3, #cover-img-4 { display: none !important; }
-
-    .cover-overlay {
-        position: absolute !important;
-        inset: 0 !important;
-        background: linear-gradient(
-            to bottom,
-            rgba(15,10,12,0.3) 0%,
-            transparent 25%,
-            rgba(15,10,12,0.5) 60%,
-            rgba(15,10,12,0.95) 100%
-        ) !important;
-        z-index: 1 !important;
-    }
-
-    .cover-header {
-        position: relative !important;
-        z-index: 10 !important;
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        padding: 28px 28px !important;
-    }
-    .cover-tag, .cover-location {
-        font-size: 11px !important;
-        padding: 8px 16px !important;
-        background: rgba(0,0,0,0.6) !important;
-        border: 1px solid rgba(255,255,255,0.3) !important;
-        color: white !important;
-        border-radius: 20px !important;
-    }
-
-    .cover-footer-content {
-        position: relative !important;
-        z-index: 10 !important;
-        padding: 20px 28px 48px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        text-align: center !important;
-    }
-    .cover-name {
-        font-size: 4.8rem !important;
-        letter-spacing: 5px !important;
-        color: white !important;
-        text-shadow: 0 4px 20px rgba(0,0,0,0.9) !important;
-        margin-bottom: 6px !important;
-    }
-    .cover-descriptor {
-        font-size: 1.6rem !important;
-        color: #EAE3D5 !important;
-        margin-bottom: 8px !important;
-    }
-    .cover-genre {
-        font-size: 11px !important;
-        letter-spacing: 2px !important;
-        color: rgba(255,255,255,0.85) !important;
-        margin-bottom: 14px !important;
-    }
-    .cover-social-strip {
-        display: flex !important;
-        flex-direction: row !important;
-        justify-content: center !important;
-        gap: 10px !important;
-    }
-    .cover-social-pill {
-        font-size: 11px !important;
-        padding: 7px 14px !important;
-        background: rgba(0,0,0,0.6) !important;
-        border: 1px solid rgba(255,255,255,0.3) !important;
-        color: white !important;
-        border-radius: 20px !important;
-    }
-
-    /* ── Layouts de contenido en PDF ── */
-    .bio-layout {
-        display: grid !important;
-        grid-template-columns: 1fr 1.2fr !important;
-        gap: 32px !important;
-        align-items: center !important;
-        page-break-inside: avoid !important;
-        break-inside: avoid !important;
-    }
-    .bio-photo-frame { height: 480px !important; max-height: 480px !important; }
-    .bio-photo-frame img { height: 100% !important; object-fit: cover !important; }
-
-    .identity-grid {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
-        gap: 16px !important;
-        page-break-inside: avoid !important;
-        break-inside: avoid !important;
-    }
-    .identity-card {
-        display: flex !important;
-        opacity: 1 !important;
-        background: rgba(255,255,255,0.08) !important;
-        border: 1px solid rgba(255,255,255,0.18) !important;
-    }
-
-    .releases-grid {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
-        gap: 24px !important;
-        page-break-inside: avoid !important;
-        break-inside: avoid !important;
-    }
-    .release-card {
-        display: flex !important;
-        opacity: 1 !important;
-        background: white !important;
-        border: 1px solid rgba(0,0,0,0.08) !important;
-    }
-    .release-links { display: flex !important; flex-wrap: wrap !important; gap: 8px !important; }
-
-    .videos-grid {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
-        gap: 24px !important;
-        page-break-inside: avoid !important;
-        break-inside: avoid !important;
-    }
-    .video-card {
-        display: flex !important;
-        flex-direction: column !important;
-        opacity: 1 !important;
-        background: rgba(255,255,255,0.06) !important;
-    }
-
-    /* VIDEOS: Ocultar iframe y mostrar miniatura cliqueable con botón YouTube */
-    .video-iframe { display: none !important; }
-    .video-pdf-thumb {
-        display: block !important;
-        position: relative !important;
-        width: 100% !important;
-        height: auto !important;
-        aspect-ratio: 16/9 !important;
-    }
-    .video-pdf-thumb img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-        display: block !important;
-    }
-    .video-pdf-play {
-        display: flex !important;
-        background: rgba(0,0,0,0.4) !important;
-    }
-
-    .gallery-masonry {
-        display: grid !important;
-        grid-template-columns: repeat(4, 1fr) !important;
-        gap: 8px !important;
-        padding: 0 !important;
-        page-break-inside: avoid !important;
-        break-inside: avoid !important;
-    }
-    .gallery-item { display: block !important; opacity: 1 !important; height: 180px !important; }
-    .gallery-item img { height: 100% !important; object-fit: cover !important; }
-
-    .digital-grid {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
-        gap: 12px !important;
-        page-break-inside: avoid !important;
-        break-inside: avoid !important;
-    }
-    .digital-card {
-        display: flex !important;
-        opacity: 1 !important;
-        background: rgba(255,255,255,0.08) !important;
-        border: 1px solid rgba(255,255,255,0.15) !important;
-    }
-
-    .booking-layout {
-        display: grid !important;
-        grid-template-columns: 1fr 1.2fr !important;
-        gap: 32px !important;
-        align-items: center !important;
-        page-break-inside: avoid !important;
-        break-inside: avoid !important;
-    }
-    .booking-photo { height: 480px !important; max-height: 480px !important; }
-    .booking-photo img { height: 100% !important; object-fit: cover !important; }
-    .show-item { display: flex !important; opacity: 1 !important; }
-
-    .contact-cards {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 12px !important;
-        max-width: 650px !important;
-        margin: 0 auto !important;
-        page-break-inside: avoid !important;
-        break-inside: avoid !important;
-    }
-    .contact-card {
-        display: flex !important;
-        opacity: 1 !important;
-        background: rgba(255,255,255,0.08) !important;
-        border: 1px solid rgba(255,255,255,0.15) !important;
-    }
-
-    /* ── TODOS LOS ENLACES CLIQUEABLES EN PDF ── */
-    a {
-        color: inherit !important;
-        text-decoration: none !important;
-        cursor: pointer !important;
-    }
-
-    #epk-wrapper { background: transparent !important; }
-}
-</style>
 </head>
 <body>
-    <!-- BOTÓN DESCARGA PDF -->
-    <button id="pdf-download-btn" onclick="downloadEPK()" aria-label="Descargar EPK en PDF">
-        <i class="fa-solid fa-file-arrow-down"></i>
-        <span>Descargar EPK</span>
+
+    <!-- BOTÓN FLOTANTE: DESCARGA PDF / PRINT -->
+    <button id="pdf-download-btn" title="Descargar o Guardar EPK en formato PDF" aria-label="Descargar EPK en PDF">
+        <i class="fa-solid fa-file-pdf"></i>
+        <span>DESCARGAR EPK (PDF)</span>
     </button>
 
-    <!-- WRAPPER PRINCIPAL -->
-    <div id="epk-wrapper">
+    <!-- ═══════════════════════════════════════════════════════
+         1. HERO / PORTADA PRINCIPAL
+         ═══════════════════════════════════════════════════════ -->
+    <section id="sec-hero" class="epk-section">
+        <div class="hero-background">
+            <div class="hero-slider-img" id="hero-bg-1"></div>
+            <div class="hero-slider-img" id="hero-bg-2"></div>
+            <div class="hero-slider-img" id="hero-bg-3"></div>
+            <div class="hero-overlay"></div>
+        </div>
 
-        <!-- ═══════════════════════════════════════════════ -->
-        <!-- SECCIÓN 1 — PORTADA                           -->
-        <!-- ═══════════════════════════════════════════════ -->
-        <section class="epk-section" id="sec-0" data-index="0">
-            <div class="cover-bg">
-                <div class="cover-img" style="background-image: url('../imagenescarrusel/DSC_0814.jpg');" id="cover-img-1"></div>
-                <div class="cover-img" style="background-image: url('../imagenescarrusel/DSC_0822.jpg');" id="cover-img-2"></div>
-                <div class="cover-img" style="background-image: url('../imagenescarrusel/DSC_0846.jpg');" id="cover-img-3"></div>
-                <div class="cover-img" style="background-image: url('../imagenescarrusel/DSC_0851.jpg');" id="cover-img-4"></div>
-                <div class="cover-overlay"></div>
-                <div class="cover-grain"></div>
+        <!-- PORTADA EXCLUSIVA PARA IMPRESIÓN/PDF -->
+        <div class="hero-print-cover">
+            <div class="hero-print-header">
+                <span class="hero-badge">DOSSIER OFICIAL · EPK 2026</span>
+                <span class="hero-location"><i class="fa-solid fa-location-dot"></i> Cali, Colombia · Proyección Internacional</span>
             </div>
-
-            <!-- Header Superior -->
-            <div class="cover-header">
-                <div class="cover-tag">ELECTRONIC PRESS KIT — 2026</div>
-                <div class="cover-location"><i class="fa-solid fa-location-dot"></i> Cali, Colombia</div>
+            <div class="hero-print-body">
+                <div class="hero-print-portrait">
+                    <img src="../fotosgaleriaepk/image00021.jpeg" alt="ALEHNA Pop Rock Latino">
+                </div>
+                <div class="hero-print-info">
+                    <h1 class="hero-print-title">ALEHNA</h1>
+                    <div class="hero-genre-tag">POP ROCK LATINO</div>
+                    <p class="hero-print-tagline">"Una voz que conecta, emociona y permanece"</p>
+                    <div class="hero-print-meta-grid">
+                        <div class="print-meta-item">
+                            <strong>GÉNERO:</strong> Pop Rock · Balada Pop Rock · Rock Melódico
+                        </div>
+                        <div class="print-meta-item">
+                            <strong>HIGHLIGHTS:</strong> Escenarios 4.000+ · A Otro Nivel 2026 · Giras Internacionales
+                        </div>
+                        <div class="print-meta-item">
+                            <strong>BOOKING & MGMT:</strong> +57 316 428 0293 · alenamusicoficial@gmail.com
+                        </div>
+                        <div class="print-meta-item">
+                            <strong>WEB OFICIAL:</strong> alehna.com
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
 
-            <!-- Espaciador Central para el Retrato -->
-            <div class="cover-center-spacer"></div>
+        <!-- HEADER WEB INTERACTIVO -->
+        <header class="hero-header">
+            <div class="hero-badge">ELECTRONIC PRESS KIT · 2026</div>
+            <div class="hero-location"><i class="fa-solid fa-location-dot"></i> Cali, Colombia</div>
+        </header>
 
-            <!-- Bloque Inferior con Tipografía y Redes -->
-            <div class="cover-footer-content">
-                <h1 class="cover-name">ALEHNA</h1>
-                <p class="cover-descriptor">Cantante &bull; Compositora</p>
-                <div class="cover-divider">
-                    <span></span>
+        <div class="hero-center-spacer"></div>
+
+        <div class="hero-main-content">
+            <h1 class="hero-title">ALEHNA</h1>
+            <div class="hero-genre-tag">POP ROCK LATINO</div>
+            <p class="hero-tagline">"Una voz que conecta, emociona y permanece"</p>
+
+            <div class="hero-cta-group">
+                <a href="#sec-booking" class="hero-btn hero-btn-primary">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <span>BOOK ALEHNA</span>
+                </a>
+                <a href="#sec-video-aotronivel" class="hero-btn hero-btn-outline">
+                    <i class="fa-solid fa-play"></i>
+                    <span>A OTRO NIVEL 2026</span>
+                </a>
+                <a href="#sec-musica" class="hero-btn hero-btn-outline">
                     <i class="fa-solid fa-music"></i>
-                    <span></span>
+                    <span>LANZAMIENTOS</span>
+                </a>
+            </div>
+
+            <div class="hero-social-links">
+                <a href="https://www.instagram.com/alehnaoficial/" target="_blank" rel="noopener noreferrer" class="hero-social-pill" title="Instagram @alehnaoficial"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://open.spotify.com/artist/7rC6lKxIugrV2vDqA8k6eQ" target="_blank" rel="noopener noreferrer" class="hero-social-pill" title="Spotify ALEHNA"><i class="fa-brands fa-spotify"></i></a>
+                <a href="https://www.youtube.com/@ALEHNAOFICIAL" target="_blank" rel="noopener noreferrer" class="hero-social-pill" title="YouTube @ALEHNAOFICIAL"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.tiktok.com/@alehnaoficial" target="_blank" rel="noopener noreferrer" class="hero-social-pill" title="TikTok @alehnaoficial"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://wa.me/573164280293" target="_blank" rel="noopener noreferrer" class="hero-social-pill" title="WhatsApp Booking"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+
+            <div class="hero-scroll-indicator">
+                <span>DESCUBRIR EPK</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         2. BIOGRAFÍA PROFESIONAL & ALEHNA EN NÚMEROS
+         ═══════════════════════════════════════════════════════ -->
+    <section id="sec-bio" class="epk-section">
+        <div class="section-container">
+            <span class="section-label"><i class="fa-solid fa-user-astronaut"></i> PERFIL ARTÍSTICO</span>
+            <h2 class="section-title">Una Nueva Voz del <em>Pop Rock Latino</em></h2>
+            <div class="section-underline"></div>
+
+            <div class="bio-grid">
+                <div class="bio-portrait-wrap">
+                    <img src="../fotosgaleriaepk/image00021.jpeg" alt="ALEHNA - Cantante de Pop Rock Latino" class="bio-portrait-img">
+                    <div class="bio-portrait-overlay">
+                        <p class="bio-quote">"La fuerza vocal y la sensibilidad lírica unidas en una experiencia escénica envolvente."</p>
+                        <span class="bio-quote-author">ALEHNA · ARTISTA POP ROCK</span>
+                    </div>
                 </div>
-                <p class="cover-genre">Pop Contemporáneo &bull; Urbano &bull; Alternativo</p>
+
+                <div class="bio-text-wrap">
+                    <p class="bio-lead-text">
+                        <strong>Alehna</strong> es una cantante colombiana que desarrolla una propuesta de <strong>pop rock latino</strong> marcada por la fuerza vocal, la sensibilidad y una conexión auténtica con el público.
+                    </p>
+                    <p class="bio-paragraph">
+                        Con experiencia en escenarios de más de 4.000 personas, festivales en <strong>Ecuador, Perú, México y Europa</strong>, y presentaciones junto a reconocidos artistas, Alehna continúa consolidando una carrera con proyección nacional e internacional.
+                    </p>
+                    <p class="bio-paragraph">
+                        Su trayectoria incluye participación en concursos como <em>Yo Soy Popular</em>, <em>Uceda's Got Talent</em> —donde obtuvo el primer lugar—, <em>Nuevos Talentos Los Santos Food Truck</em> —primer lugar—, <em>Intercolegiados</em> y <strong>A Otro Nivel 2026</strong>.
+                    </p>
+                    <p class="bio-paragraph">
+                        Además, ha participado en proyectos culturales de la <strong>Gobernación de Cali</strong> y ha abierto conciertos para artistas como <strong>Yeison Jiménez</strong>, <strong>Dyango</strong> y <strong>El Charrito Negro</strong>. Hoy, Alehna enfoca su propuesta en el pop rock, buscando construir una identidad musical auténtica y una música que perdure en el tiempo.
+                    </p>
+
+                    <div class="bio-tag-list">
+                        <span class="bio-tag-pill"><i class="fa-solid fa-microphone-lines"></i> Voz Líder & Solista</span>
+                        <span class="bio-tag-pill"><i class="fa-solid fa-guitar"></i> Pop Rock Latino</span>
+                        <span class="bio-tag-pill"><i class="fa-solid fa-pen-nib"></i> Compositora</span>
+                        <span class="bio-tag-pill"><i class="fa-solid fa-users"></i> Escenarios 4.000+</span>
+                        <span class="bio-tag-pill"><i class="fa-solid fa-tv"></i> Caracol TV 2026</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CREDENCIALES / ALEHNA EN NÚMEROS -->
+            <div class="stats-header">
+                <span class="section-label gold"><i class="fa-solid fa-chart-line"></i> CREDENCIALES & TRAYECTORIA</span>
+                <h3 class="section-title" style="font-size: 2rem;">ALEHNA en <em>Números</em></h3>
+                <div class="section-underline center"></div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card featured-stat">
+                    <div class="stat-number" data-target="4000" data-suffix="+">4.000+</div>
+                    <div class="stat-label">Personas en Escenarios en Vivo</div>
+                    <div class="stat-sublabel">Aperturas de conciertos, festivales y auditorios masivos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number primary-color" data-target="4">4</div>
+                    <div class="stat-label">Países & Regiones</div>
+                    <div class="stat-sublabel">Ecuador, Perú, México y Europa</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="3" data-suffix="+">3+</div>
+                    <div class="stat-label">Grandes Artistas</div>
+                    <div class="stat-sublabel">Escenarios junto a Dyango, Yeison Jiménez y más</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number primary-color" data-target="2">2</div>
+                    <div class="stat-label">Primeros Lugares 🏆</div>
+                    <div class="stat-sublabel">Uceda's Got Talent & Nuevos Talentos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="2026">2026</div>
+                    <div class="stat-label">A Otro Nivel</div>
+                    <div class="stat-sublabel">Competencia estelar Caracol Televisión</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         3. CONCEPTO ARTÍSTICO
+         ═══════════════════════════════════════════════════════ -->
+    <section id="sec-concepto" class="epk-section">
+        <div class="section-container">
+            <span class="section-label"><i class="fa-solid fa-compass"></i> PROPUESTA & VISIÓN</span>
+            <h2 class="section-title">Concepto <em>Artístico</em></h2>
+            <div class="section-underline"></div>
+
+            <div class="concepto-box">
+                <p class="concepto-p">
+                    <strong>Alehna</strong> desarrolla una propuesta de pop rock latino que combina sensibilidad, fuerza vocal y una interpretación emocional capaz de conectar con diferentes públicos.
+                </p>
+                <p class="concepto-p">
+                    Su propuesta busca unir melodías memorables, letras con significado y una presencia escénica auténtica, creando una experiencia cercana, elegante y envolvente, <span class="highlight-text">para que su música perdure en el tiempo</span>.
+                </p>
+                <p class="concepto-p">
+                    Su identidad artística transita entre el pop, el rock melódico y la balada pop rock, construyendo un sonido propio que le permite interpretar canciones con profundidad, energía y personalidad.
+                </p>
+                <p class="concepto-p">
+                    Alehna busca convertirse en una voz reconocible dentro de la nueva generación del pop rock latino, llevando su música a grandes escenarios, festivales y nuevas audiencias en Colombia y Latinoamérica.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         4. GÉNERO & SONIDO (POP ROCK)
+         ═══════════════════════════════════════════════════════ -->
+    <section id="sec-genero" class="epk-section">
+        <div class="section-container">
+            <span class="section-label"><i class="fa-solid fa-sliders"></i> IDENTIDAD SONORA</span>
+            <h2 class="section-title">Género & <em>Sonido</em></h2>
+            <div class="section-underline"></div>
+
+            <div class="sound-hero-card">
+                <h3 class="sound-hero-title">POP ROCK</h3>
+                <div class="sound-hero-sub">Pop Rock Latino · Rock Melódico · Balada Pop Rock</div>
+                <p class="sound-hero-desc">
+                    Una propuesta que combina la fuerza del rock con la sensibilidad del pop latino y la interpretación emocional de la balada, buscando construir canciones memorables, cercanas y atemporales.
+                </p>
+            </div>
+
+            <div class="sound-pillars-grid">
+                <div class="sound-pillar">
+                    <div class="pillar-icon"><i class="fa-solid fa-guitar"></i></div>
+                    <div class="pillar-info">
+                        <h3>Pop Rock Latino</h3>
+                        <p>Bases rítmicas sólidas, guitarras presentes y estribillos poderosos diseñados para conectar en vivo con audiencias de todas las edades.</p>
+                    </div>
+                </div>
+
+                <div class="sound-pillar">
+                    <div class="pillar-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <div class="pillar-info">
+                        <h3>Balada Pop Rock</h3>
+                        <p>Intensidad interpretativa y arreglos que viajan desde la intimidad del piano/voz hasta el clímax vocal de gran impacto emocional.</p>
+                    </div>
+                </div>
+
+                <div class="sound-pillar">
+                    <div class="pillar-icon"><i class="fa-solid fa-compact-disc"></i></div>
+                    <div class="pillar-info">
+                        <h3>Rock Melódico</h3>
+                        <p>Estructuras armónicas refinadas, solos melódicos y un tratamiento lírico maduro que trasciende las modas efímeras.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         5. EXPERIENCIA EN ESCENARIOS (4.000+ PERSONAS)
+         ═══════════════════════════════════════════════════════ -->
+    <section id="sec-escenarios" class="epk-section">
+        <div class="escenarios-bg">
+            <img src="../fotosgaleriaepk/image00004.jpeg" alt="ALEHNA en Concierto Masivo">
+        </div>
+        <div class="escenarios-overlay"></div>
+
+        <div class="section-container">
+            <div class="stage-giant-card">
+                <span class="section-label gold"><i class="fa-solid fa-bolt"></i> IMPACTO EN DIRECTO</span>
                 
-                <div class="cover-social-strip">
-                    <a href="https://www.instagram.com/alehnaoficial" target="_blank" class="cover-social-pill">
-                        <i class="fa-brands fa-instagram"></i> @alehnaoficial
-                    </a>
-                    <a href="https://www.youtube.com/@ALEHNAOFICIAL" target="_blank" class="cover-social-pill">
-                        <i class="fa-brands fa-youtube"></i> @ALEHNAOFICIAL
-                    </a>
-                    <a href="https://www.tiktok.com/@alehnaoficial" target="_blank" class="cover-social-pill">
-                        <i class="fa-brands fa-tiktok"></i> @alehnaoficial
-                    </a>
+                <div class="stage-big-stat">
+                    <div class="stage-number">4.000+</div>
+                    <div class="stage-stat-title">Personas en Escenarios</div>
                 </div>
 
-                <div class="cover-scroll-hint">
-                    <span>DESLIZA</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </div>
-            </div>
-        </section>
+                <p class="stage-desc">
+                    <strong>Alehna</strong> ha llevado su propuesta musical a escenarios con públicos de <strong>más de 4.000 personas</strong>, adquiriendo una sólida experiencia en eventos, festivales, auditorios y grandes presentaciones en vivo.
+                </p>
 
-        <!-- ═══════════════════════════════════════════════ -->
-        <!-- SECCIÓN 2 — ARTISTA / BIOGRAFÍA               -->
-        <!-- ═══════════════════════════════════════════════ -->
-        <section class="epk-section bio-section" id="sec-1" data-index="1">
-            <div class="section-bg-texture"></div>
-            <div class="bio-layout">
-                <div class="bio-image-col">
-                    <div class="bio-photo-frame">
-                        <img src="../imagenesvinotinto/vinotinto1.jpeg" alt="ALEHNA — Fotografía artística" loading="lazy">
-                        <div class="bio-photo-accent"></div>
+                <div class="stage-features">
+                    <div class="stage-feat-item">
+                        <i class="fa-solid fa-microphone-lines"></i>
+                        <span>Dominio Escénico</span>
                     </div>
-                    <div class="bio-quote-card">
-                        <i class="fa-solid fa-quote-left"></i>
-                        <p>"Esta canción nace desde un lugar muy honesto. 'ALMAS' es un recordatorio de que siempre podemos volver."</p>
-                        <span>— ALEHNA</span>
+                    <div class="stage-feat-item">
+                        <i class="fa-solid fa-people-group"></i>
+                        <span>Conexión Masiva</span>
                     </div>
-                </div>
-                <div class="bio-text-col">
-                    <div class="section-label">02 · ARTISTA</div>
-                    <h2 class="section-title-text">Sobre<br><em>ALEHNA</em></h2>
-                    <div class="title-underline"></div>
-
-                    <div class="bio-short">
-                        <p class="bio-lead">ALEHNA es una artista colombiana nacida el 21 de octubre de 2001 en Cali. Desde muy temprana edad identificó su innata vocación artística y decidió transformarla en su camino de vida.</p>
-                        <p>Su propuesta musical convierte experiencias íntimas en universos sonoros capaces de resonar con todo aquel que alguna vez necesitó encontrarse a sí mismo. Con una voz que combina fragilidad y fuerza, ALEHNA construye puentes entre lo emocional y lo contemporáneo.</p>
-                        <p>En 2025 lanzó sus primeros sencillos —<strong>"ALMAS"</strong> (junto a Sur Tónica) y <strong>"El Karma"</strong>—, posicionándose como una voz emergente en la escena musical colombiana con una propuesta que cruza el pop contemporáneo con el urbanismo emocional.</p>
-                        <p>Actualmente se encuentra en plena construcción de su carrera, consolidando su identidad artística y conectando con una comunidad creciente de seguidores que se reconocen en sus letras.</p>
-                    </div>
-
-                    <div class="bio-tags">
-                        <span class="bio-tag">Pop Contemporáneo</span>
-                        <span class="bio-tag">Alternativo</span>
-                        <span class="bio-tag">Cali, Colombia</span>
-                        <span class="bio-tag">Artista Independiente</span>
-                        <span class="bio-tag">Compositora</span>
+                    <div class="stage-feat-item">
+                        <i class="fa-solid fa-music"></i>
+                        <span>Full Band Ready</span>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- ═══════════════════════════════════════════════ -->
-        <!-- SECCIÓN 3 — IDENTIDAD ARTÍSTICA               -->
-        <!-- ═══════════════════════════════════════════════ -->
-        <section class="epk-section identity-section" id="sec-2" data-index="2">
-            <div class="identity-bg">
-                <img src="../imagenescarrusel/DSC_0851.jpg" alt="Identidad ALEHNA" loading="lazy">
-                <div class="identity-overlay"></div>
-            </div>
-            <div class="identity-content">
-                <div class="section-label light">03 · IDENTIDAD</div>
-                <h2 class="section-title-text light">La Marca<br><em>ALEHNA</em></h2>
-                <div class="title-underline light"></div>
+    <!-- ═══════════════════════════════════════════════════════
+         6. PRESENCIA INTERNACIONAL
+         ═══════════════════════════════════════════════════════ -->
+    <section id="sec-internacional" class="epk-section">
+        <div class="section-container">
+            <span class="section-label"><i class="fa-solid fa-earth-americas"></i> ALCANCE GLOBAL</span>
+            <h2 class="section-title">Presencia <em>Internacional</em></h2>
+            <div class="section-underline"></div>
 
-                <div class="identity-grid">
-                    <div class="identity-card">
-                        <div class="id-icon"><i class="fa-solid fa-wand-sparkles"></i></div>
-                        <h3>Concepto Artístico</h3>
-                        <p>Transformar vivencias íntimas en himnos sonoros contemporáneos. Canciones con carga emocional, letras honestas y una identidad vocal envolvente.</p>
-                    </div>
-                    <div class="identity-card">
-                        <div class="id-icon"><i class="fa-solid fa-music"></i></div>
-                        <h3>Género & Sonido</h3>
-                        <p>Pop contemporáneo con tintes urbanos y alternativos. Fusión de melodías emotivas con ritmos vanguardistas listos para radio y plataformas.</p>
-                    </div>
-                    <div class="identity-card">
-                        <div class="id-icon"><i class="fa-solid fa-users"></i></div>
-                        <h3>Público & Conexión</h3>
-                        <p>Conexión directa con audiencias que buscan música auténtica. Comunidad activa y orgánica en redes sociales con alto nivel de identificación y fidelidad.</p>
-                    </div>
-                    <div class="identity-card">
-                        <div class="id-icon"><i class="fa-solid fa-chart-line"></i></div>
-                        <h3>Proyección & Potencial</h3>
-                        <p>Proyecto emergente con visión de desarrollo continuo: videoclips oficiales de calidad, lanzamientos constantes y show en vivo adaptable a festivales y escenarios.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══════════════════════════════════════════════ -->
-        <!-- SECCIÓN 4 — MÚSICA                            -->
-        <!-- ═══════════════════════════════════════════════ -->
-        <section class="epk-section music-section" id="sec-3" data-index="3">
-            <div class="section-bg-texture light-texture"></div>
-            <div class="music-content">
-                <div class="section-label">04 · MÚSICA</div>
-                <h2 class="section-title-text">Lanzamientos<br><em>Destacados</em></h2>
-                <div class="title-underline"></div>
-
-                <div class="releases-grid">
-                    <!-- ALMAS (Último lanzamiento) -->
-                    <div class="release-card featured-release">
-                        <div class="release-badge">Último Lanzamiento</div>
-                        <div class="release-cover-wrap">
-                            <img src="../almas/Portada2.jpg.jpeg" alt="ALMAS — ALEHNA ft. Sur Tónica" loading="lazy">
-                            <div class="release-cover-shine"></div>
-                        </div>
-                        <div class="release-info">
-                            <h3>ALMAS</h3>
-                            <p class="release-feat">feat. Sur Tónica</p>
-                            <p class="release-desc">"Un viaje sonoro hacia el reencuentro espiritual. Una carta personal para volver a casa, para recordar quiénes somos cuando absolutamente nadie está mirando."</p>
-                            <div class="release-links">
-                                <a href="https://open.spotify.com/intl-es/track/3UksUYGl1APORfhWSNPsov?si=fdd3c119e2c9499a" target="_blank" class="platform-btn spotify">
-                                    <i class="fa-brands fa-spotify"></i> Spotify
-                                </a>
-                                <a href="https://music.apple.com/co/album/almas-feat-sur-t%C3%B3nica-single/1891490188" target="_blank" class="platform-btn apple">
-                                    <i class="fa-brands fa-apple"></i> Apple Music
-                                </a>
-                                <a href="https://youtu.be/8AOeZrQ1KjY?si=y2dYhy7miUcvGqCl" target="_blank" class="platform-btn youtube">
-                                    <i class="fa-brands fa-youtube"></i> YouTube
-                                </a>
-                            </div>
+            <div class="international-card">
+                <div class="intl-countries-strip">
+                    <div class="intl-country-pill">
+                        <span class="flag-emoji">🇪🇨</span>
+                        <div class="intl-country-info">
+                            <h4>Ecuador</h4>
+                            <p>Festivales y escenarios</p>
                         </div>
                     </div>
-
-                    <!-- EL KARMA -->
-                    <div class="release-card">
-                        <div class="release-cover-wrap">
-                            <img src="../karma-portada/karma.jpg" alt="El Karma — ALEHNA" loading="lazy">
-                            <div class="release-cover-shine"></div>
+                    <div class="intl-country-pill">
+                        <span class="flag-emoji">🇵🇪</span>
+                        <div class="intl-country-info">
+                            <h4>Perú</h4>
+                            <p>Eventos artísticos</p>
                         </div>
-                        <div class="release-info">
-                            <h3>EL KARMA</h3>
-                            <p class="release-desc">"Un himno de desahogo emocional y reivindicación personal. Transforma el dolor en poder, conecta con quienes han vivido una decepción amorosa y han encontrado la fuerza para seguir adelante."</p>
-                            <div class="release-links">
-                                <a href="https://open.spotify.com/intl-es/track/30befc29KsBpfMuBeK749R?si=c84df5f1bcb84f4d" target="_blank" class="platform-btn spotify">
-                                    <i class="fa-brands fa-spotify"></i> Spotify
-                                </a>
-                                <a href="https://music.apple.com/co/album/el-karma-single/1895350971" target="_blank" class="platform-btn apple">
-                                    <i class="fa-brands fa-apple"></i> Apple Music
-                                </a>
-                                <a href="https://youtu.be/EWMMuV1Hf3U?si=60pGoCSfijyTUv4e" target="_blank" class="platform-btn youtube">
-                                    <i class="fa-brands fa-youtube"></i> YouTube
-                                </a>
-                            </div>
+                    </div>
+                    <div class="intl-country-pill">
+                        <span class="flag-emoji">🇲🇽</span>
+                        <div class="intl-country-info">
+                            <h4>México</h4>
+                            <p>Presentaciones y medios</p>
+                        </div>
+                    </div>
+                    <div class="intl-country-pill">
+                        <span class="flag-emoji">🌍</span>
+                        <div class="intl-country-info">
+                            <h4>Europa</h4>
+                            <p>Giras & concursos</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="music-cta">
-                    <p>Escucha toda su música en</p>
-                    <a href="https://open.spotify.com/intl-es/track/3UksUYGl1APORfhWSNPsov?si=fdd3c119e2c9499a" target="_blank" class="music-cta-btn">
-                        <i class="fa-brands fa-spotify"></i> Abrir en Spotify
+                <!-- MAPA ESTILIZADO VECTORIAL SVG -->
+                <div class="intl-map-container">
+                    <svg class="intl-map-svg" viewBox="0 0 900 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Stylized Map Grid -->
+                        <defs>
+                            <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+                                <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1"/>
+                            </pattern>
+                            <radialGradient id="pinGlow" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#D4AF37" stop-opacity="1"/>
+                                <stop offset="100%" stop-color="#C57D84" stop-opacity="0"/>
+                            </radialGradient>
+                        </defs>
+                        <rect width="900" height="360" fill="url(#grid)" />
+
+                        <!-- World Outlines (Simplified stylized contours) -->
+                        <path d="M 120 70 Q 180 60 220 90 T 260 140 T 240 180 T 260 210 T 280 230" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="4 4" />
+                        <path d="M 280 230 Q 340 250 350 290 T 320 340 T 290 350 T 270 280 Z" fill="rgba(197, 125, 132, 0.08)" stroke="rgba(197, 125, 132, 0.3)" stroke-width="1.5" />
+                        <path d="M 460 70 Q 520 60 550 90 T 560 130 T 490 140 Z" fill="rgba(212, 175, 55, 0.08)" stroke="rgba(212, 175, 55, 0.3)" stroke-width="1.5" />
+
+                        <!-- Connection Arcs from Colombia (Base) -->
+                        <path d="M 285 240 Q 380 140 510 105" fill="none" stroke="var(--gold)" stroke-width="2" stroke-dasharray="6 4" opacity="0.8"/>
+                        <path d="M 285 240 Q 250 200 235 180" fill="none" stroke="var(--primary)" stroke-width="2" stroke-dasharray="4 4" opacity="0.8"/>
+                        <path d="M 285 240 Q 275 260 270 275" fill="none" stroke="var(--primary)" stroke-width="2" stroke-dasharray="4 4" opacity="0.8"/>
+                        <path d="M 285 240 Q 280 285 285 305" fill="none" stroke="var(--primary)" stroke-width="2" stroke-dasharray="4 4" opacity="0.8"/>
+
+                        <!-- MAP PINS -->
+                        <circle cx="285" cy="240" r="16" fill="url(#pinGlow)" opacity="0.7" />
+                        <circle cx="285" cy="240" r="6" fill="#D4AF37" stroke="#fff" stroke-width="2" />
+                        <text x="285" y="222" fill="#fff" font-size="12" font-weight="700" text-anchor="middle" font-family="'Inter', sans-serif">COLOMBIA (HQ)</text>
+
+                        <circle cx="235" cy="180" r="5" fill="#C57D84" stroke="#fff" stroke-width="1.5" />
+                        <text x="210" y="175" fill="#fff" font-size="11" font-weight="600" text-anchor="middle" font-family="'Inter', sans-serif">🇲🇽 MÉXICO</text>
+
+                        <circle cx="270" cy="275" r="5" fill="#C57D84" stroke="#fff" stroke-width="1.5" />
+                        <text x="235" y="280" fill="#fff" font-size="11" font-weight="600" text-anchor="middle" font-family="'Inter', sans-serif">🇪🇨 ECUADOR</text>
+
+                        <circle cx="285" cy="305" r="5" fill="#C57D84" stroke="#fff" stroke-width="1.5" />
+                        <text x="325" y="315" fill="#fff" font-size="11" font-weight="600" text-anchor="middle" font-family="'Inter', sans-serif">🇵🇪 PERÚ</text>
+
+                        <circle cx="510" cy="105" r="7" fill="#D4AF37" stroke="#fff" stroke-width="2" />
+                        <text x="510" y="90" fill="#D4AF37" font-size="12" font-weight="700" text-anchor="middle" font-family="'Inter', sans-serif">🌍 EUROPA</text>
+                    </svg>
+                </div>
+
+                <p class="intl-text">
+                    Su recorrido artístico se ha extendido más allá de Colombia, participando en festivales y escenarios en <strong>Ecuador, Perú, México y Europa</strong>, demostrando solvencia interpretativa ante públicos multiculturales.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         7. ARTISTAS CON LOS QUE HA COMPARTIDO ESCENARIO
+         ═══════════════════════════════════════════════════════ -->
+    <section id="sec-artistas" class="epk-section">
+        <div class="section-container">
+            <span class="section-label"><i class="fa-solid fa-handshake"></i> APERTURA DE CONCIERTOS & ESCENARIOS COMPARTIDOS</span>
+            <h2 class="section-title">Artistas con los que ha <em>Compartido Escenario</em></h2>
+            <div class="section-underline"></div>
+
+            <div class="artistas-lead-box">
+                <p>Apertura de conciertos y participación en magnos eventos junto a grandes figuras de la música.</p>
+                <span>Alehna ha demostrado su capacidad de cautivar auditorios multitudinarios abriendo giras y compartiendo tarima con artistas consagrados:</span>
+            </div>
+
+            <div class="artistas-grid">
+                <!-- DYANGO -->
+                <article class="artista-card">
+                    <div class="artista-img-wrap">
+                        <span class="artista-tag">GIRA INTERNACIONAL</span>
+                        <img src="fotosconartistas y publicidad/dyango.png" alt="Afiche Dyango Tour Cali con artista invitada ALEHNA en Arena USC">
+                    </div>
+                    <div class="artista-info">
+                        <span class="artista-role">Artista Invitada / Apertura</span>
+                        <h3 class="artista-name">DYANGO</h3>
+                        <p class="artista-desc">
+                            Apertura en el concierto de la leyenda de la balada romántica en su gira oficial <em>"Su Amigo Dyango Tour"</em> en el auditorio <strong>Arena USC</strong> (Cali).
+                        </p>
+                    </div>
+                </article>
+
+                <!-- YEISON JIMÉNEZ -->
+                <article class="artista-card">
+                    <div class="artista-img-wrap">
+                        <span class="artista-tag">CONCIERTO DE ESTADIO</span>
+                        <img src="fotosconartistas y publicidad/AFICHE1_ALEHNA.png" alt="Afiche Concierto Yeison Jiménez con artista invitada ALEHNA en Estadio Cacique">
+                    </div>
+                    <div class="artista-info">
+                        <span class="artista-role">Artista Invitada / Escenario Masivo</span>
+                        <h3 class="artista-name">YEISON JIMÉNEZ</h3>
+                        <p class="artista-desc">
+                            Presentación especial en el <strong>Estadio Cacique Jamundí</strong> compartiendo cartel masivo en el aniversario estelar junto a Yeison Jiménez ante miles de asistentes.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- EL CHARRITO NEGRO -->
+                <article class="artista-card">
+                    <div class="artista-img-wrap">
+                        <span class="artista-tag">GRANDES ESCENARIOS</span>
+                        <img src="fotosconartistas y publicidad/AFICHE2_ALEHNA.png" alt="Alehna con reconocidos artistas de la industria">
+                    </div>
+                    <div class="artista-info">
+                        <span class="artista-role">Apertura de Concierto</span>
+                        <h3 class="artista-name">EL CHARRITO NEGRO</h3>
+                        <p class="artista-desc">
+                            Apertura de presentaciones en vivo para el reconocido ícono de la música popular colombiana, sumando además colaboraciones y encuentros con figuras de primer orden.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         8. TRAYECTORIA & RECONOCIMIENTOS (TIMELINE)
+         ═══════════════════════════════════════════════════════ -->
+    <section id="sec-trayectoria" class="epk-section">
+        <div class="section-container">
+            <span class="section-label"><i class="fa-solid fa-trophy"></i> LOGROS DESTACADOS</span>
+            <h2 class="section-title">Trayectoria & <em>Reconocimientos</em></h2>
+            <div class="section-underline"></div>
+
+            <p class="section-lead">
+                Una carrera construida a base de disciplina vocal, victorias en certámenes de talento y proyección en las principales plataformas televisivas de Colombia.
+            </p>
+
+            <div class="timeline-wrap">
+                <!-- A OTRO NIVEL 2026 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot gold-dot"></div>
+                    <div class="timeline-card special-tv">
+                        <span class="timeline-badge badge-tv"><i class="fa-solid fa-tv"></i> TELEVISIÓN NACIONAL · CARACOL TV</span>
+                        <h3 class="timeline-title">A OTRO NIVEL — 2026</h3>
+                        <p class="timeline-desc">
+                            Participación estelar en el prestigioso reality de talento musical de <strong>Caracol Televisión</strong>, cautivando al jurado con una versión pop rock épica de <em>"The Final Countdown"</em>.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- UCEDA'S GOT TALENT -->
+                <div class="timeline-item">
+                    <div class="timeline-dot gold-dot"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-badge badge-first"><i class="fa-solid fa-trophy"></i> 🏆 PRIMER LUGAR</span>
+                        <h3 class="timeline-title">Uceda's Got Talent</h3>
+                        <p class="timeline-desc">
+                            Ganadora indiscutible del <strong>Primer Lugar</strong> en este certamen internacional de talentos, reconocida por su afinación perfecta, rango vocal y carisma en tarima.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- NUEVOS TALENTOS LOS SANTOS FOOD TRUCK -->
+                <div class="timeline-item">
+                    <div class="timeline-dot gold-dot"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-badge badge-first"><i class="fa-solid fa-trophy"></i> 🏆 PRIMER LUGAR</span>
+                        <h3 class="timeline-title">Nuevos Talentos — Los Santos Food Truck</h3>
+                        <p class="timeline-desc">
+                            Obtención del <strong>Primer Lugar</strong> en el concurso de música en vivo, superando a destacados intérpretes y agrupaciones.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- YO SOY POPULAR -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-badge badge-contest"><i class="fa-solid fa-microphone"></i> CONCURSO NACIONAL</span>
+                        <h3 class="timeline-title">Yo Soy Popular</h3>
+                        <p class="timeline-desc">
+                            Participación destacada en el reconocido concurso de talento musical, consolidando su solidez interpretativa ante jurados de amplia trayectoria.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- INTERCOLEGIADOS -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-badge badge-contest"><i class="fa-solid fa-graduation-cap"></i> FORMACIÓN & INICIOS</span>
+                        <h3 class="timeline-title">Intercolegiados de la Música</h3>
+                        <p class="timeline-desc">
+                            Participación y reconocimiento en los festivales intercolegiales de talento en Colombia, donde forjó desde temprana edad su vocación artística y dominio de la escena.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         9. PROYECTOS CULTURALES (GOBERNACIÓN DE CALI)
+         ═══════════════════════════════════════════════════════ -->
+    <section id="sec-cultural" class="epk-section">
+        <div class="section-container">
+            <div class="cultural-card">
+                <div class="cultural-header">
+                    <div class="cultural-icon">
+                        <i class="fa-solid fa-landmark"></i>
+                    </div>
+                    <div class="cultural-title-wrap">
+                        <p>RESPALDO INSTITUCIONAL & CULTURAL</p>
+                        <h3>Participación en Proyectos Culturales</h3>
+                    </div>
+                </div>
+                <p class="cultural-text">
+                    <strong>Alehna</strong> también ha participado activamente en proyectos y actividades desarrolladas por la <strong>Gobernación de Cali, Colombia</strong>, fortaleciendo su experiencia artística y su conexión con iniciativas culturales y escenarios representativos de la ciudad.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         10. ALEHNA EN A OTRO NIVEL (VIDEO DESTACADO)
+         ═══════════════════════════════════════════════════════ -->
+    <section id="sec-video-aotronivel" class="epk-section">
+        <div class="section-container">
+            <div class="video-tv-container">
+                <div class="video-tv-header">
+                    <span class="video-tv-badge"><i class="fa-solid fa-tv"></i> CARACOL TELEVISIÓN · AUDICIÓN 2026</span>
+                    <h2 class="section-title">ALEHNA en <em>A Otro Nivel</em></h2>
+                    <p class="section-lead" style="margin: 0 auto;">
+                        Interpretación en vivo del clásico del rock: <strong>"The Final Countdown"</strong>
+                    </p>
+                </div>
+
+                <!-- REPRODUCTOR WEB -->
+                <div class="video-embed-frame web-only-video">
+                    <iframe 
+                        src="https://www.youtube.com/embed/EZBPmalH4M8?rel=0" 
+                        title="Audición A Otro Nivel — ALEHNA con The Final Countdown" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen
+                        loading="lazy">
+                    </iframe>
+                </div>
+
+                <!-- FALLBACK VISUAL ELEGANTE EXCLUSIVO PARA PDF / PRINT -->
+                <div class="video-print-fallback">
+                    <div class="video-print-preview">
+                        <img src="https://img.youtube.com/vi/EZBPmalH4M8/hqdefault.jpg" alt="Video Audición A Otro Nivel ALEHNA">
+                        <div class="video-print-overlay">
+                            <span class="video-print-play-badge"><i class="fa-solid fa-play"></i> VER PRESENTACIÓN TELEVISIVA</span>
+                            <span class="video-print-url">https://youtu.be/EZBPmalH4M8</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-tv-footer">
+                    <p>Fuerza vocal, interpretación visceral y puesta en escena que ratifican su identidad Pop Rock.</p>
+                    <a href="https://youtu.be/EZBPmalH4M8" target="_blank" rel="noopener noreferrer" class="video-tv-btn">
+                        <i class="fa-brands fa-youtube"></i>
+                        <span>VER EN YOUTUBE (https://youtu.be/EZBPmalH4M8)</span>
                     </a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- ═══════════════════════════════════════════════ -->
-        <!-- SECCIÓN 5 — VIDEOS                            -->
-        <!-- ═══════════════════════════════════════════════ -->
-        <section class="epk-section video-section" id="sec-4" data-index="4">
-            <div class="video-bg">
-                <img src="../imagenesvinotinto/vinotinto2.jpeg" alt="ALEHNA videos" loading="lazy">
-                <div class="video-overlay-dark"></div>
-            </div>
-            <div class="video-content">
-                <div class="section-label light">05 · VIDEOS</div>
-                <h2 class="section-title-text light">Contenido<br><em>Audiovisual</em></h2>
-                <div class="title-underline light"></div>
+    <!-- ═══════════════════════════════════════════════════════
+         11. LANZAMIENTOS MUSICALES
+         ═══════════════════════════════════════════════════════ -->
+    <section id="sec-musica" class="epk-section">
+        <div class="section-container">
+            <span class="section-label"><i class="fa-solid fa-music"></i> DISCOGRAFÍA OFICIAL</span>
+            <h2 class="section-title">Música & <em>Lanzamientos</em></h2>
+            <div class="section-underline"></div>
 
-                <div class="videos-grid">
-                    <!-- Video EL KARMA -->
-                    <div class="video-card">
-                        <div class="video-embed-wrap">
-                            <!-- WEB: Reproductor embebido -->
-                            <iframe
-                                class="video-iframe"
-                                src="https://www.youtube.com/embed/EWMMuV1Hf3U"
-                                title="ALEHNA - EL KARMA | Video Oficial"
-                                frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen
-                                loading="lazy">
-                            </iframe>
-                            <!-- PDF: Thumbnail cliqueable que abre YouTube -->
-                            <a href="https://youtu.be/EWMMuV1Hf3U" target="_blank" class="video-pdf-thumb" aria-label="Ver EL KARMA en YouTube">
-                                <img src="https://img.youtube.com/vi/EWMMuV1Hf3U/hqdefault.jpg"
-                                     alt="ALEHNA - EL KARMA | Video Oficial">
-                                <div class="video-pdf-play">
-                                    <i class="fa-brands fa-youtube"></i>
-                                    <span>Ver en YouTube</span>
-                                </div>
+            <div class="releases-grid">
+                <!-- SENCILLO 1: ALMAS -->
+                <article class="release-card">
+                    <div class="release-cover-wrap">
+                        <span class="release-badge">POP ROCK / ALTERNATIVO</span>
+                        <img src="../almas/Portada2.jpg.jpeg" alt="Portada de ALMAS feat. Sur Tónica">
+                    </div>
+                    <div class="release-body">
+                        <h3 class="release-title">ALMAS</h3>
+                        <span class="release-sub">ALEHNA feat. Sur Tónica</span>
+                        <p class="release-desc">
+                            Una pieza que fusiona la emoción vocal de Alehna con arreglos envolventes de pop rock alternativo. Letras cargadas de sentimiento, guitarras atmosféricas y una dinámica que conecta desde el primer acorde.
+                        </p>
+                        <div class="release-platform-links">
+                            <a href="https://open.spotify.com/artist/7rC6lKxIugrV2vDqA8k6eQ" target="_blank" rel="noopener noreferrer" class="platform-btn spotify">
+                                <i class="fa-brands fa-spotify"></i> Spotify
+                            </a>
+                            <a href="https://music.apple.com/us/artist/alehna/1739097891" target="_blank" rel="noopener noreferrer" class="platform-btn apple">
+                                <i class="fa-brands fa-apple"></i> Apple Music
+                            </a>
+                            <a href="https://www.youtube.com/@ALEHNAOFICIAL" target="_blank" rel="noopener noreferrer" class="platform-btn youtube">
+                                <i class="fa-brands fa-youtube"></i> YouTube
                             </a>
                         </div>
-                        <div class="video-info">
-                            <h3>EL KARMA</h3>
-                            <span class="video-type">Video Oficial</span>
-                            <a href="https://youtu.be/EWMMuV1Hf3U" target="_blank" class="video-ext-link">
-                                Ver en YouTube <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </div>
+                </article>
+
+                <!-- SENCILLO 2: EL KARMA -->
+                <article class="release-card">
+                    <div class="release-cover-wrap">
+                        <span class="release-badge">BALADA POP ROCK</span>
+                        <img src="../karma-portada/karma.jpg" alt="Portada de EL KARMA - ALEHNA">
+                    </div>
+                    <div class="release-body">
+                        <h3 class="release-title">EL KARMA</h3>
+                        <span class="release-sub">ALEHNA</span>
+                        <p class="release-desc">
+                            Una balada pop rock con un crescendo imponente, mostrando el registro y la potencia interpretativa de Alehna en su máxima expresión. Una producción cinematográfica para cantar a viva voz.
+                        </p>
+                        <div class="release-platform-links">
+                            <a href="https://open.spotify.com/artist/7rC6lKxIugrV2vDqA8k6eQ" target="_blank" rel="noopener noreferrer" class="platform-btn spotify">
+                                <i class="fa-brands fa-spotify"></i> Spotify
+                            </a>
+                            <a href="https://music.apple.com/us/artist/alehna/1739097891" target="_blank" rel="noopener noreferrer" class="platform-btn apple">
+                                <i class="fa-brands fa-apple"></i> Apple Music
+                            </a>
+                            <a href="https://www.youtube.com/@ALEHNAOFICIAL" target="_blank" rel="noopener noreferrer" class="platform-btn youtube">
+                                <i class="fa-brands fa-youtube"></i> YouTube
                             </a>
                         </div>
                     </div>
+                </article>
+            </div>
+        </div>
+    </section>
 
-                    <!-- Video ALMAS -->
-                    <div class="video-card">
-                        <div class="video-embed-wrap">
-                            <!-- WEB: Reproductor embebido -->
-                            <iframe
-                                class="video-iframe"
-                                src="https://www.youtube.com/embed/8AOeZrQ1KjY"
-                                title="ALEHNA - ALMAS | Video Oficial"
-                                frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen
-                                loading="lazy">
-                            </iframe>
-                            <!-- PDF: Thumbnail cliqueable que abre YouTube -->
-                            <a href="https://youtu.be/8AOeZrQ1KjY" target="_blank" class="video-pdf-thumb" aria-label="Ver ALMAS en YouTube">
-                                <img src="https://img.youtube.com/vi/8AOeZrQ1KjY/hqdefault.jpg"
-                                     alt="ALEHNA - ALMAS | Video Oficial">
-                                <div class="video-pdf-play">
-                                    <i class="fa-brands fa-youtube"></i>
-                                    <span>Ver en YouTube</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="video-info">
-                            <h3>ALMAS</h3>
-                            <span class="video-type">Video Oficial · feat. Sur Tónica</span>
-                            <a href="https://youtu.be/8AOeZrQ1KjY" target="_blank" class="video-ext-link">
-                                Ver en YouTube <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                            </a>
-                        </div>
+    <!-- ═══════════════════════════════════════════════════════
+         12. GALERÍA VISUAL (MOMENTOS DE ESCENARIO & EDITORIAL)
+         ═══════════════════════════════════════════════════════ -->
+    <section id="sec-galeria" class="epk-section">
+        <div class="section-container">
+            <span class="section-label"><i class="fa-solid fa-camera"></i> PORTAFOLIO VISUAL</span>
+            <h2 class="section-title">Momentos de <em>Escenario & Editorial</em></h2>
+            <div class="section-underline"></div>
+
+            <p class="section-lead">
+                Imágenes oficiales de alta resolución para prensa, medios de comunicación, festivales y material promocional.
+            </p>
+
+            <div class="gallery-grid">
+                <!-- 1. Retrato Principal Editorial -->
+                <div class="gallery-item tall" data-caption="ALEHNA — Retrato Editorial Oficial">
+                    <img src="../fotosgaleriaepk/image00021.jpeg" alt="ALEHNA Retrato Editorial">
+                    <div class="gallery-overlay">
+                        <span><i class="fa-solid fa-expand"></i> Retrato Editorial</span>
                     </div>
                 </div>
 
-                <div class="channel-cta">
-                    <a href="https://www.youtube.com/@ALEHNAOFICIAL" target="_blank" class="channel-btn">
-                        <i class="fa-brands fa-youtube"></i> Ver todos los videos en YouTube
-                    </a>
+                <!-- 2. En Vivo Bajo la Luz -->
+                <div class="gallery-item" data-caption="ALEHNA — Concierto en Vivo bajo el reflector">
+                    <img src="../fotosgaleriaepk/image00004.jpeg" alt="ALEHNA en Vivo bajo los reflectores">
+                    <div class="gallery-overlay">
+                        <span><i class="fa-solid fa-expand"></i> Live Spotlight</span>
+                    </div>
+                </div>
+
+                <!-- 3. Banda de Rock en Vivo -->
+                <div class="gallery-item" data-caption="ALEHNA — Concierto Rock con banda en directo">
+                    <img src="../fotosgaleriaepk/image00012.jpeg" alt="ALEHNA en Concierto Rock con Banda">
+                    <div class="gallery-overlay">
+                        <span><i class="fa-solid fa-expand"></i> Rock Show Live</span>
+                    </div>
+                </div>
+
+                <!-- 4. Retrato Studio Glam -->
+                <div class="gallery-item" data-caption="ALEHNA — Sesión Fotográfica de Estudio">
+                    <img src="../fotosgaleriaepk/image00016.jpeg" alt="ALEHNA Sesión de Estudio">
+                    <div class="gallery-overlay">
+                        <span><i class="fa-solid fa-expand"></i> Studio Session</span>
+                    </div>
+                </div>
+
+                <!-- 5. Performance Escénica Masiva -->
+                <div class="gallery-item" data-caption="ALEHNA — Voz y presencia en gran escenario">
+                    <img src="../fotosgaleriaepk/image00001.jpeg" alt="ALEHNA en Escenario Masivo">
+                    <div class="gallery-overlay">
+                        <span><i class="fa-solid fa-expand"></i> Gran Escenario</span>
+                    </div>
+                </div>
+
+                <!-- 6. Rock Performance con Batería -->
+                <div class="gallery-item tall" data-caption="ALEHNA — Energía en vivo con batería y full band">
+                    <img src="../fotosgaleriaepk/image00013.jpeg" alt="ALEHNA Performance Rock en Vivo">
+                    <div class="gallery-overlay">
+                        <span><i class="fa-solid fa-expand"></i> Rock Energy Live</span>
+                    </div>
+                </div>
+
+                <!-- 7. Close-up Studio Expresión -->
+                <div class="gallery-item" data-caption="ALEHNA — Expresión y carisma">
+                    <img src="../fotosgaleriaepk/image00014.jpeg" alt="ALEHNA Sonrisa y Carisma">
+                    <div class="gallery-overlay">
+                        <span><i class="fa-solid fa-expand"></i> Close-Up</span>
+                    </div>
+                </div>
+
+                <!-- 8. Silueta Escénica Cinematográfica -->
+                <div class="gallery-item" data-caption="ALEHNA — Silueta Cinematográfica en Escenario">
+                    <img src="../fotosgaleriaepk/image00011.jpeg" alt="ALEHNA Silueta Escénica">
+                    <div class="gallery-overlay">
+                        <span><i class="fa-solid fa-expand"></i> Cinematic Live</span>
+                    </div>
+                </div>
+
+                <!-- 9. Perfil Artístico -->
+                <div class="gallery-item" data-caption="ALEHNA — Perfil Artístico Profesional">
+                    <img src="../fotosgaleriaepk/image00010.jpeg" alt="ALEHNA Perfil de Estudio">
+                    <div class="gallery-overlay">
+                        <span><i class="fa-solid fa-expand"></i> Perfil Artístico</span>
+                    </div>
+                </div>
+
+                <!-- 10. Concierto en Directo -->
+                <div class="gallery-item" data-caption="ALEHNA — Cantando en directo">
+                    <img src="../fotosgaleriaepk/image00003.jpeg" alt="ALEHNA Cantando en Vivo">
+                    <div class="gallery-overlay">
+                        <span><i class="fa-solid fa-expand"></i> Live Vocal</span>
+                    </div>
+                </div>
+
+                <!-- 11. Retrato Vinotinto -->
+                <div class="gallery-item" data-caption="ALEHNA — Editorial Tono Vinotinto">
+                    <img src="../imagenesvinotinto/vinotinto1.jpeg" alt="ALEHNA Editorial Vinotinto">
+                    <div class="gallery-overlay">
+                        <span><i class="fa-solid fa-expand"></i> Editorial Vinotinto</span>
+                    </div>
+                </div>
+
+                <!-- 12. Retrato Glamour Rock -->
+                <div class="gallery-item" data-caption="ALEHNA — Identidad Pop Rock">
+                    <img src="../fotosgaleriaepk/image00023.jpeg" alt="ALEHNA Identidad Pop Rock">
+                    <div class="gallery-overlay">
+                        <span><i class="fa-solid fa-expand"></i> Pop Rock Identity</span>
+                    </div>
                 </div>
             </div>
-        </section>
-
-        <!-- ═══════════════════════════════════════════════ -->
-        <!-- SECCIÓN 6 — GALERÍA                           -->
-        <!-- ═══════════════════════════════════════════════ -->
-        <section class="epk-section gallery-section" id="sec-5" data-index="5">
-            <div class="section-bg-texture"></div>
-            <div class="gallery-content">
-                <div class="section-label">06 · FOTOGRAFÍA</div>
-                <h2 class="section-title-text">Galería<br><em>Artística</em></h2>
-                <div class="title-underline"></div>
-            </div>
-            <div class="gallery-masonry">
-                <div class="gallery-item gallery-tall">
-                    <img src="../imagenesvinotinto/vinotinto1.jpeg" alt="ALEHNA — Fotografía editorial 1" loading="lazy">
-                    <div class="gallery-hover-overlay">
-                        <i class="fa-solid fa-expand"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="../imagenescarrusel/DSC_0814.jpg" alt="ALEHNA — Fotografía editorial 2" loading="lazy">
-                    <div class="gallery-hover-overlay">
-                        <i class="fa-solid fa-expand"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="../imagenescarrusel/DSC_0822.jpg" alt="ALEHNA — Fotografía editorial 3" loading="lazy">
-                    <div class="gallery-hover-overlay">
-                        <i class="fa-solid fa-expand"></i>
-                    </div>
-                </div>
-                <div class="gallery-item gallery-tall">
-                    <img src="../imagenesvinotinto/vinotinto2.jpeg" alt="ALEHNA — Fotografía editorial 4" loading="lazy">
-                    <div class="gallery-hover-overlay">
-                        <i class="fa-solid fa-expand"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="../imagenescarrusel/DSC_0846.jpg" alt="ALEHNA — Fotografía editorial 5" loading="lazy">
-                    <div class="gallery-hover-overlay">
-                        <i class="fa-solid fa-expand"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="../imagenesvinotinto/vinitinto3.jpeg" alt="ALEHNA — Fotografía editorial 6" loading="lazy">
-                    <div class="gallery-hover-overlay">
-                        <i class="fa-solid fa-expand"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="../imagenesvinotinto/vinotinto4.jpeg" alt="ALEHNA — Fotografía editorial 7" loading="lazy">
-                    <div class="gallery-hover-overlay">
-                        <i class="fa-solid fa-expand"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="../bioinicio/DSC_0705.jpg" alt="ALEHNA — Fotografía editorial 8" loading="lazy">
-                    <div class="gallery-hover-overlay">
-                        <i class="fa-solid fa-expand"></i>
-                    </div>
-                </div>
-            </div>
-
-        </section>
-
-        <!-- ═══════════════════════════════════════════════ -->
-        <!-- SECCIÓN 7 — PRESENCIA DIGITAL                 -->
-        <!-- ═══════════════════════════════════════════════ -->
-        <section class="epk-section digital-section" id="sec-6" data-index="6">
-            <div class="digital-bg">
-                <img src="../imagenesvinotinto/vinotinto4.jpeg" alt="ALEHNA digital" loading="lazy">
-                <div class="digital-overlay"></div>
-            </div>
-            <div class="digital-content">
-                <div class="section-label light">07 · PRESENCIA DIGITAL</div>
-                <h2 class="section-title-text light">Plataformas<br><em>& Redes</em></h2>
-                <div class="title-underline light"></div>
-
-                <div class="digital-grid">
-                    <a href="https://open.spotify.com/intl-es/track/3UksUYGl1APORfhWSNPsov?si=fdd3c119e2c9499a" target="_blank" class="digital-card spotify-card">
-                        <div class="digital-icon"><i class="fa-brands fa-spotify"></i></div>
-                        <div class="digital-info">
-                            <h3>Spotify</h3>
-                            <p>ALEHNA</p>
-                        </div>
-                        <i class="fa-solid fa-arrow-up-right-from-square digital-arrow"></i>
-                    </a>
-
-                    <a href="https://music.apple.com/co/album/almas-feat-sur-t%C3%B3nica-single/1891490188" target="_blank" class="digital-card apple-card">
-                        <div class="digital-icon"><i class="fa-brands fa-apple"></i></div>
-                        <div class="digital-info">
-                            <h3>Apple Music</h3>
-                            <p>ALEHNA</p>
-                        </div>
-                        <i class="fa-solid fa-arrow-up-right-from-square digital-arrow"></i>
-                    </a>
-
-                    <a href="https://www.youtube.com/@ALEHNAOFICIAL" target="_blank" class="digital-card youtube-card">
-                        <div class="digital-icon"><i class="fa-brands fa-youtube"></i></div>
-                        <div class="digital-info">
-                            <h3>YouTube</h3>
-                            <p>@ALEHNAOFICIAL</p>
-                        </div>
-                        <i class="fa-solid fa-arrow-up-right-from-square digital-arrow"></i>
-                    </a>
-
-                    <a href="https://www.instagram.com/alehnaoficial" target="_blank" class="digital-card instagram-card">
-                        <div class="digital-icon"><i class="fa-brands fa-instagram"></i></div>
-                        <div class="digital-info">
-                            <h3>Instagram</h3>
-                            <p>@alehnaoficial</p>
-                        </div>
-                        <i class="fa-solid fa-arrow-up-right-from-square digital-arrow"></i>
-                    </a>
-
-                    <a href="https://www.tiktok.com/@alehnaoficial" target="_blank" class="digital-card tiktok-card">
-                        <div class="digital-icon"><i class="fa-brands fa-tiktok"></i></div>
-                        <div class="digital-info">
-                            <h3>TikTok</h3>
-                            <p>@alehnaoficial</p>
-                        </div>
-                        <i class="fa-solid fa-arrow-up-right-from-square digital-arrow"></i>
-                    </a>
-
-                    <a href="https://www.facebook.com/Alehnaoficial" target="_blank" class="digital-card facebook-card">
-                        <div class="digital-icon"><i class="fa-brands fa-facebook-f"></i></div>
-                        <div class="digital-info">
-                            <h3>Facebook</h3>
-                            <p>Alehnaoficial</p>
-                        </div>
-                        <i class="fa-solid fa-arrow-up-right-from-square digital-arrow"></i>
-                    </a>
-
-                    <a href="https://www.whatsapp.com/channel/0029VbBW9IFAO7R8F5cZWN0x" target="_blank" class="digital-card whatsapp-card">
-                        <div class="digital-icon"><i class="fa-brands fa-whatsapp"></i></div>
-                        <div class="digital-info">
-                            <h3>WhatsApp</h3>
-                            <p>Comunidad Alehnitos</p>
-                        </div>
-                        <i class="fa-solid fa-arrow-up-right-from-square digital-arrow"></i>
-                    </a>
-
-                    <a href="https://alehna.com" target="_blank" class="digital-card website-card">
-                        <div class="digital-icon"><i class="fa-solid fa-globe"></i></div>
-                        <div class="digital-info">
-                            <h3>Sitio Web</h3>
-                            <p>alehna.com</p>
-                        </div>
-                        <i class="fa-solid fa-arrow-up-right-from-square digital-arrow"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══════════════════════════════════════════════ -->
-        <!-- SECCIÓN 8 — BOOKING / SHOW                    -->
-        <!-- ═══════════════════════════════════════════════ -->
-        <section class="epk-section booking-section" id="sec-7" data-index="7">
-            <div class="section-bg-texture"></div>
-            <div class="booking-layout">
-                <div class="booking-photo">
-                    <img src="../imagenescarrusel/DSC_0846.jpg" alt="ALEHNA en vivo" loading="lazy">
-                    <div class="booking-photo-overlay"></div>
-                </div>
-                <div class="booking-info">
-                    <div class="section-label">08 · BOOKING</div>
-                    <h2 class="section-title-text">Shows &<br><em>Contrataciones</em></h2>
-                    <div class="title-underline"></div>
-
-                    <div class="show-details">
-                        <div class="show-item">
-                            <div class="show-icon"><i class="fa-solid fa-microphone-lines"></i></div>
-                            <div>
-                                <h4>Formato de Presentación</h4>
-                                <p>Artista en vivo · Presentación íntima o con banda · Adaptable al evento</p>
-                            </div>
-                        </div>
-                        <div class="show-item">
-                            <div class="show-icon"><i class="fa-solid fa-users"></i></div>
-                            <div>
-                                <h4>Tipo de Público</h4>
-                                <p>Festivales · Bares · Clubs · Eventos privados · Ferias culturales</p>
-                            </div>
-                        </div>
-                        <div class="show-item">
-                            <div class="show-icon"><i class="fa-solid fa-location-dot"></i></div>
-                            <div>
-                                <h4>Disponibilidad</h4>
-                                <p>Cali · Colombia · Latinoamérica · Consultar disponibilidad</p>
-                            </div>
-                        </div>
-                        <div class="show-item">
-                            <div class="show-icon"><i class="fa-solid fa-headset"></i></div>
-                            <div>
-                                <h4>Rider Técnico</h4>
-                                <p>Disponible a solicitud · Contactar al equipo de booking</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <a href="https://wa.me/573164280293?text=Hola%20Alehna,%20me%20interesa%20contratarte%20para%20un%20show..." target="_blank" class="booking-cta-btn">
-                        <i class="fa-brands fa-whatsapp"></i> Consultar Booking vía WhatsApp
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══════════════════════════════════════════════ -->
-        <!-- SECCIÓN 9 — CONTACTO                          -->
-        <!-- ═══════════════════════════════════════════════ -->
-        <section class="epk-section contact-section" id="sec-8" data-index="8">
-            <div class="contact-bg">
-                <img src="../imagenesvinotinto/vinitinto3.jpeg" alt="Contacto ALEHNA" loading="lazy">
-                <div class="contact-overlay"></div>
-            </div>
-            <div class="contact-content">
-                <div class="section-label light">09 · CONTACTO</div>
-                <h2 class="section-title-text light">Hablemos<br><em>Hoy</em></h2>
-                <div class="title-underline light"></div>
-
-                <p class="contact-subtitle">Para booking, colaboraciones, prensa y propuestas profesionales.</p>
-
-                <div class="contact-cards">
-                    <a href="https://wa.me/573164280293?text=Hola%20Alehna,%20me%20interesa%20contratarte%20para%20un%20show..." target="_blank" class="contact-card">
-                        <div class="contact-card-icon" style="background:#25D366;">
-                            <i class="fa-brands fa-whatsapp"></i>
-                        </div>
-                        <div class="contact-card-info">
-                            <span class="contact-card-type">Booking & Shows</span>
-                            <span class="contact-card-value">+57 316 428 0293</span>
-                        </div>
-                        <i class="fa-solid fa-chevron-right contact-card-arrow"></i>
-                    </a>
-
-                    <a href="mailto:alenamusicoficial@gmail.com" class="contact-card">
-                        <div class="contact-card-icon" style="background:#C57D84;">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
-                        <div class="contact-card-info">
-                            <span class="contact-card-type">Prensa & Propuestas</span>
-                            <span class="contact-card-value">alenamusicoficial@gmail.com</span>
-                        </div>
-                        <i class="fa-solid fa-chevron-right contact-card-arrow"></i>
-                    </a>
-
-                    <a href="https://www.instagram.com/alehnaoficial" target="_blank" class="contact-card">
-                        <div class="contact-card-icon" style="background:linear-gradient(45deg,#833ab4,#fd1d1d,#fcb045);">
-                            <i class="fa-brands fa-instagram"></i>
-                        </div>
-                        <div class="contact-card-info">
-                            <span class="contact-card-type">DM en Instagram</span>
-                            <span class="contact-card-value">@alehnaoficial</span>
-                        </div>
-                        <i class="fa-solid fa-chevron-right contact-card-arrow"></i>
-                    </a>
-
-                    <a href="https://alehna.com" target="_blank" class="contact-card">
-                        <div class="contact-card-icon" style="background:#4A3E38;">
-                            <i class="fa-solid fa-globe"></i>
-                        </div>
-                        <div class="contact-card-info">
-                            <span class="contact-card-type">Sitio Oficial</span>
-                            <span class="contact-card-value">alehna.com</span>
-                        </div>
-                        <i class="fa-solid fa-chevron-right contact-card-arrow"></i>
-                    </a>
-                </div>
-
-                <div class="contact-footer-strip">
-                    <p>© 2026 ALEHNA · Todos los derechos reservados</p>
-                    <p class="contact-footer-tagline">Cali, Colombia · Artista Independiente</p>
-                </div>
-            </div>
-        </section>
-
-    </div><!-- END #epk-wrapper -->
+        </div>
+    </section>
 
     <!-- LIGHTBOX OVERLAY -->
-    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-        <button class="lightbox-close" onclick="closeLightbox()" aria-label="Cerrar imagen">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-        <img id="lightbox-img" src="" alt="Fotografía ALEHNA">
+    <div id="lightbox" class="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Visualizador de imágenes">
+        <button id="lightbox-close" class="lightbox-close" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+        <img id="lightbox-img" class="lightbox-img" src="" alt="ALEHNA">
     </div>
 
-    <script>
-/* ═══════════════════════════════════════════════════════
-   ALEHNA — EPK 2026 — Script Principal
-   ═══════════════════════════════════════════════════════ */
+    <!-- ═══════════════════════════════════════════════════════
+         13. BOOKING / FICHA TÉCNICA & CONTRATACIONES
+         ═══════════════════════════════════════════════════════ -->
+    <section id="sec-booking" class="epk-section">
+        <div class="section-container">
+            <span class="section-label gold"><i class="fa-solid fa-handshake-angle"></i> PRODUCCIÓN & BOOKING</span>
+            <h2 class="section-title">Contrataciones & <em>Ficha Técnica</em></h2>
+            <div class="section-underline"></div>
 
-// GALLERY LIGHTBOX
-(function() {
-    const items = document.querySelectorAll('.gallery-item img');
-    const lb = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lightbox-img');
+            <div class="booking-box">
+                <div class="booking-specs-grid">
+                    <div class="booking-spec-card">
+                        <div class="booking-icon"><i class="fa-solid fa-music"></i></div>
+                        <div>
+                            <h4>FORMATOS DE SHOW</h4>
+                            <p><strong>Full Band:</strong> Show completo Pop Rock con guitarras, bajo, batería, teclados y coros.<br><strong>Acústico:</strong> Formato íntimo piano/guitarra y voz.</p>
+                        </div>
+                    </div>
 
-    items.forEach(img => {
-        img.parentElement.addEventListener('click', () => {
-            if (lbImg && lb) {
-                lbImg.src = img.src;
-                lbImg.alt = img.alt;
-                lb.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-        });
-    });
-})();
+                    <div class="booking-spec-card">
+                        <div class="booking-icon"><i class="fa-solid fa-sliders"></i></div>
+                        <div>
+                            <h4>RIDER TÉCNICO</h4>
+                            <p>Rider de sonido, input list y stage plot detallado disponible de inmediato para directores técnicos y empresas de producción.</p>
+                        </div>
+                    </div>
 
-function closeLightbox() {
-    const lb = document.getElementById('lightbox');
-    if (lb) {
-        lb.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-}
+                    <div class="booking-spec-card">
+                        <div class="booking-icon"><i class="fa-solid fa-plane-departure"></i></div>
+                        <div>
+                            <h4>DISPONIBILIDAD</h4>
+                            <p>Disponible para festivales nacionales e internacionales, conciertos corporativos, giras, ferias y eventos masivos.</p>
+                        </div>
+                    </div>
 
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeLightbox();
-});
+                    <div class="booking-spec-card">
+                        <div class="booking-icon"><i class="fa-solid fa-file-contract"></i></div>
+                        <div>
+                            <h4>PRODUCCIÓN & LOGÍSTICA</h4>
+                            <p>Equipo técnico profesional con amplia experiencia en festivales y televisión de primer nivel.</p>
+                        </div>
+                    </div>
+                </div>
 
-// REVEAL ALL FOR PRINT
-function revealAllForPrint() {
-    const revealElements = document.querySelectorAll(
-        '.identity-card, .release-card, .video-card, .digital-card, .show-item, .contact-card, .bio-tags, .bio-quote-card, .release-links'
-    );
-    revealElements.forEach(el => {
-        el.classList.add('revealed');
-        el.style.opacity = '1';
-        el.style.transform = 'none';
-        el.style.visibility = 'visible';
-    });
-}
+                <div class="booking-cta-center">
+                    <a href="https://wa.me/573164280293?text=Hola%20ALEHNA%20Management,%20deseo%20informaci%C3%B3n%20para%20contrataci%C3%B3n%20y%20booking%20de%20ALEHNA" target="_blank" rel="noopener noreferrer" class="booking-main-btn">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span>BOOK ALEHNA — CONTRATACIONES</span>
+                    </a>
+                    <p style="font-size: 12px; color: var(--text-subtle);">Atención directa de Management · Respuesta prioritaria</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-window.addEventListener('beforeprint', revealAllForPrint);
+    <!-- ═══════════════════════════════════════════════════════
+         14. CONTACTO / CANALES OFICIALES & FOOTER
+         ═══════════════════════════════════════════════════════ -->
+    <section id="sec-contacto" class="epk-section">
+        <div class="section-container">
+            <span class="section-label"><i class="fa-solid fa-address-book"></i> CONTACTO DIRECTO</span>
+            <h2 class="section-title">Canales <em>Oficiales</em></h2>
+            <div class="section-underline"></div>
 
-// PDF DOWNLOAD (UNA SOLA VEZ)
-function downloadEPK() {
-    const btn = document.getElementById('pdf-download-btn');
-    
-    // Asegurar que todo el contenido esté visible
-    revealAllForPrint();
-    
-    // Ocultar botón inmediatamente
-    if (btn) {
-        btn.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-        btn.style.opacity = '0';
-        btn.style.transform = 'scale(0.8)';
-        setTimeout(() => { btn.style.display = 'none'; }, 400);
-    }
-    
-    try {
-        localStorage.setItem('alehna_epk_downloaded', '1');
-    } catch(e) {}
+            <div class="contact-channels-grid">
+                <!-- WhatsApp Booking -->
+                <a href="https://wa.me/573164280293" target="_blank" rel="noopener noreferrer" class="contact-channel-card">
+                    <div class="channel-icon-circle" style="background: #25D366;"><i class="fa-brands fa-whatsapp"></i></div>
+                    <div class="channel-meta">
+                        <span>Booking & Contrataciones</span>
+                        <strong>+57 316 428 0293</strong>
+                    </div>
+                    <i class="fa-solid fa-arrow-right channel-arrow"></i>
+                </a>
 
-    // Disparar ventana de impresión/guardar PDF
-    setTimeout(() => {
-        window.print();
-    }, 200);
-}
+                <!-- Email Management -->
+                <a href="mailto:alenamusicoficial@gmail.com" class="contact-channel-card">
+                    <div class="channel-icon-circle" style="background: #EA4335;"><i class="fa-solid fa-envelope"></i></div>
+                    <div class="channel-meta">
+                        <span>Email Oficial / Prensa</span>
+                        <strong>alenamusicoficial@gmail.com</strong>
+                    </div>
+                    <i class="fa-solid fa-arrow-right channel-arrow"></i>
+                </a>
 
-// Ocultar si ya fue descargado previamente
-(function() {
-    try {
-        if (localStorage.getItem('alehna_epk_downloaded') === '1') {
-            const btn = document.getElementById('pdf-download-btn');
-            if (btn) btn.style.display = 'none';
-        }
-    } catch(e) {}
-})();
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/alehnaoficial/" target="_blank" rel="noopener noreferrer" class="contact-channel-card">
+                    <div class="channel-icon-circle" style="background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);"><i class="fa-brands fa-instagram"></i></div>
+                    <div class="channel-meta">
+                        <span>Instagram Oficial</span>
+                        <strong>@alehnaoficial</strong>
+                    </div>
+                    <i class="fa-solid fa-arrow-right channel-arrow"></i>
+                </a>
 
-// SCROLL REVEAL ANIMATIONS
-(function() {
-    const revealElements = document.querySelectorAll(
-        '.identity-card, .release-card, .video-card, .digital-card, .show-item, .contact-card, .bio-tags, .bio-quote-card, .release-links'
-    );
+                <!-- Spotify -->
+                <a href="https://open.spotify.com/artist/7rC6lKxIugrV2vDqA8k6eQ" target="_blank" rel="noopener noreferrer" class="contact-channel-card">
+                    <div class="channel-icon-circle" style="background: #1DB954;"><i class="fa-brands fa-spotify"></i></div>
+                    <div class="channel-meta">
+                        <span>Perfil Spotify</span>
+                        <strong>ALEHNA</strong>
+                    </div>
+                    <i class="fa-solid fa-arrow-right channel-arrow"></i>
+                </a>
 
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry, i) => {
-            if (entry.isIntersecting) {
-                entry.target.style.animationDelay = `${i * 0.06}s`;
-                entry.target.classList.add('revealed');
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'none';
-                revealObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+                <!-- YouTube -->
+                <a href="https://www.youtube.com/@ALEHNAOFICIAL" target="_blank" rel="noopener noreferrer" class="contact-channel-card">
+                    <div class="channel-icon-circle" style="background: #FF0000;"><i class="fa-brands fa-youtube"></i></div>
+                    <div class="channel-meta">
+                        <span>Canal de YouTube</span>
+                        <strong>@ALEHNAOFICIAL</strong>
+                    </div>
+                    <i class="fa-solid fa-arrow-right channel-arrow"></i>
+                </a>
 
-    revealElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        revealObserver.observe(el);
-    });
+                <!-- Sitio Web Oficial -->
+                <a href="https://alehna.com" target="_blank" rel="noopener noreferrer" class="contact-channel-card">
+                    <div class="channel-icon-circle" style="background: var(--primary);"><i class="fa-solid fa-globe"></i></div>
+                    <div class="channel-meta">
+                        <span>Sitio Web Oficial</span>
+                        <strong>alehna.com</strong>
+                    </div>
+                    <i class="fa-solid fa-arrow-right channel-arrow"></i>
+                </a>
+            </div>
 
-    const style = document.createElement('style');
-    style.textContent = '.revealed { opacity: 1 !important; transform: translateY(0) !important; visibility: visible !important; }';
-    document.head.appendChild(style);
-})();
-    </script>
+            <!-- FOOTER -->
+            <footer class="epk-footer">
+                <div class="footer-logo">ALEHNA</div>
+                <div class="footer-genre">POP ROCK LATINO · COLOMBIA</div>
+                <p class="footer-copy">© 2026 ALEHNA. Todos los derechos reservados · Electronic Press Kit (EPK) para programadores, medios, festivales y bookers.</p>
+            </footer>
+        </div>
+    </section>
+
+    <!-- Interactive Script -->
     <script src="epk.js"></script>
 </body>
 </html>
