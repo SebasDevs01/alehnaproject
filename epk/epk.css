@@ -7,45 +7,47 @@
 
 /* ─── VARIABLES & DESIGN TOKENS ─────────────────────── */
 :root {
-    --bg-dark:        #0c0a0e;
-    --bg-card:        #16131b;
-    --bg-card-hover:  #201c27;
-    --bg-light:       #FAF7F2;
-    --bg-light-alt:   #F3EEE6;
-    
-    --primary:        #C57D84;
-    --primary-glow:   rgba(197, 125, 132, 0.4);
-    --gold:           #D4AF37;
-    --gold-glow:      rgba(212, 175, 55, 0.35);
-    --accent-red:     #e54b4b;
-    
-    --text-dark:      #2A2426;
-    --text-muted-dark:#6E6468;
-    --text-light:     #FFFFFF;
-    --text-muted:     rgba(255, 255, 255, 0.78);
-    --text-subtle:    rgba(255, 255, 255, 0.45);
-    
-    --border-light:   rgba(255, 255, 255, 0.12);
-    --border-gold:    rgba(212, 175, 55, 0.25);
-    --border-card:    rgba(255, 255, 255, 0.08);
+    --bg-dark: #0c0a0e;
+    --bg-card: #16131b;
+    --bg-card-hover: #201c27;
+    --bg-light: #FAF7F2;
+    --bg-light-alt: #F3EEE6;
 
-    --ff-display:     'Playfair Display', Georgia, serif;
-    --ff-sans:        'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --ff-hand:        'Caveat', cursive;
-    --ff-accent:      'Permanent Marker', Impact, sans-serif;
-    
-    --radius-sm:      8px;
-    --radius-md:      14px;
-    --radius-lg:      22px;
-    --radius-pill:    50px;
-    
-    --shadow-subtle:  0 10px 30px rgba(0, 0, 0, 0.3);
-    --shadow-glow:    0 0 40px rgba(197, 125, 132, 0.25);
-    --shadow-card:    0 15px 35px rgba(0, 0, 0, 0.45);
+    --primary: #C57D84;
+    --primary-glow: rgba(197, 125, 132, 0.4);
+    --gold: #D4AF37;
+    --gold-glow: rgba(212, 175, 55, 0.35);
+    --accent-red: #e54b4b;
+
+    --text-dark: #2A2426;
+    --text-muted-dark: #6E6468;
+    --text-light: #FFFFFF;
+    --text-muted: rgba(255, 255, 255, 0.78);
+    --text-subtle: rgba(255, 255, 255, 0.45);
+
+    --border-light: rgba(255, 255, 255, 0.12);
+    --border-gold: rgba(212, 175, 55, 0.25);
+    --border-card: rgba(255, 255, 255, 0.08);
+
+    --ff-display: 'Playfair Display', Georgia, serif;
+    --ff-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --ff-hand: 'Caveat', cursive;
+    --ff-accent: 'Permanent Marker', Impact, sans-serif;
+
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 22px;
+    --radius-pill: 50px;
+
+    --shadow-subtle: 0 10px 30px rgba(0, 0, 0, 0.3);
+    --shadow-glow: 0 0 40px rgba(197, 125, 132, 0.25);
+    --shadow-card: 0 15px 35px rgba(0, 0, 0, 0.45);
 }
 
 /* ─── RESET & PERFORMANCE BASE ─────────────────────── */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -123,8 +125,15 @@ button {
 }
 
 /* Performance: Render offscreen sections asynchronously for instant 60fps scrolling */
-#sec-internacional, #sec-artistas, #sec-trayectoria, #sec-cultural, 
-#sec-video-aotronivel, #sec-musica, #sec-galeria, #sec-booking, #sec-contacto {
+#sec-internacional,
+#sec-artistas,
+#sec-trayectoria,
+#sec-cultural,
+#sec-video-aotronivel,
+#sec-musica,
+#sec-galeria,
+#sec-booking,
+#sec-contacto {
     content-visibility: auto;
     contain-intrinsic-size: 800px;
 }
@@ -241,29 +250,42 @@ button {
 }
 
 @keyframes heroFader {
-    0%   { opacity: 0; }
-    8%   { opacity: 1; }
-    33%  { opacity: 1; }
-    41%  { opacity: 0; }
-    100% { opacity: 0; }
+    0% {
+        opacity: 0;
+    }
+
+    8% {
+        opacity: 1;
+    }
+
+    33% {
+        opacity: 1;
+    }
+
+    41% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(12, 10, 14, 0.45) 0%,
-        rgba(12, 10, 14, 0.2) 25%,
-        rgba(12, 10, 14, 0.7) 60%,
-        rgba(12, 10, 14, 0.95) 88%,
-        var(--bg-dark) 100%
-    );
+    background: linear-gradient(to bottom,
+            rgba(12, 10, 14, 0.45) 0%,
+            rgba(12, 10, 14, 0.2) 25%,
+            rgba(12, 10, 14, 0.7) 60%,
+            rgba(12, 10, 14, 0.95) 88%,
+            var(--bg-dark) 100%);
     z-index: 1;
 }
 
 .hero-print-cover {
-    display: none; /* Only on print */
+    display: none;
+    /* Only on print */
 }
 
 .hero-header {
@@ -445,8 +467,15 @@ button {
 }
 
 @keyframes bounceDown {
-    0%, 100% { transform: translateY(0); }
-    50%      { transform: translateY(5px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(5px);
+    }
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -1686,12 +1715,15 @@ button {
     .hero-btn-primary {
         flex: 1 1 auto;
     }
+
     .hero-btn-outline {
         flex: 1 1 auto;
     }
+
     .hero-cta-group {
         max-width: none;
     }
+
     .booking-main-btn {
         width: auto;
     }
@@ -1775,7 +1807,10 @@ button {
 }
 
 @media print {
-    *, *::before, *::after {
+
+    *,
+    *::before,
+    *::after {
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
         animation: none !important;
@@ -1784,7 +1819,8 @@ button {
         text-shadow: none !important;
     }
 
-    html, body {
+    html,
+    body {
         background-color: #0c0a0e !important;
         color: #ffffff !important;
         font-size: 9.5pt !important;
@@ -1846,7 +1882,13 @@ button {
         background: #C57D84 !important;
     }
 
-    h1, h2, h3, h4, .section-label, .section-title, .section-underline {
+    h1,
+    h2,
+    h3,
+    h4,
+    .section-label,
+    .section-title,
+    .section-underline {
         page-break-after: avoid !important;
         break-after: avoid !important;
     }
@@ -2081,7 +2123,7 @@ button {
     .video-print-overlay {
         position: absolute !important;
         inset: 0 !important;
-        background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 60%) !important;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, transparent 60%) !important;
         display: flex !important;
         flex-direction: column !important;
         justify-content: flex-end !important;
