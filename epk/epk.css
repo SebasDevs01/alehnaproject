@@ -2394,87 +2394,6 @@ button {
     color: var(--text-light);
 }
 
-/* ── SLIDER SON DE AZÚCAR ─────────────────────────── */
-.sda-slider-wrap {
-    position: relative;
-    margin-bottom: 50px;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-card);
-    aspect-ratio: 16 / 7;
-    max-height: 420px;
-}
-
-.sda-slider {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.sda-slide {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 0.8s ease-in-out;
-    z-index: 0;
-}
-
-.sda-slide.active {
-    opacity: 1;
-    z-index: 1;
-}
-
-.sda-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
-.sda-slide-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 18px 24px;
-    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 65%, transparent 100%);
-    font-family: var(--ff-sans);
-    font-size: 0.82rem;
-    color: rgba(255,255,255,0.9);
-    letter-spacing: 0.06em;
-    font-weight: 500;
-}
-
-.sda-slider-dots {
-    position: absolute;
-    bottom: 14px;
-    right: 20px;
-    z-index: 5;
-    display: flex;
-    gap: 8px;
-}
-
-.sda-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border: 2px solid rgba(255,255,255,0.6);
-    background: transparent;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    padding: 0;
-}
-
-.sda-dot.active {
-    background: var(--gold);
-    border-color: var(--gold);
-    transform: scale(1.2);
-}
-
-.sda-dot:hover:not(.active) {
-    background: rgba(255,255,255,0.4);
-}
-
 /* ── VIDEOS ─────────────────────────── */
 .sda-videos-wrap {
     margin-bottom: 50px;
@@ -2664,10 +2583,6 @@ button {
         max-height: 360px;
     }
 
-    .sda-slider-wrap {
-        aspect-ratio: 16 / 9;
-    }
-
     .sda-videos-grid {
         grid-template-columns: 1fr;
         gap: 22px;
@@ -2685,11 +2600,6 @@ button {
 @media (max-width: 600px) {
     .sda-bio-grid {
         gap: 20px;
-    }
-
-    .sda-slider-wrap {
-        aspect-ratio: 4 / 3;
-        max-height: 300px;
     }
 
     .sda-abraxas-text {
