@@ -100,4 +100,70 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         animateStats();
     }
+
+    // 5. Son de Azúcar — Auto Slider (every 5s)
+    const sdaSlider = document.getElementById('sda-slider');
+    const sdaDots = document.getElementById('sda-slider-dots');
+    if (sdaSlider && sdaDots) {
+        const slides = sdaSlider.querySelectorAll('.sda-slide');
+        const dots = sdaDots.querySelectorAll('.sda-dot');
+        let currentSlide = 0;
+        let autoPlay = null;
+
+        const goToSlide = (index) => {
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+            currentSlide = index % slides.length;
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        };
+
+        const startAutoPlay = () => {
+            autoPlay = setInterval(() => {
+                goToSlide(currentSlide + 1);
+            }, 5000);
+        };
+
+        const stopAutoPlay = () => {
+            clearInterval(autoPlay);
+        };
+
+        // Click dots
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                stopAutoPlay();
+                goToSlide(parseInt(dot.dataset.index));
+                startAutoPlay();
+            });
+        });
+
+        // Pause on hover
+        const sliderWrap = sdaSlider.closest('.sda-slider-wrap');
+        sliderWrap.addEventListener('mouseenter', stopAutoPlay);
+        sliderWrap.addEventListener('mouseleave', startAutoPlay);
+
+        // Touch swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        sliderWrap.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            stopAutoPlay();
+        }, { passive: true });
+
+        sliderWrap.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            const diffX = touchStartX - touchEndX;
+            if (Math.abs(diffX) > 45) {
+                if (diffX > 0) {
+                    goToSlide(currentSlide + 1); // swipe left -> next
+                } else {
+                    goToSlide(currentSlide - 1 + slides.length); // swipe right -> prev
+                }
+            }
+            startAutoPlay();
+        }, { passive: true });
+
+        startAutoPlay();
+    }
 });
